@@ -1,0 +1,90 @@
+<div id="hf-steps-clean">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+    #hf-steps-clean{
+      max-width:600px;
+      margin:0 auto;
+      color:#CBD5E0;
+      padding:0 15px;
+      font-family:'DM Sans',sans-serif;
+      font-size:20px;
+      line-height:1.4;
+    }
+    #hf-steps-clean p,
+    #hf-steps-clean span,
+    #hf-steps-clean strong,
+    #hf-steps-clean em{
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+    #hf-steps-clean .step{
+      display:grid;
+      grid-template-columns: 28px 1fr;
+      column-gap:12px;
+      align-items:flex-start;
+      margin-bottom:25px;
+      padding-bottom:25px;
+      position:relative;
+      z-index:1;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+    #hf-steps-clean .step:last-child{
+      margin-bottom:0;
+      padding-bottom:0;
+      border-bottom:none;
+    }
+    #hf-steps-clean .step-arrow{
+      display:block;
+      padding-top:3px;
+      color:#CBD5E0;
+      font-size:20px;
+      line-height:1.4;
+    }
+    #hf-steps-clean .step-content{
+      font-size:20px;
+      line-height:1.4;
+      font-weight:400;
+      letter-spacing:-0.2px;
+      margin-top:0;
+      text-wrap:pretty;
+    }
+    #hf-steps-clean p{
+      margin:0;
+    }
+    #hf-steps-clean .highlight{
+      color:#ffffff;
+      font-weight:700;
+    }
+    @media (max-width: 480px){
+      #hf-steps-clean .step-content{
+        font-size:20px !important;
+        line-height:1.45;
+      }
+    }
+  </style>
+
+  <div class="step">
+    <span class="step-arrow">→</span>
+    <div class="step-content">
+      <p>How many leads came in this week that never turned into a call back?</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="step-arrow">→</span>
+    <div class="step-content">
+      <p>How many homeowners filled out a form — and by the time you called, they'd already booked someone else?</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="step-arrow">→</span>
+    <div class="step-content">
+      <p>How many estimates did you drive to last month that ended with "we'll let you know" and then silence?</p>
+    </div>
+  </div>
+
+</div>
