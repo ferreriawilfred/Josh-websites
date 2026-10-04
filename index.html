@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Super Paint Close Playbook</title>
+<meta name="description" content="A copy-paste playbook for residential painting contractors to book and close more estimates — without chasing leads. $17 with a 365-day money-back guarantee.">
+<meta property="og:title" content="The Super Paint Close Playbook">
+<meta property="og:description" content="Book and close 20+ estimates a month with six copy-paste tools. $17, 365-day guarantee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111827; --ink-2:#374151; --muted:#6b7280;
+  --bg:#ffffff; --soft:#f5f6f8; --line:#e5e7eb;
+  --navy:#0f1b2d; --navy-2:#16273f;
+  --green:#22b04b; --green-d:#168a38;
+  --gold:#f5b301; --red:#d93636;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:18px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:100%;max-width:760px;margin:0 auto;padding:0 20px}
+.wrap.wide{max-width:1040px}
+section{padding:64px 0}
+.alt{background:var(--soft)}
+.dark{background:var(--navy);color:#fff}
+.dark p{color:#d7deea}
+h1,h2,h3{line-height:1.15;letter-spacing:-.01em}
+h1{font-size:clamp(28px,5.4vw,46px);font-weight:900}
+h2{font-size:clamp(26px,4.4vw,38px);font-weight:800;margin-bottom:24px}
+h3{font-size:21px;font-weight:700;margin-bottom:8px}
+p{margin-bottom:18px}
+.eyebrow{font-family:"Barlow Condensed",Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:15px;color:var(--green-d)}
+.dark .eyebrow{color:var(--gold)}
+.center{text-align:center}
+.lead{font-size:20px;color:var(--ink-2)}
+strong{font-weight:700}
+.big{font-size:24px;font-weight:800;line-height:1.3}
+
+/* top bar */
+.topbar{background:var(--navy);color:#fff;text-align:center;font-size:14px;font-weight:600;padding:10px 16px;letter-spacing:.02em}
+.topbar b{color:var(--gold)}
+
+/* hero */
+.hero{padding:44px 0 56px;background:linear-gradient(180deg,#fff 0,#f5f6f8 100%)}
+.hero h1 em{font-style:normal;color:var(--green-d)}
+.hero .sub{font-size:19px;color:var(--ink-2);margin:20px 0 28px}
+.hero .sub strong{color:var(--ink)}
+.kicker{display:inline-block;background:#e8f7ed;color:var(--green-d);font-weight:700;font-size:13px;padding:6px 12px;border-radius:99px;margin-bottom:18px;text-transform:uppercase;letter-spacing:.06em}
+
+/* image placeholders */
+.ph{position:relative;aspect-ratio:16/10;border-radius:var(--radius);background:repeating-linear-gradient(135deg,#e9ecf1 0 14px,#f1f3f6 14px 28px);border:2px dashed #c3cad6;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--muted);font-size:14px;font-weight:600;margin:28px 0}
+.ph::before{content:"IMAGE";position:absolute;top:10px;left:12px;font-size:11px;letter-spacing:.14em;color:#8a94a6}
+.ph.sq{aspect-ratio:1/1;max-width:120px;margin:0 0 14px;border-radius:50%;padding:0;font-size:11px}
+.ph.sq::before{display:none}
+.ph.tall{aspect-ratio:4/3}
+
+/* CTA */
+.cta{background:#fff;border:2px solid var(--ink);border-radius:var(--radius);padding:28px 22px;text-align:center;box-shadow:6px 6px 0 var(--ink);margin:36px 0}
+.dark .cta{box-shadow:6px 6px 0 var(--gold);border-color:var(--gold)}
+.price{display:flex;align-items:baseline;justify-content:center;gap:14px;margin-bottom:6px}
+.price s{font-size:28px;color:var(--muted);font-weight:600;text-decoration-color:var(--red);text-decoration-thickness:3px}
+.price b{font-size:64px;font-weight:900;color:var(--green-d);line-height:1}
+.cta .ask{font-weight:700;margin-bottom:16px;color:var(--ink);font-size:17px}
+.btn{display:block;width:100%;background:var(--green);color:#fff;text-decoration:none;font-weight:800;font-size:22px;padding:20px 18px;border-radius:12px;box-shadow:0 5px 0 var(--green-d);transition:transform .08s,box-shadow .08s,background .15s}
+.btn:hover{background:#1ea243}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--green-d)}
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:18px;font-size:14px;font-weight:600;color:var(--ink-2)}
+
+/* story */
+.arrow-list{list-style:none;margin:0 0 20px}
+.arrow-list li{position:relative;padding-left:34px;margin-bottom:16px}
+.arrow-list li::before{content:"→";position:absolute;left:0;color:var(--red);font-weight:900}
+.punch p{margin-bottom:10px;font-size:20px}
+.punch .big{margin-top:20px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:28px 0}
+.stat{background:var(--navy);color:#fff;border-radius:var(--radius);padding:20px;text-align:center}
+.stat b{display:block;font-size:34px;font-weight:900;color:var(--gold);line-height:1.1}
+.stat span{font-size:14px;color:#cbd5e5}
+.leaks{display:grid;gap:12px;margin:24px 0}
+.leak{background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);border-radius:10px;padding:16px 18px}
+.leak b{display:block;margin-bottom:4px}
+.leak p{margin:0;font-size:16px;color:var(--ink-2)}
+.advice{display:grid;gap:14px;margin:24px 0}
+.advice div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.advice q{display:block;font-weight:800;font-size:19px;margin-bottom:6px;quotes:"“" "”"}
+.advice p{margin:0;font-size:16px;color:var(--ink-2)}
+
+/* testimonials */
+.tgrid{display:grid;gap:18px}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.stars{color:var(--gold);letter-spacing:3px;margin-bottom:10px}
+.tcard blockquote{font-size:17px;margin-bottom:12px}
+.tcard cite{font-style:normal;font-size:14px;color:var(--muted);font-weight:600}
+
+/* playbook cards */
+.cards{display:grid;gap:16px;margin-top:28px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;gap:18px;align-items:flex-start}
+.card .ic{flex:0 0 52px;height:52px;border-radius:12px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:26px}
+.card h3{margin-bottom:6px}
+.card p{margin-bottom:10px;font-size:16.5px;color:var(--ink-2)}
+.card p:last-child{margin:0}
+
+/* math */
+.compare{display:grid;gap:16px;margin:28px 0}
+.col{border-radius:var(--radius);padding:26px;text-align:center}
+.col.before{background:#fff;border:2px solid var(--line)}
+.col.after{background:var(--navy);color:#fff;border:2px solid var(--green)}
+.col small{display:block;text-transform:uppercase;letter-spacing:.1em;font-weight:700;font-size:13px;color:var(--muted)}
+.col.after small{color:var(--gold)}
+.col .num{font-size:54px;font-weight:900;line-height:1.1;margin:6px 0}
+.col.before .num{color:var(--red)}
+.col.after .num{color:var(--green)}
+.col p{margin:0;font-size:16px}
+.col.after p{color:#d7deea}
+.callout{background:#e8f7ed;border-left:6px solid var(--green);border-radius:10px;padding:20px 22px;font-weight:600;margin:24px 0}
+
+/* value stack */
+.stack{background:#fff;border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;margin:28px 0}
+.item{display:flex;gap:14px;padding:22px;border-bottom:1px solid var(--line)}
+.item .lock{font-size:26px}
+.item h3{font-size:19px;margin-bottom:4px}
+.item p{margin:0 0 6px;font-size:15.5px;color:var(--ink-2)}
+.item .val{font-weight:800;color:var(--green-d);font-size:15px}
+.total{display:flex;justify-content:space-between;align-items:center;background:var(--soft);padding:16px 22px;font-weight:700}
+.total.now{background:var(--navy);color:#fff;font-size:22px}
+.total.now b{color:var(--gold);font-size:34px}
+.total s{color:var(--muted)}
+
+/* bonus */
+.bonus-tag{display:inline-block;background:var(--gold);color:#111;font-weight:800;font-size:13px;letter-spacing:.1em;padding:7px 14px;border-radius:99px;margin-bottom:16px;text-transform:uppercase}
+.days{display:grid;gap:16px;margin:30px 0}
+.day{display:grid;grid-template-columns:78px 1fr;gap:18px;background:var(--navy-2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px}
+.day .d{font-family:"Barlow Condensed",Inter,sans-serif;font-weight:800;text-align:center;color:var(--gold);line-height:1}
+.day .d small{display:block;font-size:14px;letter-spacing:.14em;color:#cbd5e5}
+.day .d span{font-size:46px;display:block}
+.day h3{color:#fff;font-size:20px}
+.day p{font-size:15.5px;margin-bottom:10px}
+.day p:last-child{margin:0}
+.divider{border:1px dashed var(--gold);border-radius:12px;padding:20px;text-align:center;color:#fff;font-weight:600;margin-top:20px}
+
+/* steps */
+.steps{display:grid;gap:16px;margin-top:28px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:relative}
+.step .n{width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.step p{font-size:16px;color:var(--ink-2);margin-bottom:8px}
+.step .time{font-size:13px;font-weight:700;color:var(--green-d);text-transform:uppercase;letter-spacing:.06em}
+
+/* faq */
+details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
+summary{cursor:pointer;list-style:none;padding:18px 52px 18px 20px;font-weight:700;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:500;color:var(--green-d)}
+details[open] summary::after{content:"–"}
+details .a{padding:0 20px 8px;color:var(--ink-2);font-size:16.5px}
+details .a p{margin-bottom:12px}
+
+/* guarantee */
+.guar{border:3px solid var(--green);background:#f3fbf6;border-radius:var(--radius);padding:34px 24px;text-align:center}
+.guar .badge{width:96px;height:96px;margin:0 auto 16px;border-radius:50%;background:var(--green);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;line-height:1;box-shadow:0 0 0 6px #fff,0 0 0 9px var(--green)}
+.guar .badge b{font-size:34px}
+.guar .badge span{font-size:12px;letter-spacing:.1em}
+.guar p{font-size:18px}
+
+/* scrollers */
+.recap{background:#fff;border:2px dashed var(--ink);border-radius:var(--radius);padding:28px 24px}
+.recap ul{list-style:none;margin:10px 0 18px}
+.recap li{padding:6px 0 6px 28px;position:relative;font-size:16.5px}
+.recap li::before{content:"✓";position:absolute;left:0;color:var(--green-d);font-weight:900}
+
+/* footer */
+footer{background:#0a1220;color:#9aa6ba;font-size:13px;padding:40px 0;text-align:center}
+footer p{margin-bottom:12px;line-height:1.6}
+footer a{color:#cbd5e5}
+
+.sticky{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:none;z-index:50;box-shadow:0 -6px 20px rgba(0,0,0,.08)}
+.sticky .btn{font-size:18px;padding:14px;box-shadow:0 3px 0 var(--green-d)}
+.sticky.show{display:block}
+
+@media(min-width:760px){
+  body{font-size:19px}
+  section{padding:84px 0}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .tgrid{grid-template-columns:repeat(3,1fr)}
+  .tgrid .tcard{padding:22px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .card{flex-direction:column}
+  .compare{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .btn{display:inline-block;width:auto;padding:20px 44px}
+  .sticky{display:none!important}
+}
+@media(max-width:420px){
+  .day{grid-template-columns:1fr}
+  .day .d{text-align:left;display:flex;align-items:baseline;gap:8px}
+  .day .d span{font-size:32px}
+  .price b{font-size:54px}
+  .btn{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- Set the checkout link once here; every CTA button uses it. -->
+<script>window.CHECKOUT_URL = "#checkout";</script>
+
+<div class="topbar">Residential painting contractors: <b>Today only — $17 instead of $97</b></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">The Super Paint Close Playbook</span>
+    <h1>How I Went From Chasing Estimates to Booking &amp; Closing 20+ a Month on Autopilot — And Making <em>$1M in 2026 Alone</em> — Using a Playbook Any Painter Can Copy in a Weekend</h1>
+    <p class="sub"><strong>Without Losing Time With My Family. Without Dropping Below 25% Profit Margins.</strong><br>
+      For residential painting contractors who want a steady stream of booked estimates — without chasing leads, losing appointments, or standing at the kitchen table not knowing what to say.</p>
+
+    <div class="ph tall">Lanty — job site or truck, confident, real — not stock photo energy</div>
+
+    <div class="cta">
+      <div class="price"><s>$97</s><b>$17</b></div>
+      <p class="ask">Get the Super Paint Close Playbook for $97 — Just $17</p>
+      <a class="btn js-checkout" href="#checkout">Get the Playbook →</a>
+      <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section>
+  <div class="wrap">
+    <p class="lead"><strong>Here's what happened to the painting business while most guys weren't paying attention.</strong></p>
+    <ul class="arrow-list">
+      <li>Angie's List and HomeAdvisor used to work. You'd pay for a lead, call first, close it. Now they send that same lead to four other painters. You call first. They already talked to someone cheaper. You spent $30 on nothing.</li>
+      <li>Word of mouth used to fill the calendar. Until it didn't. And when it slows down, there's no switch to flip. It either comes in or it doesn't.</li>
+      <li>You got into this to own your time. Instead, your income is capped by how many estimates you can chase in a week — and half of them end with "we'll think about it."</li>
+    </ul>
+    <div class="punch">
+      <p>These approaches used to work.</p>
+      <p><strong>Now they're just bleeding you.</strong></p>
+      <p>And the worst part isn't the slow months.</p>
+      <p>It's the feeling.</p>
+    </div>
+    <p style="margin-top:22px">You're doing everything right. Showing up. Putting in the hours.</p>
+    <p>And the reward is more hours.</p>
+    <p>More leads to chase. More calls that go nowhere. More estimates that end with a maybe.</p>
+    <p>More of you required at every single step.</p>
+    <p class="big">That's not a painting business. That's a job you can't quit.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="alt">
+  <div class="wrap">
+    <p>So I started paying close attention to the painters who cracked it.</p>
+    <p>Not the ones posting tips on Facebook.</p>
+    <p>The ones actually booking 15, 20, 25 estimates a month — and closing them consistently — without running themselves into the ground.</p>
+    <p><strong>They all had one thing in common.</strong></p>
+
+    <div class="ph">Lanty — real photo, job site or with crew</div>
+
+    <p>They weren't working harder.</p>
+    <p>They weren't spending more on ads.</p>
+    <p>They weren't posting every day or running giveaways or asking their followers to share.</p>
+    <p class="big">They had a playbook.</p>
+    <p>A small, specific set of tools — already written, already tested techniques — that handled the part most painters never figure out: <strong>how to get a homeowner from "I'm interested" to "when can you start?"</strong> without doing everything manually every single time.</p>
+
+    <h2 style="margin-top:40px">My name is Lanty.</h2>
+    <p>And I'm a painting contractor just like you.</p>
+    <p>And just like you I built a residential painting operation from scratch.</p>
+    <div class="stats">
+      <div class="stat"><b>$4M</b><span>in painting work over five years</span></div>
+      <div class="stat"><b>$1M</b><span>in 2026 alone</span></div>
+      <div class="stat"><b>25%</b><span>profit margins the whole way</span></div>
+      <div class="stat"><b>Home</b><span>for dinner, every night</span></div>
+    </div>
+    <p>Still home for dinner. Still free to watch my kid’s baseball game.</p>
+    <p>Look, I get it.</p>
+    <p>I know what it's like to chase slow months. I know what it's like to drive to an estimate, spend 45 minutes at the kitchen table, and leave with a "let me talk to my wife" that never turns into a call back.</p>
+    <p>I figured out — the hard way, by testing and failing and fixing — exactly what fills a calendar with confirmed estimates and what gets homeowners to say yes on the spot.</p>
+    <p><strong>Then I wrote it down.</strong></p>
+    <p>What I'm about to show you is exactly what I used.</p>
+    <p class="big">And right now you can get all of it for $17.</p>
+  </div>
+</section>
+
+<!-- LEAKS -->
+<section>
+  <div class="wrap">
+    <h2>Let me ask you something.</h2>
+    <ul class="arrow-list">
+      <li>How many leads came in this week that never turned into a call back?</li>
+      <li>How many homeowners filled out a form — and by the time you called, they'd already booked someone else?</li>
+      <li>How many estimates did you drive to last month that ended with "we'll let you know" and then silence?</li>
+    </ul>
+    <p>If any of that sounds familiar, it's not because the market is bad. It's not because your prices are too high. <strong>It's because nobody ever gave you the tools that handle those specific moments.</strong></p>
+    <p class="lead"><strong>Here's what most painters are actually dealing with right now:</strong></p>
+    <div class="leaks">
+      <div class="leak"><b>Lead platforms.</b><p>You pay 50-100+ per lead. The same lead went to four other guys. You call first, they already talked to someone cheaper. You do it again next week because you don't have anything else.</p></div>
+      <div class="leak"><b>Organic posting.</b><p>You put up job photos, a before-and-after, "call for a free estimate." Two likes — one from your wife and one from your mother. Maybe the third is from you. Yet nobody calls. So you try again next week.</p></div>
+      <div class="leak"><b>Word of mouth.</b><p>Great when it's working. Completely out of your control when it slows down. No way to turn it back on at will.</p></div>
+      <div class="leak"><b>Chasing no-shows.</b><p>A homeowner books an estimate, then doesn't answer the door. You drove 20 minutes. You text once. No reply. You move on and write off the lead.</p></div>
+      <div class="leak"><b>Losing at the table.</b><p>You give a good estimate, the work is solid, the homeowner seems interested — and then they say "I need to think about it." You smile, say no problem, drive home, and never hear from them again.</p></div>
+    </div>
+    <p class="big">Every one of these is a leak.</p>
+    <p>Money walking out the door at a specific moment — and it keeps happening because nobody's plugged the hole.</p>
+    <div class="ph">Painter at kitchen table, or looking at phone with missed calls / empty calendar</div>
+  </div>
+</section>
+
+<!-- BAD ADVICE -->
+<section class="alt">
+  <div class="wrap">
+    <p class="lead">So you go looking for a fix. <strong>And here's the advice you keep hearing.</strong></p>
+    <div class="advice">
+      <div><q>Post more content.</q><p>You're running a crew. You're quoting jobs, buying materials, managing subs, collecting payments. You don't have two hours a day to film, caption, and post just to get two likes and zero calls.</p></div>
+      <div><q>Run Google ads.</q><p>$1,500 a month minimum to compete in most markets. A professional to manage it. Three months before you know if it's even working. That's $4,500 gone before you book a single job.</p></div>
+      <div><q>Hire a marketing agency.</q><p>$3,000 to $5,000 a month before they've booked you anything. They manage campaigns. They don't answer your leads, set your appointments, or know what a painter actually says to a homeowner at the kitchen table to close a job.</p></div>
+      <div><q>Just ask for referrals.</q><p>Good idea. Doesn't fill a slow week. And most painters ask the wrong way and get a vague "I'll mention you to my friends" that leads to nothing.</p></div>
+    </div>
+    <p><strong>Every one of these has the same problem.</strong> They all require more of you to make more money. More time. More spend. More complexity. More hoping.</p>
+    <p>And somewhere along the way, the business that was supposed to give you freedom becomes the thing keeping you from it.</p>
+    <p class="big">The Super Paint Close Playbook fixes that.</p>
+    <p>Not by adding more work. By replacing the moments where leads slip through with something you actually control.</p>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<!-- DEV NOTE: replace placeholder text/photos with real, verified customer results before launch. -->
+<section>
+  <div class="wrap wide">
+    <h2 class="center">What Painters Are Saying</h2>
+    <div class="tgrid">
+      <div class="tcard">
+        <div class="ph sq">Photo</div>
+        <div class="stars">★★★★★</div>
+        <blockquote>"I was paying $30 a lead on HomeAdvisor and closing maybe 1 out of 8. I used the SMS sequence on the next 10 leads and booked 4 estimates in 3 days. Same leads, completely different results."</blockquote>
+        <cite>— Painter, residential exterior, Midwest</cite>
+      </div>
+      <div class="tcard">
+        <div class="ph sq">Photo</div>
+        <div class="stars">★★★★★</div>
+        <blockquote>"Used the referral script at the end of a Friday deck job. By Monday I had two neighbors calling me. Hadn't had a referral in three months before that."</blockquote>
+        <cite>— Painter, interior and exterior, Southeast</cite>
+      </div>
+      <div class="tcard">
+        <div class="ph sq">Photo</div>
+        <div class="stars">★★★★★</div>
+        <blockquote>"The Estimate Close Card changed my next appointment. Guy said 'I need to think about it' and for the first time I actually had a response ready. He signed that afternoon."</blockquote>
+        <cite>— Painter, interior repaint specialist, Southwest</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THIS MEANS -->
+<section class="alt">
+  <div class="wrap">
+    <h2>Here's What This Means For Your Business</h2>
+    <p>Every painting contractor who builds a business that grows without running him into the ground has figured out two things.</p>
+    <p class="big">First — how to get a steady, consistent flow of homeowners reaching out without paying someone else every time.</p>
+    <p>Right now, every lead you get came from a platform you're paying, a referral you didn't control, or a post you made yourself. The moment you stop paying or posting, the leads stop too.</p>
+    <p>The Playbook replaces that with something you own. An ad that runs for $5 to $15 a day. A follow-up sequence that works while you're on a job. A referral trigger built into every finished job.</p>
+    <p><strong>You turn it on. Leads come in. You control the tap.</strong></p>
+    <p class="big" style="margin-top:30px">Second — how to close more of the estimates you're already going on.</p>
+    <p>A painter going on 10 estimates a month and closing 1 is doing $3,500 in revenue. The same painter closing 3 out of 10 is doing $10,500. Same ad spend. Same drive time. Same afternoon.</p>
+    <p>The Estimate Close Card, the No-Show Text, and the First Call Script add those closed jobs back. Not by changing your prices. By fixing the exact moments where estimates were slipping through.</p>
+    <div class="callout">Both problems. Same solution. Thirteen dollars cheaper than a tank of gas.</div>
+  </div>
+</section>
+
+<!-- MECHANISM -->
+<section>
+  <div class="wrap wide">
+    <div class="wrap center" style="padding:0">
+      <span class="eyebrow">What's inside</span>
+      <h2>The Super Paint Close Playbook</h2>
+      <p class="lead">The six tools that did the most for us — the ones that got shared in neighborhoods, started conversations, and brought in leads we never had to chase.</p>
+      <p><strong>Every one of these is already written.</strong> You don't write anything. You don't build anything. You open the Playbook, copy the words, and paste them where they go.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="ic">📝</div><div><h3>The Copy-Paste Post</h3>
+        <p>The exact Facebook and Nextdoor post format that got shared inside neighborhoods and pulled in homeowners who had never heard of us.</p>
+        <p>Not a template you have to fill in. Already written for a painting contractor, already worded the way homeowners respond to.</p>
+        <p><strong>Paste it. Post it. See what happens within 24 hours.</strong></p></div></div>
+      <div class="card"><div class="ic">📣</div><div><h3>The Ad to Share</h3>
+        <p>The Facebook ad that kept running for us — headline, body copy, and image description — because it kept working.</p>
+        <p>Swap in your city and phone number. Boost it for $5 a day.</p>
+        <p><strong>That's the whole setup.</strong></p></div></div>
+      <div class="card"><div class="ic">🎥</div><div><h3>The Camera Script</h3>
+        <p>A 60-second script you read straight to your phone camera.</p>
+        <p>The video posts work better than photos in local Facebook groups — homeowners who see a real contractor on video call back at twice the rate.</p>
+        <p><strong>No editing. No production.</strong> Record it on your lunch break and post it.</p></div></div>
+      <div class="card"><div class="ic">⚡</div><div><h3>The Lead Network Squeeze Guide</h3>
+        <p>The exact first reply and follow-up that turned Angie's List and HomeAdvisor leads into booked estimates — instead of ignored notifications.</p>
+        <p>Sent in under 5 minutes. The leads were already coming in. The words just weren't right. These are the right words.</p></div></div>
+      <div class="card"><div class="ic">🤝</div><div><h3>The Referral Ask Script</h3>
+        <p>Two sentences. Said at the end of every job.</p>
+        <p>Gets one referral for every three completed jobs — starting the first week you use it.</p>
+        <p>Most painters never ask. The ones who do ask the wrong way. <strong>This is the version that actually works.</strong></p></div></div>
+      <div class="card"><div class="ic">💬</div><div><h3>The SMS Follow-Up Sequence</h3>
+        <p>Three texts. Already written. First goes out in 5 minutes. Second that evening. Third the next morning.</p>
+        <p>Paste them into any texting app you already use.</p>
+        <p>Painters running this recover <strong>40–60% of leads</strong> they would have written off after the first no-reply.</p></div></div>
+    </div>
+
+    <div class="ph tall" style="max-width:760px;margin:36px auto">Mockup or flat lay of the Playbook PDF — clean, professional, real</div>
+    <div class="wrap" style="padding:0">    <div class="cta">
+      <div class="price"><s>$97</s><b>$17</b></div>
+      <p class="ask">Get the Super Paint Close Playbook for $97 — Just $17</p>
+      <a class="btn js-checkout" href="#checkout">Get the Playbook →</a>
+      <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- MATH -->
+<section class="alt">
+  <div class="wrap">
+    <h2>What The Math Actually Looks Like</h2>
+    <p>Let's put some real numbers on this.</p>
+    <p>Say 10 leads come in this month. Right now, you close 1 out of 10. Your average job is $3,500. That's $3,500 for the month.</p>
+    <div class="compare">
+      <div class="col before"><small>Right now</small><div class="num">$3,500</div><p>10 leads · 1 closed · 10% close rate</p></div>
+      <div class="col after"><small>With the system</small><div class="num">$10,500</div><p>Same 10 leads · 3 closed · 30% close rate</p></div>
+    </div>
+    <p>Run those same 10 leads through the Super Paint Close System:</p>
+    <ul class="arrow-list">
+      <li>You send the SMS sequence within 5 minutes of every new lead.</li>
+      <li>You use the First Call Script when they pick up — appointment confirmed in under 3 minutes.</li>
+      <li>You show up with the Estimate Close Card and handle the "I need to think about it" before it kills the job.</li>
+    </ul>
+    <p>The gap between $3,500 and $10,500 isn't simply more leads. <strong>It's what you do with the ones already coming in.</strong></p>
+    <div class="callout">Going from 10% to 30% close rate adds $7,000 a month. Over a year, that's $84,000 in recovered revenue.</div>
+    <p>Now imagine what if we can also turn that 10 leads into an extra 50 leads every month, at 30% close rate?</p>
+    <p>I’m sure you can do that math on your own.</p>
+    <p class="big">You get all of that from a $17 download and six tools you already have the phone to use.</p>
+  </div>
+</section>
+
+<!-- VALUE STACK -->
+<section>
+  <div class="wrap">
+    <h2 class="center">Here's Everything Included When You Access The Playbook Today</h2>
+    <div class="stack">
+      <div class="item"><div class="lock">🔓</div><div><h3>The Super Paint Close Playbook</h3><p>Six copy-paste tools — the post, the ad, the camera script, the lead network guide, the referral ask, and the SMS follow-up sequence.</p><div class="val">Instant Access — Value: $297</div></div></div>
+      <div class="item"><div class="lock">🔓</div><div><h3>The 7-Day Fast Start Kit</h3><p>Seven one-page tools delivered one per day — built to guide you through your first week lead to close.</p><div class="val">Instant Access — Value: $497</div></div></div>
+      <div class="total"><span>Total Value</span><b><s>$794</s></b></div>
+      <div class="total now"><span>Today</span><b>$17</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="dark">
+  <div class="wrap">
+    <span class="bonus-tag">🎁 Free Bonus</span>
+    <h2>The 7-Day Fast Start Kit</h2>
+    <p>Seven done-for-you tools. One lands in your inbox every day for the first week after you access the Playbook.</p>
+    <p>Each one is built for a specific moment you'll hit in your first seven days — from your first lead coming in to your first estimate on the calendar.</p>
+    <p><strong style="color:#fff">You open it. You read it. You use it. Nothing takes more than 2 minutes.</strong></p>
+    <p>By Day 7, you've had a tool in your hand at every step of the full cycle — lead in, call made, appointment confirmed, estimate done.</p>
+
+    <div class="days">
+      <div class="day"><div class="d"><small>DAY</small><span>1</span></div><div><h3>The $10,500 Math Sheet</h3>
+        <p>Most painters have no idea what their numbers are actually costing them.</p>
+        <p>This sheet shows you exactly where your money is going and what your average job is really worth — including what you'd make if you closed 30% of your estimates instead of 10%.</p>
+        <p>You fill in your average job price, your current close rate, and your monthly estimate volume. It does the rest.</p>
+        <p>What most painters find when they see it: they've been leaving $5,000 to $8,000 a month on the table — not because of bad leads, but because of what happened after the lead came in.</p>
+        <p>Print it. Put it somewhere you'll see it. Let it remind you what's actually at stake every time you consider skipping a follow-up.</p></div></div>
+      <div class="day"><div class="d"><small>DAY</small><span>2</span></div><div><h3>The No-Show Text</h3>
+        <p>One message. Sent the moment a homeowner doesn't show up for a scheduled estimate.</p>
+        <p>6 out of 10 no-shows reschedule within 24 hours when they get this text — instead of ghosting permanently.</p>
+        <p>Most painters text once, hear nothing, and write the lead off. This is the message that brings them back. Copy-paste it. You'll use it before the week is over.</p></div></div>
+      <div class="day"><div class="d"><small>DAY</small><span>3</span></div><div><h3>The First Call Script</h3>
+        <p>What to say in the first 90 seconds when a fresh lead answers.</p>
+        <p>Books a confirmed appointment in under 3 minutes — before they lose interest, forget why they clicked, or start talking to someone else.</p>
+        <p>One page. Read it off the paper until it's automatic. The painters who memorize this stop losing leads between the form and the phone call — which is where most of them were disappearing.</p></div></div>
+      <div class="day"><div class="d"><small>DAY</small><span>4</span></div><div><h3>The Estimate Close Card</h3>
+        <p>Exact words for the three moments that kill more estimates than anything else:</p>
+        <p>"I need to think about it."<br>"My wife wasn't home."<br>"Can you do any better on the price?"</p>
+        <p>Each one handled in under 60 seconds.</p>
+        <p>Print it, laminate it, bring it to every estimate until you don't need it anymore. Most painters close an extra 1 to 2 jobs per month in the first 30 days of using it.</p></div></div>
+      <div class="day"><div class="d"><small>DAY</small><span>5</span></div><div><h3>The Job Profit Sheet</h3>
+        <p>Most painters underprice by $500 to $1,200 per job — not because they don't know their craft, but because they never had a way to calculate the right number fast enough to use it on the driveway.</p>
+        <p>This sheet fixes that. Plug in your square footage and job type. It tells you exactly what to charge before you write a number down.</p>
+        <p>Two minutes. Right number. Every time. No more leaving money behind because you had to guess.</p></div></div>
+      <div class="day"><div class="d"><small>DAY</small><span>6</span></div><div><h3>The Review Text</h3>
+        <p>Sent 48 hours after a job wraps.</p>
+        <p>Gets a 5-star Google review from 7 out of 10 satisfied customers — when it's sent at the right time with the right words.</p>
+        <p>More reviews means the next homeowner searching "painter near me" in your city finds you before they find the cheaper guy.</p>
+        <p>It's a 30-second text. It runs on its own after you send it. Copy-paste.</p></div></div>
+      <div class="day"><div class="d"><small>DAY</small><span>7</span></div><div><h3>The Launch Checklist</h3>
+        <p>Every action from Day 1 through Day 7 on a single page — in the order to do them.</p>
+        <p>Ad up. First lead in. First text sent. First call made. First appointment confirmed. First estimate on the calendar.</p>
+        <p>One action per step. Nothing on the list requires a tool you don't already own.</p>
+        <p>You finish Day 7 and you've been through the whole process once — which means the second time around, you know exactly what you're doing.</p></div></div>
+    </div>
+    <div class="divider">One tool per day. One thing to do. No overwhelm — just a clear next move from the moment you access the Playbook through your first booked estimate.</div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="wrap wide">
+    <h2 class="center">How It Works — 3 Steps</h2>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div class="time">5 minutes</div><h3>Access and Open</h3>
+        <p>You get the Playbook the moment you complete your order. Six tools, in the order you use them.</p>
+        <p>No course to sit through. No account to create. No setup before you can start.</p></div>
+      <div class="step"><div class="n">2</div><div class="time">15–30 minutes</div><h3>Put One Thing to Work Today</h3>
+        <p>Post the Copy-Paste Post to your Facebook page. Boost the Ad to Share for $5 a day. Paste the SMS Follow-Up Sequence into your texting app.</p>
+        <p>Any one of those three will generate your first lead interaction this week. Most painters see it within 24 to 48 hours of going live.</p></div>
+      <div class="step"><div class="n">3</div><div class="time">7 days</div><h3>Use the Fast Start Kit as Leads Come In</h3>
+        <p>One tool per day lands in your inbox. Day 1 shows you the numbers. Day 3 prepares you for the call. Day 4 closes the estimate.</p>
+        <p>By Day 7, you've run the full cycle from lead to signed job — with a tool in your hand at every step.</p></div>
+    </div>
+    <div class="wrap" style="padding:0">    <div class="cta">
+      <div class="price"><s>$97</s><b>$17</b></div>
+      <p class="ask">Get the Super Paint Close Playbook for $97 — Just $17</p>
+      <a class="btn js-checkout" href="#checkout">Get the Playbook →</a>
+      <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt">
+  <div class="wrap">
+    <h2 class="center">Questions</h2>
+    <details><summary>I'm already getting referrals and word of mouth. Do I need this?</summary><div class="a">
+      <p>Word of mouth is the best lead source there is — when it's coming in.</p>
+      <p>The problem is you can't control it, speed it up, or turn it back on when it slows down.</p>
+      <p>The Playbook gives you a second source you actually control. When referrals dry up, you know exactly what to do — and it takes about 30 minutes to turn back on.</p></div></details>
+    <details><summary>I've never run a Facebook ad before. Is this going to be complicated?</summary><div class="a">
+      <p>No.</p>
+      <p>The ad is already written. You boost it from your phone the same way you'd boost any post — click Boost, set $5 a day, pick your zip code. That's the entire setup.</p></div></details>
+    <details><summary>What if leads come in faster than I can handle?</summary><div class="a">
+      <p>That's the right problem to have.</p>
+      <p>The SMS sequence runs automatically. The First Call Script keeps calls under 3 minutes to a confirmed appointment. And if volume genuinely gets ahead of you, we have a done-for-you option right after checkout where our team handles the follow-up and booking for you.</p></div></details>
+    <details><summary>How fast will I see results?</summary><div class="a">
+      <p>Painters who post the Copy-Paste Post and boost the ad on Day 1 typically see their first lead interaction within 24 to 48 hours. First booked estimate usually lands within the first week.</p>
+      <p>The Estimate Close Card improvement shows up on your very next appointment — there's no delay between having the words and using them.</p></div></details>
+    <details><summary>I've bought things like this before and they didn't do anything.</summary><div class="a">
+      <p>Most of what gets sold to painters is either too general to apply or too complicated to actually use.</p>
+      <p>This isn't adapted from a business coaching program or repackaged from a course about some other industry. It was built for a painting contractor talking to homeowners.</p>
+      <p>Every tool is copy-paste. You're not learning a method. You're pasting a message into your phone. And if it still doesn't work after you've done that — the 365-day guarantee gives you your money back and you keep everything.</p></div></details>
+    <details><summary>Why is it only $17?</summary><div class="a">
+      <p>Because the goal is to get it into as many painters' hands as possible.</p>
+      <p>The price is low enough that trying it costs nothing compared to what even one extra closed estimate is worth. The 365-day guarantee removes the last reason not to.</p></div></details>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section>
+  <div class="wrap">
+    <div class="guar">
+      <div class="badge"><b>365</b><span>DAYS</span></div>
+      <h2>365-Day Money-Back Guarantee</h2>
+      <p><strong>Use every tool.</strong></p>
+      <p>Post the Copy-Paste Post. Run the ad. Send the SMS sequence. Take the calls. Bring the Estimate Close Card to your next appointment.</p>
+      <p>If after doing all of that you don't book more estimates than you were before — tell me.</p>
+      <p>I'll give you every dollar back. And you keep the Playbook, the Fast Start Kit, and everything else.</p>
+      <p><strong>You keep it all. Either way.</strong></p>
+      <p style="margin:0"><strong>365 days. Full refund if it doesn't work. No questions asked.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLLERS -->
+<section class="alt">
+  <div class="wrap">
+    <div class="recap">
+      <h2>So You Scrolled Straight to the Bottom</h2>
+      <p><strong>Here's everything you get for $17.</strong></p>
+      <p><strong>The Super Paint Close Playbook</strong> — Six copy-paste tools: the ready-to-share post, the Facebook ad, the camera script, the lead network squeeze guide, the referral ask script, and the 3-text SMS follow-up sequence. Instant access.</p>
+      <p><strong>FREE BONUS — The 7-Day Fast Start Kit</strong> — Seven one-page tools, one per day:</p>
+      <ul>
+        <li>Day 1 — The $10,500 Math Sheet</li>
+        <li>Day 2 — The No-Show Text</li>
+        <li>Day 3 — The First Call Script</li>
+        <li>Day 4 — The Estimate Close Card</li>
+        <li>Day 5 — The Job Profit Sheet</li>
+        <li>Day 6 — The Review Text</li>
+        <li>Day 7 — The Launch Checklist</li>
+      </ul>
+      <p style="margin:0"><strong>Total Value: <s>$794</s> &nbsp;·&nbsp; Your Price Today: $17</strong></p>
+    </div>
+    <div class="cta">
+      <div class="price"><s>$97</s><b>$17</b></div>
+      <p class="ask">Get the Super Paint Close Playbook for $97 — Just $17</p>
+      <a class="btn js-checkout" href="#checkout">Get the Playbook →</a>
+      <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="dark">
+  <div class="wrap">
+    <h2>You've Read This Far For A Reason</h2>
+    <p>You've been in this long enough to know the work isn't the problem.</p>
+    <p>You can paint. You can close when you're in front of the right person. You can run a crew.</p>
+    <p>The Super Paint Close Playbook gives you all of that. <strong style="color:#fff">Not someday. Today.</strong></p>
+    <p class="big" style="color:#fff">Copy-Paste It in your business. Let it do the selling.</p>
+    <p>Your next client could book themselves before you wake up tomorrow.</p>
+    <p>You don't have to keep trading your time for your income.</p>
+    <p>Something on this page resonated with you. Maybe it was the idea of closing multiple $3,000+ painting jobs without chasing leads.</p>
+    <p>Whatever it was — that feeling is trying to tell you something.</p>
+    <p>What you haven't had is a way to get in front of the right people consistently — without paying a platform that splits your lead four ways, without hiring an agency that charges $2,000 a month before they've shown you a single result, without spending your evenings figuring out what to post.</p>
+    <p>That's what the Super Paint Playbook is for.</p>
+    <p><strong style="color:#fff">You've been doing it from nothing long enough.</strong></p>
+    <div class="cta">
+      <div class="price"><s>$97</s><b>$17</b></div>
+      <p class="ask">Get the Super Paint Close Playbook for $97 — Just $17</p>
+      <a class="btn js-checkout" href="#checkout">Get the Playbook →</a>
+      <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>This site is not affiliated with or endorsed by Facebook, Inc. FACEBOOK is a trademark of Meta Platforms, Inc.</p>
+    <p>Super Paint Close is an education and training product. Results depend on individual effort, market conditions, and execution. This is not a guarantee of income. Please ensure you are 18+ before purchasing.</p>
+    <p><a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms &amp; Conditions</a></p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn js-checkout" href="#checkout">Get the Playbook — $17 →</a></div>
+
+<script>
+  // Point every CTA at the checkout link set at the top of the page.
+  document.querySelectorAll('.js-checkout').forEach(function(a){ a.href = window.CHECKOUT_URL; });
+  // Show a sticky mobile CTA after the hero, hide it near the footer.
+  var s = document.getElementById('sticky');
+  function toggle(){
+    var y = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+    s.classList.toggle('show', y > 700 && y < h - 500);
+  }
+  window.addEventListener('scroll', toggle, {passive:true}); toggle();
+</script>
+</body>
+</html>
