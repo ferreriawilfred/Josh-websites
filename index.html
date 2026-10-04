@@ -9,200 +9,247 @@
 <meta property="og:description" content="Book and close 20+ estimates a month with six copy-paste tools. $17, 365-day guarantee.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#111827; --ink-2:#374151; --muted:#6b7280;
-  --bg:#ffffff; --soft:#f5f6f8; --line:#e5e7eb;
-  --navy:#0f1b2d; --navy-2:#16273f;
-  --green:#22b04b; --green-d:#168a38;
-  --gold:#f5b301; --red:#d93636;
-  --radius:14px;
+  --bg:#040a1f; --bg2:#081532; --glow:#06336b;
+  --mint:#2ee59d; --blue:#2a9bff; --orange:#f97316; --orange-d:#c2410c;
+  --text:#e6ecf8; --dim:#aab6cf; --navy:#0e1f47; --navy-d:#08122c;
+  --card:#0a1429; --line:rgba(255,255,255,.1); --red:#ef4444;
+  --light1:#f8faff; --light2:#e6edfb; --lt:#0e1f47; --ltd:#41507a; --lmint:#3fbf86;
+  --radius:16px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:18px;-webkit-font-smoothing:antialiased}
+body{font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;font-size:19px;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
-.wrap{width:100%;max-width:760px;margin:0 auto;padding:0 20px}
-.wrap.wide{max-width:1040px}
-section{padding:64px 0}
-.alt{background:var(--soft)}
-.dark{background:var(--navy);color:#fff}
-.dark p{color:#d7deea}
-h1,h2,h3{line-height:1.15;letter-spacing:-.01em}
-h1{font-size:clamp(28px,5.4vw,46px);font-weight:900}
-h2{font-size:clamp(26px,4.4vw,38px);font-weight:800;margin-bottom:24px}
+.wrap{width:100%;max-width:780px;margin:0 auto;padding:0 22px}
+.wrap.wide{max-width:1160px}
+section{padding:72px 0;position:relative;background:radial-gradient(ellipse 60% 45% at 85% 20%,var(--glow) 0,transparent 70%),var(--bg)}
+section.deep{background:radial-gradient(ellipse 70% 40% at 15% 90%,var(--glow) 0,transparent 70%),var(--bg)}
+section.light{background:linear-gradient(180deg,var(--light2) 0,var(--light1) 60%,var(--light2) 100%);color:var(--lt)}
+section.light p,section.light li{color:var(--ltd)}
+section.light strong,section.light h2,section.light h3{color:var(--lt)}
+h1,h2,h3{line-height:1.12;letter-spacing:-.02em;color:#fff}
+h1{font-size:clamp(32px,5.6vw,56px);font-weight:800;text-align:center}
+h2{font-size:clamp(28px,4.6vw,44px);font-weight:800;margin-bottom:26px}
 h3{font-size:21px;font-weight:700;margin-bottom:8px}
-p{margin-bottom:18px}
-.eyebrow{font-family:"Barlow Condensed",Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:15px;color:var(--green-d)}
-.dark .eyebrow{color:var(--gold)}
+h1 em,h2 em,.m{font-style:normal;color:var(--mint)}
+h1 u,h2 u{text-decoration-thickness:3px;text-underline-offset:5px}
+.light h2 em,.light .m{color:var(--lmint)}
+.b{color:var(--blue)}
+p{margin-bottom:20px;color:var(--dim);font-weight:400}
+p strong,li strong{color:#fff;font-weight:700}
 .center{text-align:center}
-.lead{font-size:20px;color:var(--ink-2)}
-strong{font-weight:700}
-.big{font-size:24px;font-weight:800;line-height:1.3}
+.lead{font-size:21px}
+.big{font-size:24px;font-weight:700;line-height:1.3;color:#fff}
+.light .big{color:var(--lt)}
 
-/* top bar */
-.topbar{background:var(--navy);color:#fff;text-align:center;font-size:14px;font-weight:600;padding:10px 16px;letter-spacing:.02em}
-.topbar b{color:var(--gold)}
+/* header + promo */
+.promo{background:#facc15;color:#000;text-align:center;font-weight:800;font-size:15px;padding:10px 16px;text-transform:uppercase;letter-spacing:.03em}
+.nav{background:#0a0a0c;padding:16px 0;border-bottom:1px solid var(--line)}
+.nav .wrap{max-width:1160px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font-weight:800;font-size:21px;color:#fff;letter-spacing:-.02em}
+.logo span{color:var(--mint)}
+.help{font-size:13px;text-align:right;color:var(--dim);line-height:1.4}
+.help b{color:var(--mint);font-weight:500}
 
 /* hero */
-.hero{padding:44px 0 56px;background:linear-gradient(180deg,#fff 0,#f5f6f8 100%)}
-.hero h1 em{font-style:normal;color:var(--green-d)}
-.hero .sub{font-size:19px;color:var(--ink-2);margin:20px 0 28px}
-.hero .sub strong{color:var(--ink)}
-.kicker{display:inline-block;background:#e8f7ed;color:var(--green-d);font-weight:700;font-size:13px;padding:6px 12px;border-radius:99px;margin-bottom:18px;text-transform:uppercase;letter-spacing:.06em}
+.hero{padding:44px 0 72px}
+.pill{display:flex;width:fit-content;max-width:100%;margin:0 auto 34px;align-items:center;gap:9px;border:1px solid rgba(46,229,157,.35);background:rgba(46,229,157,.08);border-radius:99px;padding:9px 18px;font-size:14px;color:#cfe9de;text-align:center}
+.pill::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint)}
+.hero .sub{max-width:900px;margin:22px auto 44px;text-align:center;font-size:21px;color:var(--text)}
+.hero .sub strong{color:#fff}
+.hgrid{display:grid;gap:30px;align-items:start}
 
-/* image placeholders */
-.ph{position:relative;aspect-ratio:16/10;border-radius:var(--radius);background:repeating-linear-gradient(135deg,#e9ecf1 0 14px,#f1f3f6 14px 28px);border:2px dashed #c3cad6;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--muted);font-size:14px;font-weight:600;margin:28px 0}
-.ph::before{content:"IMAGE";position:absolute;top:10px;left:12px;font-size:11px;letter-spacing:.14em;color:#8a94a6}
-.ph.sq{aspect-ratio:1/1;max-width:120px;margin:0 0 14px;border-radius:50%;padding:0;font-size:11px}
+/* placeholders */
+.ph{position:relative;aspect-ratio:16/10;border-radius:var(--radius);background:linear-gradient(135deg,#0c1a3a,#0a1228);border:1.5px dashed rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--dim);font-size:14px;font-weight:500;margin:30px 0}
+.ph::before{content:"IMAGE";position:absolute;top:12px;left:14px;font-size:11px;letter-spacing:.14em;color:#6f7fa6}
+.ph.sq{aspect-ratio:1/1;width:76px;margin:0 0 14px;border-radius:50%;padding:0;font-size:11px}
 .ph.sq::before{display:none}
-.ph.tall{aspect-ratio:4/3}
+.ph.tall{aspect-ratio:4/3;margin-top:0}
+.light .ph{background:#fff;border-color:#b8c5e6;color:#6577a8}
 
-/* CTA */
-.cta{background:#fff;border:2px solid var(--ink);border-radius:var(--radius);padding:28px 22px;text-align:center;box-shadow:6px 6px 0 var(--ink);margin:36px 0}
-.dark .cta{box-shadow:6px 6px 0 var(--gold);border-color:var(--gold)}
-.price{display:flex;align-items:baseline;justify-content:center;gap:14px;margin-bottom:6px}
-.price s{font-size:28px;color:var(--muted);font-weight:600;text-decoration-color:var(--red);text-decoration-thickness:3px}
-.price b{font-size:64px;font-weight:900;color:var(--green-d);line-height:1}
-.cta .ask{font-weight:700;margin-bottom:16px;color:var(--ink);font-size:17px}
-.btn{display:block;width:100%;background:var(--green);color:#fff;text-decoration:none;font-weight:800;font-size:22px;padding:20px 18px;border-radius:12px;box-shadow:0 5px 0 var(--green-d);transition:transform .08s,box-shadow .08s,background .15s}
-.btn:hover{background:#1ea243}
-.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--green-d)}
-.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:18px;font-size:14px;font-weight:600;color:var(--ink-2)}
+/* price bar */
+.cta{background:#060c1b;border:4px solid #17294f;border-radius:20px;padding:26px 28px;margin:36px 0;box-shadow:0 0 40px rgba(42,155,255,.12)}
+.cta .row{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between}
+.price{display:flex;align-items:baseline;gap:8px;flex:none}
+.price b{font-size:60px;font-weight:800;color:#fff;line-height:1}
+.price s{font-size:24px;color:#8a95b3}
+.cta .ask{flex:1 1 200px;font-size:17px;margin:0;color:#e6ecf8;line-height:1.35}
+.cta .ask span{color:var(--mint);font-weight:700}
+.btn{display:block;text-align:center;text-decoration:none;color:#fff;font-weight:700;font-size:21px;line-height:1.25;padding:16px 26px;border-radius:10px;background:linear-gradient(135deg,var(--orange-d),var(--orange));box-shadow:0 8px 24px rgba(249,115,22,.35);transition:transform .15s,filter .15s;flex:1 1 280px}
+.btn small{display:block;font-size:14px;font-weight:500;opacity:.9}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.cta .trust{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 18px;margin-top:20px;font-size:14px;color:#c4cee6}
 
-/* story */
-.arrow-list{list-style:none;margin:0 0 20px}
-.arrow-list li{position:relative;padding-left:34px;margin-bottom:16px}
-.arrow-list li::before{content:"→";position:absolute;left:0;color:var(--red);font-weight:900}
-.punch p{margin-bottom:10px;font-size:20px}
-.punch .big{margin-top:20px}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:28px 0}
-.stat{background:var(--navy);color:#fff;border-radius:var(--radius);padding:20px;text-align:center}
-.stat b{display:block;font-size:34px;font-weight:900;color:var(--gold);line-height:1.1}
-.stat span{font-size:14px;color:#cbd5e5}
-.leaks{display:grid;gap:12px;margin:24px 0}
-.leak{background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);border-radius:10px;padding:16px 18px}
-.leak b{display:block;margin-bottom:4px}
-.leak p{margin:0;font-size:16px;color:var(--ink-2)}
-.advice{display:grid;gap:14px;margin:24px 0}
-.advice div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
-.advice q{display:block;font-weight:800;font-size:19px;margin-bottom:6px;quotes:"“" "”"}
-.advice p{margin:0;font-size:16px;color:var(--ink-2)}
+/* hero checkout card */
+.pay{background:#fff;color:var(--lt);border-radius:20px;padding:26px;box-shadow:0 0 0 2px rgba(42,155,255,.5),0 0 50px rgba(42,155,255,.3);text-align:center}
+.pay .few{font-size:13px;letter-spacing:.18em;font-weight:500;text-transform:uppercase;color:var(--lt);margin-bottom:16px}
+.pay h2{font-size:30px;margin:12px 0 4px;color:var(--lt)}
+.pay h2 s{color:#8892ad;font-weight:600}
+.pay h2 em{color:var(--lmint)}
+.pay p{color:var(--ltd);margin-bottom:14px}
+.pay .off{display:inline-block;background:#f2f5fc;border-radius:99px;padding:7px 16px;font-size:15px;color:#4a587f;margin-bottom:18px}
+.pay .off b{color:var(--lmint)}
+.pay .btn{margin-bottom:16px}
+.pay .secure{font-size:13px;color:#6577a8;margin-bottom:14px}
+.seal{display:flex;gap:14px;align-items:center;text-align:left;background:#c5d3ee;border-radius:14px;padding:14px 16px;color:var(--lt);font-size:14px;line-height:1.4}
+.seal i{flex:none;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle,#0e1f47 55%,#2a4a94 56%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-style:normal;font-weight:800;font-size:22px;line-height:1;border:3px solid #7f9ad6}
+.seal i span{font-size:9px;letter-spacing:.1em;font-weight:600}
+.seal b{display:block;color:var(--lt)}
+
+/* arrow list */
+.arrow-list{list-style:none;margin:8px 0 26px}
+.arrow-list li{position:relative;padding:22px 0 22px 52px;border-bottom:1px solid var(--line);color:var(--dim)}
+.arrow-list li:last-child{border-bottom:0}
+.arrow-list li::before{content:"→";position:absolute;left:8px;top:22px;color:#fff;font-weight:400;font-size:22px}
+.light .arrow-list li{border-color:#cfd9ef}
+.light .arrow-list li::before{color:var(--lt)}
+
+.punch p{margin-bottom:10px;font-size:22px;color:var(--text)}
+
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center}
+.stat b{display:block;font-size:38px;font-weight:800;color:var(--mint);line-height:1.1}
+.stat span{font-size:14px;color:var(--dim)}
+
+/* dark X cards */
+.leaks,.advice{display:grid;gap:14px;margin:26px 0}
+.leak,.advice div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 22px 22px 66px;position:relative}
+.leak::before,.advice div::before{content:"✕";position:absolute;left:20px;top:22px;width:30px;height:30px;border-radius:50%;border:2px solid var(--red);color:var(--red);font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.leak b,.advice q{display:block;font-weight:700;font-size:19px;color:#fff;margin-bottom:6px;quotes:"“" "”"}
+.leak p,.advice p{margin:0;font-size:17px}
 
 /* testimonials */
 .tgrid{display:grid;gap:18px}
-.tcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-.stars{color:var(--gold);letter-spacing:3px;margin-bottom:10px}
-.tcard blockquote{font-size:17px;margin-bottom:12px}
-.tcard cite{font-style:normal;font-size:14px;color:var(--muted);font-weight:600}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;overflow:hidden}
+.tcard::after{content:"";display:block}
+.stars{color:#facc15;letter-spacing:3px;margin-bottom:10px}
+.tcard blockquote{font-size:17px;margin-bottom:14px;color:#fff;font-weight:500}
+.tcard cite{display:inline-flex;gap:8px;align-items:center;font-style:normal;font-size:13px;color:var(--mint);font-weight:700;background:rgba(46,229,157,.08);border:1px solid rgba(46,229,157,.3);border-radius:8px;padding:6px 12px}
 
-/* playbook cards */
-.cards{display:grid;gap:16px;margin-top:28px}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;gap:18px;align-items:flex-start}
-.card .ic{flex:0 0 52px;height:52px;border-radius:12px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:26px}
-.card h3{margin-bottom:6px}
-.card p{margin-bottom:10px;font-size:16.5px;color:var(--ink-2)}
+/* numbered two-things */
+.two{display:flex;gap:20px;align-items:flex-start;margin:44px 0 10px}
+.num{flex:none;width:50px;height:50px;border-radius:10px;background:var(--lmint);color:#fff;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center}
+.two h3{font-size:30px;font-weight:700;margin:0 0 14px;color:var(--lt)}
+.two h3 em{font-style:italic;color:var(--lmint)}
+.panel{background:#dfe8fb;border-radius:14px;padding:22px 24px;margin:12px 0 20px}
+.panel p{margin-bottom:12px}
+.panel p:last-child{margin:0}
+.callout{background:rgba(46,229,157,.1);border:1px solid rgba(46,229,157,.4);border-radius:12px;padding:20px 22px;font-weight:700;color:#fff;margin:26px 0}
+.light .callout{background:#dff5ea;border-color:#9bdcbb;color:var(--lt)}
+
+/* cards */
+.cards{display:grid;gap:18px;margin-top:34px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;gap:18px;align-items:flex-start}
+.card .ic{flex:0 0 54px;height:54px;border-radius:12px;background:rgba(46,229,157,.1);border:1px solid rgba(46,229,157,.35);display:flex;align-items:center;justify-content:center;font-size:26px}
+.card h3{margin-bottom:10px}
+.card p{margin-bottom:10px;font-size:17px}
 .card p:last-child{margin:0}
+.eyebrow{display:inline-block;color:var(--mint);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
 
 /* math */
 .compare{display:grid;gap:16px;margin:28px 0}
-.col{border-radius:var(--radius);padding:26px;text-align:center}
-.col.before{background:#fff;border:2px solid var(--line)}
-.col.after{background:var(--navy);color:#fff;border:2px solid var(--green)}
-.col small{display:block;text-transform:uppercase;letter-spacing:.1em;font-weight:700;font-size:13px;color:var(--muted)}
-.col.after small{color:var(--gold)}
-.col .num{font-size:54px;font-weight:900;line-height:1.1;margin:6px 0}
-.col.before .num{color:var(--red)}
-.col.after .num{color:var(--green)}
+.col{border-radius:var(--radius);padding:28px;text-align:center}
+.col.before{background:#fff;border:2px solid #cfd9ef}
+.col.after{background:var(--navy);border:2px solid var(--mint)}
+.col small{display:block;text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-size:13px;color:#6577a8}
+.col.after small{color:var(--mint)}
+.col .num2{font-size:58px;font-weight:800;line-height:1.1;margin:6px 0}
+.col.before .num2{color:var(--red)}
+.col.after .num2{color:var(--mint)}
 .col p{margin:0;font-size:16px}
-.col.after p{color:#d7deea}
-.callout{background:#e8f7ed;border-left:6px solid var(--green);border-radius:10px;padding:20px 22px;font-weight:600;margin:24px 0}
+.col.after p{color:#c4cee6}
 
 /* value stack */
-.stack{background:#fff;border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;margin:28px 0}
-.item{display:flex;gap:14px;padding:22px;border-bottom:1px solid var(--line)}
-.item .lock{font-size:26px}
-.item h3{font-size:19px;margin-bottom:4px}
-.item p{margin:0 0 6px;font-size:15.5px;color:var(--ink-2)}
-.item .val{font-weight:800;color:var(--green-d);font-size:15px}
-.total{display:flex;justify-content:space-between;align-items:center;background:var(--soft);padding:16px 22px;font-weight:700}
+.stack{background:#fff;color:var(--lt);border-radius:20px;overflow:hidden;margin:30px 0;box-shadow:0 0 0 2px rgba(42,155,255,.5),0 0 50px rgba(42,155,255,.25)}
+.item{display:grid;grid-template-columns:1fr auto;gap:6px 14px;padding:24px 26px;border-bottom:1px solid #dbe3f5}
+.item h3{color:var(--lt);font-size:21px;margin:0}
+.item h3 em{font-style:normal;color:var(--lmint)}
+.item p{grid-column:1/-1;margin:0;font-size:16px;color:var(--ltd)}
+.item .tag{font-size:12px;color:#6577a8;background:#f0f3fa;border-radius:99px;padding:4px 10px;align-self:center}
+.item .val{font-size:13px;font-weight:700;background:var(--lmint);color:#fff;border-radius:8px;padding:5px 11px;justify-self:end;align-self:center}
+.item .meta{display:flex;justify-content:space-between;grid-column:1/-1}
+.total{display:flex;justify-content:space-between;align-items:center;padding:18px 26px;font-weight:700;color:var(--lt);background:#f2f5fc}
+.total s{color:#8892ad}
 .total.now{background:var(--navy);color:#fff;font-size:22px}
-.total.now b{color:var(--gold);font-size:34px}
-.total s{color:var(--muted)}
+.total.now b{color:var(--mint);font-size:38px}
 
 /* bonus */
-.bonus-tag{display:inline-block;background:var(--gold);color:#111;font-weight:800;font-size:13px;letter-spacing:.1em;padding:7px 14px;border-radius:99px;margin-bottom:16px;text-transform:uppercase}
-.days{display:grid;gap:16px;margin:30px 0}
-.day{display:grid;grid-template-columns:78px 1fr;gap:18px;background:var(--navy-2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px}
-.day .d{font-family:"Barlow Condensed",Inter,sans-serif;font-weight:800;text-align:center;color:var(--gold);line-height:1}
-.day .d small{display:block;font-size:14px;letter-spacing:.14em;color:#cbd5e5}
-.day .d span{font-size:46px;display:block}
-.day h3{color:#fff;font-size:20px}
-.day p{font-size:15.5px;margin-bottom:10px}
+.bonus-tag{display:inline-block;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.5);color:#facc15;font-weight:700;font-size:13px;letter-spacing:.12em;padding:8px 16px;border-radius:99px;margin-bottom:18px;text-transform:uppercase}
+.days{display:grid;gap:16px;margin:34px 0}
+.day{display:grid;grid-template-columns:84px 1fr;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.day .d{text-align:center;color:var(--mint);line-height:1;background:rgba(46,229,157,.08);border:1px solid rgba(46,229,157,.3);border-radius:12px;padding:14px 0;align-self:start}
+.day .d small{display:block;font-size:12px;letter-spacing:.16em;color:var(--dim)}
+.day .d span{font-size:42px;font-weight:800;display:block}
+.day h3{font-size:22px}
+.day p{font-size:16.5px;margin-bottom:12px}
 .day p:last-child{margin:0}
-.divider{border:1px dashed var(--gold);border-radius:12px;padding:20px;text-align:center;color:#fff;font-weight:600;margin-top:20px}
+.divider{border:1px dashed rgba(46,229,157,.5);border-radius:14px;padding:22px;text-align:center;color:#fff;font-weight:600;margin-top:22px}
 
 /* steps */
-.steps{display:grid;gap:16px;margin-top:28px}
-.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:relative}
-.step .n{width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
-.step p{font-size:16px;color:var(--ink-2);margin-bottom:8px}
-.step .time{font-size:13px;font-weight:700;color:var(--green-d);text-transform:uppercase;letter-spacing:.06em}
+.steps{display:grid;gap:18px;margin-top:30px}
+.step{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 6px 24px rgba(14,31,71,.08)}
+.step .num{margin-bottom:14px}
+.step h3{color:var(--lt)}
+.step p{font-size:16.5px;color:var(--ltd);margin-bottom:10px}
+.step .time{font-size:13px;font-weight:700;color:var(--lmint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
 
 /* faq */
-details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
-summary{cursor:pointer;list-style:none;padding:18px 52px 18px 20px;font-weight:700;position:relative}
+details{background:#fff;border-radius:12px;margin-bottom:12px;box-shadow:0 2px 12px rgba(14,31,71,.06)}
+summary{cursor:pointer;list-style:none;padding:20px 54px 20px 22px;font-weight:700;color:var(--lt);position:relative}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:500;color:var(--green-d)}
+summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:400;color:var(--lmint)}
 details[open] summary::after{content:"–"}
-details .a{padding:0 20px 8px;color:var(--ink-2);font-size:16.5px}
+details .a{padding:0 22px 8px;font-size:17px}
 details .a p{margin-bottom:12px}
 
 /* guarantee */
-.guar{border:3px solid var(--green);background:#f3fbf6;border-radius:var(--radius);padding:34px 24px;text-align:center}
-.guar .badge{width:96px;height:96px;margin:0 auto 16px;border-radius:50%;background:var(--green);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;line-height:1;box-shadow:0 0 0 6px #fff,0 0 0 9px var(--green)}
-.guar .badge b{font-size:34px}
-.guar .badge span{font-size:12px;letter-spacing:.1em}
-.guar p{font-size:18px}
+.guar{background:rgba(42,155,255,.07);border:1px solid rgba(42,155,255,.45);border-radius:20px;padding:40px 26px;text-align:center;box-shadow:0 0 50px rgba(42,155,255,.12)}
+.guar .badge{width:112px;height:112px;margin:0 auto 20px;border-radius:50%;background:radial-gradient(circle,#0e1f47 58%,#2a4a94 59%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;border:4px solid #8ea6de}
+.guar .badge b{font-size:38px;font-weight:800}
+.guar .badge span{font-size:11px;letter-spacing:.14em}
+.guar p{font-size:19px}
 
-/* scrollers */
-.recap{background:#fff;border:2px dashed var(--ink);border-radius:var(--radius);padding:28px 24px}
-.recap ul{list-style:none;margin:10px 0 18px}
-.recap li{padding:6px 0 6px 28px;position:relative;font-size:16.5px}
-.recap li::before{content:"✓";position:absolute;left:0;color:var(--green-d);font-weight:900}
+/* recap */
+.recap{background:#fff;border-radius:20px;padding:32px 28px;box-shadow:0 8px 30px rgba(14,31,71,.1)}
+.recap ul{list-style:none;margin:10px 0 20px}
+.recap li{padding:7px 0 7px 30px;position:relative;font-size:17px;color:var(--ltd)}
+.recap li::before{content:"✓";position:absolute;left:0;color:var(--lmint);font-weight:800}
 
-/* footer */
-footer{background:#0a1220;color:#9aa6ba;font-size:13px;padding:40px 0;text-align:center}
-footer p{margin-bottom:12px;line-height:1.6}
-footer a{color:#cbd5e5}
+footer{background:#02060f;color:#7d89a8;font-size:13px;padding:44px 0;text-align:center;border-top:1px solid var(--line)}
+footer p{margin-bottom:12px;line-height:1.6;color:#7d89a8}
+footer a{color:#aab6cf}
 
-.sticky{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 16px;display:none;z-index:50;box-shadow:0 -6px 20px rgba(0,0,0,.08)}
-.sticky .btn{font-size:18px;padding:14px;box-shadow:0 3px 0 var(--green-d)}
+.sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(4,10,31,.96);border-top:1px solid var(--line);padding:10px 16px;display:none;z-index:50;backdrop-filter:blur(8px)}
+.sticky .btn{font-size:18px;padding:13px}
 .sticky.show{display:block}
 
-@media(min-width:760px){
-  body{font-size:19px}
-  section{padding:84px 0}
+@media(min-width:900px){
+  .hgrid{grid-template-columns:1.25fr 1fr}
   .stats{grid-template-columns:repeat(4,1fr)}
   .tgrid{grid-template-columns:repeat(3,1fr)}
-  .tgrid .tcard{padding:22px}
   .cards{grid-template-columns:repeat(2,1fr)}
-  .card{flex-direction:column}
   .compare{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:repeat(3,1fr)}
-  .btn{display:inline-block;width:auto;padding:20px 44px}
   .sticky{display:none!important}
 }
-@media(max-width:420px){
+@media(max-width:560px){
+  body{font-size:18px}
+  section{padding:56px 0}
+  .help{display:none}
   .day{grid-template-columns:1fr}
-  .day .d{text-align:left;display:flex;align-items:baseline;gap:8px}
-  .day .d span{font-size:32px}
-  .price b{font-size:54px}
-  .btn{font-size:20px}
+  .day .d{display:flex;gap:10px;align-items:baseline;justify-content:flex-start;padding:10px 16px;width:fit-content}
+  .day .d span{font-size:28px}
+  .price b{font-size:50px}
+  .cta{padding:22px 18px}
+  .cta .trust{flex-direction:column}
+  .two{flex-direction:column;gap:12px}
+  .item{padding:20px}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
 <body>
@@ -210,23 +257,37 @@ footer a{color:#cbd5e5}
 <!-- Set the checkout link once here; every CTA button uses it. -->
 <script>window.CHECKOUT_URL = "#checkout";</script>
 
-<div class="topbar">Residential painting contractors: <b>Today only — $17 instead of $97</b></div>
+<div class="promo">Today only — $17 instead of $97 · 365-day guarantee</div>
+<div class="nav"><div class="wrap"><div class="logo">Super Paint <span>Close</span> Playbook</div><div class="help"><b>Need Help?</b> Email Me HERE<br>or Call My Team: (000) 000-0000</div></div></div>
 
 <!-- HERO -->
 <header class="hero">
-  <div class="wrap">
-    <span class="kicker">The Super Paint Close Playbook</span>
-    <h1>How I Went From Chasing Estimates to Booking &amp; Closing 20+ a Month on Autopilot — And Making <em>$1M in 2026 Alone</em> — Using a Playbook Any Painter Can Copy in a Weekend</h1>
-    <p class="sub"><strong>Without Losing Time With My Family. Without Dropping Below 25% Profit Margins.</strong><br>
-      For residential painting contractors who want a steady stream of booked estimates — without chasing leads, losing appointments, or standing at the kitchen table not knowing what to say.</p>
-
-    <div class="ph tall">Lanty — job site or truck, confident, real — not stock photo energy</div>
-
-    <div class="cta">
-      <div class="price"><s>$97</s><b>$17</b></div>
-      <p class="ask">Get the Super Paint Close Playbook for $97 — Just $17</p>
-      <a class="btn js-checkout" href="#checkout">Get the Playbook →</a>
-      <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
+  <div class="wrap wide">
+    <div class="pill">For residential painting contractors who want a steady stream of booked estimates</div>
+    <h1>How I Went From Chasing Estimates to <em>Booking &amp; Closing 20+ a Month</em> On Autopilot — And Making <span class="b">$1M in 2026 Alone</span> — Using a Playbook Any Painter Can Copy in a Weekend</h1>
+    <p class="sub"><strong>Without Losing Time With My Family. Without Dropping Below 25% Profit Margins.</strong><br>For residential painting contractors who want a steady stream of booked estimates — without chasing leads, losing appointments, or standing at the kitchen table not knowing what to say.</p>
+    <div class="hgrid">
+      <div>
+        <div class="ph tall">Lanty — job site or truck, confident, real — not stock photo energy</div>
+        <div class="cta">
+          <div class="row">
+            <div class="price"><b>$17</b><s>$97</s></div>
+            <p class="ask">Get the Super Paint Close Playbook for <s>$97</s> — <span>Just $17</span></p>
+            <a class="btn js-checkout" href="#checkout">Get the Playbook →<small>365-Day Money-Back Guarantee</small></a>
+          </div>
+          <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
+        </div>
+      </div>
+      <aside class="pay">
+        <div class="few">Only a few days left</div>
+        <div class="ph" style="aspect-ratio:16/9;margin:0 0 14px;background:#eef2fb;border-color:#b8c5e6;color:#6577a8">Playbook mockup</div>
+        <h2>Get It Now For <s>$97</s> <em>$17</em></h2>
+        <p>You're Instantly Saving $80</p>
+        <div class="off"><b>↓ 82.5% OFF</b> Deal Available Today!</div>
+        <a class="btn js-checkout" href="#checkout">Get the Playbook →<small>365-Day Money-Back Guarantee</small></a>
+        <div class="secure">🔒 Delivered instantly · Secure checkout</div>
+        <div class="seal"><i>365<span>DAY</span></i><div><b>Backed by my 365-day money-back guarantee.</b>You'll love the Playbook or I'll give you your money back AND let you keep everything.</div></div>
+      </aside>
     </div>
   </div>
 </header>
@@ -255,7 +316,7 @@ footer a{color:#cbd5e5}
 </section>
 
 <!-- STORY -->
-<section class="alt">
+<section class="deep">
   <div class="wrap">
     <p>So I started paying close attention to the painters who cracked it.</p>
     <p>Not the ones posting tips on Facebook.</p>
@@ -314,7 +375,7 @@ footer a{color:#cbd5e5}
 </section>
 
 <!-- BAD ADVICE -->
-<section class="alt">
+<section class="deep">
   <div class="wrap">
     <p class="lead">So you go looking for a fix. <strong>And here's the advice you keep hearing.</strong></p>
     <div class="advice">
@@ -359,17 +420,18 @@ footer a{color:#cbd5e5}
 </section>
 
 <!-- WHAT THIS MEANS -->
-<section class="alt">
+<section class="light">
   <div class="wrap">
-    <h2>Here's What This Means For Your Business</h2>
-    <p>Every painting contractor who builds a business that grows without running him into the ground has figured out two things.</p>
-    <p class="big">First — how to get a steady, consistent flow of homeowners reaching out without paying someone else every time.</p>
-    <p>Right now, every lead you get came from a platform you're paying, a referral you didn't control, or a post you made yourself. The moment you stop paying or posting, the leads stop too.</p>
-    <p>The Playbook replaces that with something you own. An ad that runs for $5 to $15 a day. A follow-up sequence that works while you're on a job. A referral trigger built into every finished job.</p>
-    <p><strong>You turn it on. Leads come in. You control the tap.</strong></p>
-    <p class="big" style="margin-top:30px">Second — how to close more of the estimates you're already going on.</p>
-    <p>A painter going on 10 estimates a month and closing 1 is doing $3,500 in revenue. The same painter closing 3 out of 10 is doing $10,500. Same ad spend. Same drive time. Same afternoon.</p>
-    <p>The Estimate Close Card, the No-Show Text, and the First Call Script add those closed jobs back. Not by changing your prices. By fixing the exact moments where estimates were slipping through.</p>
+    <h2 class="center">Here's What This Means <em>For Your</em> Business</h2>
+    <p class="center lead">Every painting contractor who builds a business that grows without running him into the ground has figured out <strong>two things.</strong></p>
+    <div class="two"><div class="num">1</div><div>
+      <h3>How to get a steady, consistent flow of homeowners reaching out <em>without</em> paying someone else every time.</h3>
+      <p>Right now, every lead you get came from a platform you're paying, a referral you didn't control, or a post you made yourself. The moment you stop paying or posting, the leads stop too.</p>
+      <div class="panel"><p>The Playbook replaces that with something you own. An ad that runs for $5 to $15 a day. A follow-up sequence that works while you're on a job. A referral trigger built into every finished job.</p><p><strong>You turn it on. Leads come in. You control the tap.</strong></p></div></div></div>
+    <div class="two"><div class="num">2</div><div>
+      <h3>How to close <em>more</em> of the estimates you're already going on.</h3>
+      <p>A painter going on 10 estimates a month and closing 1 is doing $3,500 in revenue. The same painter closing 3 out of 10 is doing $10,500. Same ad spend. Same drive time. Same afternoon.</p>
+      <div class="panel"><p>The Estimate Close Card, the No-Show Text, and the First Call Script add those closed jobs back. Not by changing your prices. By fixing the exact moments where estimates were slipping through.</p></div></div></div>
     <div class="callout">Both problems. Same solution. Thirteen dollars cheaper than a tank of gas.</div>
   </div>
 </section>
@@ -411,23 +473,25 @@ footer a{color:#cbd5e5}
 
     <div class="ph tall" style="max-width:760px;margin:36px auto">Mockup or flat lay of the Playbook PDF — clean, professional, real</div>
     <div class="wrap" style="padding:0">    <div class="cta">
-      <div class="price"><s>$97</s><b>$17</b></div>
-      <p class="ask">Get the Super Paint Close Playbook for $97 — Just $17</p>
-      <a class="btn js-checkout" href="#checkout">Get the Playbook →</a>
+      <div class="row">
+        <div class="price"><b>$17</b><s>$97</s></div>
+        <p class="ask">Get the Super Paint Close Playbook for <s>$97</s> — <span>Just $17</span></p>
+        <a class="btn js-checkout" href="#checkout">Get the Playbook →<small>365-Day Money-Back Guarantee</small></a>
+      </div>
       <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
     </div></div>
   </div>
 </section>
 
 <!-- MATH -->
-<section class="alt">
+<section class="light">
   <div class="wrap">
     <h2>What The Math Actually Looks Like</h2>
     <p>Let's put some real numbers on this.</p>
     <p>Say 10 leads come in this month. Right now, you close 1 out of 10. Your average job is $3,500. That's $3,500 for the month.</p>
     <div class="compare">
-      <div class="col before"><small>Right now</small><div class="num">$3,500</div><p>10 leads · 1 closed · 10% close rate</p></div>
-      <div class="col after"><small>With the system</small><div class="num">$10,500</div><p>Same 10 leads · 3 closed · 30% close rate</p></div>
+      <div class="col before"><small>Right now</small><div class="num2">$3,500</div><p>10 leads · 1 closed · 10% close rate</p></div>
+      <div class="col after"><small>With the system</small><div class="num2">$10,500</div><p>Same 10 leads · 3 closed · 30% close rate</p></div>
     </div>
     <p>Run those same 10 leads through the Super Paint Close System:</p>
     <ul class="arrow-list">
@@ -448,8 +512,8 @@ footer a{color:#cbd5e5}
   <div class="wrap">
     <h2 class="center">Here's Everything Included When You Access The Playbook Today</h2>
     <div class="stack">
-      <div class="item"><div class="lock">🔓</div><div><h3>The Super Paint Close Playbook</h3><p>Six copy-paste tools — the post, the ad, the camera script, the lead network guide, the referral ask, and the SMS follow-up sequence.</p><div class="val">Instant Access — Value: $297</div></div></div>
-      <div class="item"><div class="lock">🔓</div><div><h3>The 7-Day Fast Start Kit</h3><p>Seven one-page tools delivered one per day — built to guide you through your first week lead to close.</p><div class="val">Instant Access — Value: $497</div></div></div>
+      <div class="item"><h3>The Super Paint Close Playbook</h3><span class="val">Value: $297</span><p>Six copy-paste tools — the post, the ad, the camera script, the lead network guide, the referral ask, and the SMS follow-up sequence.</p><div class="meta"><span class="tag">🔓 Instant Access</span></div></div>
+      <div class="item"><h3>The 7-Day Fast Start Kit</h3><span class="val">Value: $497</span><p>Seven one-page tools delivered one per day — built to guide you through your first week lead to close.</p><div class="meta"><span class="tag">🔓 Instant Access</span></div></div>
       <div class="total"><span>Total Value</span><b><s>$794</s></b></div>
       <div class="total now"><span>Today</span><b>$17</b></div>
     </div>
@@ -457,7 +521,7 @@ footer a{color:#cbd5e5}
 </section>
 
 <!-- BONUS -->
-<section class="dark">
+<section class="deep">
   <div class="wrap">
     <span class="bonus-tag">🎁 Free Bonus</span>
     <h2>The 7-Day Fast Start Kit</h2>
@@ -521,16 +585,18 @@ footer a{color:#cbd5e5}
         <p>By Day 7, you've run the full cycle from lead to signed job — with a tool in your hand at every step.</p></div>
     </div>
     <div class="wrap" style="padding:0">    <div class="cta">
-      <div class="price"><s>$97</s><b>$17</b></div>
-      <p class="ask">Get the Super Paint Close Playbook for $97 — Just $17</p>
-      <a class="btn js-checkout" href="#checkout">Get the Playbook →</a>
+      <div class="row">
+        <div class="price"><b>$17</b><s>$97</s></div>
+        <p class="ask">Get the Super Paint Close Playbook for <s>$97</s> — <span>Just $17</span></p>
+        <a class="btn js-checkout" href="#checkout">Get the Playbook →<small>365-Day Money-Back Guarantee</small></a>
+      </div>
       <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
     </div></div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="alt">
+<section class="light">
   <div class="wrap">
     <h2 class="center">Questions</h2>
     <details><summary>I'm already getting referrals and word of mouth. Do I need this?</summary><div class="a">
@@ -573,7 +639,7 @@ footer a{color:#cbd5e5}
 </section>
 
 <!-- SCROLLERS -->
-<section class="alt">
+<section class="light">
   <div class="wrap">
     <div class="recap">
       <h2>So You Scrolled Straight to the Bottom</h2>
@@ -592,16 +658,18 @@ footer a{color:#cbd5e5}
       <p style="margin:0"><strong>Total Value: <s>$794</s> &nbsp;·&nbsp; Your Price Today: $17</strong></p>
     </div>
     <div class="cta">
-      <div class="price"><s>$97</s><b>$17</b></div>
-      <p class="ask">Get the Super Paint Close Playbook for $97 — Just $17</p>
-      <a class="btn js-checkout" href="#checkout">Get the Playbook →</a>
+      <div class="row">
+        <div class="price"><b>$17</b><s>$97</s></div>
+        <p class="ask">Get the Super Paint Close Playbook for <s>$97</s> — <span>Just $17</span></p>
+        <a class="btn js-checkout" href="#checkout">Get the Playbook →<small>365-Day Money-Back Guarantee</small></a>
+      </div>
       <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
     </div>
   </div>
 </section>
 
 <!-- CLOSE -->
-<section class="dark">
+<section class="deep">
   <div class="wrap">
     <h2>You've Read This Far For A Reason</h2>
     <p>You've been in this long enough to know the work isn't the problem.</p>
@@ -616,9 +684,11 @@ footer a{color:#cbd5e5}
     <p>That's what the Super Paint Playbook is for.</p>
     <p><strong style="color:#fff">You've been doing it from nothing long enough.</strong></p>
     <div class="cta">
-      <div class="price"><s>$97</s><b>$17</b></div>
-      <p class="ask">Get the Super Paint Close Playbook for $97 — Just $17</p>
-      <a class="btn js-checkout" href="#checkout">Get the Playbook →</a>
+      <div class="row">
+        <div class="price"><b>$17</b><s>$97</s></div>
+        <p class="ask">Get the Super Paint Close Playbook for <s>$97</s> — <span>Just $17</span></p>
+        <a class="btn js-checkout" href="#checkout">Get the Playbook →<small>365-Day Money-Back Guarantee</small></a>
+      </div>
       <div class="trust"><span>✅ 365-Day Money-Back Guarantee</span><span>✅ Delivered Instantly</span><span>✅ Start Using It Today</span></div>
     </div>
   </div>
