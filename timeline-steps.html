@@ -1,0 +1,102 @@
+<!-- ===== 3-STEP TIMELINE — copy & paste anywhere (GHL Custom HTML/JS element works) ===== -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  .tl-wrap{
+    padding:0 24px;
+    font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  .tl-line{
+    position:relative;
+    max-width:760px;margin:0 auto;
+    padding-left:44px;
+  }
+  .tl-line::before{
+    content:"";position:absolute;left:11px;top:8px;bottom:0;width:2px;
+    background:linear-gradient(#2ee59d,rgba(46,229,157,.15));
+  }
+  .tl-step{position:relative;padding-bottom:52px}
+  .tl-step:last-child{padding-bottom:0}
+  .tl-dot{
+    position:absolute;left:-41px;top:4px;
+    width:16px;height:16px;border-radius:50%;
+    background:#2ee59d;
+    box-shadow:0 0 0 5px rgba(46,229,157,.2),0 0 14px #2ee59d;
+  }
+  .tl-tags{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+  .tl-stp{
+    font-size:12px;font-weight:700;letter-spacing:.2em;
+    color:#2ee59d;
+    background:rgba(46,229,157,.08);
+    border:1px solid rgba(46,229,157,.35);
+    border-radius:6px;padding:5px 10px;
+  }
+  .tl-time{font-size:13px;color:#aab6cf}
+  .tl-time b{color:#fb923c;font-weight:400;margin-right:2px}
+  .tl-step h3{margin:0 0 10px;color:#fff;font-size:24px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+  .tl-step p{margin:0 0 12px;color:#aab6cf;font-size:18px;line-height:1.65}
+  .tl-step p em{font-size:16px;color:#8c9ab8}
+  .tl-incl{
+    display:inline-block;margin:6px 0 16px;
+    background:rgba(46,229,157,.08);
+    border:1px solid rgba(46,229,157,.35);
+    border-radius:8px;padding:8px 14px;
+    color:#2ee59d;font-size:14px;font-weight:700;
+  }
+  /* Image slot. To use a real image, replace the <div class="tl-img">…</div> with:
+     <img class="tl-img" src="YOUR-IMAGE-URL" alt=""> */
+  .tl-img{
+    display:flex;align-items:center;justify-content:center;
+    width:100%;max-width:560px;aspect-ratio:16/9;
+    border-radius:16px;
+    background:linear-gradient(135deg,#0c1a3a,#0a1228);
+    border:1.5px dashed rgba(46,229,157,.3);
+    box-shadow:0 0 28px rgba(46,229,157,.12);
+    color:#aab6cf;font-size:14px;font-weight:500;text-align:center;
+    object-fit:cover;
+  }
+  img.tl-img{border-style:solid}
+  @media(max-width:560px){
+    .tl-wrap{padding:0 14px}
+    .tl-line{padding-left:36px}
+    .tl-dot{left:-33px}
+    .tl-step h3{font-size:21px}
+    .tl-step p{font-size:16.5px}
+  }
+</style>
+
+<div class="tl-wrap">
+  <div class="tl-line">
+
+    <div class="tl-step">
+      <span class="tl-dot"></span>
+      <div class="tl-tags"><span class="tl-stp">STEP 01</span><span class="tl-time"><b>⚡</b> 5 minutes</span></div>
+      <h3>Access and Open</h3>
+      <p>You get the Playbook the moment you complete your order. Six tools, in the order you use them.</p>
+      <p><em>No course to sit through. No account to create. No setup before you can start.</em></p>
+      <div class="tl-incl">📘 Playbook included</div>
+      <div class="tl-img">Screenshot / image for step 1</div>
+    </div>
+
+    <div class="tl-step">
+      <span class="tl-dot"></span>
+      <div class="tl-tags"><span class="tl-stp">STEP 02</span><span class="tl-time"><b>⚡</b> 15–30 minutes</span></div>
+      <h3>Put One Thing to Work Today</h3>
+      <p>Post the Copy-Paste Post to your Facebook page. Boost the Ad to Share for $5 a day. Paste the SMS Follow-Up Sequence into your texting app.</p>
+      <p><em>Any one of those three will generate your first lead interaction this week. Most painters see it within 24 to 48 hours of going live.</em></p>
+      <div class="tl-incl">📣 Ad to Share + Copy-Paste Post included</div>
+      <div class="tl-img">Screenshot / image for step 2</div>
+    </div>
+
+    <div class="tl-step">
+      <span class="tl-dot"></span>
+      <div class="tl-tags"><span class="tl-stp">STEP 03</span><span class="tl-time"><b>⚡</b> 7 days</span></div>
+      <h3>Use the Fast Start Kit as Leads Come In</h3>
+      <p>One tool per day lands in your inbox. Day 1 shows you the numbers. Day 3 prepares you for the call. Day 4 closes the estimate.</p>
+      <p><em>By Day 7, you've run the full cycle from lead to signed job — with a tool in your hand at every step.</em></p>
+      <div class="tl-incl">🎁 7-Day Fast Start Kit included</div>
+      <div class="tl-img">Screenshot / image for step 3</div>
+    </div>
+
+  </div>
+</div>
+<!-- ===== END 3-STEP TIMELINE ===== -->
