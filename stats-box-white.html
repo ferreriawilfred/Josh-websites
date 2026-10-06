@@ -1,0 +1,76 @@
+<!-- ===== STATS BOX — WHITE VERSION — copy & paste anywhere (GHL Custom HTML/JS element works) ===== -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  .sb-wrap{
+    padding:0 24px;
+    font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  .sb-box{
+    max-width:860px;margin:0 auto;
+    background:#ffffff;
+    border:1px solid #dbe3f5;
+    border-radius:22px;
+    padding:28px;
+    box-shadow:0 12px 40px rgba(14,31,71,.08);
+  }
+  .sb-chips{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+  .sb-chips span{
+    background:#f2f5fc;
+    border:1px solid #dbe3f5;
+    border-radius:12px;
+    padding:10px 16px;
+    color:#0e1f47;font-size:17px;font-weight:500;line-height:1.3;
+  }
+  .sb-chips span b{color:#ef4444;font-weight:700;margin-right:6px}
+  .sb-rows{display:grid;gap:14px}
+  .sb-row{
+    display:flex;align-items:center;gap:18px;
+    padding:18px 22px;
+    background:linear-gradient(90deg,#eafaf2,#f4f8ff);
+    border:1px solid #bfe8d3;
+    border-radius:14px;
+  }
+  .sb-row.sb-last{background:linear-gradient(90deg,#d9f5e8,#eaf3ff);border-color:#9bdcbb}
+  .sb-check{
+    flex:none;width:32px;height:32px;border-radius:50%;
+    border:1.5px solid #1fa56a;color:#1fa56a;
+    display:flex;align-items:center;justify-content:center;
+    font-size:16px;line-height:1;
+  }
+  .sb-amt{
+    flex:none;min-width:110px;padding-right:20px;
+    border-right:1px solid #bfe8d3;
+    color:#1fa56a;font-size:30px;font-weight:800;letter-spacing:-.01em;line-height:1.1;
+  }
+  .sb-txt{color:#31405f;font-size:19px;font-weight:500;line-height:1.35}
+  .sb-txt strong{color:#0e1f47;font-weight:700}
+  @media(max-width:560px){
+    .sb-wrap{padding:0 14px}
+    .sb-box{padding:18px 16px;border-radius:18px}
+    .sb-chips span{font-size:15px;padding:8px 12px}
+    .sb-row{gap:12px;padding:14px}
+    .sb-check{width:26px;height:26px;font-size:13px}
+    .sb-amt{min-width:84px;padding-right:12px;font-size:23px}
+    .sb-txt{font-size:16px}
+  }
+</style>
+
+<div class="sb-wrap">
+  <div class="sb-box">
+
+    <div class="sb-chips">
+      <span><b>✕</b>No chasing leads</span>
+      <span><b>✕</b>No lost appointments</span>
+      <span><b>✕</b>No kitchen-table guessing</span>
+    </div>
+
+    <div class="sb-rows">
+      <div class="sb-row"><div class="sb-check">✓</div><div class="sb-amt">$3,500</div><div class="sb-txt">Right now — 1 of 10 closed</div></div>
+      <div class="sb-row"><div class="sb-check">✓</div><div class="sb-amt">$10,500</div><div class="sb-txt">Same 10 leads — 3 of 10 closed</div></div>
+      <div class="sb-row"><div class="sb-check">✓</div><div class="sb-amt">$7,000</div><div class="sb-txt">Added every month</div></div>
+      <div class="sb-row sb-last"><div class="sb-check">✓</div><div class="sb-amt">$84,000</div><div class="sb-txt">Recovered revenue <strong>over a year</strong></div></div>
+    </div>
+
+  </div>
+</div>
+<!-- ===== END STATS BOX ===== -->
