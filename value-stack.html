@@ -1,0 +1,130 @@
+<!-- ===== VALUE STACK (banner + 2 cards) — copy & paste anywhere (GHL Custom HTML/JS element works) ===== -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  .vs-wrap{
+    padding:0 24px;
+    font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  .vs-inner{max-width:1100px;margin:0 auto}
+
+  /* top banner */
+  .vs-banner{
+    display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
+    background:#030814;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:22px;
+    padding:22px;
+    margin-bottom:22px;
+  }
+  .vs-left{display:flex;gap:18px;align-items:center;padding-left:4px}
+  .vs-bolt{
+    flex:none;width:56px;height:56px;border-radius:12px;
+    background:#0f1d38;
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;line-height:1;
+  }
+  .vs-title{margin:0 0 4px;color:#fff;font-size:28px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+  .vs-title em{font-style:normal;color:#2ee59d}
+  .vs-sub{margin:0;color:#e6ecf8;font-size:18px;font-weight:400}
+  .vs-sub strong{color:#fff;font-weight:700}
+  .vs-total{
+    background:linear-gradient(135deg,#0a1a45,#0b2a66);
+    border:1px solid rgba(42,155,255,.5);
+    border-radius:14px;
+    padding:22px 28px 24px;
+    min-width:380px;
+  }
+  .vs-total small{
+    display:block;margin-bottom:6px;
+    color:#aab6cf;font-size:13px;font-weight:500;letter-spacing:.22em;
+  }
+  .vs-total-row{display:flex;align-items:center;gap:22px}
+  .vs-old{
+    color:#fff;font-size:44px;font-weight:800;line-height:1;
+    text-decoration:line-through;text-decoration-color:#ef4444;text-decoration-thickness:4px;
+  }
+  .vs-now{color:#fff;font-size:20px;line-height:1.1}
+  .vs-now u{text-underline-offset:3px}
+  .vs-now b{display:block;margin-top:2px;color:#2ee59d;font-size:52px;font-weight:800;line-height:1}
+
+  /* cards */
+  .vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .vs-card{
+    display:flex;flex-direction:column;text-align:center;
+    background:linear-gradient(180deg,#0b1f4a,#0a1633);
+    border:1px solid rgba(46,229,157,.25);
+    border-radius:20px;
+    padding:30px 26px 26px;
+  }
+  .vs-card h3{margin:0 0 12px;color:#fff;font-size:28px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+  .vs-card h3 em{font-style:normal;color:#2ee59d}
+  .vs-card p{margin:0 0 22px;color:#aab6cf;font-size:18px;line-height:1.7}
+  .vs-meta{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .vs-tag{
+    background:rgba(255,255,255,.08);color:#cfd8ee;
+    border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600;
+  }
+  .vs-val{
+    background:#22c55e;color:#fff;
+    border-radius:8px;padding:8px 14px;font-size:15px;font-weight:700;
+  }
+
+  @media(max-width:900px){
+    .vs-banner{grid-template-columns:1fr}
+    .vs-total{min-width:0}
+  }
+  @media(max-width:700px){
+    .vs-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){
+    .vs-wrap{padding:0 14px}
+    .vs-banner{padding:16px;border-radius:18px}
+    .vs-title{font-size:22px}
+    .vs-sub{font-size:16px}
+    .vs-bolt{width:46px;height:46px;font-size:22px}
+    .vs-total{padding:18px}
+    .vs-old{font-size:36px}
+    .vs-now b{font-size:44px}
+    .vs-card h3{font-size:23px}
+    .vs-card p{font-size:16.5px}
+  }
+</style>
+
+<div class="vs-wrap">
+  <div class="vs-inner">
+
+    <div class="vs-banner">
+      <div class="vs-left">
+        <div class="vs-bolt">⚡</div>
+        <div>
+          <h3 class="vs-title">Super Paint Close <em>System</em></h3>
+          <p class="vs-sub">Book, confirm &amp; close <strong>in your first week</strong></p>
+        </div>
+      </div>
+      <div class="vs-total">
+        <small>TOTAL VALUE</small>
+        <div class="vs-total-row">
+          <div class="vs-old">$794</div>
+          <div class="vs-now">Get it <u>today</u> for <b>$17</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vs-grid">
+
+      <div class="vs-card">
+        <h3>The Super Paint Close <em>Playbook</em></h3>
+        <p>Six copy-paste tools — the post, the ad, the camera script, the lead network guide, the referral ask, and the SMS follow-up sequence.</p>
+        <div class="vs-meta"><span class="vs-tag">🔓 Instant Access</span><span class="vs-val">Value: $297</span></div>
+      </div>
+
+      <div class="vs-card">
+        <h3>The 7-Day Fast Start <em>Kit</em></h3>
+        <p>Seven one-page tools delivered one per day — built to guide you through your first week lead to close.</p>
+        <div class="vs-meta"><span class="vs-tag">🔓 Instant Access</span><span class="vs-val">Value: $497</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ===== END VALUE STACK ===== -->
