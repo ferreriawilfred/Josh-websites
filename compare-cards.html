@@ -1,0 +1,61 @@
+<!-- ===== COMPARE CARDS (Right now vs With the system) — copy & paste anywhere (GHL Custom HTML/JS element works) ===== -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  .cc-wrap{
+    padding:0 24px;
+    font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  .cc-grid{
+    max-width:900px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  }
+  .cc-card{
+    border-radius:20px;
+    padding:38px 28px 36px;
+    text-align:center;
+  }
+  .cc-before{background:#ffffff;border:2px solid #cfd9ef}
+  .cc-after{background:#0e1f47;border:2px solid #2ee59d}
+  .cc-label{
+    margin:0;
+    font-size:14px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    color:#6577a8;
+  }
+  .cc-after .cc-label{color:#2ee59d}
+  .cc-num{
+    margin:10px 0 12px;
+    font-size:64px;font-weight:800;line-height:1.1;letter-spacing:-.02em;
+    color:#ef4444;
+  }
+  .cc-after .cc-num{color:#2ee59d}
+  .cc-note{
+    margin:0;
+    font-size:19px;font-weight:400;line-height:1.55;
+    color:#31405f;
+  }
+  .cc-after .cc-note{color:#d7deea}
+  @media(max-width:700px){
+    .cc-wrap{padding:0 14px}
+    .cc-grid{grid-template-columns:1fr}
+    .cc-num{font-size:54px}
+  }
+</style>
+
+<div class="cc-wrap">
+  <div class="cc-grid">
+
+    <div class="cc-card cc-before">
+      <p class="cc-label">Right now</p>
+      <div class="cc-num">$3,500</div>
+      <p class="cc-note">10 leads · 1 closed · 10% close rate</p>
+    </div>
+
+    <div class="cc-card cc-after">
+      <p class="cc-label">With the system</p>
+      <div class="cc-num">$10,500</div>
+      <p class="cc-note">Same 10 leads · 3 closed · 30% close rate</p>
+    </div>
+
+  </div>
+</div>
+<!-- ===== END COMPARE CARDS ===== -->
