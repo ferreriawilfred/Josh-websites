@@ -552,7 +552,6 @@ footer{background:#0b0b0d}
 .js .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
   .js .rv{opacity:1;transform:none;transition:none}
-  .fx-blob,.fx-buckets,.fx-bar{display:none}
 }
 </style>
 </head>
@@ -1126,7 +1125,6 @@ footer{background:#0b0b0d}
     var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
     els.forEach(function(e){io.observe(e)});
   }else{els.forEach(function(e){e.classList.add('in')})}
-  if(reduce)return;
 
   // blurred colour blocks + progress bar + paint buckets
   var bar=document.getElementById('fxBar');
