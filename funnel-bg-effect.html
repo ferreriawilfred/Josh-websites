@@ -1,0 +1,65 @@
+<!-- ===== FUNNEL BACKGROUND EFFECT — blurred colour blocks + rainbow scroll bar =====
+     HOW TO USE (GoHighLevel):
+     Funnel > your page > Settings > Custom Code > "Footer Code" (or a Custom JS/HTML element).
+     Paste everything below. Set the page background to white in the builder.
+     Works on top of any section colours (it uses a blend mode, so you do NOT have to make sections transparent).
+-->
+<style>
+  /* rainbow progress bar at the very top */
+  .fxg-bar{
+    position:fixed;top:0;left:0;height:5px;width:0;z-index:99999;pointer-events:none;
+    background:linear-gradient(90deg,#ff6a00,#ffd000,#2bd96b,#1aa7ff,#8b5cf6,#ff3d8b);
+    box-shadow:0 0 10px rgba(255,106,0,.5);
+  }
+  /* blurred colour blocks */
+  .fxg-blobs{
+    position:fixed;inset:0;z-index:99998;pointer-events:none;overflow:hidden;
+    mix-blend-mode:multiply;           /* tints the page without covering it or blocking clicks */
+  }
+  .fxg-blob{
+    position:absolute;width:46vw;height:46vw;max-width:640px;max-height:640px;border-radius:50%;
+    filter:blur(90px);opacity:.30;background:hsl(var(--h,25) 100% 60%);will-change:transform;
+  }
+  .fxg-blob:nth-child(1){left:-12vw;top:6vh}
+  .fxg-blob:nth-child(2){right:-14vw;top:30vh;width:40vw;height:40vw;border-radius:36% 64% 58% 42% / 44% 38% 62% 56%}
+  .fxg-blob:nth-child(3){left:14vw;bottom:-18vh;width:36vw;height:36vw}
+  .fxg-blob:nth-child(4){right:8vw;bottom:-12vh;width:30vw;height:30vw;border-radius:36% 64% 58% 42% / 44% 38% 62% 56%}
+  @media(max-width:700px){.fxg-blob{opacity:.24}}
+</style>
+
+<script>
+(function(){
+  if(window.__fxgLoaded) return; window.__fxgLoaded = true;
+
+  /* ---- settings you can change ---- */
+  var BLOB_COUNT   = 4;     // 1-4
+  var SHOW_BAR     = true;  // rainbow progress bar
+  var START_HUE    = 20;    // 20 = orange. Colours shift from here as the visitor scrolls
+  var HUE_TRAVEL   = 720;   // degrees of colour change from top to bottom of the page
+
+  function build(){
+    var wrap=document.createElement('div'); wrap.className='fxg-blobs'; wrap.setAttribute('aria-hidden','true');
+    for(var i=0;i<BLOB_COUNT;i++){var b=document.createElement('div'); b.className='fxg-blob'; wrap.appendChild(b);}
+    document.body.appendChild(wrap);
+    var bar=null;
+    if(SHOW_BAR){bar=document.createElement('div'); bar.className='fxg-bar'; document.body.appendChild(bar);}
+    var blobs=[].slice.call(wrap.children), ticking=false;
+
+    function frame(){
+      ticking=false;
+      var y=window.pageYOffset||0, vh=window.innerHeight;
+      var h=Math.max(1,document.documentElement.scrollHeight-vh), p=Math.min(1,y/h);
+      if(bar) bar.style.width=(p*100)+'%';
+      blobs.forEach(function(b,i){
+        b.style.setProperty('--h',((i*85+p*HUE_TRAVEL+START_HUE)%360).toFixed(0));
+        b.style.transform='translate3d('+(Math.sin(p*6+i)*40)+'px,'+(-y*(0.05+i*0.025)%260)+'px,0)';
+      });
+    }
+    function req(){ if(!ticking){ticking=true;requestAnimationFrame(frame);} }
+    window.addEventListener('scroll',req,{passive:true});
+    window.addEventListener('resize',req);
+    frame();
+  }
+  if(document.body) build(); else document.addEventListener('DOMContentLoaded',build);
+})();
+</script>
