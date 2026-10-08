@@ -11,7 +11,8 @@
   /* rainbow progress bar at the very top */
   .fxg-bar{
     position:fixed;top:0;left:0;height:5px;width:0;z-index:99999;pointer-events:none;
-    background:linear-gradient(90deg,#ff6a00,#ffd000,#2bd96b,#1aa7ff,#8b5cf6,#ff3d8b);
+    /* gradient is pinned to the full screen width, so the colours are revealed as the bar grows */
+    background:linear-gradient(90deg,#ff6a00,#ffd000,#2bd96b,#1aa7ff,#8b5cf6,#ff3d8b) left top/100vw 100% no-repeat;
     box-shadow:0 0 10px rgba(255,106,0,.5);
   }
   /* colour-block layer (lives inside the page background, behind everything) */
