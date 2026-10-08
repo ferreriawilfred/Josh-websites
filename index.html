@@ -533,6 +533,15 @@ footer{background:#0b0b0d}
 .fx-blob.sq{border-radius:36% 64% 58% 42% / 44% 38% 62% 56%}
 
 
+
+/* phone: bigger, more saturated blobs so the colour is actually visible */
+@media(max-width:700px){
+  .fx-blob{width:95vw!important;height:95vw!important;max-width:none!important;max-height:none!important;filter:blur(55px);opacity:.55}
+  .fx-blob:nth-child(1){left:-30vw;top:2vh}
+  .fx-blob:nth-child(2){right:-35vw;top:34vh}
+  .fx-blob:nth-child(3){left:-20vw;bottom:-6vh}
+  .fx-blob:nth-child(4){right:-25vw;bottom:-2vh}
+}
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .js .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
