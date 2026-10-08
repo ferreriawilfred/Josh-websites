@@ -356,9 +356,213 @@ section.main{padding:0 0 72px;background:radial-gradient(ellipse 55% 30% at 90% 
 .tl .stp{background:rgba(46,229,157,.08)}
 .tl{padding-bottom:52px}
 @media(max-width:560px){.bar b{font-size:18px}.row2 b{min-width:84px;font-size:22px}.row2{gap:12px;padding:14px}}
+
+/* =====================================================================
+   CLIENT THEME — white background, orange + black headlines,
+   blurred colour blocks and paint buckets that react to scroll
+   ===================================================================== */
+:root{
+  --o:#ff6a00; --o2:#ff8a1f; --od:#d95500; --o-soft:#fff1e6; --o-soft2:#ffe3cc;
+  --k:#111111; --k2:#1b1b1f; --gray:#4b5563; --gray2:#6b7280; --ln:#ececec;
+}
+html{background:#fff}
+body{background:#fff;color:var(--k);position:relative;overflow-x:hidden}
+section,section.deep,section.main{background:transparent;position:relative;z-index:1}
+section.light{background:rgba(255,244,234,.72);color:var(--k)}
+section.light p,section.light li{color:var(--gray)}
+section.light strong,section.light h2,section.light h3{color:var(--k)}
+h1,h2,h3{color:var(--k)}
+h1 em,h2 em,.m,.b,.light h2 em,.light .m{color:var(--o);font-style:normal}
+h1 em,h2 em{background:linear-gradient(transparent 66%,rgba(255,106,0,.22) 66%);padding:0 .08em}
+p{color:var(--gray)}
+p strong,li strong{color:var(--k)}
+.big,.light .big{color:var(--k)}
+.lead{color:var(--gray)}
+.eyebrow{color:var(--o)}
+
+/* header */
+.promo{background:var(--k);color:#ffb067}
+.nav{background:#fff;border-bottom:1px solid var(--ln)}
+.logo{color:var(--k)}.logo span{color:var(--o)}
+.help{color:var(--gray2)}.help b{color:var(--o)}
+
+/* hero */
+.hero{background:transparent}
+.pill{border-color:rgba(255,106,0,.45);background:var(--o-soft);color:var(--k)}
+.pill::before{background:var(--o);box-shadow:0 0 10px var(--o)}
+.hero .sub,.hero .sub strong{color:var(--k)}
+.hero .sub{color:var(--gray)}
+
+/* placeholders */
+.ph{background:repeating-linear-gradient(135deg,#f6f6f6 0 14px,#fbfbfb 14px 28px);border:1.5px dashed #cfcfd4;color:var(--gray2)}
+.ph::before{color:#a1a1aa}
+.light .ph{background:#fff;border-color:#e0c3a8}
+
+/* price bar (stays black for punch) */
+.cta{background:var(--k);border:3px solid var(--k);box-shadow:8px 8px 0 var(--o)}
+.cta .ask{color:#fff}.cta .ask span{color:var(--o2)}
+.price b{color:#fff}.price s{color:#9ca3af}
+.cta .trust{color:#e5e7eb}
+.btn{background:linear-gradient(135deg,var(--od),var(--o2));box-shadow:0 8px 22px rgba(255,106,0,.38)}
+
+/* offer card */
+.pay{background:#fff;color:var(--k);box-shadow:0 0 0 2px var(--o),0 18px 50px rgba(255,106,0,.25)}
+.pay .few{color:var(--k)}
+.pay h2{color:var(--k)}.pay h2 s{color:#9ca3af}.pay h2 em{color:var(--o);background:none}
+.pay p{color:var(--gray)}
+.pay .off{background:var(--o-soft);color:var(--gray)}.pay .off b{color:var(--o)}
+.pay .secure{color:var(--gray2)}
+.seal{background:var(--o-soft2);color:var(--k)}
+.seal i{background:radial-gradient(circle,#111 55%,var(--o) 56%);border-color:#ffb067}
+.seal b{color:var(--k)}
+.pay .inc{border-top-color:#f0e2d6}
+.incitem{border-bottom-color:#f3e8dd}
+.incitem h3{color:var(--k)}.incitem h3 em,.vcard h3 em,.banner h3 em{color:var(--o);background:none}
+.incitem p{color:var(--gray)}
+.tag{background:#f3f4f6;color:var(--gray)}
+.val{background:var(--o);color:#fff}
+
+/* lists + stats */
+.arrow-list li{border-bottom-color:var(--ln);color:var(--gray)}
+.arrow-list li::before{color:var(--o)}
+.light .arrow-list li{border-color:#f0dccb}.light .arrow-list li::before{color:var(--o)}
+.punch p{color:var(--k)}
+.stat{background:var(--k);border:0}
+.stat b{color:var(--o2)}.stat span{color:#d1d5db}
+
+/* bars */
+.bar{border:1px solid #f0e4da;background:linear-gradient(90deg,rgba(255,106,0,.30) 0,rgba(255,138,31,.16) var(--w),#f6f6f6 var(--w))}
+.bar i{background:var(--o);box-shadow:0 0 8px var(--o)}
+.bar b{color:var(--k)}.bar span{color:var(--gray2)}
+
+/* leak / advice cards */
+.leak,.advice div{background:#fff;border:1px solid var(--ln);border-top:3px solid var(--o);box-shadow:0 8px 26px rgba(17,17,17,.06)}
+.leak::before,.advice div::before{border-color:var(--o);color:var(--o)}
+.leak b,.advice q{color:var(--k)}
+.leak p,.advice p{color:var(--gray)}
+
+/* testimonials */
+.tcard{background:#fff;border:1px solid var(--ln);box-shadow:0 8px 26px rgba(17,17,17,.06)}
+.tcard blockquote{color:var(--k)}
+.tcard cite{color:var(--od);background:var(--o-soft);border-color:rgba(255,106,0,.4)}
+
+/* two things */
+.num{background:var(--o)}
+.two h3{color:var(--k)}.two h3 em{color:var(--o);background:none}
+.panel{background:var(--o-soft2)}
+.callout,.light .callout{background:var(--o-soft);border-color:rgba(255,106,0,.45);color:var(--k)}
+.ch{background:var(--o-soft2);color:var(--gray)}.ch strong{color:var(--k)}
+
+/* tool cards */
+.card{background:#fff;border:1px solid var(--ln);box-shadow:0 8px 26px rgba(17,17,17,.06)}
+.card .ic{background:var(--o-soft);border-color:rgba(255,106,0,.4)}
+.card h3{color:var(--k)}.card p{color:var(--gray)}
+
+/* compare + darkbox */
+.col.before{background:#fff;border-color:#f0dccb}
+.col.after{background:var(--k);border-color:var(--o)}
+.col.after small{color:var(--o2)}.col.after .num2{color:var(--o2)}.col.after p{color:#d1d5db}
+.col.before .num2{color:var(--k)}
+.darkbox{background:var(--k);border:0}
+.chips span{background:#1f1f24;border-color:#2e2e35;color:#fff}
+.row2{border-color:rgba(255,138,31,.35);background:linear-gradient(90deg,rgba(255,106,0,.16),rgba(255,255,255,.03))}
+.row2 i{border-color:var(--o2);color:var(--o2)}
+.row2 b{color:var(--o2);border-right-color:rgba(255,138,31,.35)}
+.row2 em{color:#e5e7eb}.row2 em strong{color:#fff}
+.row2.last{background:linear-gradient(90deg,rgba(255,106,0,.3),rgba(255,255,255,.05))}
+
+/* value stack */
+.banner{background:var(--k);border:0}
+.banner h3{color:#fff}.banner p{color:#e5e7eb}
+.bolt{background:#26262c}
+.banner .br{background:linear-gradient(135deg,#1c1c20,#2a1a0c);border-color:var(--o)}
+.banner .br small{color:#d1d5db}.banner .br s{color:#fff}.banner .br div{color:#fff}.banner .br b{color:var(--o2)}
+.vcard{background:#fff;border:1px solid #f0dccb;box-shadow:0 8px 26px rgba(17,17,17,.06)}
+.vcard h3{color:var(--k)}.vcard p{color:var(--gray)}
+.vcard .tag{background:#f3f4f6;color:var(--gray)}
+.chk li{color:var(--gray)}.chk li::before{color:var(--o)}
+
+/* bonus days */
+.bonus-tag{background:var(--o-soft);border-color:rgba(255,106,0,.5);color:var(--od)}
+.day{background:#fff;border:1px solid var(--ln);box-shadow:0 8px 26px rgba(17,17,17,.06)}
+.day .d{background:var(--o-soft);border-color:rgba(255,106,0,.45);color:var(--o)}
+.day .d small{color:var(--gray2)}
+.day h3{color:var(--k)}.day p{color:var(--gray)}
+.divider{border-color:var(--o);color:var(--k);background:rgba(255,255,255,.7)}
+section.deep p,section.deep li{color:var(--gray)}
+section.deep .divider{color:var(--k)}
+
+/* timeline */
+.timeline::before{background:linear-gradient(var(--o),rgba(255,106,0,.15))}
+.tl .dot{background:var(--o);box-shadow:0 0 0 5px rgba(255,106,0,.2),0 0 14px var(--o)}
+.stp,.tl .stp{color:var(--od);background:var(--o-soft);border-color:rgba(255,106,0,.45)}
+.tm{color:var(--gray2)}
+.tl h3{color:var(--k)}.tl p em{color:var(--gray2)}
+.incl{background:var(--o-soft);border-color:rgba(255,106,0,.45);color:var(--od)}
+.tlimg{border-color:rgba(255,106,0,.35);box-shadow:0 10px 30px rgba(255,106,0,.12)}
+
+/* faq / guarantee */
+details{border:1px solid var(--ln)}
+summary::after{color:var(--o)}
+.guar{background:var(--o-soft);border:2px solid var(--o);box-shadow:0 0 50px rgba(255,106,0,.18)}
+.guar .badge{background:radial-gradient(circle,#111 58%,var(--o) 59%);border-color:#ffb067}
+.guar h2{color:var(--k)}.guar p{color:var(--gray)}.guar p strong{color:var(--k)}
+
+/* closing section = black block */
+section.deep:last-of-type{background:var(--k)}
+section.deep:last-of-type h2,section.deep:last-of-type p strong,section.deep:last-of-type .big{color:#fff}
+section.deep:last-of-type p{color:#d1d5db}
+section.deep:last-of-type h2 em{color:var(--o2)}
+
+section.deep:last-of-type .cta{background:#1b1b1f;border-color:var(--o);box-shadow:8px 8px 0 var(--o)}
+footer{background:#0b0b0d}
+.sticky{background:rgba(255,255,255,.96);border-top:1px solid var(--ln)}
+
+/* ---------------- EFFECTS ---------------- */
+.promo,.nav,header.hero,footer{position:relative;z-index:1}
+.fx-bar{position:fixed;top:0;left:0;height:5px;width:0;z-index:100;
+  background:linear-gradient(90deg,#ff6a00,#ffd000,#2bd96b,#1aa7ff,#8b5cf6,#ff3d8b);
+  box-shadow:0 0 10px rgba(255,106,0,.5)}
+.fx-blobs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.fx-blob{position:absolute;width:46vw;height:46vw;max-width:640px;max-height:640px;border-radius:50%;
+  filter:blur(90px);opacity:.27;background:hsl(var(--h,25) 100% 60%);will-change:transform}
+.fx-blob:nth-child(1){left:-12vw;top:6vh}
+.fx-blob:nth-child(2){right:-14vw;top:30vh;width:40vw;height:40vw}
+.fx-blob:nth-child(3){left:14vw;bottom:-18vh;width:36vw;height:36vw}
+.fx-blob:nth-child(4){right:8vw;bottom:-12vh;width:30vw;height:30vw}
+.fx-blob.sq{border-radius:36% 64% 58% 42% / 44% 38% 62% 56%}
+
+.fx-buckets{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.bk{position:absolute;width:110px;height:120px;will-change:transform;--c:#ff6a00;--tilt:0deg;--pour:0}
+.bk.l{left:max(6px,calc((100vw - 1160px)/2 - 120px))}
+.bk.r{right:max(6px,calc((100vw - 1160px)/2 - 120px))}
+.bk svg{width:100%;height:100%;overflow:visible;transform:rotate(var(--tilt));transform-origin:50% 90%;transition:transform .12s linear;
+  filter:drop-shadow(0 8px 10px rgba(0,0,0,.18))}
+.bk .stream{position:absolute;top:34px;width:12px;height:calc(var(--pour) * 150px);border-radius:0 0 8px 8px;
+  background:linear-gradient(var(--c),var(--c));opacity:calc(.25 + var(--pour) * .75);transition:height .12s linear}
+.bk.l .stream{right:-6px}
+.bk.r .stream{left:-6px}
+.bk .splat{position:absolute;top:calc(34px + var(--pour) * 150px);width:46px;height:18px;border-radius:50%;background:var(--c);
+  opacity:calc(var(--pour) * .85);transform:scale(calc(.4 + var(--pour) * .8))}
+.bk.l .splat{right:-22px}.bk.r .splat{left:-22px}
+@media(max-width:1420px){.bk{transform:scale(.62);transform-origin:center}.bk.l{left:-26px}.bk.r{right:-26px}}
+@media(max-width:700px){.fx-buckets{display:none}.fx-blob{opacity:.26}}
+
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+  .fx-blob,.fx-buckets,.fx-bar{display:none}
+}
 </style>
 </head>
 <body>
+<!-- scroll effects: progress bar, blurred colour blocks, paint buckets -->
+<div class="fx-bar" id="fxBar"></div>
+<div class="fx-blobs" aria-hidden="true">
+  <div class="fx-blob"></div><div class="fx-blob sq"></div><div class="fx-blob"></div><div class="fx-blob sq"></div>
+</div>
+
 
 <!-- Set the checkout link once here; every CTA button uses it. -->
 <script>window.CHECKOUT_URL = "#checkout";</script>
@@ -808,6 +1012,151 @@ section.main{padding:0 0 72px;background:radial-gradient(ellipse 55% 30% at 90% 
 
 <div class="sticky" id="sticky"><a class="btn js-checkout" href="#checkout">Get the Playbook — $17 →</a></div>
 
+<div class="fx-buckets" aria-hidden="true">
+  <div class="bk l" style="--c:#ff6a00;top:4%">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M30 34 C30 6 90 6 90 34" fill="none" stroke="#2b2b30" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22 38 L98 38 L88 108 Q60 116 32 108 Z" fill="var(--c)"/>
+      <path d="M22 38 L98 38 L95 58 L25 58 Z" fill="rgba(255,255,255,.28)"/>
+      <ellipse cx="60" cy="38" rx="38" ry="9" fill="#1b1b1f"/>
+      <ellipse cx="60" cy="38" rx="31" ry="6" fill="var(--c)"/>
+      <rect x="44" y="70" width="32" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+    </svg>
+    <i class="stream"></i><i class="splat"></i>
+  </div>
+  <div class="bk r" style="--c:#1aa7ff;top:13%">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M30 34 C30 6 90 6 90 34" fill="none" stroke="#2b2b30" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22 38 L98 38 L88 108 Q60 116 32 108 Z" fill="var(--c)"/>
+      <path d="M22 38 L98 38 L95 58 L25 58 Z" fill="rgba(255,255,255,.28)"/>
+      <ellipse cx="60" cy="38" rx="38" ry="9" fill="#1b1b1f"/>
+      <ellipse cx="60" cy="38" rx="31" ry="6" fill="var(--c)"/>
+      <rect x="44" y="70" width="32" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+    </svg>
+    <i class="stream"></i><i class="splat"></i>
+  </div>
+  <div class="bk l" style="--c:#2bd96b;top:24%">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M30 34 C30 6 90 6 90 34" fill="none" stroke="#2b2b30" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22 38 L98 38 L88 108 Q60 116 32 108 Z" fill="var(--c)"/>
+      <path d="M22 38 L98 38 L95 58 L25 58 Z" fill="rgba(255,255,255,.28)"/>
+      <ellipse cx="60" cy="38" rx="38" ry="9" fill="#1b1b1f"/>
+      <ellipse cx="60" cy="38" rx="31" ry="6" fill="var(--c)"/>
+      <rect x="44" y="70" width="32" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+    </svg>
+    <i class="stream"></i><i class="splat"></i>
+  </div>
+  <div class="bk r" style="--c:#ff3d8b;top:35%">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M30 34 C30 6 90 6 90 34" fill="none" stroke="#2b2b30" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22 38 L98 38 L88 108 Q60 116 32 108 Z" fill="var(--c)"/>
+      <path d="M22 38 L98 38 L95 58 L25 58 Z" fill="rgba(255,255,255,.28)"/>
+      <ellipse cx="60" cy="38" rx="38" ry="9" fill="#1b1b1f"/>
+      <ellipse cx="60" cy="38" rx="31" ry="6" fill="var(--c)"/>
+      <rect x="44" y="70" width="32" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+    </svg>
+    <i class="stream"></i><i class="splat"></i>
+  </div>
+  <div class="bk l" style="--c:#ffd000;top:47%">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M30 34 C30 6 90 6 90 34" fill="none" stroke="#2b2b30" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22 38 L98 38 L88 108 Q60 116 32 108 Z" fill="var(--c)"/>
+      <path d="M22 38 L98 38 L95 58 L25 58 Z" fill="rgba(255,255,255,.28)"/>
+      <ellipse cx="60" cy="38" rx="38" ry="9" fill="#1b1b1f"/>
+      <ellipse cx="60" cy="38" rx="31" ry="6" fill="var(--c)"/>
+      <rect x="44" y="70" width="32" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+    </svg>
+    <i class="stream"></i><i class="splat"></i>
+  </div>
+  <div class="bk r" style="--c:#8b5cf6;top:58%">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M30 34 C30 6 90 6 90 34" fill="none" stroke="#2b2b30" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22 38 L98 38 L88 108 Q60 116 32 108 Z" fill="var(--c)"/>
+      <path d="M22 38 L98 38 L95 58 L25 58 Z" fill="rgba(255,255,255,.28)"/>
+      <ellipse cx="60" cy="38" rx="38" ry="9" fill="#1b1b1f"/>
+      <ellipse cx="60" cy="38" rx="31" ry="6" fill="var(--c)"/>
+      <rect x="44" y="70" width="32" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+    </svg>
+    <i class="stream"></i><i class="splat"></i>
+  </div>
+  <div class="bk l" style="--c:#ff6a00;top:69%">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M30 34 C30 6 90 6 90 34" fill="none" stroke="#2b2b30" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22 38 L98 38 L88 108 Q60 116 32 108 Z" fill="var(--c)"/>
+      <path d="M22 38 L98 38 L95 58 L25 58 Z" fill="rgba(255,255,255,.28)"/>
+      <ellipse cx="60" cy="38" rx="38" ry="9" fill="#1b1b1f"/>
+      <ellipse cx="60" cy="38" rx="31" ry="6" fill="var(--c)"/>
+      <rect x="44" y="70" width="32" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+    </svg>
+    <i class="stream"></i><i class="splat"></i>
+  </div>
+  <div class="bk r" style="--c:#2bd96b;top:80%">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M30 34 C30 6 90 6 90 34" fill="none" stroke="#2b2b30" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22 38 L98 38 L88 108 Q60 116 32 108 Z" fill="var(--c)"/>
+      <path d="M22 38 L98 38 L95 58 L25 58 Z" fill="rgba(255,255,255,.28)"/>
+      <ellipse cx="60" cy="38" rx="38" ry="9" fill="#1b1b1f"/>
+      <ellipse cx="60" cy="38" rx="31" ry="6" fill="var(--c)"/>
+      <rect x="44" y="70" width="32" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+    </svg>
+    <i class="stream"></i><i class="splat"></i>
+  </div>
+  <div class="bk l" style="--c:#1aa7ff;top:90%">
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M30 34 C30 6 90 6 90 34" fill="none" stroke="#2b2b30" stroke-width="4" stroke-linecap="round"/>
+      <path d="M22 38 L98 38 L88 108 Q60 116 32 108 Z" fill="var(--c)"/>
+      <path d="M22 38 L98 38 L95 58 L25 58 Z" fill="rgba(255,255,255,.28)"/>
+      <ellipse cx="60" cy="38" rx="38" ry="9" fill="#1b1b1f"/>
+      <ellipse cx="60" cy="38" rx="31" ry="6" fill="var(--c)"/>
+      <rect x="44" y="70" width="32" height="18" rx="4" fill="rgba(255,255,255,.85)"/>
+    </svg>
+    <i class="stream"></i><i class="splat"></i>
+  </div>
+</div>
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('js');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // scroll reveal
+  var sel='.leak,.advice div,.tcard,.card,.day,.vcard,.bar,.row2,.ch,.panel,.stat,.col,.tl,.two,.pay .incitem,.guar,details';
+  var els=document.querySelectorAll(sel);
+  els.forEach(function(e){e.classList.add('rv')});
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  }else{els.forEach(function(e){e.classList.add('in')})}
+  if(reduce)return;
+
+  // blurred colour blocks + progress bar + paint buckets
+  var bar=document.getElementById('fxBar');
+  var blobs=[].slice.call(document.querySelectorAll('.fx-blob'));
+  var bks=[].slice.call(document.querySelectorAll('.bk'));
+  var ticking=false;
+  function frame(){
+    ticking=false;
+    var y=window.scrollY,vh=window.innerHeight,h=document.documentElement.scrollHeight-vh;
+    var p=h>0?y/h:0;
+    bar.style.width=(p*100)+'%';
+    blobs.forEach(function(b,i){
+      b.style.setProperty('--h',((i*85+p*720+20)%360).toFixed(0));
+      b.style.transform='translate3d('+(Math.sin(p*6+i)*40)+'px,'+(-y*(0.05+i*0.025)%260)+'px,0)';
+    });
+    bks.forEach(function(b,i){
+      var r=b.getBoundingClientRect();
+      var t=1-(r.top+r.height/2)/vh;           // 0 = entering at bottom, 1 = leaving at top
+      var pour=Math.max(0,Math.min(1,(t-.18)/.5)) * (t>1.05?Math.max(0,1-(t-1.05)/.25):1);
+      var dir=b.classList.contains('l')?1:-1;
+      b.style.setProperty('--tilt',(dir*pour*38).toFixed(1)+'deg');
+      b.style.setProperty('--pour',pour.toFixed(3));
+    });
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  window.addEventListener('scroll',req,{passive:true});
+  window.addEventListener('resize',req);
+  frame();
+})();
+</script>
 <script>
   // Point every CTA at the checkout link set at the top of the page.
   document.querySelectorAll('.js-checkout').forEach(function(a){ a.href = window.CHECKOUT_URL; });
