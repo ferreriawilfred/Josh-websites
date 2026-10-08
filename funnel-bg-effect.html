@@ -19,6 +19,7 @@
   .fxg-blob{
     position:absolute;width:46vw;height:46vw;max-width:640px;max-height:640px;border-radius:50%;
     filter:blur(90px);opacity:calc(var(--fxg-i,1) * .20);background:hsl(var(--h,25) 100% 60%);will-change:transform;
+    transition:background-color 1.2s ease-out,transform .9s ease-out;
   }
   .fxg-blob:nth-child(1){left:-12vw;top:6vh}
   .fxg-blob:nth-child(2){right:-14vw;top:30vh;width:40vw;height:40vw;border-radius:36% 64% 58% 42% / 44% 38% 62% 56%}
@@ -43,7 +44,8 @@
   var SHOW_BAR     = true;  // rainbow progress bar
   var INTENSITY    = 1;     // 0.5 = softer, 1 = default, 1.5 = stronger
   var START_HUE    = 20;    // 20 = orange. Colours shift from here as the visitor scrolls
-  var HUE_TRAVEL   = 720;   // degrees of colour change from top to bottom of the page
+  var HUE_TRAVEL   = 160;   // colour change from top to bottom of the page (small = smooth, big = fast)
+  var SPREAD       = 38;    // colour difference between the blobs (small = harmonious)
 
   function build(){
     var wrap=document.createElement('div'); wrap.className='fxg-blobs'; wrap.setAttribute('aria-hidden','true');
@@ -60,7 +62,7 @@
       var h=Math.max(1,document.documentElement.scrollHeight-vh), p=Math.min(1,y/h);
       if(bar) bar.style.width=(p*100)+'%';
       blobs.forEach(function(b,i){
-        b.style.setProperty('--h',((i*85+p*HUE_TRAVEL+START_HUE)%360).toFixed(0));
+        b.style.setProperty('--h',((i*SPREAD+p*HUE_TRAVEL+START_HUE)%360).toFixed(1));
         b.style.transform='translate3d('+(Math.sin(p*6+i)*40)+'px,'+(-y*(0.05+i*0.025)%260)+'px,0)';
       });
     }
