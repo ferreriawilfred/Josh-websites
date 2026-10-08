@@ -10,10 +10,11 @@
 <style>
   /* rainbow progress bar at the very top */
   .fxg-bar{
-    position:fixed;top:0;left:0;height:5px;width:0;z-index:99999;pointer-events:none;
-    /* gradient is pinned to the full screen width, so the colours are revealed as the bar grows */
-    background:linear-gradient(90deg,#ff6a00,#ffd000,#2bd96b,#1aa7ff,#8b5cf6,#ff3d8b) left top/100vw 100% no-repeat;
-    box-shadow:0 0 10px rgba(255,106,0,.5);
+    position:fixed;top:0;left:0;height:7px;width:0;z-index:99999;pointer-events:none;
+    /* colours are set by the script so the bar matches the blurred blobs; the gradient is pinned to the
+       full screen width, so the colours are revealed as the bar grows */
+    background:linear-gradient(90deg,hsl(20 100% 60%),hsl(58 100% 60%)) left top/100vw 100% no-repeat;
+    filter:blur(3px);opacity:.95;
   }
   /* colour-block layer (lives inside the page background, behind everything) */
   .fxg-blobs{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
@@ -79,10 +80,14 @@
       var y=window.pageYOffset||0, vh=window.innerHeight;
       var h=Math.max(1,document.documentElement.scrollHeight-vh), p=Math.min(1,y/h);
       if(bar) bar.style.width=(p*100)+'%';
+      var stops=[];
       blobs.forEach(function(b,i){
-        b.style.setProperty('--h',((i*SPREAD+p*HUE_TRAVEL+START_HUE)%360).toFixed(1));
+        var hh=((i*SPREAD+p*HUE_TRAVEL+START_HUE)%360);
+        stops.push('hsl('+hh.toFixed(1)+' 100% 60%)');
+        b.style.setProperty('--h',hh.toFixed(1));
         b.style.transform='translate3d('+(Math.sin(p*6+i)*40)+'px,'+(-y*(0.05+i*0.025)%260)+'px,0)';
       });
+      if(bar&&stops.length){ if(stops.length<2)stops.push(stops[0]); bar.style.background='linear-gradient(90deg,'+stops.join(',')+') left top/100vw 100% no-repeat'; }
     }
     function req(){ if(!ticking){ticking=true;requestAnimationFrame(frame);} }
     window.addEventListener('scroll',req,{passive:true});
