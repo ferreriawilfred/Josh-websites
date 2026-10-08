@@ -18,7 +18,7 @@
   }
   .fxg-blob{
     position:absolute;width:46vw;height:46vw;max-width:640px;max-height:640px;border-radius:50%;
-    filter:blur(90px);opacity:.30;background:hsl(var(--h,25) 100% 60%);will-change:transform;
+    filter:blur(90px);opacity:calc(var(--fxg-i,1) * .20);background:hsl(var(--h,25) 100% 60%);will-change:transform;
   }
   .fxg-blob:nth-child(1){left:-12vw;top:6vh}
   .fxg-blob:nth-child(2){right:-14vw;top:30vh;width:40vw;height:40vw;border-radius:36% 64% 58% 42% / 44% 38% 62% 56%}
@@ -26,7 +26,7 @@
   .fxg-blob:nth-child(4){right:8vw;bottom:-12vh;width:30vw;height:30vw;border-radius:36% 64% 58% 42% / 44% 38% 62% 56%}
   /* phone: bigger, more saturated blobs so the colour is actually visible */
   @media(max-width:700px){
-    .fxg-blob{width:95vw!important;height:95vw!important;max-width:none!important;max-height:none!important;filter:blur(55px);opacity:.55}
+    .fxg-blob{width:95vw!important;height:95vw!important;max-width:none!important;max-height:none!important;filter:blur(60px);opacity:calc(var(--fxg-i,1) * .32)}
     .fxg-blob:nth-child(1){left:-30vw;top:2vh}
     .fxg-blob:nth-child(2){right:-35vw;top:34vh}
     .fxg-blob:nth-child(3){left:-20vw;bottom:-6vh}
@@ -41,12 +41,14 @@
   /* ---- settings you can change ---- */
   var BLOB_COUNT   = 4;     // 1-4
   var SHOW_BAR     = true;  // rainbow progress bar
+  var INTENSITY    = 1;     // 0.5 = softer, 1 = default, 1.5 = stronger
   var START_HUE    = 20;    // 20 = orange. Colours shift from here as the visitor scrolls
   var HUE_TRAVEL   = 720;   // degrees of colour change from top to bottom of the page
 
   function build(){
     var wrap=document.createElement('div'); wrap.className='fxg-blobs'; wrap.setAttribute('aria-hidden','true');
     for(var i=0;i<BLOB_COUNT;i++){var b=document.createElement('div'); b.className='fxg-blob'; wrap.appendChild(b);}
+    wrap.style.setProperty('--fxg-i',INTENSITY);
     document.body.appendChild(wrap);
     var bar=null;
     if(SHOW_BAR){bar=document.createElement('div'); bar.className='fxg-bar'; document.body.appendChild(bar);}
