@@ -10,11 +10,11 @@
 <style>
   /* rainbow progress bar at the very top */
   .fxg-bar{
-    position:fixed;top:0;left:0;height:7px;width:0;z-index:99999;pointer-events:none;
-    /* colours are set by the script so the bar matches the blurred blobs; the gradient is pinned to the
-       full screen width, so the colours are revealed as the bar grows */
+    position:fixed;top:0;left:0;height:3px;width:0;z-index:99999;pointer-events:none;
+    /* a thin, crisp bar. Colours are set by the script so it matches the blurred blobs; the gradient is
+       pinned to the full screen width, so the colours are revealed as the bar grows */
     background:linear-gradient(90deg,hsl(20 100% 60%),hsl(58 100% 60%)) left top/100vw 100% no-repeat;
-    filter:blur(3px);opacity:.95;
+    box-shadow:0 2px 10px 1px hsl(58 100% 60% / .55);   /* soft glow under the bar */
   }
   /* colour-block layer (lives inside the page background, behind everything) */
   .fxg-blobs{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
@@ -87,7 +87,7 @@
         b.style.setProperty('--h',hh.toFixed(1));
         b.style.transform='translate3d('+(Math.sin(p*6+i)*40)+'px,'+(-y*(0.05+i*0.025)%260)+'px,0)';
       });
-      if(bar&&stops.length){ if(stops.length<2)stops.push(stops[0]); bar.style.background='linear-gradient(90deg,'+stops.join(',')+') left top/100vw 100% no-repeat'; }
+      if(bar&&stops.length){ if(stops.length<2)stops.push(stops[0]); bar.style.background='linear-gradient(90deg,'+stops.join(',')+') left top/100vw 100% no-repeat'; bar.style.boxShadow='0 2px 10px 1px '+stops[stops.length-1].replace(')',' / .55)'); }
     }
     function req(){ if(!ticking){ticking=true;requestAnimationFrame(frame);} }
     window.addEventListener('scroll',req,{passive:true});
