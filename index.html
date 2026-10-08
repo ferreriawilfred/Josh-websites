@@ -542,6 +542,28 @@ footer{background:#0b0b0d}
   .fx-blob:nth-child(3){left:-20vw;bottom:-6vh}
   .fx-blob:nth-child(4){right:-25vw;bottom:-2vh}
 }
+
+/* ---- paint bucket artwork ---- */
+.hero .wrap.wide{position:relative}
+.bucket{display:block;height:auto;pointer-events:none;user-select:none;
+  transform:translate3d(0,var(--ty,0px),0) rotate(var(--rot,0deg));will-change:transform;
+  filter:drop-shadow(0 22px 26px rgba(255,106,0,.28))}
+.bucket-hero{position:absolute;z-index:0;width:clamp(210px,24vw,340px);right:-2%;top:-6px}
+.bucket-close{width:clamp(200px,26vw,300px);margin:0 auto -34px;position:relative;z-index:2}
+@media(min-width:1101px){
+  /* leave room on the right for the bucket */
+  .hero h1,.hero .sub{max-width:calc(100% - 340px);margin-left:0;margin-right:auto;text-align:left}
+  .hero .pill{margin-left:0;margin-right:auto}
+  .bucket-hero{width:clamp(250px,25vw,360px);right:-1%;top:-20px}
+}
+@media(max-width:1100px){
+  .bucket-hero{position:relative;right:auto;top:auto;width:190px;margin:-4px auto 8px}
+  .bucket-close{width:230px;margin-bottom:-30px}
+}
+@media(max-width:700px){
+  .bucket-hero{width:170px}
+  .bucket-close{width:210px;margin-bottom:-28px}
+}
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .js .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
@@ -566,6 +588,7 @@ footer{background:#0b0b0d}
 <!-- HERO -->
 <header class="hero">
   <div class="wrap wide">
+    <img class="bucket bucket-hero" data-float src="paint-bucket.webp" alt="" width="1254" height="1254" decoding="async">
     <div class="pill">For residential painting contractors who want a steady stream of booked estimates</div>
     <h1>How I Went From Chasing Estimates to <em>Booking &amp; Closing 20+ a Month</em> On Autopilot — And Making <span class="b">$1M in 2026 Alone</span> — Using a Playbook Any Painter Can Copy in a Weekend</h1>
     <p class="sub"><strong>Without Losing Time With My Family. Without Dropping Below 25% Profit Margins.</strong><br>For residential painting contractors who want a steady stream of booked estimates — without chasing leads, losing appointments, or standing at the kitchen table not knowing what to say.</p>
@@ -984,6 +1007,7 @@ footer{background:#0b0b0d}
     <p>What you haven't had is a way to get in front of the right people consistently — without paying a platform that splits your lead four ways, without hiring an agency that charges $2,000 a month before they've shown you a single result, without spending your evenings figuring out what to post.</p>
     <p>That's what the Super Paint Playbook is for.</p>
     <p><strong style="color:#fff">You've been doing it from nothing long enough.</strong></p>
+        <img class="bucket bucket-close" data-float src="paint-bucket.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async">
     <div class="cta">
       <div class="row">
         <div class="price"><b>$17</b><s>$97</s></div>
@@ -1021,6 +1045,7 @@ footer{background:#0b0b0d}
 
   // blurred colour blocks + progress bar
   var bar=document.getElementById('fxBar');
+  var floats=[].slice.call(document.querySelectorAll('[data-float]'));
   var blobs=[].slice.call(document.querySelectorAll('.fx-blob'));
   var ticking=false;
   function frame(){
@@ -1028,6 +1053,11 @@ footer{background:#0b0b0d}
     var y=window.scrollY,vh=window.innerHeight,h=document.documentElement.scrollHeight-vh;
     var p=h>0?y/h:0;
     bar.style.width=(p*100)+'%';
+    floats.forEach(function(el){
+      var r=el.getBoundingClientRect(), t=(r.top+r.height/2)/vh-.5;   // -.5 .. .5 around screen centre
+      el.style.setProperty('--ty',(t*-70).toFixed(1)+'px');
+      el.style.setProperty('--rot',(t*-10).toFixed(2)+'deg');
+    });
     blobs.forEach(function(b,i){
       b.style.setProperty('--h',((i*85+p*720+20)%360).toFixed(0));
       b.style.transform='translate3d('+(Math.sin(p*6+i)*40)+'px,'+(-y*(0.05+i*0.025)%260)+'px,0)';

@@ -1,0 +1,37 @@
+<!-- ===== FLOATING PAINT BUCKET — copy & paste (GHL Custom HTML/JS element) =====
+     1) Upload your bucket PNG/WEBP to the funnel's Media library and copy its link.
+     2) Replace PASTE-YOUR-IMAGE-LINK-HERE below.
+     3) Drop this element where you want the bucket (hero, above the price box, etc.).
+     It gently floats and tilts as the visitor scrolls. -->
+<style>
+  .fbk-wrap{display:flex;justify-content:center;padding:0 14px}
+  .fbk-img{
+    display:block;width:clamp(200px,26vw,300px);height:auto;pointer-events:none;user-select:none;
+    transform:translate3d(0,var(--ty,0px),0) rotate(var(--rot,0deg));will-change:transform;
+    filter:drop-shadow(0 22px 26px rgba(255,106,0,.28));
+  }
+  @media(max-width:700px){.fbk-img{width:190px}}
+</style>
+
+<div class="fbk-wrap">
+  <img class="fbk-img" data-fbk src="PASTE-YOUR-IMAGE-LINK-HERE" alt="" loading="lazy" decoding="async">
+</div>
+
+<script>
+(function(){
+  if(window.__fbkLoaded) return; window.__fbkLoaded = true;
+  var items=[].slice.call(document.querySelectorAll('[data-fbk]')), ticking=false;
+  function frame(){
+    ticking=false; var vh=window.innerHeight;
+    items.forEach(function(el){
+      var r=el.getBoundingClientRect(), t=(r.top+r.height/2)/vh-.5;
+      el.style.setProperty('--ty',(t*-70).toFixed(1)+'px');
+      el.style.setProperty('--rot',(t*-10).toFixed(2)+'deg');
+    });
+  }
+  function req(){ if(!ticking){ticking=true;requestAnimationFrame(frame);} }
+  window.addEventListener('scroll',req,{passive:true});
+  window.addEventListener('resize',req);
+  frame();
+})();
+</script>
