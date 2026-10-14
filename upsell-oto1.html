@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super Paint Close — Booked On Autopilot</title>
+<meta name="description" content="Choose how you want homeowners caught the moment they raise their hand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --o:#ff6a00;--o2:#ff8a1f;--od:#d95500;--o-soft:#fff1e6;--o-soft2:#ffe3cc;
+  --k:#111111;--k2:#1b1b1f;--gray:#4b5563;--gray2:#6b7280;--ln:#e8e8ea;--cool:#f3f5f9;--coolln:#d9dfe9;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--k);background:#fff;line-height:1.6;font-size:19px;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+body::before{ /* faint dot grid like the reference */
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(17,17,17,.09) 1px,transparent 1.2px);background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(180deg,#000 0,transparent 70%);mask-image:linear-gradient(180deg,#000 0,transparent 70%);
+}
+img,svg{max-width:100%}
+a{color:inherit}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+.narrow{max-width:760px}
+section,header,footer{position:relative;z-index:1}
+h1,h2,h3{line-height:1.08;letter-spacing:-.03em;color:var(--k);text-wrap:balance}
+p{color:var(--gray);margin-bottom:18px;text-wrap:pretty}
+p strong{color:var(--k)}
+.o{color:var(--o)}
+.grad{background:linear-gradient(90deg,var(--od),var(--o2) 55%,#ffb000);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:500;color:var(--gray2)}
+.center{text-align:center}
+
+/* ---------- glass bar ---------- */
+.bar-wrap{position:sticky;top:12px;z-index:50;padding:12px 16px 0}
+.glass{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:10px 14px 10px 18px;border-radius:16px;border:1px solid rgba(17,17,17,.1);
+  background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);
+  box-shadow:0 10px 30px rgba(17,17,17,.08)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em;font-size:17px;white-space:nowrap}
+.brand i{width:26px;height:26px;border-radius:50%;border:3.5px solid var(--k);border-top-color:var(--o);border-right-color:transparent;display:inline-block}
+.brand span{color:var(--o)}
+.brand .mono{padding-left:12px;margin-left:2px;border-left:1px solid var(--ln)}
+.pilltag{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--o-soft);border:1px solid rgba(255,106,0,.4);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--od);font-weight:700}
+.pilltag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--o);box-shadow:0 0 8px var(--o)}
+
+/* ---------- identity prime banner ---------- */
+.prime{margin-top:18px;background:linear-gradient(180deg,var(--o-soft),#fff7ef);border-top:1px solid rgba(255,106,0,.25);border-bottom:1px solid rgba(255,106,0,.25);padding:54px 0 46px;text-align:center}
+.prime .eyebrow{display:inline-flex;margin-bottom:18px}
+.prime h1{font-size:clamp(38px,6.4vw,68px);font-weight:800;margin-bottom:20px}
+.prime p{font-size:clamp(18px,2.2vw,22px);color:#3f3f46;margin:0 auto 14px;max-width:760px}
+.prime p.big{font-weight:800;color:var(--k);font-size:clamp(22px,3vw,30px);letter-spacing:-.02em;margin:22px auto 14px}
+.prime .nowline{margin-top:26px;font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--od)}
+.arrow-down{display:block;margin:12px auto 0;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--o);color:var(--o);display:flex;align-items:center;justify-content:center;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ---------- sections ---------- */
+.sec{padding:84px 0}
+.sec.soft{background:rgba(247,248,251,.85)}
+.hl{font-size:clamp(34px,5.4vw,60px);font-weight:800;text-align:center;max-width:900px;margin:0 auto 14px}
+.kicker{display:flex;justify-content:center;margin-bottom:20px}
+
+/* story */
+.steps5{display:grid;gap:0;border:1px solid var(--coolln);border-radius:18px;background:rgba(255,255,255,.85);overflow:hidden;margin:34px 0 26px;box-shadow:0 14px 40px rgba(17,17,17,.06)}
+.steps5 div{display:flex;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid var(--coolln);font-size:19px;color:var(--k);font-weight:500}
+.steps5 div:last-child{border-bottom:0;background:var(--o-soft);font-weight:800}
+.steps5 b{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gray2);font-weight:500;flex:none;width:58px}
+.scene{border-left:3px solid var(--o);padding:6px 0 6px 22px;margin:26px 0;font-size:20px}
+.scene p{margin-bottom:8px;color:var(--k)}
+.nots{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+.nots span{padding:9px 16px;border-radius:10px;background:var(--cool);border:1px solid var(--coolln);font-weight:500;color:var(--k);font-size:17px}
+.nots span::before{content:"✕";color:#dc2626;font-weight:800;margin-right:9px}
+.gapbox{margin:34px 0;padding:30px;border-radius:22px;background:var(--k);color:#fff;position:relative;overflow:hidden}
+.gapbox::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,0,.5),transparent 70%)}
+.gapbox h3{font-size:clamp(28px,4vw,40px);color:#fff;margin-bottom:10px;position:relative}
+.gapbox p{color:#d1d5db;margin-bottom:10px;position:relative}
+.gapbox p strong{color:#fff}
+
+/* proof stat cards */
+.stats{display:grid;gap:18px;grid-template-columns:1fr 1fr;margin:34px 0}
+.stat{border-radius:22px;padding:30px 28px;border:1px solid var(--coolln);background:rgba(255,255,255,.9);box-shadow:0 14px 40px rgba(17,17,17,.06)}
+.stat.good{border:2px solid var(--o);background:linear-gradient(180deg,var(--o-soft),#fff);box-shadow:0 18px 50px rgba(255,106,0,.18)}
+.stat .num{font-size:clamp(54px,8vw,84px);font-weight:800;letter-spacing:-.05em;line-height:1;margin:14px 0 10px}
+.stat.good .num{color:var(--o)}
+.stat.bad .num{color:var(--k)}
+.stat p{margin:0;font-size:18px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:6px 0 24px}
+.chips span{padding:10px 18px;border-radius:999px;border:1px solid var(--coolln);background:#fff;font-weight:700;color:var(--k);font-size:16px}
+.chips span::before{content:"=";color:var(--o);margin-right:8px;font-weight:800}
+.callout{margin:26px 0;padding:22px 26px;border-radius:16px;background:var(--o-soft);border:1px solid rgba(255,106,0,.4);border-left:5px solid var(--o);font-weight:800;font-size:22px;color:var(--k);letter-spacing:-.01em}
+
+/* bridge */
+.bridge .engine{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin:24px 0}
+.bridge .engine div{padding:18px 20px;border-radius:16px;border:1px solid var(--coolln);background:#fff;font-weight:700;color:var(--k)}
+.bridge .engine div small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray2);margin-bottom:6px;font-weight:500}
+.lr{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin:22px 0}
+.lr div{padding:18px 20px;border-radius:16px;border:1px solid var(--coolln);background:#fff;color:var(--gray)}
+.lr div b{display:block;color:var(--k);margin-bottom:4px}
+.divider-down{display:flex;flex-direction:column;align-items:center;gap:0;margin:46px 0 -6px}
+.divider-down::before{content:"";width:1px;height:60px;background:linear-gradient(transparent,var(--o))}
+.divider-down span{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--o);background:#fff;color:var(--o);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px var(--o-soft);animation:bob 1.6s ease-in-out infinite}
+
+/* ---------- dual offer ---------- */
+.offers{display:grid;grid-template-columns:1.05fr 1fr;gap:26px;align-items:start;margin-top:34px}
+.card{position:relative;border-radius:26px;padding:34px 30px 30px}
+.card h3{font-size:clamp(24px,2.8vw,31px);font-weight:800;margin-bottom:8px;letter-spacing:-.025em}
+.price{display:flex;align-items:baseline;gap:8px;margin:6px 0 18px}
+.price b{font-size:58px;font-weight:800;letter-spacing:-.05em;line-height:1}
+.price span{font-family:var(--mono);color:var(--gray2);font-size:15px}
+.card p{font-size:17px}
+.card ul{list-style:none;margin:18px 0}
+.card li{display:flex;gap:12px;padding:11px 0;border-top:1px solid rgba(17,17,17,.08);font-size:17px;color:var(--k);line-height:1.45}
+.card li:first-child{border-top:0}
+.card li .mk{flex:none;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-top:1px}
+.card li.yes .mk{background:var(--o);color:#fff}
+.card li.no{color:#9ca3af}
+.card li.no .mk{background:#f1f2f5;color:#b4b8c2}
+.card li.no span{text-decoration:line-through;text-decoration-color:#c9ccd4}
+.bonus{margin:6px 0;padding:16px 18px;border-radius:14px;background:var(--k);color:#e5e7eb}
+.bonus .tag{display:inline-block;margin-bottom:8px;padding:4px 10px;border-radius:7px;background:var(--o);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.12em;font-weight:700;text-transform:uppercase}
+.bonus p{color:#d1d5db;margin:0;font-size:16px}
+.bonus p strong{color:#fff}
+.bonus.free{background:var(--o-soft);border:1px solid rgba(255,106,0,.4);color:var(--k)}
+.bonus.free p{color:var(--gray)}
+.bonus.free p strong{color:var(--k)}
+.bonus.free .tag{background:var(--k)}
+.mathbox{margin:20px 0;padding:18px 20px;border-radius:14px;background:#fff;border:1px dashed var(--o)}
+.mathbox p{margin:0 0 8px;font-size:17px}
+.mathbox p:last-child{margin:0}
+.btn{display:block;width:100%;text-align:center;text-decoration:none;font-weight:800;font-size:20px;padding:19px 22px;border-radius:14px;color:#fff;letter-spacing:-.01em;transition:transform .15s,box-shadow .15s}
+.btn.pri{background:linear-gradient(135deg,var(--od),var(--o2));box-shadow:0 12px 28px rgba(255,106,0,.35)}
+.btn.pri:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(255,106,0,.45)}
+.btn.sec2{background:var(--k);box-shadow:0 10px 24px rgba(17,17,17,.25)}
+.btn.sec2:hover{transform:translateY(-2px)}
+
+/* OTO = elevated, warm */
+.card.oto{background:linear-gradient(180deg,#fff4ea,#fff);border:3px solid var(--o);box-shadow:0 30px 70px rgba(255,106,0,.22),0 0 0 8px rgba(255,106,0,.08)}
+.card.oto .badge{position:absolute;top:-16px;right:22px;padding:9px 16px;border-radius:999px;background:var(--o);color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;box-shadow:0 8px 18px rgba(255,106,0,.4)}
+.card.oto .price b{color:var(--o)}
+/* DS = standard, cooler */
+.card.ds{background:var(--cool);border:1px solid var(--coolln);box-shadow:0 12px 34px rgba(17,17,17,.05)}
+.note{margin:18px 0;padding:16px 18px;border-radius:12px;background:#fff;border:1px solid var(--coolln);font-size:16px}
+.note strong{color:var(--k)}
+.decline{display:block;text-align:center;margin:30px auto 0;max-width:640px;color:#9ca3af;font-size:15px;text-decoration:underline;text-underline-offset:3px}
+.decline:hover{color:var(--gray2)}
+
+/* ---------- close ---------- */
+.closing{background:var(--k);padding:90px 0;position:relative;overflow:hidden}
+.closing::before{content:"";position:absolute;left:-10%;top:-30%;width:60%;height:120%;background:radial-gradient(ellipse,rgba(255,106,0,.28),transparent 65%)}
+.closing h2{color:#fff;font-size:clamp(30px,4.6vw,48px);font-weight:800;margin-bottom:26px}
+.closing p{color:#d1d5db;font-size:21px}
+.closing p strong{color:#fff}
+.two{display:grid;gap:14px;margin:24px 0}
+.two div{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:20px}
+.two b{flex:none;width:34px;height:34px;border-radius:9px;background:var(--o);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px}
+.pick{margin:24px 0;padding:22px 24px;border-radius:16px;border:1px solid rgba(255,106,0,.5);background:rgba(255,106,0,.1);color:#fff;font-weight:700;font-size:22px;line-height:1.4}
+footer{background:#0b0b0d;color:#7d8190;font-size:13px;padding:34px 0;text-align:center}
+footer p{color:#7d8190;margin-bottom:8px}
+
+/* scroll helpers */
+.fxg-bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:99999;pointer-events:none;
+  background:linear-gradient(90deg,hsl(20 100% 60%),hsl(58 100% 60%)) left top/100vw 100% no-repeat;box-shadow:0 2px 10px 1px hsl(58 100% 60% / .55)}
+.fxg-blobs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.fxg-blob{position:absolute;width:46vw;height:46vw;max-width:640px;max-height:640px;border-radius:50%;filter:blur(90px);opacity:.17;background:hsl(var(--h,25) 100% 62%);transition:background-color 1.2s ease-out,transform .9s ease-out}
+.fxg-blob:nth-child(1){left:-12vw;top:6vh}.fxg-blob:nth-child(2){right:-14vw;top:30vh;width:40vw;height:40vw}.fxg-blob:nth-child(3){left:14vw;bottom:-18vh;width:36vw;height:36vw}.fxg-blob:nth-child(4){right:8vw;bottom:-12vh;width:30vw;height:30vw}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .offers{grid-template-columns:1fr}            /* OTO stays first = on top on mobile */
+  .stats,.bridge .engine,.lr{grid-template-columns:1fr}
+  .brand .mono{display:none}
+}
+@media(max-width:560px){
+  body{font-size:18px}
+  .sec{padding:60px 0}
+  .card{padding:30px 20px 24px}
+  .glass{padding:8px 10px 8px 14px}
+  .brand{font-size:15px;gap:8px}
+  .brand i{width:22px;height:22px;border-width:3px}
+  .pilltag{font-size:10px;padding:7px 10px}
+  .fxg-blob{width:95vw!important;height:95vw!important;max-width:none!important;max-height:none!important;filter:blur(60px);opacity:.30}
+}
+@media(prefers-reduced-motion:reduce){.arrow-down,.divider-down span{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="fxg-bar" id="bar"></div>
+<div class="fxg-blobs" aria-hidden="true"><div class="fxg-blob"></div><div class="fxg-blob"></div><div class="fxg-blob"></div><div class="fxg-blob"></div></div>
+
+<!-- glass bar -->
+<div class="bar-wrap">
+  <div class="glass">
+    <div class="brand"><i></i>Super Paint <span>Close</span><span class="mono" style="color:var(--gray2)">Booked on autopilot</span></div>
+    <div class="pilltag">Before you go</div>
+  </div>
+</div>
+
+<!-- IDENTITY PRIME — TOP BANNER -->
+<header class="prime">
+  <div class="wrap narrow">
+    <div class="pilltag eyebrow">Congratulations</div>
+    <h1>Congratulations!</h1>
+    <p><strong>You just did what most painters never do.</strong></p>
+    <p>They read the page. They know it will help them. But then they doubt themselves and close the tab.</p>
+    <p class="big">That's not you.</p>
+    <p>You stopped waiting and made a move.</p>
+    <p>And because you did — you're about to have something your competition doesn't.</p>
+    <p>A steady flow of homeowners raising their hand to book an estimate, starting this week.</p>
+    <p class="big">That alone puts you ahead of 99% of painters in your market.</p>
+    <div class="nowline">NOW — before you go...</div>
+    <span class="arrow-down" aria-hidden="true">↓</span>
+  </div>
+</header>
+
+<!-- HEADLINE -->
+<section class="sec" style="padding-bottom:30px">
+  <div class="wrap">
+    <h2 class="hl rv">The Playbook Gets Homeowners <span class="o">Raising Their Hand.</span><br><span class="grad">But Something Has To Catch Them The Moment They Do.</span></h2>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section class="sec" style="padding-top:30px">
+  <div class="wrap narrow">
+    <p class="mono kicker">Here is what is about to happen</p>
+    <div class="steps5 rv">
+      <div><b>STEP 01</b>You share the post.</div>
+      <div><b>STEP 02</b>You boost it for a few dollars a day.</div>
+      <div><b>STEP 03</b>A homeowner in your area sees it.</div>
+      <div><b>STEP 04</b>They click.</div>
+      <div><b>STEP 05</b>They fill out the form.</div>
+      <div><b>NEXT</b>And then — they wait.</div>
+    </div>
+
+    <div class="scene rv">
+      <p>There you are wrapping a job.</p>
+      <p>Your phone is in your truck.</p>
+      <p>And you don't see the notification for two hours.</p>
+    </div>
+    <p class="rv">By the time you text back — they already booked with the painter who called her in four minutes.</p>
+    <p class="rv"><strong>That job was already yours.</strong><br>You did everything right.<br>You ran the post, you got the lead.<br>Yet now - you still lost the job.</p>
+
+    <div class="nots rv"><span>Not because your price was wrong.</span><span>Not because your work wasn't good.</span></div>
+
+    <div class="gapbox rv">
+      <h3>Because there was a gap.</h3>
+      <p>A time gap.</p>
+      <p>Between the moment the lead came in and the moment someone picked up the phone.</p>
+      <p><strong>That gap is silent.</strong> You never see it happen.</p>
+      <p style="margin:0">The lead just goes cold and you move on, not knowing what you lost.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROOF -->
+<section class="sec soft">
+  <div class="wrap narrow">
+    <p class="mono kicker">The proof</p>
+    <h2 class="hl rv" style="font-size:clamp(30px,4.6vw,48px)">Here is what the numbers say about <span class="o">painting leads.</span></h2>
+    <div class="stats">
+      <div class="stat good rv">
+        <span class="mono">Responds in under 5 minutes</span>
+        <div class="num">80%+</div>
+        <p>A painter who responds to a fresh lead in under five minutes books the estimate <strong>more than 80% of the time.</strong></p>
+      </div>
+      <div class="stat bad rv">
+        <span class="mono">Waits 2 hours</span>
+        <div class="num">&lt;20%</div>
+        <p>That same painter — waiting two hours on the same lead, same homeowner, same job — books it <strong>less than 20% of the time.</strong></p>
+      </div>
+    </div>
+    <div class="chips rv"><span>Same post.</span><span>Same price.</span><span>Same quality of work.</span></div>
+    <p class="center rv">The only thing that changed is the five-minute window.</p>
+    <div class="callout rv">That's the whole game.</div>
+    <p class="rv" style="margin:0">And that's the only thing left between you and a full calendar.</p>
+  </div>
+</section>
+
+<!-- THE BRIDGE -->
+<section class="sec bridge" style="padding-bottom:20px">
+  <div class="wrap narrow">
+    <p class="mono kicker">So here is where you are right now</p>
+    <div class="engine rv">
+      <div><small>You have</small>The Playbook. Think of it as the engine.</div>
+      <div><small>But</small>An engine without a driver leaves jobs on the table.</div>
+    </div>
+    <p class="rv">Right now — when a lead comes in at 6:45pm on a Tuesday while you're on a job — <strong>who picks up that call?</strong></p>
+    <p class="rv">What you're about to see gives you a better answer than "me, whenever I can get to it."</p>
+    <p class="rv"><strong>Two options.</strong> Both build directly on the Playbook. Both fix the gap.</p>
+    <div class="lr rv">
+      <div><b>The one on the left</b>does it completely for you.</div>
+      <div><b>The one on the right</b>hands you the tools and you run the inbox yourself.</div>
+    </div>
+    <p class="rv" style="margin:0">Look at both. One of them is exactly where you are right now.</p>
+    <div class="divider-down" aria-hidden="true"><span>↓</span></div>
+  </div>
+</section>
+
+<!-- DUAL OFFER -->
+<section class="sec" id="offers" style="padding-top:50px">
+  <div class="wrap">
+    <div class="offers">
+
+      <!-- LEFT — OTO 1 -->
+      <article class="card oto rv">
+        <div class="badge">Best Option</div>
+        <span class="mono">Done for you</span>
+        <h3 style="margin-top:10px">We Get Leads And Get You Booked On Auto Pilot</h3>
+        <div class="price"><b>$497</b><span>/mo</span></div>
+        <p>We run ad campaigns that gets $20 leads turned into $3000+ jobs.</p>
+        <p>We follow up with every lead within two minutes.</p>
+        <p>We book confirmed estimates into your calendar.</p>
+        <p><strong>Your job is to show up to the estimate.</strong> That's it.</p>
+        <p>When a lead hits at 6:45pm — the system picks it up. They’re texted. They’re called. They’re followed up until the appointment is set. Then it appears in your Google Calendar. You didn't have to do a single thing between the lead coming in and the estimate on your books.</p>
+        <p class="mono" style="margin:22px 0 4px;color:var(--od)">Here is everything included</p>
+        <ul>
+          <li class="yes"><span class="mk">✓</span><span>Facebook ad written, built, and turned on within 48 hours</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Every lead followed up by our system within 2 minutes — text, phone, email</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Confirmed estimates booked straight into your Calendar</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Weekly report: leads in, appointments set, estimates booked</span></li>
+        </ul>
+        <div class="bonus">
+          <span class="tag">$10,000 Bonus</span>
+          <p><strong>The Profits Vault</strong> — Taken from Alex Hormozi’s $100M Business Coaching, you get 10 modules on the full business side of painting. Job costing, closing, crew structure, cash flow, reading your numbers. Yours on Day 1. Kept permanently — even if you leave. These same modules I implemented to get to $1M a year at 25% margins without losing time for my family.</p>
+        </div>
+        <div class="bonus free" style="margin-top:12px">
+          <span class="tag">Free</span>
+          <p><strong>1-Hour Private Coaching Call with Lanty</strong> — book it in your first 30 days. Bring your numbers, your market, your close rate. Most painters pay $500 for a business coaching call like this. Yours free today.</p>
+        </div>
+        <div class="mathbox">
+          <p><strong>The math is simple.</strong></p>
+          <p>Five confirmed estimates a month. Average job is $3,500. One closed job pays for it all. The other four are free money in your back pocket you didn't have before.</p>
+        </div>
+        <a class="btn pri" href="#checkout-oto">Yes — Confirm We Get You Booked →</a>
+      </article>
+
+      <!-- RIGHT — DS 1 -->
+      <article class="card ds rv">
+        <span class="mono">Do it yourself</span>
+        <h3 style="margin-top:10px">We Get You Leads and ‘Help’ You Get Booked</h3>
+        <div class="price"><b>$247</b><span>/mo</span></div>
+        <p>We build and turn on one Facebook Messenger ad campaign for you that gets $15 leads.</p>
+        <p>When a homeowner clicks it, they land directly in your Facebook inbox.</p>
+        <p>They get an auto-reply sequence so they know they’re talking to someone.</p>
+        <p>You get the notification.</p>
+        <p>You reply with the copy-paste script we give you.</p>
+        <p>You book the appointment yourself.</p>
+        <p class="mono" style="margin:22px 0 4px">Here is what's included</p>
+        <ul>
+          <li class="yes"><span class="mk">✓</span><span>Facebook Messenger ad built and activated within 48 hours</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Ad targeting set up for your service area</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Inbox reply script — already written, copy-paste ready</span></li>
+          <li class="yes"><span class="mk">✓</span><span>3-message follow-up sequence for leads that go quiet</span></li>
+          <li class="no"><span class="mk">✕</span><span>Nobody following up for you within 5 minutes</span></li>
+          <li class="no"><span class="mk">✕</span><span>No team booking appointments into your calendar</span></li>
+          <li class="no"><span class="mk">✕</span><span>No weekly performance reporting</span></li>
+          <li class="no"><span class="mk">✕</span><span>No Profits Vault — the 10-module training on the business side of painting</span></li>
+          <li class="no"><span class="mk">✕</span><span>No 1-Hour Coaching Call with Lanty</span></li>
+        </ul>
+        <div class="note"><strong>What you handle:</strong> The conversation, the follow-up, the booking.</div>
+        <div class="note"><strong>One thing to know:</strong> If the volume grows faster than you can keep up with, you can upgrade to We Get You Booked at any time and pay only the $250 difference. Nothing is lost.</div>
+        <a class="btn sec2" href="#checkout-ds">Yes — Confirm We Get You Leads →</a>
+      </article>
+
+    </div>
+    <a class="decline" href="#no-thanks">No thanks — remove this and take me to the course. I don't want booked estimates on my calendar.</a>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="closing">
+  <div class="wrap narrow" style="position:relative">
+    <h2>Right now, <span style="color:var(--o2)">two things</span> are true.</h2>
+    <div class="two">
+      <div class="rv"><b>1</b><span>The Playbook is getting homeowners to raise their hand for you.</span></div>
+      <div class="rv"><b>2</b><span>And the painter who responds fastest wins the job (not you YET).</span></div>
+    </div>
+    <p><strong>Every time.</strong></p>
+    <p>That's true whether you pick the left or the right.</p>
+    <p>The only question is: when that hand goes up at 6:45 on a Tuesday night — are you the one working the inbox, or is someone else handling it while you're finishing the job?</p>
+    <p>One of those costs you time you don't have.</p>
+    <p>The other costs you $497 and fills your calendar while you sleep.</p>
+    <div class="pick">Pick the one that makes sense for where you are right now. Then let's get to work.</div>
+  </div>
+</section>
+
+<footer><div class="wrap"><p>This site is not affiliated with or endorsed by Facebook, Inc. FACEBOOK is a trademark of Meta Platforms, Inc.</p><p>Results depend on individual effort, market conditions, and execution. This is not a guarantee of income.</p></div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('js');
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});
+    els.forEach(function(e){io.observe(e)});
+  }else{els.forEach(function(e){e.classList.add('in')})}
+  var bar=document.getElementById('bar'), blobs=[].slice.call(document.querySelectorAll('.fxg-blob')), ticking=false;
+  function frame(){
+    ticking=false;
+    var y=window.pageYOffset||0, vh=window.innerHeight, h=Math.max(1,document.documentElement.scrollHeight-vh), p=Math.min(1,y/h);
+    bar.style.width=(p*100)+'%';
+    var stops=[];
+    blobs.forEach(function(b,i){
+      var hh=((i*38+p*160+14)%360); stops.push('hsl('+hh.toFixed(1)+' 100% 60%)');
+      b.style.setProperty('--h',hh.toFixed(1));
+      b.style.transform='translate3d('+(Math.sin(p*6+i)*40)+'px,'+(-y*(0.05+i*0.025)%260)+'px,0)';
+    });
+    bar.style.background='linear-gradient(90deg,'+stops.join(',')+') left top/100vw 100% no-repeat';
+    bar.style.boxShadow='0 2px 10px 1px '+stops[stops.length-1].replace(')',' / .55)');
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  addEventListener('scroll',req,{passive:true});addEventListener('resize',req);frame();
+})();
+</script>
+</body>
+</html>
