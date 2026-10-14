@@ -38,9 +38,8 @@
   }
   #ps-wrap .ps-chip::before{content:"=";color:#ff6a00;font-weight:800}
 
-  @media(min-width:760px){
-    #ps-wrap .ps-cards{grid-template-columns:1fr 1fr}   /* side by side on desktop; delete this block to keep them stacked */
-  }
+  /* cards are stacked (one under the other). For side-by-side on desktop, add:
+     @media(min-width:760px){ #ps-wrap .ps-cards{grid-template-columns:1fr 1fr} } */
   @media(max-width:560px){
     #ps-wrap .ps-card{padding:26px 24px 24px;border-radius:20px}
     #ps-wrap .ps-num{font-size:64px;margin:18px 0 12px}
