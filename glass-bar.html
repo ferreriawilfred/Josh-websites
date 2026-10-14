@@ -1,0 +1,50 @@
+<!-- ===== GLASS TOP BAR (logo + tagline + pill) — copy & paste (GHL Custom HTML/JS element) =====
+     The logo image is already linked below. To change it, replace the src in <img class="gb-logo">.
+     Optional: set STICKY to false in the CSS (position:sticky -> position:relative) if you don't want it to follow the scroll. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+  #gb-wrap,#gb-wrap *{box-sizing:border-box}
+  #gb-wrap{position:sticky;top:12px;z-index:9999;padding:12px 16px 0;margin:0 auto;max-width:1040px}
+  #gb-wrap .gb-glass{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:8px 14px 8px 18px;border-radius:16px;
+    border:1px solid rgba(17,17,17,.1);
+    background:rgba(255,255,255,.74);
+    -webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);
+    box-shadow:0 10px 30px rgba(17,17,17,.08);
+  }
+  #gb-wrap .gb-left{display:flex;align-items:center;gap:14px;min-width:0}
+  #gb-wrap .gb-logo{display:block;height:58px;width:auto;max-width:160px;object-fit:contain;flex:none}
+  #gb-wrap .gb-tag{
+    padding-left:14px;border-left:1px solid #e5e7eb;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#6b7280;white-space:nowrap;
+  }
+  #gb-wrap .gb-pill{
+    flex:none;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;
+    background:#fff1e6;border:1px solid rgba(255,106,0,.4);
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d95500;white-space:nowrap;
+  }
+  #gb-wrap .gb-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff6a00;box-shadow:0 0 8px #ff6a00}
+  @media(max-width:720px){
+    #gb-wrap .gb-tag{display:none}
+  }
+  @media(max-width:480px){
+    #gb-wrap{padding:10px 10px 0}
+    #gb-wrap .gb-glass{padding:6px 10px 6px 12px}
+    #gb-wrap .gb-logo{height:46px;max-width:120px}
+    #gb-wrap .gb-pill{font-size:10px;padding:7px 11px}
+  }
+</style>
+
+<div id="gb-wrap">
+  <div class="gb-glass">
+    <div class="gb-left">
+      <img class="gb-logo" src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ac76a95d5f4a8af43a6694b.png" alt="Super Paint & Close" width="135" height="58">
+      <span class="gb-tag">Booked on autopilot</span>
+    </div>
+    <div class="gb-pill">Before you go</div>
+  </div>
+</div>
+<!-- ===== END GLASS TOP BAR ===== -->
