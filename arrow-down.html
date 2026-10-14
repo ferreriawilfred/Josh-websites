@@ -1,0 +1,26 @@
+<!-- ===== BOUNCING DOWN ARROW — copy & paste (GHL Custom HTML/JS element) =====
+     Optional: change the link below (href="#next") to the ID of the section you want it to scroll to. -->
+<style>
+  #ad-wrap{display:flex;justify-content:center;padding:6px 0}
+  #ad-wrap .ad-btn{
+    display:flex;align-items:center;justify-content:center;
+    width:40px;height:40px;border-radius:50%;
+    border:1.5px solid #ff6a00;background:transparent;color:#ff6a00;
+    text-decoration:none;cursor:pointer;
+    animation:ad-bob 1.6s ease-in-out infinite;
+    transition:background .2s ease,color .2s ease,box-shadow .2s ease;
+  }
+  #ad-wrap .ad-btn:hover{background:#ff6a00;color:#fff;box-shadow:0 8px 20px rgba(255,106,0,.35)}
+  #ad-wrap .ad-btn svg{width:20px;height:20px;display:block}
+  @keyframes ad-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+  @media(prefers-reduced-motion:reduce){#ad-wrap .ad-btn{animation:none}}
+</style>
+
+<div id="ad-wrap">
+  <a class="ad-btn" href="#next" aria-label="Scroll down">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 4v15"/><path d="M5.5 12.5 12 19l6.5-6.5"/>
+    </svg>
+  </a>
+</div>
+<!-- ===== END DOWN ARROW ===== -->
