@@ -1,0 +1,44 @@
+<!-- ===== STEP LIST (STEP 01–05 + NEXT) — copy & paste (GHL Custom HTML/JS element) ===== -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  #sl-wrap,#sl-wrap *{box-sizing:border-box}
+  #sl-wrap{max-width:820px;margin:0 auto;padding:0 6px}
+  #sl-wrap .sl-box{
+    border:1px solid #d9dfe9;border-radius:18px;overflow:hidden;
+    background:rgba(255,255,255,.88);
+    box-shadow:0 14px 40px rgba(17,17,17,.06);
+  }
+  #sl-wrap .sl-row{
+    display:flex;align-items:center;gap:22px;
+    padding:22px 24px;border-bottom:1px solid #d9dfe9;
+  }
+  #sl-wrap .sl-row:last-child{border-bottom:0}
+  #sl-wrap .sl-label{
+    flex:none;width:64px;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#6b7280;line-height:1.5;
+  }
+  #sl-wrap .sl-text{
+    margin:0;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:21px;font-weight:500;line-height:1.35;color:#111111;
+  }
+  #sl-wrap .sl-row.sl-last{background:#fff1e6}
+  #sl-wrap .sl-row.sl-last .sl-text{font-weight:800}
+  @media(max-width:560px){
+    #sl-wrap .sl-row{gap:14px;padding:16px 16px}
+    #sl-wrap .sl-label{width:50px;font-size:11px;letter-spacing:.14em}
+    #sl-wrap .sl-text{font-size:17.5px}
+  }
+</style>
+
+<div id="sl-wrap">
+  <div class="sl-box">
+    <div class="sl-row"><span class="sl-label">Step<br>01</span><p class="sl-text">You share the post.</p></div>
+    <div class="sl-row"><span class="sl-label">Step<br>02</span><p class="sl-text">You boost it for a few dollars a day.</p></div>
+    <div class="sl-row"><span class="sl-label">Step<br>03</span><p class="sl-text">A homeowner in your area sees it.</p></div>
+    <div class="sl-row"><span class="sl-label">Step<br>04</span><p class="sl-text">They click.</p></div>
+    <div class="sl-row"><span class="sl-label">Step<br>05</span><p class="sl-text">They fill out the form.</p></div>
+    <div class="sl-row sl-last"><span class="sl-label">Next</span><p class="sl-text">And then — they wait.</p></div>
+  </div>
+</div>
+<!-- ===== END STEP LIST ===== -->
