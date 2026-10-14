@@ -1,0 +1,42 @@
+<!-- ===== TWO-UP LABEL CARDS ("You have" / "But") — copy & paste (GHL Custom HTML/JS element) ===== -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  #ec-wrap,#ec-wrap *{box-sizing:border-box}
+  #ec-wrap{max-width:900px;margin:0 auto;padding:0 4px}
+  #ec-wrap .ec-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  #ec-wrap .ec-card{
+    padding:26px 26px 24px;border-radius:20px;
+    background:#ffffff;border:1px solid #e3e7ef;
+    box-shadow:0 8px 26px rgba(17,17,17,.05);
+  }
+  #ec-wrap .ec-label{
+    display:block;margin-bottom:14px;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#6b7280;
+  }
+  #ec-wrap .ec-text{
+    margin:0;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:21px;font-weight:700;line-height:1.65;color:#111111;
+  }
+  @media(max-width:700px){
+    #ec-wrap .ec-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){
+    #ec-wrap .ec-card{padding:22px 20px 20px;border-radius:16px}
+    #ec-wrap .ec-text{font-size:18.5px}
+  }
+</style>
+
+<div id="ec-wrap">
+  <div class="ec-grid">
+    <div class="ec-card">
+      <span class="ec-label">You have</span>
+      <p class="ec-text">The Playbook. Think of it as the engine.</p>
+    </div>
+    <div class="ec-card">
+      <span class="ec-label">But</span>
+      <p class="ec-text">An engine without a driver leaves jobs on the table.</p>
+    </div>
+  </div>
+</div>
+<!-- ===== END TWO-UP CARDS ===== -->
