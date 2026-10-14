@@ -1,0 +1,72 @@
+<!-- ===== PROOF STAT CARDS + CHIPS — copy & paste (GHL Custom HTML/JS element) ===== -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  #ps-wrap,#ps-wrap *{box-sizing:border-box}
+  #ps-wrap{max-width:820px;margin:0 auto;padding:0 4px;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important}
+
+  #ps-wrap .ps-cards{display:grid;grid-template-columns:1fr;gap:20px}
+  #ps-wrap .ps-card{
+    border-radius:24px;padding:34px 34px 32px;
+    background:#ffffff;border:1px solid #e3e7ef;
+    box-shadow:0 14px 40px rgba(17,17,17,.07);
+  }
+  #ps-wrap .ps-card.ps-good{
+    background:linear-gradient(180deg,#fff1e6,#ffffff 80%);
+    border:2px solid #ff6a00;
+    box-shadow:0 18px 50px rgba(255,106,0,.2);
+  }
+  #ps-wrap .ps-label{
+    display:block;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#6b7280;
+  }
+  #ps-wrap .ps-num{
+    margin:22px 0 16px;
+    font-size:84px;font-weight:800;line-height:1;letter-spacing:-.05em;color:#111111;
+  }
+  #ps-wrap .ps-good .ps-num{color:#ff6a00}
+  #ps-wrap .ps-text{margin:0;font-size:20px;font-weight:400;line-height:1.65;color:#4b5563}
+  #ps-wrap .ps-text strong{color:#111111;font-weight:700}
+
+  #ps-wrap .ps-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+  #ps-wrap .ps-chip{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:13px 22px;border-radius:999px;
+    background:#ffffff;border:1px solid #e3e7ef;
+    font-size:18px;font-weight:700;color:#111111;line-height:1.2;
+    box-shadow:0 2px 8px rgba(17,17,17,.04);
+  }
+  #ps-wrap .ps-chip::before{content:"=";color:#ff6a00;font-weight:800}
+
+  @media(min-width:760px){
+    #ps-wrap .ps-cards{grid-template-columns:1fr 1fr}   /* side by side on desktop; delete this block to keep them stacked */
+  }
+  @media(max-width:560px){
+    #ps-wrap .ps-card{padding:26px 24px 24px;border-radius:20px}
+    #ps-wrap .ps-num{font-size:64px;margin:18px 0 12px}
+    #ps-wrap .ps-text{font-size:17.5px}
+    #ps-wrap .ps-chip{font-size:16px;padding:11px 18px}
+  }
+</style>
+
+<div id="ps-wrap">
+  <div class="ps-cards">
+    <div class="ps-card ps-good">
+      <span class="ps-label">Responds in under 5 minutes</span>
+      <div class="ps-num">80%+</div>
+      <p class="ps-text">A painter who responds to a fresh lead in under five minutes books the estimate <strong>more than 80% of the time.</strong></p>
+    </div>
+    <div class="ps-card">
+      <span class="ps-label">Waits 2 hours</span>
+      <div class="ps-num">&lt;20%</div>
+      <p class="ps-text">That same painter — waiting two hours on the same lead, same homeowner, same job — books it <strong>less than 20% of the time.</strong></p>
+    </div>
+  </div>
+
+  <div class="ps-chips">
+    <span class="ps-chip">Same post.</span>
+    <span class="ps-chip">Same price.</span>
+    <span class="ps-chip">Same quality of work.</span>
+  </div>
+</div>
+<!-- ===== END PROOF STATS ===== -->
