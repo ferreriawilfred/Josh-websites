@@ -1,10 +1,15 @@
 <!-- ===== GLASS TOP BAR (logo + tagline + pill) — copy & paste (GHL Custom HTML/JS element) =====
      The logo image is already linked below. To change it, replace the src in <img class="gb-logo">.
-     Optional: set STICKY to false in the CSS (position:sticky -> position:relative) if you don't want it to follow the scroll. -->
+     The bar is fixed to the top of the screen, follows the scroll, and shrinks after you scroll a little.
+     In the script, set HIDE_ON_SCROLL_DOWN = true if you want it to slide away while scrolling down. -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
   #gb-wrap,#gb-wrap *{box-sizing:border-box}
-  #gb-wrap{position:sticky;top:12px;z-index:9999;padding:12px 16px 0;margin:0 auto;max-width:1040px}
+  /* the spacer keeps the page content from jumping up when the bar becomes fixed */
+  #gb-space{width:100%;height:0}
+  #gb-wrap{position:fixed;top:0;left:0;right:0;z-index:99990;padding:12px 16px 0;transition:padding .35s ease,transform .35s ease}
+  #gb-wrap .gb-glass{max-width:1040px;margin:0 auto;transition:padding .35s ease,box-shadow .35s ease,background .35s ease,border-color .35s ease}
+  #gb-wrap .gb-logo{transition:height .35s ease}
   #gb-wrap .gb-glass{
     display:flex;align-items:center;justify-content:space-between;gap:14px;
     padding:8px 14px 8px 18px;border-radius:16px;
@@ -13,6 +18,12 @@
     -webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);
     box-shadow:0 10px 30px rgba(17,17,17,.08);
   }
+  /* after the visitor starts scrolling */
+  #gb-wrap.gb-scrolled{padding-top:8px}
+  #gb-wrap.gb-scrolled .gb-glass{padding:5px 12px 5px 16px;background:rgba(255,255,255,.88);box-shadow:0 14px 34px rgba(17,17,17,.14);border-color:rgba(255,106,0,.25)}
+  #gb-wrap.gb-scrolled .gb-logo{height:42px}
+  /* optional: slide away while scrolling down, come back when scrolling up */
+  #gb-wrap.gb-hidden{transform:translateY(-130%)}
   #gb-wrap .gb-left{display:flex;align-items:center;gap:14px;min-width:0}
   #gb-wrap .gb-logo{display:block;height:58px;width:auto;max-width:160px;object-fit:contain;flex:none}
   #gb-wrap .gb-tag{
@@ -34,10 +45,12 @@
     #gb-wrap{padding:10px 10px 0}
     #gb-wrap .gb-glass{padding:6px 10px 6px 12px}
     #gb-wrap .gb-logo{height:46px;max-width:120px}
+    #gb-wrap.gb-scrolled .gb-logo{height:36px}
     #gb-wrap .gb-pill{font-size:10px;padding:7px 11px}
   }
 </style>
 
+<div id="gb-space"></div>
 <div id="gb-wrap">
   <div class="gb-glass">
     <div class="gb-left">
@@ -47,4 +60,36 @@
     <div class="gb-pill">Before you go</div>
   </div>
 </div>
+
+<script>
+(function(){
+  if(window.__gbLoaded) return; window.__gbLoaded = true;
+
+  /* ---- settings you can change ---- */
+  var HIDE_ON_SCROLL_DOWN = false;   // true = bar slides away when scrolling down, returns when scrolling up
+  var SCROLLED_AFTER      = 30;      // px scrolled before the bar shrinks
+
+  var bar=document.getElementById('gb-wrap'), space=document.getElementById('gb-space');
+  if(!bar||!space) return;
+  var last=window.pageYOffset||0, ticking=false;
+
+  function setSpace(){ space.style.height=bar.offsetHeight+'px'; }   // push content down by the bar's height
+
+  function frame(){
+    ticking=false;
+    var y=window.pageYOffset||0;
+    bar.classList.toggle('gb-scrolled', y>SCROLLED_AFTER);
+    if(HIDE_ON_SCROLL_DOWN){
+      if(y>last+6 && y>160) bar.classList.add('gb-hidden');      // going down
+      else if(y<last-6 || y<80) bar.classList.remove('gb-hidden'); // going up
+    }
+    last=y;
+  }
+  function req(){ if(!ticking){ticking=true;requestAnimationFrame(frame);} }
+  window.addEventListener('scroll',req,{passive:true});
+  window.addEventListener('resize',function(){setSpace();req();});
+  window.addEventListener('load',setSpace);
+  setSpace(); frame();
+})();
+</script>
 <!-- ===== END GLASS TOP BAR ===== -->
