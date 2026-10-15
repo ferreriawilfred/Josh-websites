@@ -1,0 +1,42 @@
+<!-- ===== "NO ___" PILL CHIPS (✕, in a row) — copy & paste (GHL Custom HTML/JS element) =====
+     Edit the text inside each <span>. Add/remove a pill by copying one <div class="np-pill">. They wrap to the next line on small screens. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap');
+  #np-wrap,#np-wrap *{box-sizing:border-box}
+  #np-wrap{max-width:900px;margin:0 auto;padding:6px;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:12px}
+  #np-wrap .np-pill{
+    display:inline-flex;align-items:center;gap:10px;max-width:100%;
+    padding:11px 20px;border-radius:999px;background:#f3f5f9;border:1px solid #d9dfe9;
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:17px;font-weight:700 !important;line-height:1.3;color:#111111;
+    opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;
+  }
+  #np-wrap.np-in .np-pill{opacity:1;transform:none}
+  #np-wrap.np-in .np-pill:nth-child(2){transition-delay:.08s}
+  #np-wrap.np-in .np-pill:nth-child(3){transition-delay:.16s}
+  #np-wrap.np-in .np-pill:nth-child(4){transition-delay:.24s}
+  #np-wrap .np-pill svg{flex:none;width:16px;height:16px;display:block}
+  @media(max-width:480px){
+    #np-wrap{gap:10px}
+    #np-wrap .np-pill{font-size:15px;padding:9px 15px;gap:8px}
+    #np-wrap .np-pill svg{width:14px;height:14px}
+  }
+  @media(prefers-reduced-motion:reduce){#np-wrap .np-pill{opacity:1;transform:none;transition:none}}
+</style>
+
+<div id="np-wrap">
+  <div class="np-pill"><svg viewBox="0 0 20 20" fill="none" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3.5 3.5l13 13M16.5 3.5l-13 13"/></svg><span>Referral grinding</span></div>
+  <div class="np-pill"><svg viewBox="0 0 20 20" fill="none" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3.5 3.5l13 13M16.5 3.5l-13 13"/></svg><span>Post-and-pray</span></div>
+  <div class="np-pill"><svg viewBox="0 0 20 20" fill="none" stroke="#ef4444" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3.5 3.5l13 13M16.5 3.5l-13 13"/></svg><span>Cold calling homeowner lists</span></div>
+</div>
+
+<script>
+(function(){
+  var w=document.getElementById('np-wrap'); if(!w) return;
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(e){ if(e[0].isIntersecting){ w.classList.add('np-in'); io.disconnect(); } },{threshold:.2});
+    io.observe(w);
+  } else { w.classList.add('np-in'); }
+})();
+</script>
+<!-- ===== END PILL CHIPS ===== -->
