@@ -37,7 +37,7 @@ p strong{color:var(--k)}
 .center{text-align:center}
 
 /* ---------- glass bar ---------- */
-.bar-wrap{position:sticky;top:12px;z-index:50;padding:12px 16px 0}
+.bar-wrap{position:sticky;top:calc(var(--wb,0px) + 10px);z-index:50;padding:12px 16px 0}
 .glass{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;
   padding:10px 14px 10px 18px;border-radius:16px;border:1px solid rgba(17,17,17,.1);
   background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);
@@ -106,10 +106,12 @@ p strong{color:var(--k)}
 .divider-down span{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--o);background:#fff;color:var(--o);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px var(--o-soft);animation:bob 1.6s ease-in-out infinite}
 
 /* ---------- dual offer ---------- */
-.offers{display:grid;grid-template-columns:1.05fr 1fr;gap:26px;align-items:start;margin-top:34px}
+.offers{display:grid;grid-template-columns:1fr 1.05fr;gap:26px;align-items:start;margin-top:34px}
 .card{position:relative;border-radius:26px;padding:34px 30px 30px}
 .card h3{font-size:clamp(24px,2.8vw,31px);font-weight:800;margin-bottom:8px;letter-spacing:-.025em}
-.price{display:flex;align-items:baseline;gap:8px;margin:6px 0 18px}
+.was{font-family:var(--mono);font-size:14px;color:var(--gray2);text-decoration:line-through;text-decoration-color:#9ca3af;margin-top:6px}
+.price{display:flex;align-items:baseline;gap:8px;margin:2px 0 18px}
+.price em{font-style:normal;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2);margin-right:2px}
 .price b{font-size:58px;font-weight:800;letter-spacing:-.05em;line-height:1}
 .price span{font-family:var(--mono);color:var(--gray2);font-size:15px}
 .card p{font-size:17px}
@@ -162,6 +164,71 @@ p strong{color:var(--k)}
 footer{background:#0b0b0d;color:#7d8190;font-size:13px;padding:34px 0;text-align:center}
 footer p{color:#7d8190;margin-bottom:8px}
 
+
+/* ---------- warning banner ---------- */
+.warn{position:sticky;top:0;z-index:70;background:linear-gradient(90deg,#d97706,#f59e0b 50%,#d97706);color:#fff;text-align:center;padding:11px 16px;box-shadow:0 4px 16px rgba(180,83,9,.35)}
+.warn b{display:block;font-weight:800;font-size:16px;letter-spacing:-.005em;text-shadow:0 1px 0 rgba(0,0,0,.12)}
+.warn span{display:block;font-size:14px;font-weight:500;opacity:.95;line-height:1.35;margin-top:2px}
+
+/* ---------- founder ---------- */
+.desk{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start}
+.headshot{aspect-ratio:1/1;border-radius:22px;border:2px dashed rgba(255,106,0,.5);background:linear-gradient(160deg,var(--o-soft),#fff);display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--od);padding:14px;box-shadow:0 14px 40px rgba(255,106,0,.14)}
+.desk h3{font-size:clamp(24px,3vw,32px);font-weight:800;margin:6px 0 16px}
+.desk p{font-size:18px}
+.desk .nos{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 18px}
+.desk .nos span{padding:7px 14px;border-radius:999px;background:var(--cool);border:1px solid var(--coolln);font-size:15px;font-weight:700;color:var(--k)}
+.desk .nos span::before{content:"✕";color:#dc2626;margin-right:8px;font-weight:800}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.nums div{padding:16px 14px;border-radius:16px;background:#fff;border:1px solid var(--coolln);text-align:center;box-shadow:0 10px 26px rgba(17,17,17,.05)}
+.nums b{display:block;font-size:30px;font-weight:800;letter-spacing:-.04em;color:var(--o);line-height:1.05}
+.nums small{display:block;margin-top:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2)}
+
+/* ---------- for / not for ---------- */
+.fnf{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.fcard{border-radius:24px;padding:30px 26px}
+.fcard.yes{background:linear-gradient(180deg,var(--o-soft),#fff);border:2px solid var(--o);box-shadow:0 18px 50px rgba(255,106,0,.16)}
+.fcard.no{background:var(--cool);border:1px solid var(--coolln)}
+.fcard h3{font-size:clamp(24px,3vw,30px);font-weight:800;margin:10px 0 14px}
+.fcard ul{list-style:none}
+.fcard li{display:flex;gap:12px;padding:12px 0;border-top:1px solid rgba(17,17,17,.08);font-size:16.5px;line-height:1.5;color:var(--k)}
+.fcard li:first-child{border-top:0}
+.fcard li i{flex:none;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:13px;font-weight:800;margin-top:1px;color:#fff}
+.fcard.yes li i{background:var(--o)}
+.fcard.no li i{background:#dc2626}
+
+/* ---------- decline cta ---------- */
+.nobtn{display:block;max-width:760px;margin:34px auto 0;text-align:center;text-decoration:none;padding:18px 22px;border-radius:14px;border:1.5px solid #e5b4b4;background:#fff7f7;color:#7f1d1d;font-weight:700;font-size:17px;line-height:1.45;transition:background .15s,border-color .15s}
+.nobtn:hover{background:#fee2e2;border-color:#dc2626}
+.nobtn small{display:block;margin-top:4px;font-weight:500;font-size:15px;color:#9b4a4a}
+.closing .nobtn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.2);color:#e5e7eb;margin-top:40px}
+.closing .nobtn small{color:#9ca3af}
+.closing .nobtn:hover{background:rgba(255,255,255,.12)}
+
+/* ---------- once it's on ---------- */
+.once{background:linear-gradient(180deg,#fff4ea,var(--o-soft2));border-top:1px solid rgba(255,106,0,.3);border-bottom:1px solid rgba(255,106,0,.3);text-align:center}
+.once h2{font-size:clamp(30px,4.6vw,48px);font-weight:800;margin-bottom:30px}
+.once ul{list-style:none;text-align:left;max-width:760px;margin:0 auto;display:grid;gap:12px}
+.once li{display:flex;gap:14px;padding:18px 20px;border-radius:16px;background:#fff;border:1px solid rgba(255,106,0,.3);font-size:18px;color:var(--k);line-height:1.5;box-shadow:0 10px 26px rgba(255,106,0,.08)}
+.once li i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--o);color:#fff;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:13px;font-weight:800;margin-top:1px}
+
+/* ---------- $200 more ---------- */
+.more{border:2px solid var(--o);border-radius:28px;padding:44px 36px;background:#fff;box-shadow:0 30px 70px rgba(255,106,0,.16),0 0 0 8px rgba(255,106,0,.06)}
+.more h2{font-size:clamp(30px,4.4vw,46px);font-weight:800;margin-bottom:10px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.vs div{padding:18px 20px;border-radius:16px;border:1px solid var(--coolln);background:var(--cool);color:var(--gray)}
+.vs div.r{background:var(--o-soft);border-color:rgba(255,106,0,.45)}
+.vs b{display:block;color:var(--k);margin-bottom:4px}
+.for200{display:grid;gap:10px;margin:22px 0}
+.for200 div{padding:14px 18px;border-radius:12px;background:var(--o-soft);border-left:4px solid var(--o);font-weight:700;color:var(--k)}
+.costs{list-style:none;margin:16px 0 8px;border:1px solid var(--coolln);border-radius:16px;overflow:hidden}
+.costs li{display:flex;justify-content:space-between;gap:16px;padding:15px 20px;border-bottom:1px solid var(--coolln);color:var(--k);font-size:17px}
+.costs li:last-child{border-bottom:0}
+.costs li b{font-family:var(--mono);font-size:14px;color:var(--od);white-space:nowrap}
+.total{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;padding:22px 26px;border-radius:18px;background:var(--k);color:#fff;margin:18px 0}
+.total span{font-size:20px;font-weight:700}
+.total span b{color:#ff8a1f;font-size:30px;letter-spacing:-.03em}
+.total em{font-style:normal;color:#9ca3af;font-size:17px}
+
 /* scroll helpers */
 .fxg-bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:99999;pointer-events:none;
   background:linear-gradient(90deg,hsl(20 100% 60%),hsl(58 100% 60%)) left top/100vw 100% no-repeat;box-shadow:0 2px 10px 1px hsl(58 100% 60% / .55)}
@@ -172,7 +239,11 @@ footer p{color:#7d8190;margin-bottom:8px}
 .js .rv.in{opacity:1;transform:none}
 
 @media(max-width:900px){
-  .offers{grid-template-columns:1fr}            /* OTO stays first = on top on mobile */
+  .offers{grid-template-columns:1fr}
+  .offers .card.oto{order:-1}                    /* OTO on top on mobile */
+  .desk{grid-template-columns:1fr}.headshot{max-width:200px}
+  .fnf,.vs{grid-template-columns:1fr}.nums{grid-template-columns:1fr 1fr}
+  .more{padding:32px 22px}
   .stats,.bridge .engine,.lr{grid-template-columns:1fr}
   .brand .mono{display:none}
 }
@@ -182,6 +253,7 @@ footer p{color:#7d8190;margin-bottom:8px}
   .card{padding:30px 20px 24px}
   .glass{padding:8px 10px 8px 14px}
   .brand{font-size:15px;gap:8px}
+  .warn b{font-size:14px}.warn span{font-size:12.5px}
   .brand i{width:22px;height:22px;border-width:3px}
   .pilltag{font-size:10px;padding:7px 10px}
   .fxg-blob{width:95vw!important;height:95vw!important;max-width:none!important;max-height:none!important;filter:blur(60px);opacity:.30}
@@ -193,6 +265,9 @@ footer p{color:#7d8190;margin-bottom:8px}
 <div class="fxg-bar" id="bar"></div>
 <div class="fxg-blobs" aria-hidden="true"><div class="fxg-blob"></div><div class="fxg-blob"></div><div class="fxg-blob"></div><div class="fxg-blob"></div></div>
 
+<!-- WARNING BANNER -->
+<div class="warn" id="warn"><b>⚠️ IMPORTANT — Your order is not complete. Do not close this page.</b><span>You have one chance to see what's below. It disappears the moment you click away.</span></div>
+
 <!-- glass bar -->
 <div class="bar-wrap">
   <div class="glass">
@@ -201,19 +276,14 @@ footer p{color:#7d8190;margin-bottom:8px}
   </div>
 </div>
 
-<!-- IDENTITY PRIME — TOP BANNER -->
+<!-- CONGRATULATIONS -->
 <header class="prime">
   <div class="wrap narrow">
     <div class="pilltag eyebrow">Congratulations</div>
-    <h1>Congratulations!</h1>
+    <h1>Congratulations.</h1>
     <p><strong>You just did what most painters never do.</strong></p>
-    <p>They read the page. They know it will help them. But then they doubt themselves and close the tab.</p>
-    <p class="big">That's not you.</p>
-    <p>You stopped waiting and made a move.</p>
-    <p>And because you did — you're about to have something your competition doesn't.</p>
-    <p>A steady flow of homeowners raising their hand to book an estimate, starting this week.</p>
-    <p class="big">That alone puts you ahead of 99% of painters in your market.</p>
-    <div class="nowline">NOW — before you go...</div>
+    <p>They read the page. They know it would help them. But then they doubt themselves and close the tab.</p>
+    <p class="big">That's not you. You stopped waiting and made a move.</p>
     <span class="arrow-down" aria-hidden="true">↓</span>
   </div>
 </header>
@@ -225,33 +295,86 @@ footer p{color:#7d8190;margin-bottom:8px}
   </div>
 </section>
 
-<!-- OPEN -->
+<!-- FROM THE DESK OF LANTY -->
 <section class="sec" style="padding-top:30px">
+  <div class="wrap narrow">
+    <div class="desk rv">
+      <div class="headshot">Photo of Lanty<br>(replace)</div>
+      <div>
+        <span class="mono">From the desk of Lanty</span>
+        <h3>Founder, Home Pro Jobs</h3>
+        <p>I started as a painting contractor myself.</p>
+        <p>Not a marketer who stumbled into the trades. A painter who built crews, ran estimates, chased leads, and figured out the hard way what actually works in this business.</p>
+      </div>
+    </div>
+    <div class="nums rv">
+      <div><b>$4M+</b><small>Gross revenue · 5 yrs</small></div>
+      <div><b>$1M</b><small>On track this year</small></div>
+      <div><b>25%</b><small>Profit margins</small></div>
+      <div><b>$15</b><small>Cost per lead</small></div>
+    </div>
+    <p class="rv">Over the last five years, our painting operation generated over $4 million in gross revenue. This year we're on track for $1 million — with 25% profit margins.</p>
+    <p class="rv"><strong>We got there because we stopped doing what everyone else was doing.</strong></p>
+    <div class="desk rv" style="display:block"><div class="nos"><span>Referral grinding</span><span>Post-and-pray</span><span>Cold calling homeowner lists</span></div></div>
+    <p class="rv">We built a system that brought $15 leads into our own inbox, converted them to appointments at 60%, and closed 40% of those estimates to signed jobs.</p>
+    <p class="rv">That system is what the Super Paint Close Playbook teaches.</p>
+    <p class="rv">What I'm about to show you on this page is how we made sure none of those leads slipped through the cracks once they came in.</p>
+    <p class="rv">Because the second we got our response time under five minutes — the calendar never had a gap again.</p>
+    <div class="callout rv">That's the one thing I'm going to show you how to install today.</div>
+  </div>
+</section>
+
+<!-- FOR / NOT FOR -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="fnf">
+      <div class="fcard yes rv">
+        <span class="mono" style="color:var(--od)">This is for you</span>
+        <h3>This page is for you if:</h3>
+        <ul>
+          <li><i>✓</i><span>You are a painting contractor running residential jobs and you want a consistent, predictable flow of booked estimates coming into your calendar — without spending your evenings chasing leads.</span></li>
+          <li><i>✓</i><span>You have posted on Facebook or neighborhood groups before, got some interest, and then watched the leads go cold before you could get back to them. You know the problem wasn't the post. It was the gap between the lead coming in and someone picking up the phone.</span></li>
+          <li><i>✓</i><span>You are busy enough on the tools that you cannot also be the person monitoring the inbox, texting new leads within minutes, and handling all the appointment booking on top of running a crew.</span></li>
+          <li><i>✓</i><span>You want the business to work harder than you do — leads come in, someone qualifies them, appointments land in your calendar, and you show up to the estimate while the machine keeps running in the background.</span></li>
+          <li><i>✓</i><span>You understand that one closed job at $3,500 pays for months of this — and that math doesn't feel like a stretch to you. It feels obvious.</span></li>
+        </ul>
+      </div>
+      <div class="fcard no rv">
+        <span class="mono">This is not for you</span>
+        <h3>This page is not for you if:</h3>
+        <ul>
+          <li><i>✕</i><span>You are not yet actively running a residential painting business and quoting jobs.</span></li>
+          <li><i>✕</i><span>You want to stay fully in control of every lead conversation yourself and prefer to handle your own follow-up your own way.</span></li>
+          <li><i>✕</i><span>You are expecting leads to turn into jobs without showing up to the estimate and closing the work.</span></li>
+          <li><i>✕</i><span>You want to think about it for a few weeks — because the window on this offer does not stay open.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="sec">
   <div class="wrap narrow">
     <p class="mono kicker">Here is what is about to happen</p>
     <div class="steps5 rv">
       <div><b>STEP 01</b>You share the post.</div>
-      <div><b>STEP 02</b>You boost it for a few dollars a day.</div>
-      <div><b>STEP 03</b>A homeowner in your area sees it.</div>
-      <div><b>STEP 04</b>They click.</div>
-      <div><b>STEP 05</b>They fill out the form.</div>
+      <div><b>STEP 02</b>A homeowner in your area sees it.</div>
+      <div><b>STEP 03</b>They're interested.</div>
+      <div><b>STEP 04</b>They fill out the form.</div>
       <div><b>NEXT</b>And then — they wait.</div>
     </div>
-
     <div class="scene rv">
-      <p>There you are wrapping a job.</p>
-      <p>Your phone is in your truck.</p>
-      <p>And you don't see the notification for two hours.</p>
+      <p>You're wrapping a job.</p>
+      <p>Your phone is in the truck.</p>
+      <p>You don't see the notification for two hours.</p>
     </div>
-    <p class="rv">By the time you text back — they already booked with the painter who called her in four minutes.</p>
-    <p class="rv"><strong>That job was already yours.</strong><br>You did everything right.<br>You ran the post, you got the lead.<br>Yet now - you still lost the job.</p>
-
-    <div class="nots rv"><span>Not because your price was wrong.</span><span>Not because your work wasn't good.</span></div>
-
+    <p class="rv">By the time you text back — they already booked with the painter who called them in four minutes.</p>
+    <p class="rv"><strong>That job was yours.</strong> You did everything right. You ran the post, you got the lead. And you still lost it.</p>
+    <div class="nots rv"><span>Not because your price was wrong.</span><span>Not because your work wasn't good enough.</span></div>
     <div class="gapbox rv">
       <h3>Because there was a gap.</h3>
-      <p>A time gap.</p>
-      <p>Between the moment the lead came in and the moment someone picked up the phone.</p>
+      <p>A gap between the moment the lead came in and the moment someone picked up the phone.</p>
       <p><strong>That gap is silent.</strong> You never see it happen.</p>
       <p style="margin:0">The lead just goes cold and you move on, not knowing what you lost.</p>
     </div>
@@ -287,12 +410,12 @@ footer p{color:#7d8190;margin-bottom:8px}
   <div class="wrap narrow">
     <p class="mono kicker">So here is where you are right now</p>
     <div class="engine rv">
-      <div><small>You have</small>The Playbook. Think of it as the engine.</div>
+      <div><small>You have</small>The Playbook. That's the engine.</div>
       <div><small>But</small>An engine without a driver leaves jobs on the table.</div>
     </div>
-    <p class="rv">Right now — when a lead comes in at 6:45pm on a Tuesday while you're on a job — <strong>who picks up that call?</strong></p>
+    <p class="rv">Right now — when a lead comes in at 6:45pm on a Tuesday while you're finishing a job — <strong>who picks up that call?</strong></p>
     <p class="rv">What you're about to see gives you a better answer than "me, whenever I can get to it."</p>
-    <p class="rv"><strong>Two options.</strong> Both build directly on the Playbook. Both fix the gap.</p>
+    <p class="rv"><strong>Two options.</strong> Both build directly on the Playbook. Both close the gap.</p>
     <div class="lr rv">
       <div><b>The one on the left</b>does it completely for you.</div>
       <div><b>The one on the right</b>hands you the tools and you run the inbox yourself.</div>
@@ -302,74 +425,186 @@ footer p{color:#7d8190;margin-bottom:8px}
   </div>
 </section>
 
-<!-- DUAL OFFER -->
+<!-- DUAL OFFER #1 -->
 <section class="sec" id="offers" style="padding-top:50px">
   <div class="wrap">
     <div class="offers">
 
-      <!-- LEFT — OTO 1 -->
+      <!-- LEFT — DS 1 -->
+      <article class="card ds rv">
+        <span class="mono">You run the inbox</span>
+        <h3 style="margin-top:10px">We Get You Leads</h3>
+        <div class="was">Regular Price: $497/mo</div>
+        <div class="price"><em>Yours today</em><b>$247</b><span>/mo</span></div>
+        <p>We build and turn on one Facebook Messenger ad for you.</p>
+        <p>When a homeowner clicks it, they land in your Facebook inbox. You get the notification. You reply with the copy-paste script we give you. You book the appointment yourself.</p>
+        <p class="mono" style="margin:22px 0 4px">What's included</p>
+        <ul>
+          <li class="yes"><span class="mk">✓</span><span>Facebook Messenger ad built and activated within 48 hours</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Ad targeting set up for your service area</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Inbox reply script — copy-paste ready</span></li>
+          <li class="yes"><span class="mk">✓</span><span>3-message follow-up sequence for leads that go quiet</span></li>
+          <li class="no"><span class="mk">✕</span><span>No team following up within 5 minutes</span></li>
+          <li class="no"><span class="mk">✕</span><span>No appointments booked into your calendar</span></li>
+          <li class="no"><span class="mk">✕</span><span>No weekly performance reporting</span></li>
+          <li class="no"><span class="mk">✕</span><span>No Profits Vault — the 10-module business training</span></li>
+          <li class="no"><span class="mk">✕</span><span>No 1-Hour Coaching Call with Lanty</span></li>
+        </ul>
+        <div class="note"><strong>What you handle:</strong> The conversation, the follow-up, and the booking.</div>
+        <div class="note"><strong>For only $200 more,</strong> every single one of those is covered for you — see the full option on the right.</div>
+        <div class="note">If volume grows faster than you can keep up with, you can upgrade to We Get You Booked at any time for just the <strong>$250 difference.</strong> Nothing is lost.</div>
+        <a class="btn sec2" href="#checkout-ds">Yes — Confirm We Get You Leads →</a>
+      </article>
+
+      <!-- RIGHT — OTO 1 -->
       <article class="card oto rv">
         <div class="badge">Best Option</div>
         <span class="mono">Done for you</span>
-        <h3 style="margin-top:10px">We Get Leads And Get You Booked On Auto Pilot</h3>
-        <div class="price"><b>$497</b><span>/mo</span></div>
-        <p>We run ad campaigns that gets $20 leads turned into $3000+ jobs.</p>
-        <p>We follow up with every lead within two minutes.</p>
-        <p>We book confirmed estimates into your calendar.</p>
+        <h3 style="margin-top:10px">We Get You Booked</h3>
+        <div class="was">Regular Price: $697/mo</div>
+        <div class="price"><em>Yours today</em><b>$497</b><span>/mo</span></div>
+        <p>We run the ad. We follow up with every lead within five minutes. We book confirmed estimates straight into your calendar.</p>
         <p><strong>Your job is to show up to the estimate.</strong> That's it.</p>
-        <p>When a lead hits at 6:45pm — the system picks it up. They’re texted. They’re called. They’re followed up until the appointment is set. Then it appears in your Google Calendar. You didn't have to do a single thing between the lead coming in and the estimate on your books.</p>
-        <p class="mono" style="margin:22px 0 4px;color:var(--od)">Here is everything included</p>
+        <p>When a lead hits at 6:45pm — our team picks it up. They text, they call, they follow up until the appointment is set. It appears in your Google Calendar. You didn't do a single thing between the lead coming in and the estimate on your books.</p>
+        <p class="mono" style="margin:22px 0 4px;color:var(--od)">Everything included</p>
         <ul>
-          <li class="yes"><span class="mk">✓</span><span>Facebook ad written, built, and turned on within 48 hours</span></li>
-          <li class="yes"><span class="mk">✓</span><span>Every lead followed up by our system within 2 minutes — text, phone, email</span></li>
-          <li class="yes"><span class="mk">✓</span><span>Confirmed estimates booked straight into your Calendar</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Facebook ad written, built, and live within 48 hours</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Every lead followed up by our team within 5 minutes — text and phone</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Confirmed estimates booked straight into your Google Calendar</span></li>
           <li class="yes"><span class="mk">✓</span><span>Weekly report: leads in, appointments set, estimates booked</span></li>
         </ul>
         <div class="bonus">
-          <span class="tag">$10,000 Bonus</span>
-          <p><strong>The Profits Vault</strong> — Taken from Alex Hormozi’s $100M Business Coaching, you get 10 modules on the full business side of painting. Job costing, closing, crew structure, cash flow, reading your numbers. Yours on Day 1. Kept permanently — even if you leave. These same modules I implemented to get to $1M a year at 25% margins without losing time for my family.</p>
+          <span class="tag">Included</span>
+          <p><strong>The Profits Vault</strong> — 10 modules on the full business side of painting. Job costing, closing, crew structure, cash flow, reading your numbers. Yours on Day 1, kept permanently even if you leave.</p>
         </div>
         <div class="bonus free" style="margin-top:12px">
           <span class="tag">Free</span>
-          <p><strong>1-Hour Private Coaching Call with Lanty</strong> — book it in your first 30 days. Bring your numbers, your market, your close rate. Most painters pay $500 for a business coaching call like this. Yours free today.</p>
+          <p><strong>1-Hour Private Coaching Call with Lanty</strong> — book it in your first 30 days. Bring your numbers, your market, your close rate. Yours free today.</p>
         </div>
         <div class="mathbox">
-          <p><strong>The math is simple.</strong></p>
-          <p>Five confirmed estimates a month. Average job is $3,500. One closed job pays for it all. The other four are free money in your back pocket you didn't have before.</p>
+          <p><strong>The math.</strong></p>
+          <p>Five confirmed estimates a month. Average job $3,500. One closed job pays the retainer. The other four are margin you didn't have before.</p>
+          <p>That's $200 more than the option on the left — and zero inbox management, zero follow-up, zero booking on your end. <strong>The team handles all of it.</strong></p>
         </div>
         <a class="btn pri" href="#checkout-oto">Yes — Confirm We Get You Booked →</a>
       </article>
 
-      <!-- RIGHT — DS 1 -->
+    </div>
+    <a class="nobtn" href="#no-thanks">❌ No thanks — I'll try to build my own predictable repeatable ads process alone<small>(even if it takes months and costs thousands in figuring it all out)</small></a>
+  </div>
+</section>
+
+<!-- ONCE IT'S ON -->
+<section class="sec once">
+  <div class="wrap narrow">
+    <p class="mono kicker" style="color:var(--od)">Picture it</p>
+    <h2 class="rv">Once <span class="o">We Get You Booked</span> Is Running — Here's What Happens</h2>
+    <ul>
+      <li class="rv"><i>✓</i><span>Your calendar gets filled with confirmed estimates, automatically — homeowners who said yes before you even picked up the phone.</span></li>
+      <li class="rv"><i>✓</i><span>Every lead that comes in gets a callback within five minutes, whether you're on a ladder, driving to a job, or putting the kids to bed.</span></li>
+      <li class="rv"><i>✓</i><span>No more "I'll follow up tomorrow" leading into never. The lead gets worked the moment it comes in.</span></li>
+      <li class="rv"><i>✓</i><span>That slow week you've been dreading — the one where the phone goes quiet and you start wondering where the next job is coming from — stops being a thing you have to manage.</span></li>
+      <li class="rv"><i>✓</i><span>You show up to the estimate. You do the work you're actually good at. The machine handles everything before that point.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOR JUST $200 MORE -->
+<section class="sec">
+  <div class="wrap narrow">
+    <div class="more rv">
+      <p class="mono" style="margin-bottom:12px;color:var(--od)">For just $200 more</p>
+      <h2>Still on the fence about the full option?</h2>
+      <p style="font-size:21px;color:var(--k);font-weight:700;margin-bottom:10px">Here is what $200 more actually buys you.</p>
+      <div class="vs">
+        <div><b>On the left — We Get You Leads · $247</b>Turns on the ad and delivers leads to your inbox. You follow up. You book. You manage the conversation.</div>
+        <div class="r"><b>On the right — We Get You Booked · $497</b>Does all of that for you.</div>
+      </div>
+      <div class="for200">
+        <div>For $200 more, you never touch the inbox.</div>
+        <div>For $200 more, you never chase a lead that went quiet.</div>
+        <div>For $200 more, every confirmed estimate lands in your Google Calendar while you are already on a job.</div>
+      </div>
+      <p style="margin-top:26px"><strong>Here is what it would cost to build that follow-up and booking system yourself:</strong></p>
+      <ul class="costs">
+        <li><span>A VA to monitor the inbox and follow up within 5 minutes</span><b>~$800/mo</b></li>
+        <li><span>A setter to qualify leads and book appointments</span><b>~$600/mo</b></li>
+        <li><span>Your own time managing the back-and-forth every evening</span><b>+ your hourly rate</b></li>
+      </ul>
+      <div class="total"><span><b>$1,400+</b> a month to piece it together.</span><span>Or <b>$497</b> to have our team run it.</span></div>
+      <p><strong>The math does not leave a lot of room for debate.</strong></p>
+      <p>If you went with We Get You Leads and want to upgrade, you can do it at any time for just the $250 difference. The door stays open.</p>
+      <p style="margin:0">But if you are going to make the move — <strong>make it now, while you are already here and the decision is in front of you.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- DUAL OFFER #2 -->
+<section class="sec" id="offers-2" style="padding-top:20px">
+  <div class="wrap">
+    <div class="offers">
+
+      <!-- LEFT — DS 1 -->
       <article class="card ds rv">
-        <span class="mono">Do it yourself</span>
-        <h3 style="margin-top:10px">We Get You Leads and ‘Help’ You Get Booked</h3>
-        <div class="price"><b>$247</b><span>/mo</span></div>
-        <p>We build and turn on one Facebook Messenger ad campaign for you that gets $15 leads.</p>
-        <p>When a homeowner clicks it, they land directly in your Facebook inbox.</p>
-        <p>They get an auto-reply sequence so they know they’re talking to someone.</p>
-        <p>You get the notification.</p>
-        <p>You reply with the copy-paste script we give you.</p>
-        <p>You book the appointment yourself.</p>
-        <p class="mono" style="margin:22px 0 4px">Here is what's included</p>
+        <span class="mono">You run the inbox</span>
+        <h3 style="margin-top:10px">We Get You Leads</h3>
+        <div class="was">Regular Price: $497/mo</div>
+        <div class="price"><em>Yours today</em><b>$247</b><span>/mo</span></div>
+        <p>We build and turn on one Facebook Messenger ad for you.</p>
+        <p>When a homeowner clicks it, they land in your Facebook inbox. You get the notification. You reply with the copy-paste script we give you. You book the appointment yourself.</p>
+        <p class="mono" style="margin:22px 0 4px">What's included</p>
         <ul>
           <li class="yes"><span class="mk">✓</span><span>Facebook Messenger ad built and activated within 48 hours</span></li>
           <li class="yes"><span class="mk">✓</span><span>Ad targeting set up for your service area</span></li>
-          <li class="yes"><span class="mk">✓</span><span>Inbox reply script — already written, copy-paste ready</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Inbox reply script — copy-paste ready</span></li>
           <li class="yes"><span class="mk">✓</span><span>3-message follow-up sequence for leads that go quiet</span></li>
-          <li class="no"><span class="mk">✕</span><span>Nobody following up for you within 5 minutes</span></li>
-          <li class="no"><span class="mk">✕</span><span>No team booking appointments into your calendar</span></li>
+          <li class="no"><span class="mk">✕</span><span>No team following up within 5 minutes</span></li>
+          <li class="no"><span class="mk">✕</span><span>No appointments booked into your calendar</span></li>
           <li class="no"><span class="mk">✕</span><span>No weekly performance reporting</span></li>
-          <li class="no"><span class="mk">✕</span><span>No Profits Vault — the 10-module training on the business side of painting</span></li>
+          <li class="no"><span class="mk">✕</span><span>No Profits Vault — the 10-module business training</span></li>
           <li class="no"><span class="mk">✕</span><span>No 1-Hour Coaching Call with Lanty</span></li>
         </ul>
-        <div class="note"><strong>What you handle:</strong> The conversation, the follow-up, the booking.</div>
-        <div class="note"><strong>One thing to know:</strong> If the volume grows faster than you can keep up with, you can upgrade to We Get You Booked at any time and pay only the $250 difference. Nothing is lost.</div>
+        <div class="note"><strong>What you handle:</strong> The conversation, the follow-up, and the booking.</div>
+        <div class="note"><strong>For only $200 more,</strong> every single one of those is covered for you — see the full option on the right.</div>
+        <div class="note">If volume grows faster than you can keep up with, you can upgrade to We Get You Booked at any time for just the <strong>$250 difference.</strong> Nothing is lost.</div>
         <a class="btn sec2" href="#checkout-ds">Yes — Confirm We Get You Leads →</a>
       </article>
 
+      <!-- RIGHT — OTO 1 -->
+      <article class="card oto rv">
+        <div class="badge">Best Option</div>
+        <span class="mono">Done for you</span>
+        <h3 style="margin-top:10px">We Get You Booked</h3>
+        <div class="was">Regular Price: $697/mo</div>
+        <div class="price"><em>Yours today</em><b>$497</b><span>/mo</span></div>
+        <p>We run the ad. We follow up with every lead within five minutes. We book confirmed estimates straight into your calendar.</p>
+        <p><strong>Your job is to show up to the estimate.</strong> That's it.</p>
+        <p>When a lead hits at 6:45pm — our team picks it up. They text, they call, they follow up until the appointment is set. It appears in your Google Calendar. You didn't do a single thing between the lead coming in and the estimate on your books.</p>
+        <p class="mono" style="margin:22px 0 4px;color:var(--od)">Everything included</p>
+        <ul>
+          <li class="yes"><span class="mk">✓</span><span>Facebook ad written, built, and live within 48 hours</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Every lead followed up by our team within 5 minutes — text and phone</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Confirmed estimates booked straight into your Google Calendar</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Weekly report: leads in, appointments set, estimates booked</span></li>
+        </ul>
+        <div class="bonus">
+          <span class="tag">Included</span>
+          <p><strong>The Profits Vault</strong> — 10 modules on the full business side of painting. Job costing, closing, crew structure, cash flow, reading your numbers. Yours on Day 1, kept permanently even if you leave.</p>
+        </div>
+        <div class="bonus free" style="margin-top:12px">
+          <span class="tag">Free</span>
+          <p><strong>1-Hour Private Coaching Call with Lanty</strong> — book it in your first 30 days. Bring your numbers, your market, your close rate. Yours free today.</p>
+        </div>
+        <div class="mathbox">
+          <p><strong>The math.</strong></p>
+          <p>Five confirmed estimates a month. Average job $3,500. One closed job pays the retainer. The other four are margin you didn't have before.</p>
+          <p>That's $200 more than the option on the left — and zero inbox management, zero follow-up, zero booking on your end. <strong>The team handles all of it.</strong></p>
+        </div>
+        <a class="btn pri" href="#checkout-oto">Yes — Confirm We Get You Booked →</a>
+      </article>
+
     </div>
-    <a class="decline" href="#no-thanks">No thanks — remove this and take me to the course. I don't want booked estimates on my calendar.</a>
+    <a class="nobtn" href="#no-thanks">❌ No thanks — I'll try to build my own predictable repeatable ads process alone<small>(even if it takes months and costs thousands in figuring it all out)</small></a>
   </div>
 </section>
 
@@ -378,15 +613,15 @@ footer p{color:#7d8190;margin-bottom:8px}
   <div class="wrap narrow" style="position:relative">
     <h2>Right now, <span style="color:var(--o2)">two things</span> are true.</h2>
     <div class="two">
-      <div class="rv"><b>1</b><span>The Playbook is getting homeowners to raise their hand for you.</span></div>
-      <div class="rv"><b>2</b><span>And the painter who responds fastest wins the job (not you YET).</span></div>
+      <div class="rv"><b>1</b><span>The Playbook is already getting homeowners to raise their hand.</span></div>
+      <div class="rv"><b>2</b><span>And the painter who responds fastest wins the job. Every time.</span></div>
     </div>
-    <p><strong>Every time.</strong></p>
     <p>That's true whether you pick the left or the right.</p>
     <p>The only question is: when that hand goes up at 6:45 on a Tuesday night — are you the one working the inbox, or is someone else handling it while you're finishing the job?</p>
     <p>One of those costs you time you don't have.</p>
     <p>The other costs you $497 and fills your calendar while you sleep.</p>
     <div class="pick">Pick the one that makes sense for where you are right now. Then let's get to work.</div>
+    <a class="nobtn" href="#no-thanks">❌ No thanks — I'll try to build my own predictable repeatable ads process alone<small>(even if it takes months and costs thousands in figuring it all out)</small></a>
   </div>
 </section>
 
@@ -400,6 +635,9 @@ footer p{color:#7d8190;margin-bottom:8px}
     var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});
     els.forEach(function(e){io.observe(e)});
   }else{els.forEach(function(e){e.classList.add('in')})}
+  var warn=document.getElementById('warn');
+  function wb(){document.documentElement.style.setProperty('--wb',(warn?warn.offsetHeight:0)+'px')}
+  wb();addEventListener('resize',wb);
   var bar=document.getElementById('bar'), blobs=[].slice.call(document.querySelectorAll('.fxg-blob')), ticking=false;
   function frame(){
     ticking=false;
