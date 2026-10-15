@@ -1,0 +1,50 @@
+<!-- ===== FOUNDER STAT CARDS (4 across) — copy & paste (GHL Custom HTML/JS element) =====
+     Edit the numbers / labels in the HTML at the bottom. Add or remove a card by copying one <div class="fs-card">. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@800&family=JetBrains+Mono:wght@500&display=swap');
+  #fs-wrap,#fs-wrap *{box-sizing:border-box}
+  #fs-wrap{max-width:900px;margin:0 auto;padding:6px 0}
+  #fs-wrap .fs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  #fs-wrap .fs-card{
+    padding:18px 14px;border-radius:16px;background:#fff;border:1px solid #d9dfe9;text-align:center;
+    box-shadow:0 10px 26px rgba(17,17,17,.05);
+    opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;
+  }
+  #fs-wrap.fs-in .fs-card{opacity:1;transform:none}
+  #fs-wrap.fs-in .fs-card:nth-child(2){transition-delay:.08s}
+  #fs-wrap.fs-in .fs-card:nth-child(3){transition-delay:.16s}
+  #fs-wrap.fs-in .fs-card:nth-child(4){transition-delay:.24s}
+  #fs-wrap .fs-num{
+    display:block;font-family:'DM Sans',system-ui,sans-serif !important;font-weight:800 !important;
+    font-size:34px;line-height:1.05;letter-spacing:-.04em;color:#ff6a00;
+  }
+  #fs-wrap .fs-lbl{
+    display:block;margin-top:8px;font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#6b7280;line-height:1.5;
+  }
+  @media(max-width:720px){
+    #fs-wrap .fs-grid{grid-template-columns:1fr 1fr}
+    #fs-wrap .fs-num{font-size:30px}
+  }
+  @media(prefers-reduced-motion:reduce){#fs-wrap .fs-card{opacity:1;transform:none;transition:none}}
+</style>
+
+<div id="fs-wrap">
+  <div class="fs-grid">
+    <div class="fs-card"><div class="fs-num">$4M+</div><div class="fs-lbl">Gross revenue · 5 yrs</div></div>
+    <div class="fs-card"><div class="fs-num">$1M</div><div class="fs-lbl">On track this year</div></div>
+    <div class="fs-card"><div class="fs-num">25%</div><div class="fs-lbl">Profit margins</div></div>
+    <div class="fs-card"><div class="fs-num">$15</div><div class="fs-lbl">Cost per lead</div></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var w=document.getElementById('fs-wrap'); if(!w) return;
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(e){ if(e[0].isIntersecting){ w.classList.add('fs-in'); io.disconnect(); } },{threshold:.15});
+    io.observe(w);
+  } else { w.classList.add('fs-in'); }
+})();
+</script>
+<!-- ===== END FOUNDER STAT CARDS ===== -->
