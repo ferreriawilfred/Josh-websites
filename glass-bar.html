@@ -68,6 +68,8 @@
   /* ---- settings you can change ---- */
   var HIDE_ON_SCROLL_DOWN = false;   // true = bar slides away when scrolling down, returns when scrolling up
   var SCROLLED_AFTER      = 30;      // px scrolled before the bar shrinks
+  var BANNER_SELECTOR     = '.warn-banner';  // the orange header above the bar. Give that section/row the Custom Class "warn-banner".
+                                             // The bar sits right under it, then slides up to the top once the banner scrolls away. Use '' if none.
 
   var bar=document.getElementById('gb-wrap'), space=document.getElementById('gb-space');
   if(!bar||!space) return;
@@ -75,8 +77,15 @@
 
   function setSpace(){ space.style.height=bar.offsetHeight+'px'; }   // push content down by the bar's height
 
+  var banner = BANNER_SELECTOR ? document.querySelector(BANNER_SELECTOR) : null;
+  function place(){   // keep the bar below the banner (no overlap), and at the very top once the banner is out of view
+    var off = banner ? Math.max(0, banner.getBoundingClientRect().bottom) : 0;
+    bar.style.top = off + 'px';
+  }
+
   function frame(){
     ticking=false;
+    place();
     var y=window.pageYOffset||0;
     bar.classList.toggle('gb-scrolled', y>SCROLLED_AFTER);
     if(HIDE_ON_SCROLL_DOWN){
