@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Super Paint Close — Your Page Is Almost Ready</title>
+<meta name="description" content="Every post you share needs somewhere to send people. Choose how you want it built.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --o:#ff6a00;--o2:#ff8a1f;--od:#d95500;--o-soft:#fff1e6;--o-soft2:#ffe3cc;
+  --k:#111111;--k2:#1b1b1f;--gray:#4b5563;--gray2:#6b7280;--ln:#e8e8ea;--cool:#f3f5f9;--coolln:#d9dfe9;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--k);background:#fff;line-height:1.6;font-size:19px;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+body::before{ /* faint dot grid like the reference */
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(17,17,17,.09) 1px,transparent 1.2px);background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(180deg,#000 0,transparent 70%);mask-image:linear-gradient(180deg,#000 0,transparent 70%);
+}
+img,svg{max-width:100%}
+a{color:inherit}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+.narrow{max-width:760px}
+section,header,footer{position:relative;z-index:1}
+h1,h2,h3{line-height:1.08;letter-spacing:-.03em;color:var(--k);text-wrap:balance}
+p{color:var(--gray);margin-bottom:18px;text-wrap:pretty}
+p strong{color:var(--k)}
+.o{color:var(--o)}
+.grad{background:linear-gradient(90deg,var(--od),var(--o2) 55%,#ffb000);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:500;color:var(--gray2)}
+.center{text-align:center}
+
+/* ---------- glass bar ---------- */
+.bar-wrap{position:sticky;top:calc(var(--wb,0px) + 10px);z-index:50;padding:12px 16px 0}
+.glass{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:10px 14px 10px 18px;border-radius:16px;border:1px solid rgba(17,17,17,.1);
+  background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);
+  box-shadow:0 10px 30px rgba(17,17,17,.08)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em;font-size:17px;white-space:nowrap}
+.brand i{width:26px;height:26px;border-radius:50%;border:3.5px solid var(--k);border-top-color:var(--o);border-right-color:transparent;display:inline-block}
+.brand span{color:var(--o)}
+.brand .mono{padding-left:12px;margin-left:2px;border-left:1px solid var(--ln)}
+.pilltag{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--o-soft);border:1px solid rgba(255,106,0,.4);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--od);font-weight:700}
+.pilltag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--o);box-shadow:0 0 8px var(--o)}
+
+/* ---------- identity prime banner ---------- */
+.prime{margin-top:18px;background:linear-gradient(180deg,var(--o-soft),#fff7ef);border-top:1px solid rgba(255,106,0,.25);border-bottom:1px solid rgba(255,106,0,.25);padding:54px 0 46px;text-align:center}
+.prime .eyebrow{display:inline-flex;margin-bottom:18px}
+.prime h1{font-size:clamp(38px,6.4vw,68px);font-weight:800;margin-bottom:20px}
+.prime p{font-size:clamp(18px,2.2vw,22px);color:#3f3f46;margin:0 auto 14px;max-width:760px}
+.prime p.big{font-weight:800;color:var(--k);font-size:clamp(22px,3vw,30px);letter-spacing:-.02em;margin:22px auto 14px}
+.prime .nowline{margin-top:26px;font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--od)}
+.arrow-down{display:block;margin:12px auto 0;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--o);color:var(--o);display:flex;align-items:center;justify-content:center;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ---------- sections ---------- */
+.sec{padding:84px 0}
+.sec.soft{background:rgba(247,248,251,.85)}
+.hl{font-size:clamp(34px,5.4vw,60px);font-weight:800;text-align:center;max-width:900px;margin:0 auto 14px}
+.kicker{display:flex;justify-content:center;margin-bottom:20px}
+
+/* story */
+.steps5{display:grid;gap:0;border:1px solid var(--coolln);border-radius:18px;background:rgba(255,255,255,.85);overflow:hidden;margin:34px 0 26px;box-shadow:0 14px 40px rgba(17,17,17,.06)}
+.steps5 div{display:flex;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid var(--coolln);font-size:19px;color:var(--k);font-weight:500}
+.steps5 div:last-child{border-bottom:0;background:var(--o-soft);font-weight:800}
+.steps5 b{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gray2);font-weight:500;flex:none;width:58px}
+.scene{border-left:3px solid var(--o);padding:6px 0 6px 22px;margin:26px 0;font-size:20px}
+.scene p{margin-bottom:8px;color:var(--k)}
+.nots{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+.nots span{padding:9px 16px;border-radius:10px;background:var(--cool);border:1px solid var(--coolln);font-weight:500;color:var(--k);font-size:17px}
+.nots span::before{content:"✕";color:#dc2626;font-weight:800;margin-right:9px}
+.gapbox{margin:34px 0;padding:30px;border-radius:22px;background:var(--k);color:#fff;position:relative;overflow:hidden}
+.gapbox::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,106,0,.5),transparent 70%)}
+.gapbox h3{font-size:clamp(28px,4vw,40px);color:#fff;margin-bottom:10px;position:relative}
+.gapbox p{color:#d1d5db;margin-bottom:10px;position:relative}
+.gapbox p strong{color:#fff}
+
+/* proof stat cards */
+.stats{display:grid;gap:18px;grid-template-columns:1fr 1fr;margin:34px 0}
+.stat{border-radius:22px;padding:30px 28px;border:1px solid var(--coolln);background:rgba(255,255,255,.9);box-shadow:0 14px 40px rgba(17,17,17,.06)}
+.stat.good{border:2px solid var(--o);background:linear-gradient(180deg,var(--o-soft),#fff);box-shadow:0 18px 50px rgba(255,106,0,.18)}
+.stat .num{font-size:clamp(54px,8vw,84px);font-weight:800;letter-spacing:-.05em;line-height:1;margin:14px 0 10px}
+.stat.good .num{color:var(--o)}
+.stat.bad .num{color:var(--k)}
+.stat p{margin:0;font-size:18px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:6px 0 24px}
+.chips span{padding:10px 18px;border-radius:999px;border:1px solid var(--coolln);background:#fff;font-weight:700;color:var(--k);font-size:16px}
+.chips span::before{content:"=";color:var(--o);margin-right:8px;font-weight:800}
+.callout{margin:26px 0;padding:22px 26px;border-radius:16px;background:var(--o-soft);border:1px solid rgba(255,106,0,.4);border-left:5px solid var(--o);font-weight:800;font-size:22px;color:var(--k);letter-spacing:-.01em}
+
+/* bridge */
+.bridge .engine{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin:24px 0}
+.bridge .engine div{padding:18px 20px;border-radius:16px;border:1px solid var(--coolln);background:#fff;font-weight:700;color:var(--k)}
+.bridge .engine div small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray2);margin-bottom:6px;font-weight:500}
+.lr{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin:22px 0}
+.lr div{padding:18px 20px;border-radius:16px;border:1px solid var(--coolln);background:#fff;color:var(--gray)}
+.lr div b{display:block;color:var(--k);margin-bottom:4px}
+.divider-down{display:flex;flex-direction:column;align-items:center;gap:0;margin:46px 0 -6px}
+.divider-down::before{content:"";width:1px;height:60px;background:linear-gradient(transparent,var(--o))}
+.divider-down span{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--o);background:#fff;color:var(--o);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px var(--o-soft);animation:bob 1.6s ease-in-out infinite}
+
+/* ---------- dual offer ---------- */
+.offers{display:grid;grid-template-columns:1fr 1.05fr;gap:26px;align-items:start;margin-top:34px}
+.card{position:relative;border-radius:26px;padding:34px 30px 30px}
+.card h3{font-size:clamp(24px,2.8vw,31px);font-weight:800;margin-bottom:8px;letter-spacing:-.025em}
+.was{font-family:var(--mono);font-size:14px;color:var(--gray2);text-decoration:line-through;text-decoration-color:#9ca3af;margin-top:6px}
+.price{display:flex;align-items:baseline;gap:8px;margin:2px 0 18px}
+.price em{font-style:normal;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2);margin-right:2px}
+.price b{font-size:58px;font-weight:800;letter-spacing:-.05em;line-height:1}
+.price span{font-family:var(--mono);color:var(--gray2);font-size:15px}
+.card p{font-size:17px}
+.card ul{list-style:none;margin:18px 0}
+.card li{display:flex;gap:12px;padding:11px 0;border-top:1px solid rgba(17,17,17,.08);font-size:17px;color:var(--k);line-height:1.45}
+.card li:first-child{border-top:0}
+.card li .mk{flex:none;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-top:1px}
+.card li.yes .mk{background:var(--o);color:#fff}
+.card li.no{color:#9ca3af}
+.card li.no .mk{background:#f1f2f5;color:#b4b8c2}
+.card li.no span{text-decoration:line-through;text-decoration-color:#c9ccd4}
+.bonus{margin:6px 0;padding:16px 18px;border-radius:14px;background:var(--k);color:#e5e7eb}
+.bonus .tag{display:inline-block;margin-bottom:8px;padding:4px 10px;border-radius:7px;background:var(--o);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.12em;font-weight:700;text-transform:uppercase}
+.bonus p{color:#d1d5db;margin:0;font-size:16px}
+.bonus p strong{color:#fff}
+.bonus.free{background:var(--o-soft);border:1px solid rgba(255,106,0,.4);color:var(--k)}
+.bonus.free p{color:var(--gray)}
+.bonus.free p strong{color:var(--k)}
+.bonus.free .tag{background:var(--k)}
+.mathbox{margin:20px 0;padding:18px 20px;border-radius:14px;background:#fff;border:1px dashed var(--o)}
+.mathbox p{margin:0 0 8px;font-size:17px}
+.mathbox p:last-child{margin:0}
+.btn{display:block;width:100%;text-align:center;text-decoration:none;font-weight:800;font-size:20px;padding:19px 22px;border-radius:14px;color:#fff;letter-spacing:-.01em;transition:transform .15s,box-shadow .15s}
+.btn.pri{background:linear-gradient(135deg,var(--od),var(--o2));box-shadow:0 12px 28px rgba(255,106,0,.35)}
+.btn.pri:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(255,106,0,.45)}
+.btn.sec2{background:var(--k);box-shadow:0 10px 24px rgba(17,17,17,.25)}
+.btn.sec2:hover{transform:translateY(-2px)}
+
+/* OTO = elevated, warm */
+.card.oto{background:linear-gradient(180deg,#fff4ea,#fff);border:3px solid var(--o);box-shadow:0 30px 70px rgba(255,106,0,.22),0 0 0 8px rgba(255,106,0,.08)}
+.card.oto .badge{position:absolute;top:-16px;right:22px;padding:9px 16px;border-radius:999px;background:var(--o);color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;box-shadow:0 8px 18px rgba(255,106,0,.4)}
+.card.oto .price b{color:var(--o)}
+/* DS = standard, cooler */
+.card.ds{background:var(--cool);border:1px solid var(--coolln);box-shadow:0 12px 34px rgba(17,17,17,.05)}
+.note{margin:18px 0;padding:16px 18px;border-radius:12px;background:#fff;border:1px solid var(--coolln);font-size:16px}
+.note strong{color:var(--k)}
+.decline{display:block;text-align:center;margin:30px auto 0;max-width:640px;color:#9ca3af;font-size:15px;text-decoration:underline;text-underline-offset:3px}
+.decline:hover{color:var(--gray2)}
+
+/* ---------- close ---------- */
+.closing{background:var(--k);padding:90px 0;position:relative;overflow:hidden}
+.closing::before{content:"";position:absolute;left:-10%;top:-30%;width:60%;height:120%;background:radial-gradient(ellipse,rgba(255,106,0,.28),transparent 65%)}
+.closing h2{color:#fff;font-size:clamp(30px,4.6vw,48px);font-weight:800;margin-bottom:26px}
+.closing p{color:#d1d5db;font-size:21px}
+.closing p strong{color:#fff}
+.two{display:grid;gap:14px;margin:24px 0}
+.two div{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:20px}
+.two b{flex:none;width:34px;height:34px;border-radius:9px;background:var(--o);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px}
+.pick{margin:24px 0;padding:22px 24px;border-radius:16px;border:1px solid rgba(255,106,0,.5);background:rgba(255,106,0,.1);color:#fff;font-weight:700;font-size:22px;line-height:1.4}
+footer{background:#0b0b0d;color:#7d8190;font-size:13px;padding:34px 0;text-align:center}
+footer p{color:#7d8190;margin-bottom:8px}
+
+
+/* ---------- warning banner ---------- */
+.warn{position:sticky;top:0;z-index:70;background:linear-gradient(90deg,#d97706,#f59e0b 50%,#d97706);color:#fff;text-align:center;padding:11px 16px;box-shadow:0 4px 16px rgba(180,83,9,.35)}
+.warn b{display:block;font-weight:800;font-size:16px;letter-spacing:-.005em;text-shadow:0 1px 0 rgba(0,0,0,.12)}
+.warn span{display:block;font-size:14px;font-weight:500;opacity:.95;line-height:1.35;margin-top:2px}
+
+/* ---------- founder ---------- */
+.desk{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start}
+.headshot{aspect-ratio:1/1;border-radius:22px;border:2px dashed rgba(255,106,0,.5);background:linear-gradient(160deg,var(--o-soft),#fff);display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--od);padding:14px;box-shadow:0 14px 40px rgba(255,106,0,.14)}
+.desk h3{font-size:clamp(24px,3vw,32px);font-weight:800;margin:6px 0 16px}
+.desk p{font-size:18px}
+.desk .nos{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 18px}
+.desk .nos span{padding:7px 14px;border-radius:999px;background:var(--cool);border:1px solid var(--coolln);font-size:15px;font-weight:700;color:var(--k)}
+.desk .nos span::before{content:"✕";color:#dc2626;margin-right:8px;font-weight:800}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.nums div{padding:16px 14px;border-radius:16px;background:#fff;border:1px solid var(--coolln);text-align:center;box-shadow:0 10px 26px rgba(17,17,17,.05)}
+.nums b{display:block;font-size:30px;font-weight:800;letter-spacing:-.04em;color:var(--o);line-height:1.05}
+.nums small{display:block;margin-top:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2)}
+
+/* ---------- for / not for ---------- */
+.fnf{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.fcard{border-radius:24px;padding:30px 26px}
+.fcard.yes{background:linear-gradient(180deg,var(--o-soft),#fff);border:2px solid var(--o);box-shadow:0 18px 50px rgba(255,106,0,.16)}
+.fcard.no{background:var(--cool);border:1px solid var(--coolln)}
+.fcard h3{font-size:clamp(24px,3vw,30px);font-weight:800;margin:10px 0 14px}
+.fcard ul{list-style:none}
+.fcard li{display:flex;gap:12px;padding:12px 0;border-top:1px solid rgba(17,17,17,.08);font-size:16.5px;line-height:1.5;color:var(--k)}
+.fcard li:first-child{border-top:0}
+.fcard li i{flex:none;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:13px;font-weight:800;margin-top:1px;color:#fff}
+.fcard.yes li i{background:var(--o)}
+.fcard.no li i{background:#dc2626}
+
+/* ---------- decline cta ---------- */
+.nobtn{display:block;max-width:760px;margin:34px auto 0;text-align:center;text-decoration:none;padding:18px 22px;border-radius:14px;border:1.5px solid #e5b4b4;background:#fff7f7;color:#7f1d1d;font-weight:700;font-size:17px;line-height:1.45;transition:background .15s,border-color .15s}
+.nobtn:hover{background:#fee2e2;border-color:#dc2626}
+.nobtn small{display:block;margin-top:4px;font-weight:500;font-size:15px;color:#9b4a4a}
+.closing .nobtn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.2);color:#e5e7eb;margin-top:40px}
+.closing .nobtn small{color:#9ca3af}
+.closing .nobtn:hover{background:rgba(255,255,255,.12)}
+
+/* ---------- once it's on ---------- */
+.once{background:linear-gradient(180deg,#fff4ea,var(--o-soft2));border-top:1px solid rgba(255,106,0,.3);border-bottom:1px solid rgba(255,106,0,.3);text-align:center}
+.once h2{font-size:clamp(30px,4.6vw,48px);font-weight:800;margin-bottom:30px}
+.once ul{list-style:none;text-align:left;max-width:760px;margin:0 auto;display:grid;gap:12px}
+.once li{display:flex;gap:14px;padding:18px 20px;border-radius:16px;background:#fff;border:1px solid rgba(255,106,0,.3);font-size:18px;color:var(--k);line-height:1.5;box-shadow:0 10px 26px rgba(255,106,0,.08)}
+.once li i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--o);color:#fff;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:13px;font-weight:800;margin-top:1px}
+
+/* ---------- $200 more ---------- */
+.more{border:2px solid var(--o);border-radius:28px;padding:44px 36px;background:#fff;box-shadow:0 30px 70px rgba(255,106,0,.16),0 0 0 8px rgba(255,106,0,.06)}
+.more h2{font-size:clamp(30px,4.4vw,46px);font-weight:800;margin-bottom:10px}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.vs div{padding:18px 20px;border-radius:16px;border:1px solid var(--coolln);background:var(--cool);color:var(--gray)}
+.vs div.r{background:var(--o-soft);border-color:rgba(255,106,0,.45)}
+.vs b{display:block;color:var(--k);margin-bottom:4px}
+.for200{display:grid;gap:10px;margin:22px 0}
+.for200 div{padding:14px 18px;border-radius:12px;background:var(--o-soft);border-left:4px solid var(--o);font-weight:700;color:var(--k)}
+.costs{list-style:none;margin:16px 0 8px;border:1px solid var(--coolln);border-radius:16px;overflow:hidden}
+.costs li{display:flex;justify-content:space-between;gap:16px;padding:15px 20px;border-bottom:1px solid var(--coolln);color:var(--k);font-size:17px}
+.costs li:last-child{border-bottom:0}
+.costs li b{font-family:var(--mono);font-size:14px;color:var(--od);white-space:nowrap}
+.total{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;padding:22px 26px;border-radius:18px;background:var(--k);color:#fff;margin:18px 0}
+.total span{font-size:20px;font-weight:700}
+.total span b{color:#ff8a1f;font-size:30px;letter-spacing:-.03em}
+.total em{font-style:normal;color:#9ca3af;font-size:17px}
+
+/* scroll helpers */
+.fxg-bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:99999;pointer-events:none;
+  background:linear-gradient(90deg,hsl(20 100% 60%),hsl(58 100% 60%)) left top/100vw 100% no-repeat;box-shadow:0 2px 10px 1px hsl(58 100% 60% / .55)}
+.fxg-blobs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.fxg-blob{position:absolute;width:46vw;height:46vw;max-width:640px;max-height:640px;border-radius:50%;filter:blur(90px);opacity:.17;background:hsl(var(--h,25) 100% 62%);transition:background-color 1.2s ease-out,transform .9s ease-out}
+.fxg-blob:nth-child(1){left:-12vw;top:6vh}.fxg-blob:nth-child(2){right:-14vw;top:30vh;width:40vw;height:40vw}.fxg-blob:nth-child(3){left:14vw;bottom:-18vh;width:36vw;height:36vw}.fxg-blob:nth-child(4){right:8vw;bottom:-12vh;width:30vw;height:30vw}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .offers{grid-template-columns:1fr}
+  .offers .card.oto{order:-1}                    /* OTO on top on mobile */
+  .desk{grid-template-columns:1fr}.headshot{max-width:200px}
+  .fnf,.vs{grid-template-columns:1fr}.nums{grid-template-columns:1fr 1fr}
+  .more{padding:32px 22px}
+  .stats,.bridge .engine,.lr{grid-template-columns:1fr}
+  .brand .mono{display:none}
+}
+@media(max-width:560px){
+  body{font-size:18px}
+  .sec{padding:60px 0}
+  .card{padding:30px 20px 24px}
+  .glass{padding:8px 10px 8px 14px}
+  .brand{font-size:15px;gap:8px}
+  .warn b{font-size:14px}.warn span{font-size:12.5px}
+  .brand i{width:22px;height:22px;border-width:3px}
+  .pilltag{font-size:10px;padding:7px 10px}
+  .fxg-blob{width:95vw!important;height:95vw!important;max-width:none!important;max-height:none!important;filter:blur(60px);opacity:.30}
+}
+@media(prefers-reduced-motion:reduce){.arrow-down,.divider-down span{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+
+/* ---------- proof quote ---------- */
+.quote{margin:0;padding:34px 32px;border-radius:24px;background:#fff;border:1px solid var(--coolln);border-left:6px solid var(--o);box-shadow:0 18px 50px rgba(17,17,17,.07)}
+.quote .mono{display:block;margin-bottom:14px;color:var(--od)}
+.quote p{font-size:21px;color:var(--k);margin-bottom:10px}
+.quote p.last{margin:14px 0 0;font-weight:800;font-size:23px;letter-spacing:-.01em}
+.note-mute{font-size:15px;color:var(--gray2);font-style:italic;margin:-6px 0 18px}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0}
+.flow div{padding:16px 14px;border-radius:16px;background:#fff;border:1px solid var(--coolln);font-weight:700;color:var(--k);font-size:16px;text-align:center;line-height:1.35}
+.flow div b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--o);margin-bottom:6px;font-weight:700}
+.flow div.hit{background:var(--o-soft);border-color:rgba(255,106,0,.5)}
+@media(max-width:900px){.flow{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.quote{padding:26px 22px}.quote p{font-size:18.5px}.quote p.last{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="fxg-bar" id="bar"></div>
+<div class="fxg-blobs" aria-hidden="true"><div class="fxg-blob"></div><div class="fxg-blob"></div><div class="fxg-blob"></div><div class="fxg-blob"></div></div>
+
+<!-- WARNING BANNER -->
+<div class="warn" id="warn"><b>⚠️ IMPORTANT — Your order is almost complete. We're adding a bonus gift customization for your business.</b><span>While that's being done, do not close this page or hit the back button. You have one chance to see what's below. It disappears the moment you click away.</span></div>
+
+<!-- glass bar -->
+<div class="bar-wrap">
+  <div class="glass">
+    <div class="brand"><i></i>Super Paint <span>Close</span><span class="mono" style="color:var(--gray2)">Your page is almost ready</span></div>
+    <div class="pilltag">Before you go</div>
+  </div>
+</div>
+
+<!-- IDENTITY PRIME -->
+<header class="prime">
+  <div class="wrap narrow">
+    <div class="pilltag eyebrow">One thing left</div>
+    <h1>You just made a move most painters never make.</h1>
+    <p>Leads are either already on their way in — or about to be.</p>
+    <p class="big">There's one thing left to set up before any of that matters.</p>
+    <span class="arrow-down" aria-hidden="true">↓</span>
+  </div>
+</header>
+
+<!-- HEADLINE -->
+<section class="sec" style="padding-bottom:30px">
+  <div class="wrap">
+    <h2 class="hl rv">Every Post You Share Is <span class="o">Sending People Somewhere.</span><br><span class="grad">Right Now, That Somewhere Is A Dead End.</span></h2>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section class="sec" style="padding-top:30px">
+  <div class="wrap narrow">
+    <p class="mono kicker">Think about your last post</p>
+    <p class="rv"><strong>Think about the last post you shared.</strong></p>
+    <p class="note-mute rv">(Not the ad we're going to do for you — a post you shared yourself.)</p>
+    <div class="nots rv"><span>A job photo.</span><span>A before-and-after.</span><span>A neighborhood shoutout.</span></div>
+    <div class="steps5 rv">
+      <div><b>STEP 01</b>Someone in your area saw it.</div>
+      <div><b>STEP 02</b>They were interested.</div>
+      <div><b>STEP 03</b>They clicked your name.</div>
+      <div><b>NEXT</b>Where did they go?</div>
+    </div>
+    <p class="rv">Your Facebook profile. A phone number with nothing behind it. Or just — nothing.</p>
+    <div class="scene rv">
+      <p>They looked around.</p>
+      <p>No form.</p>
+      <p>No page.</p>
+      <p>No clear next step.</p>
+    </div>
+    <p class="rv">So they did what everyone does when they don't know what to do next.</p>
+    <div class="callout rv">They left.</div>
+    <div class="gapbox rv">
+      <h3>That click was a real homeowner.</h3>
+      <p>Ready to book. And they walked away because there was nowhere for them to go.</p>
+      <p><strong>That is happening on every post you share right now.</strong> Every platform. Every time someone clicks.</p>
+      <p style="margin:0">Until every link you share points to one page that catches them — those clicks are going straight into a hole you never see.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOR / NOT FOR -->
+<section class="sec soft">
+  <div class="wrap">
+    <div class="fnf">
+      <div class="fcard yes rv">
+        <span class="mono" style="color:var(--od)">This is for you</span>
+        <h3>This page is for you if:</h3>
+        <ul>
+          <li><i>✓</i><span>You are already posting job photos, before-and-afters, or neighborhood content — and you know people are seeing it — but you have no single place to send them when they want to take the next step.</span></li>
+          <li><i>✓</i><span>You want one link you can drop into every post on every platform so that every click lands somewhere that captures the lead automatically, without you having to be there.</span></li>
+          <li><i>✓</i><span>You want to stay visible to homeowners who are not ready to book today but will be in 30 or 60 days — and you want your posts to keep showing up so you are the first name they think of when that day comes.</span></li>
+        </ul>
+      </div>
+      <div class="fcard no rv">
+        <span class="mono">This is not for you</span>
+        <h3>This page is not for you if:</h3>
+        <ul>
+          <li><i>✕</i><span>You are not currently posting anything on Facebook, Instagram, Nextdoor, or neighborhood groups — and have no plans to start.</span></li>
+          <li><i>✕</i><span>You already have a landing page live with a working lead capture form and SMS trigger set up.</span></li>
+          <li><i>✕</i><span>You are happy writing your own social content every day from scratch.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE REAL PROBLEM -->
+<section class="sec">
+  <div class="wrap narrow">
+    <p class="mono kicker">The real problem</p>
+    <h2 class="hl rv" style="font-size:clamp(30px,4.6vw,48px)">Your posts are doing their job. <span class="o">Trust does not pay the bills. Leads do.</span></h2>
+    <p class="rv">They are getting people curious. Building trust. Making homeowners in your neighborhood recognize your name.</p>
+    <p class="rv">But right now there is a gap between someone trusting you enough to click and you actually getting their name and number.</p>
+    <div class="callout rv">That gap is a landing page.</div>
+    <p class="rv"><strong>One page. One form. One link</strong> you drop into every post you share — Facebook, Instagram, Nextdoor, neighborhood groups, anywhere.</p>
+    <div class="flow rv">
+      <div><b>01</b>A homeowner sees the job photo</div>
+      <div><b>02</b>They click the link</div>
+      <div><b>03</b>They fill out the form</div>
+      <div class="hit"><b>04</b>An SMS fires to your phone before they have closed the tab</div>
+    </div>
+    <p class="rv"><strong>That is the whole fix.</strong></p>
+    <p class="rv" style="margin:0">Without it — every post you run builds awareness and converts nothing. You are doing all the right things and watching the results disappear through a hole you did not know was there.</p>
+  </div>
+</section>
+
+<!-- THE BRIDGE -->
+<section class="sec bridge soft" style="padding-bottom:20px">
+  <div class="wrap narrow">
+    <p class="mono kicker">Both options build that page for you</p>
+    <p class="rv"><strong>Live within 48 hours.</strong> One link you drop into any post on any platform. Every click now has a place to land that turns it into a lead.</p>
+    <p class="rv">The difference between the two options is what happens <strong>after</strong> the page goes live.</p>
+    <p class="rv">Because here is what most painters figure out too late.</p>
+    <div class="engine rv">
+      <div><small>A landing page</small>Catches the people who are already ready to book.</div>
+      <div><small>But most homeowners</small>Are not ready the first time they see you.</div>
+    </div>
+    <p class="rv">They watch. They come back. They see another job. They see you showing up again on Wednesday. And then one day — when they are finally ready — they click.</p>
+    <p class="rv"><strong>The question is whether you are still showing up when that day comes.</strong></p>
+    <p class="rv">That is what the 90 days of posts handle.</p>
+    <div class="callout rv">One post a day. Already written for a painting contractor.</div>
+    <p class="rv">You copy it, paste it across whatever platforms you are active on, add your link, done. Under two minutes. Your presence stays active. Your audience stays warm. And when someone is finally ready to click — you are still there.</p>
+    <div class="divider-down" aria-hidden="true"><span>↓</span></div>
+  </div>
+</section>
+
+<!-- DUAL OFFER -->
+<section class="sec" id="offers" style="padding-top:50px">
+  <div class="wrap">
+    <div class="offers">
+
+      <!-- LEFT — DS 2 -->
+      <article class="card ds rv">
+        <span class="mono">Page only</span>
+        <h3 style="margin-top:10px">We Build Your Page</h3>
+        <div class="was">Regular Price: $197 one-time</div>
+        <div class="price"><em>Yours today</em><b>$97</b><span>one-time</span></div>
+        <p>We build the landing page.</p>
+        <p>One link for every platform — Facebook, Instagram, Nextdoor, neighborhood groups, anywhere you post. Headline, form, thank-you page, SMS trigger on every submission. Live within 48 hours. On your domain. Yours permanently.</p>
+        <p class="mono" style="margin:22px 0 4px">What's included</p>
+        <ul>
+          <li class="yes"><span class="mk">✓</span><span>Landing page built and live within 48 hours</span></li>
+          <li class="yes"><span class="mk">✓</span><span>One link — works across every platform you post on</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Lead capture form connected to your phone</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Automated SMS trigger fires on every submission</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Onboarding form to collect your domain and hosting access</span></li>
+          <li class="no"><span class="mk">✕</span><span>No 90 days of copy-paste posts</span></li>
+          <li class="no"><span class="mk">✕</span><span>No cross-platform content to keep your audience warm</span></li>
+          <li class="no"><span class="mk">✕</span><span>No weekly post calendar organized and ready to go</span></li>
+          <li class="no"><span class="mk">✕</span><span>No 1-Hour Coaching Call with Lanty</span></li>
+        </ul>
+        <div class="note"><strong>What you handle:</strong> Writing your own posts, showing up consistently on every platform, and keeping your audience warm enough to click. The page catches them when they arrive. Getting them there is on you.</div>
+        <div class="note"><strong>For only $100 more,</strong> 90 days of posts are already written and handed to you — see the full option on the right.</div>
+        <a class="btn sec2" href="#checkout-ds2">Yes — Confirm We Build Your Page →</a>
+      </article>
+
+      <!-- RIGHT — OTO 2 -->
+      <article class="card oto rv">
+        <div class="badge">Best Option</div>
+        <span class="mono">Page + 90 days of posts</span>
+        <h3 style="margin-top:10px">We Build Your Funnel</h3>
+        <div class="was">Regular Price: $397 one-time</div>
+        <div class="price"><em>Yours today</em><b>$197</b><span>one-time</span></div>
+        <p>We build the landing page and hand you 90 days of posts — already written, organized by week, ready to copy-paste across every platform you are active on.</p>
+        <p>The page catches every click from every post you share.</p>
+        <p>The 90 posts make sure you keep showing up on every platform until people are ready to click.</p>
+        <p><strong>Built once. One link. Works everywhere. Runs on its own.</strong></p>
+        <p class="mono" style="margin:22px 0 4px;color:var(--od)">Everything included</p>
+        <ul>
+          <li class="yes"><span class="mk">✓</span><span>Landing page built and live within 48 hours — headline, form, thank-you page, SMS trigger on every submission</span></li>
+          <li class="yes"><span class="mk">✓</span><span>One link — drop it into any post on any platform, every click lands in the same place</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Built on your domain, under your name — yours permanently</span></li>
+          <li class="yes"><span class="mk">✓</span><span>90 days of copy-paste posts — written for a painting contractor, organized by week, delivered as a Google Doc or Notion page</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Post types: job photo captions, before-and-afters, trust builders, seasonal offers, neighborhood-specific angles</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Cross-platform ready — same posts work on Facebook, Instagram, Nextdoor and neighborhood groups with your link dropped in</span></li>
+          <li class="yes"><span class="mk">✓</span><span>Under two minutes each — copy the post, paste it, drop in the link, done</span></li>
+        </ul>
+        <div class="bonus">
+          <span class="tag">Bonus</span>
+          <p><strong>AI Agent trained in our $4M painting business</strong> — it does all the writing for you.</p>
+        </div>
+        <div class="bonus free" style="margin-top:12px">
+          <span class="tag">$500/hr now free</span>
+          <p><strong>1-Hour Private Coaching Call with Lanty</strong> (stacks with any previous calls) — book it in your first 30 days.</p>
+        </div>
+        <div class="mathbox">
+          <p><strong>What this looks like in real life.</strong></p>
+          <p>Monday morning you open the doc. You copy the post for that day. You paste it on Facebook. You drop it in the neighborhood group. You add the link. You head to the job.</p>
+          <p>Three people click throughout the day. All three land on the same page. All three fill out the form. Three SMS notifications hit your phone by evening.</p>
+          <p>That only happens when the page exists and the posts keep running.</p>
+          <p>That's $100 more than the option on the left — and 90 days of content already written so you never have to stare at a blank screen wondering what to post.</p>
+        </div>
+        <a class="btn pri" href="#checkout-oto2">Yes — Confirm We Build Your Funnel →</a>
+      </article>
+
+    </div>
+    <a class="nobtn" href="#no-thanks">❌ No thanks — I'll try to build my own money making funnel and automation alone<small>(even if it takes months and costs thousands in figuring it all out)</small></a>
+  </div>
+</section>
+
+<!-- ONCE IT'S LIVE -->
+<section class="sec once">
+  <div class="wrap narrow">
+    <p class="mono kicker" style="color:var(--od)">Picture it</p>
+    <h2 class="rv">Once Your Page Is Live — <span class="o">Here's What Changes</span></h2>
+    <ul>
+      <li class="rv"><i>✓</i><span>Every post you share from this point forward has one destination. Clicks stop disappearing into nothing.</span></li>
+      <li class="rv"><i>✓</i><span>Homeowners who are not ready today stay in your orbit — they see the posts, they see the jobs, they see you showing up — and when they are ready, the link is right there.</span></li>
+      <li class="rv"><i>✓</i><span>You stop guessing what to post. The doc is organized by week. You open it, copy, paste, add the link, move on.</span></li>
+      <li class="rv"><i>✓</i><span>The SMS fires the moment someone fills out the form. You know about the lead before they have even closed the tab.</span></li>
+      <li class="rv"><i>✓</i><span>Your organic presence and your lead capture start working as one system instead of two separate things that never connect.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="sec">
+  <div class="wrap narrow">
+    <blockquote class="quote rv">
+      <span class="mono">Proof</span>
+      <p>A painter in a mid-sized market set the page live on a Thursday.</p>
+      <p>By the following Monday he had four form submissions from posts he had already been running — posts that previously sent people nowhere.</p>
+      <p>Same posts. Same audience. Same market.</p>
+      <p class="last">The only thing that changed was where the link pointed.</p>
+    </blockquote>
+  </div>
+</section>
+
+<!-- FOR JUST $100 MORE -->
+<section class="sec" style="padding-top:20px">
+  <div class="wrap narrow">
+    <div class="more rv">
+      <p class="mono" style="margin-bottom:12px;color:var(--od)">For just $100 more</p>
+      <h2>Still deciding between the two?</h2>
+      <p style="font-size:21px;color:var(--k);font-weight:700;margin-bottom:10px">Here is what $100 more actually buys you.</p>
+      <div class="vs">
+        <div><b>On the left — We Build Your Page · $97</b>Builds the page. What to post, how often, and whether you stay visible long enough for warm audiences to convert — that is entirely on you.</div>
+        <div class="r"><b>On the right — We Build Your Funnel · $197</b>Hands you 90 days of posts already written. You open the doc, copy, paste, add the link. Done. Every single day for 90 days.</div>
+      </div>
+      <p style="margin-top:26px"><strong>Here is what writing 90 days of targeted posts yourself actually costs:</strong></p>
+      <ul class="costs">
+        <li><span>A freelance social media writer — ~$15–25 per post</span><b>$1,350–$2,250</b></li>
+        <li><span>Your own time researching what to say and writing it — 90 evenings</span><b>+ your hourly rate × 90</b></li>
+      </ul>
+      <p>The posts in the full option are written specifically for a painting contractor. Job photo captions, before-and-afters, seasonal angles, neighborhood-specific trust builders. You would spend more on one night of outsourcing than the entire option costs today.</p>
+      <div class="total"><span><b>$100 more</b> — and 90 days of your content is already done.</span></div>
+      <p>If you went with We Build Your Page and want to upgrade later, you can do it at any time for the difference. The door stays open.</p>
+      <p><strong>But the easiest time to make that call is right now, while you are already here.</strong></p>
+      <a class="btn pri" href="#checkout-oto2" style="margin-top:8px">Upgrade to We Build Your Funnel →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="closing">
+  <div class="wrap narrow" style="position:relative">
+    <h2>Every post you have shared until today had <span style="color:var(--o2)">the same problem.</span></h2>
+    <p>It got people interested. They clicked. And then there was nowhere for them to go.</p>
+    <div class="two">
+      <div class="rv"><b>1</b><span>That ends right now.</span></div>
+      <div class="rv"><b>2</b><span>One page. One link. Every post you share from this point forward has a place to send people that turns the click into a lead.</span></div>
+    </div>
+    <p>The only question is whether that page works alone — or whether it is backed by 90 days of posts keeping your audience warm on every platform until they are ready to use it.</p>
+    <p><strong>One option builds the destination.</strong><br><strong>The other makes sure people keep showing up to it.</strong></p>
+    <p>The painter who sets both up today is the one still getting leads from posts he shared two months ago.</p>
+    <div class="pick">Pick the one that fits. Let's keep moving.</div>
+    <a class="nobtn" href="#no-thanks">❌ No thanks — I'll try to build my own money making funnel and automation alone<small>(even if it takes months and costs thousands in figuring it all out)</small></a>
+  </div>
+</section>
+
+<footer><div class="wrap"><p>This site is not affiliated with or endorsed by Facebook, Inc. FACEBOOK is a trademark of Meta Platforms, Inc.</p><p>Results depend on individual effort, market conditions, and execution. This is not a guarantee of income.</p></div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('js');
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});
+    els.forEach(function(e){io.observe(e)});
+  }else{els.forEach(function(e){e.classList.add('in')})}
+  var warn=document.getElementById('warn');
+  function wb(){document.documentElement.style.setProperty('--wb',(warn?warn.offsetHeight:0)+'px')}
+  wb();addEventListener('resize',wb);
+  var bar=document.getElementById('bar'), blobs=[].slice.call(document.querySelectorAll('.fxg-blob')), ticking=false;
+  function frame(){
+    ticking=false;
+    var y=window.pageYOffset||0, vh=window.innerHeight, h=Math.max(1,document.documentElement.scrollHeight-vh), p=Math.min(1,y/h);
+    bar.style.width=(p*100)+'%';
+    var stops=[];
+    blobs.forEach(function(b,i){
+      var hh=((i*38+p*160+14)%360); stops.push('hsl('+hh.toFixed(1)+' 100% 60%)');
+      b.style.setProperty('--h',hh.toFixed(1));
+      b.style.transform='translate3d('+(Math.sin(p*6+i)*40)+'px,'+(-y*(0.05+i*0.025)%260)+'px,0)';
+    });
+    bar.style.background='linear-gradient(90deg,'+stops.join(',')+') left top/100vw 100% no-repeat';
+    bar.style.boxShadow='0 2px 10px 1px '+stops[stops.length-1].replace(')',' / .55)');
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  addEventListener('scroll',req,{passive:true});addEventListener('resize',req);frame();
+})();
+</script>
+</body>
+</html>
