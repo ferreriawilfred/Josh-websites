@@ -1,0 +1,56 @@
+<!-- ===== 4-STEP FLOW CARDS (01–04, last one highlighted) — copy & paste (GHL Custom HTML/JS element) =====
+     Edit the text inside each .fc-text. The last card (class "fc-hit") is the orange-tint one. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+  #fc-wrap,#fc-wrap *{box-sizing:border-box}
+  #fc-wrap{max-width:1000px;margin:0;padding:4px}
+  #fc-wrap .fc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+  #fc-wrap .fc-card{
+    padding:26px 18px 28px;border-radius:24px;background:#ffffff;border:1px solid #dde3ec;text-align:center;
+    opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;
+  }
+  #fc-wrap.fc-in .fc-card{opacity:1;transform:none}
+  #fc-wrap.fc-in .fc-card:nth-child(2){transition-delay:.08s}
+  #fc-wrap.fc-in .fc-card:nth-child(3){transition-delay:.16s}
+  #fc-wrap.fc-in .fc-card:nth-child(4){transition-delay:.24s}
+  #fc-wrap .fc-card.fc-hit{background:#fff0e4;border-color:rgba(255,106,0,.45)}
+  #fc-wrap .fc-num{
+    display:block;margin-bottom:10px;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:18px;font-weight:700 !important;letter-spacing:.12em;color:#d9772f;line-height:1;
+  }
+  #fc-wrap .fc-text{
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:25px;font-weight:700 !important;line-height:1.5;color:#111111;letter-spacing:-.01em;
+  }
+  @media(max-width:900px){
+    #fc-wrap .fc-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:520px){
+    #fc-wrap .fc-grid{gap:12px}
+    #fc-wrap .fc-card{padding:20px 14px 22px;border-radius:18px}
+    #fc-wrap .fc-text{font-size:19px}
+    #fc-wrap .fc-num{font-size:15px}
+  }
+  @media(prefers-reduced-motion:reduce){#fc-wrap .fc-card{opacity:1;transform:none;transition:none}}
+</style>
+
+<div id="fc-wrap">
+  <div class="fc-grid">
+    <div class="fc-card"><span class="fc-num">01</span><div class="fc-text">A homeowner sees the job photo</div></div>
+    <div class="fc-card"><span class="fc-num">02</span><div class="fc-text">They click the link</div></div>
+    <div class="fc-card"><span class="fc-num">03</span><div class="fc-text">They fill out the form</div></div>
+    <div class="fc-card fc-hit"><span class="fc-num">04</span><div class="fc-text">An SMS fires to your phone before they have closed the tab</div></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var w=document.getElementById('fc-wrap'); if(!w) return;
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(e){ if(e[0].isIntersecting){ w.classList.add('fc-in'); io.disconnect(); } },{threshold:.2});
+    io.observe(w);
+  } else { w.classList.add('fc-in'); }
+})();
+</script>
+<!-- ===== END FLOW CARDS ===== -->
