@@ -1,5 +1,5 @@
 <!-- ===== BLACK HIGHLIGHT BOX (big orange number + white text) — copy & paste (GHL Custom HTML/JS element) =====
-     Edit the text. The orange big part is inside <b>. -->
+     Edit the text. The orange big parts are inside <b>. Each line is its own <div>. -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700;800&display=swap');
   #tb-wrap,#tb-wrap *{box-sizing:border-box}
@@ -10,6 +10,7 @@
     font-size:22px;font-weight:700 !important;line-height:1.55;color:#ffffff;
   }
   #tb-wrap .tb-box b{color:#ff8a1f;font-size:36px;font-weight:800 !important;letter-spacing:-.03em;line-height:1.1}
+  #tb-wrap .tb-2{margin-top:14px}
   @media(max-width:560px){
     #tb-wrap .tb-box{padding:20px 20px;border-radius:16px;font-size:18px}
     #tb-wrap .tb-box b{font-size:28px}
@@ -17,6 +18,9 @@
 </style>
 
 <div id="tb-wrap">
-  <div class="tb-box"><b>$100 more</b> — and 90 days of your content is already done.</div>
+  <div class="tb-box">
+    <div><b>$450+</b> to build the same five tools separately.</div>
+    <div class="tb-2">Or <b>$47</b> to have all of them today.</div>
+  </div>
 </div>
 <!-- ===== END BLACK HIGHLIGHT BOX ===== -->
