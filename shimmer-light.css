@@ -1,0 +1,52 @@
+/* ================= SHIMMER BUTTON — LIGHT / WHITE BACKGROUND FIX =================
+   Paste this BELOW your existing SHIMMER BUTTON css (it overrides it).
+   Why the button "disappeared" on white: the glow uses  mix-blend-mode: plus-lighter,
+   which adds light — and white + light = white, so the glow/shine vanishes.
+   Fix: normal blending + stronger, more saturated orange so it shows on white. */
+
+/* 1) glow layer: normal blend instead of plus-lighter */
+.shimmer-btn .shimmer{
+  mix-blend-mode: normal !important;
+}
+
+/* 2) outer glow — stronger, more saturated orange (visible on white) */
+.shimmer-btn .shimmer::before{
+  box-shadow:
+    0 0 3px 1px hsla(22deg, 100%, 50%, .85),
+    0 0 8px 3px hsla(22deg, 100%, 52%, .55),
+    0 0 16px 6px hsla(24deg, 100%, 55%, .35),
+    0 0 26px 8px hsla(26deg, 100%, 58%, .2) !important;
+}
+
+/* 3) inner highlight — white/orange rim (shows on the orange button itself) */
+.shimmer-btn .shimmer::after{
+  box-shadow:
+    inset 0 0 0 1px hsla(30deg, 100%, 85%, .85),
+    inset 0 0 4px 1px hsla(28deg, 100%, 75%, .7),
+    inset 0 0 10px 1px hsla(24deg, 100%, 65%, .5) !important;
+}
+
+/* 4) button itself: drop shadow so the shape reads on white */
+.shimmer-btn,
+.dark .shimmer-btn{
+  box-shadow: 0 10px 24px rgba(255, 106, 0, .38), 0 2px 3px 1px rgba(154, 52, 18, .35) !important;
+}
+
+/* 5) spinning border — darker + more saturated (the old one was too pale on white) */
+.shimmer-btn::before{
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    transparent 0deg,
+    hsla(18deg, 100%, 45%, .95) 40deg,
+    hsla(34deg, 100%, 55%, 1)   80deg,
+    hsla(18deg, 100%, 45%, .95) 120deg,
+    transparent 160deg,
+    transparent 360deg
+  ) !important;
+}
+
+/* 6) hover: a little more lift */
+.shimmer-btn:hover:not(:active):not([disabled]){
+  transform: scale(1.03) translateY(-1px);
+  box-shadow: 0 14px 30px rgba(255, 106, 0, .48), 0 2px 3px 1px rgba(154, 52, 18, .35) !important;
+}
