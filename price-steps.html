@@ -1,0 +1,55 @@
+<!-- ===== TWO PRICE CARDS ($247 now / $497 later) — copy & paste (GHL Custom HTML/JS element) =====
+     Edit the label (.pc-label), the price (.pc-num) and the unit (.pc-unit). The first card (class "pc-now") is the orange one. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@800&family=JetBrains+Mono:wght@400;500&display=swap');
+  #pc-wrap,#pc-wrap *{box-sizing:border-box}
+  #pc-wrap{display:block !important;width:100% !important;max-width:820px;margin:0;padding:6px}
+  #pc-wrap .pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  #pc-wrap .pc-card{
+    padding:26px 26px 28px;border-radius:24px;background:#ffffff;border:1px solid #e0e4ec;
+    box-shadow:0 14px 40px rgba(17,17,17,.06);
+  }
+  #pc-wrap .pc-card.pc-now{
+    background:linear-gradient(180deg,#fff1e6,#ffffff 85%);border:2px solid #ff6a00;
+    box-shadow:0 18px 50px rgba(255,106,0,.18);
+  }
+  #pc-wrap .pc-label{
+    display:block;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#6b7280;line-height:1.4;
+  }
+  #pc-wrap .pc-num{
+    display:block;margin:14px 0 10px;
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:64px;font-weight:800 !important;letter-spacing:-.05em;line-height:1;color:#111111;
+  }
+  #pc-wrap .pc-now .pc-num{color:#ff6a00}
+  #pc-wrap .pc-unit{
+    display:block;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:15px;font-weight:400;color:#6b7280;
+  }
+  @media(max-width:700px){
+    #pc-wrap .pc-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){
+    #pc-wrap .pc-card{padding:22px 20px 24px;border-radius:20px}
+    #pc-wrap .pc-num{font-size:52px}
+  }
+</style>
+
+<div id="pc-wrap">
+  <div class="pc-grid">
+    <div class="pc-card pc-now">
+      <span class="pc-label">Months 1-2</span>
+      <span class="pc-num">$247</span>
+      <span class="pc-unit">per month</span>
+    </div>
+    <div class="pc-card">
+      <span class="pc-label">From month 3</span>
+      <span class="pc-num">$497</span>
+      <span class="pc-unit">per month</span>
+    </div>
+  </div>
+</div>
+<!-- ===== END PRICE CARDS ===== -->
