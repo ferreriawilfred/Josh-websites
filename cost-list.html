@@ -1,0 +1,35 @@
+<!-- ===== COST LIST (label left, price right) — copy & paste (GHL Custom HTML/JS element) =====
+     Edit the text in each <span> (left) and <b> (right). Add a row by copying one <div class="cl-row">. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@500;700&display=swap');
+  #cl-wrap,#cl-wrap *{box-sizing:border-box}
+  #cl-wrap{max-width:760px;margin:0;padding:4px}
+  #cl-wrap .cl-box{border:1px solid #d9dfe9;border-radius:16px;overflow:hidden;background:#ffffff}
+  #cl-wrap .cl-row{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:20px;
+    padding:18px 24px;border-bottom:1px solid #d9dfe9;
+  }
+  #cl-wrap .cl-row:last-child{border-bottom:0}
+  #cl-wrap .cl-row span{
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:19px;font-weight:400;line-height:1.6;color:#111111;
+  }
+  #cl-wrap .cl-row b{
+    flex:none;white-space:nowrap;padding-top:4px;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:14px;font-weight:700 !important;color:#d95500;line-height:1.5;
+  }
+  @media(max-width:560px){
+    #cl-wrap .cl-row{flex-direction:column;gap:4px;padding:14px 18px}
+    #cl-wrap .cl-row span{font-size:16.5px}
+    #cl-wrap .cl-row b{padding-top:0}
+  }
+</style>
+
+<div id="cl-wrap">
+  <div class="cl-box">
+    <div class="cl-row"><span>A freelance social media writer — ~$15–25 per post</span><b>$1,350-$2,250</b></div>
+    <div class="cl-row"><span>Your own time researching what to say and writing it — 90 evenings</span><b>+ your hourly rate × 90</b></div>
+  </div>
+</div>
+<!-- ===== END COST LIST ===== -->
