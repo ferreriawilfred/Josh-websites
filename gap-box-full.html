@@ -1,0 +1,43 @@
+<!-- ===== DARK BOX WITH ORANGE GLOW — NO MAX WIDTH, ALWAYS CENTERED — copy & paste (GHL Custom HTML/JS element) ===== -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap');
+  #gap-wrap,#gap-wrap *{box-sizing:border-box}
+  #gap-wrap{display:block !important;width:100% !important;max-width:none !important;margin:0 auto !important;padding:0}
+  #gap-wrap .gap-box{
+    position:relative;overflow:hidden;width:100%;margin:0 auto;
+    padding:30px 34px 30px;border-radius:24px;
+    background:#111111;
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+  }
+  /* orange glow, top-right */
+  #gap-wrap .gap-box::after{
+    content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,106,0,.55),rgba(255,106,0,0) 70%);
+    pointer-events:none;
+  }
+  #gap-wrap .gap-title{
+    position:relative;z-index:1;margin:0 0 12px;
+    font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-.02em;color:#ffffff;
+  }
+  #gap-wrap .gap-p{
+    position:relative;z-index:1;margin:0 0 10px;
+    font-size:20px;font-weight:400;line-height:1.65;color:#d1d5db;
+  }
+  #gap-wrap .gap-p:last-child{margin-bottom:0}
+  #gap-wrap .gap-p strong{color:#ffffff;font-weight:700}
+  @media(max-width:560px){
+    #gap-wrap .gap-box{padding:24px 22px;border-radius:20px}
+    #gap-wrap .gap-title{font-size:27px}
+    #gap-wrap .gap-p{font-size:17.5px}
+    #gap-wrap .gap-box::after{width:200px;height:200px;right:-70px;top:-70px}
+  }
+</style>
+
+<div id="gap-wrap">
+  <div class="gap-box">
+    <div class="gap-title">The exact same thing as We Get You Booked.</div>
+    <div class="gap-p">Every single piece of it.</div>
+    <div class="gap-p"><strong>Just half the price while you watch it work.</strong></div>
+  </div>
+</div>
+<!-- ===== END GAP BOX ===== -->
