@@ -1,0 +1,45 @@
+<!-- ===== STEP LIST WITH WORD LABELS (CLOCKED / NOTICED / FELT / NOW) — copy & paste (GHL Custom HTML/JS element) =====
+     Edit the label (.sl-label) and the text (.sl-text) in each row. The last row (class "sl-last") is the orange-tint one.
+     If you use a longer label (e.g. OBJECTIONS), raise --sl-w below so every row stays lined up. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+  #sw-wrap,#sw-wrap *{box-sizing:border-box}
+  #sw-wrap{--sl-w:86px;max-width:820px;margin:0;padding:0 6px}
+  #sw-wrap .sl-box{
+    border:1px solid #d9dfe9;border-radius:18px;overflow:hidden;
+    background:rgba(255,255,255,.88);
+    box-shadow:0 14px 40px rgba(17,17,17,.06);
+  }
+  #sw-wrap .sl-row{
+    display:flex;align-items:center;gap:18px;
+    padding:20px 24px;border-bottom:1px solid #d9dfe9;
+  }
+  #sw-wrap .sl-row:last-child{border-bottom:0}
+  #sw-wrap .sl-label{
+    flex:none;width:var(--sl-w);white-space:nowrap;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#6b7280;line-height:1.5;
+  }
+  #sw-wrap .sl-text{
+    margin:0;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:21px;font-weight:500;line-height:1.5;color:#111111;
+  }
+  #sw-wrap .sl-row.sl-last{background:#fff1e6}
+  #sw-wrap .sl-row.sl-last .sl-text{font-weight:800}
+  @media(max-width:560px){
+    #sw-wrap{--sl-w:66px}
+    #sw-wrap .sl-row{gap:12px;padding:15px 14px}
+    #sw-wrap .sl-label{font-size:10px;letter-spacing:.1em}
+    #sw-wrap .sl-text{font-size:17px}
+  }
+</style>
+
+<div id="sw-wrap">
+  <div class="sl-box">
+    <div class="sl-row"><span class="sl-label">Clocked</span><div class="sl-text">Whether you drove a clean truck or a beat-up one.</div></div>
+    <div class="sl-row"><span class="sl-label">Noticed</span><div class="sl-text">How you walked up to the door.</div></div>
+    <div class="sl-row"><span class="sl-label">Felt</span><div class="sl-text">Something in the first handshake.</div></div>
+    <div class="sl-row sl-last"><span class="sl-label">Now</span><div class="sl-text">You're sitting across from them — and they've already formed an opinion.</div></div>
+  </div>
+</div>
+<!-- ===== END STEP LIST ===== -->
