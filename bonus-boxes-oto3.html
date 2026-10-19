@@ -1,0 +1,43 @@
+<!-- ===== FREE CALL BOX + DASHED HIGHLIGHT BOX — copy & paste (GHL Custom HTML/JS element) ===== -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+  #bf-wrap,#bf-wrap *{box-sizing:border-box}
+  #bf-wrap{display:flex !important;flex-direction:column;gap:16px;width:100% !important;max-width:560px;margin:0;padding:0;
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important}
+  #bf-wrap .bf-text{margin:0;font-size:19px;font-weight:400;line-height:1.65}
+  #bf-wrap .bf-text strong{font-weight:700}
+
+  /* 1) free = light orange */
+  #bf-wrap .bf-free{padding:22px 22px 24px;border-radius:18px;background:#fff1e6;border:1px solid rgba(255,106,0,.35)}
+  #bf-wrap .bf-tag{
+    display:inline-block;margin-bottom:12px;padding:7px 14px;border-radius:8px;background:#111111;color:#ffffff;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  }
+  #bf-wrap .bf-free .bf-text{color:#4b5563}
+  #bf-wrap .bf-free .bf-text strong{color:#111111}
+
+  /* 2) dashed highlight */
+  #bf-wrap .bf-dash{padding:22px 22px 24px;border-radius:18px;background:#ffffff;border:1.5px dashed #ff6a00}
+  #bf-wrap .bf-dash .bf-text{font-size:21px;font-weight:700;line-height:1.5;color:#111111}
+
+  @media(max-width:560px){
+    #bf-wrap .bf-text{font-size:17px}
+    #bf-wrap .bf-dash .bf-text{font-size:18.5px}
+    #bf-wrap .bf-free,#bf-wrap .bf-dash{padding:18px 18px 20px;border-radius:16px}
+  }
+</style>
+
+<div id="bf-wrap">
+
+  <div class="bf-free">
+    <span class="bf-tag">Free</span>
+    <div class="bf-text"><strong>1-Hour Private Coaching Call with Lanty</strong> (stacks with previous calls) — book it in your first 30 days.</div>
+  </div>
+
+  <div class="bf-dash">
+    <div class="bf-text">One extra closed estimate this month covers this pack a hundred times over.</div>
+  </div>
+
+</div>
+<!-- ===== END BOXES ===== -->
