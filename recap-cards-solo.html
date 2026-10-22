@@ -1,0 +1,181 @@
+<!-- ===== RECAP — SEPARATE PRODUCT CARDS (6 tools + 7 days) + total banner — copy & paste anywhere (GHL Custom HTML/JS element works) ===== -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  .rc-wrap{
+    padding:0 24px;
+    font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  .rc-wrap *{box-sizing:border-box}
+  .rc-inner{max-width:1100px;margin:0 auto}
+
+  /* group header (image + value + title) */
+  .rc-group{margin:0 0 44px}
+  .rc-head{text-align:center;margin:0 0 26px}
+  .rc-head img{display:block;width:100%;max-width:620px;height:auto;margin:0 auto 14px;filter:drop-shadow(0 12px 22px rgba(17,17,17,.18))}
+  .rc-val{
+    display:inline-block;margin:0 0 12px;
+    background:#fff1e6;border:1px solid rgba(255,106,0,.45);color:#d95500;
+    border-radius:99px;padding:5px 14px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  }
+  .rc-head h3{margin:0 0 8px;color:#111111;font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+  .rc-head h3 em{font-style:normal;color:#ff6a00}
+  .rc-head p{margin:0;color:#4b5563;font-size:18px;line-height:1.6}
+
+  /* one card per product — --n = cards per row */
+  .rc-cards{--n:3;--g:20px;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--g)}
+  .rc-item{
+    width:calc((100% - var(--g) * (var(--n) - 1)) / var(--n));
+    display:flex;flex-direction:column;
+    background:#ffffff;border:1px solid #f0dccb;border-radius:20px;
+    padding:22px 22px 24px;text-align:center;
+    box-shadow:0 8px 26px rgba(17,17,17,.07);
+  }
+  .rc-pic{width:100%;max-width:260px;margin:0 auto 16px}
+  .rc-pic img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:14px;background:#111111;border:1px solid rgba(255,106,0,.4);box-shadow:0 10px 24px rgba(17,17,17,.18)}
+  .rc-day{display:block;margin:0 0 6px;color:#ff6a00;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .rc-item h4{margin:0 0 8px;color:#111111;font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+  .rc-item p{margin:0;color:#4b5563;font-size:16px;line-height:1.6}
+
+  /* bottom banner */
+  .rc-banner{
+    display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
+    background:#111111;border:0;border-radius:22px;padding:22px;
+  }
+  .rc-left{display:flex;gap:18px;align-items:center;padding-left:4px}
+  .rc-bolt{
+    flex:none;width:56px;height:56px;border-radius:12px;background:#26262c;
+    display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1;
+  }
+  .rc-title{margin:0 0 4px;color:#fff;font-size:26px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+  .rc-title em{font-style:normal;color:#ff8a1f}
+  .rc-sub{margin:0;color:#e5e7eb;font-size:17px}
+  .rc-sub s{text-decoration-color:#ef4444}
+  .rc-price{
+    background:linear-gradient(135deg,#1c1c20,#2a1a0c);border:1px solid #ff6a00;border-radius:14px;
+    padding:20px 28px 22px;min-width:300px;
+  }
+  .rc-price small{display:block;margin-bottom:8px;color:#d1d5db;font-size:12px;font-weight:500;letter-spacing:.22em}
+  .rc-price div{color:#fff;font-size:19px;line-height:1.1}
+  .rc-price u{text-underline-offset:3px}
+  .rc-price b{display:block;margin-top:4px;color:#ff8a1f;font-size:48px;font-weight:800;line-height:1}
+
+  @media(max-width:900px){
+    .rc-cards{--n:2}
+    .rc-banner{grid-template-columns:1fr}
+    .rc-price{min-width:0}
+  }
+  @media(max-width:560px){
+    .rc-wrap{padding:0 14px}
+    .rc-group{margin-bottom:32px}
+    .rc-head h3{font-size:24px}
+    .rc-head p{font-size:16.5px}
+    .rc-cards{--n:1;--g:12px}
+    /* phone: image on the left, text on the right so the list stays short */
+    .rc-item{flex-direction:row;align-items:center;gap:14px;padding:14px;text-align:left;border-radius:16px}
+    .rc-pic{flex:none;width:104px;max-width:none;margin:0}
+    .rc-item h4{font-size:17px}
+    .rc-item p{font-size:14.5px;line-height:1.5}
+    .rc-banner{padding:16px;border-radius:18px}
+    .rc-title{font-size:21px}
+    .rc-bolt{width:46px;height:46px;font-size:22px}
+    .rc-price{padding:18px}
+  }
+</style>
+
+<div class="rc-wrap">
+  <div class="rc-inner">
+
+    <!-- ===== GROUP 1: THE PLAYBOOK ===== -->
+    <div class="rc-group">
+      <div class="rc-head">
+        <img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f30cd7225ed3726223d.webp" alt="The Super Paint Close Playbook" width="1000" height="422" loading="lazy">
+        <span class="rc-val">Value: $297</span>
+        <h3>The Super Paint Close <em>Playbook</em></h3>
+        <p>Six copy-paste tools, already written for a painting contractor. 🔓 Instant access.</p>
+      </div>
+      <div class="rc-cards">
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2dcd7225ed372621fb.webp" alt="The Copy-Paste Post" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><h4>The Copy-Paste Post</h4><p>The Facebook and Nextdoor post that got shared inside neighborhoods — already written for a painting contractor. Paste it. Post it.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2f989628c77ab83788.webp" alt="The Ad to Share" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><h4>The Ad to Share</h4><p>The Facebook ad that kept running for us — headline, body copy and image description. Swap in your city and boost it for $5 a day.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2f3cacdd9117019daa.webp" alt="The Camera Script" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><h4>The Camera Script</h4><p>A 60-second script you read straight to your phone camera. No editing. No production.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2f436f78fefbd36fd1.webp" alt="The Lead Network Squeeze Guide" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><h4>The Lead Network Squeeze Guide</h4><p>The exact first reply and follow-up that turn Angie's List and HomeAdvisor leads into booked estimates.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2f436f78fefbd36fdc.webp" alt="The Referral Ask Script" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><h4>The Referral Ask Script</h4><p>Two sentences, said at the end of every job, that ask for the referral the right way.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f30436f78fefbd36fe9.webp" alt="The SMS Follow-Up Sequence" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><h4>The SMS Follow-Up Sequence</h4><p>Three texts, already written. The first goes out in 5 minutes, the second that evening, the third the next morning.</p></div>
+          </div>
+      </div>
+    </div>
+
+    <!-- ===== GROUP 2: THE 7-DAY FAST START KIT ===== -->
+    <div class="rc-group">
+      <div class="rc-head">
+        <img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f283cacdd9117019cbe.webp" alt="The 7-Day Fast Start Kit" width="1000" height="429" loading="lazy">
+        <span class="rc-val">Value: $497</span>
+        <h3><em>FREE BONUS</em> — The 7-Day Fast Start Kit</h3>
+        <p>Seven one-page tools. One lands in your inbox each day.</p>
+      </div>
+      <div class="rc-cards">
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f28cd7225ed3726217b.webp" alt="Day 1 The $10,500 Math Sheet" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><span class="rc-day">Day 1</span><h4>The $10,500 Math Sheet</h4><p>See what your close rate is costing you — and what 30% would be worth.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f28436f78fefbd36e8d.webp" alt="Day 2 The No-Show Text" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><span class="rc-day">Day 2</span><h4>The No-Show Text</h4><p>One message, sent the moment a homeowner misses a scheduled estimate.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f28989628c77ab83667.webp" alt="Day 3 The First Call Script" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><span class="rc-day">Day 3</span><h4>The First Call Script</h4><p>What to say in the first 90 seconds when a fresh lead answers.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f28f9a985d42c4fcd2c.webp" alt="Day 4 The Estimate Close Card" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><span class="rc-day">Day 4</span><h4>The Estimate Close Card</h4><p>Exact words for “I need to think about it,” “My wife wasn’t home,” and the price question.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f28989628c77ab83666.webp" alt="Day 5 The Job Profit Sheet" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><span class="rc-day">Day 5</span><h4>The Job Profit Sheet</h4><p>Plug in square footage and job type. It tells you what to charge before you write a number down.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2af9a985d42c4fcda4.webp" alt="Day 6 The Review Text" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><span class="rc-day">Day 6</span><h4>The Review Text</h4><p>Sent 48 hours after a job wraps, to ask for the 5-star Google review.</p></div>
+          </div>
+          <div class="rc-item">
+            <div class="rc-pic"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2bf9a985d42c4fcdb0.webp" alt="Day 7 The Launch Checklist" width="600" height="600" loading="lazy"></div>
+            <div class="rc-txt"><span class="rc-day">Day 7</span><h4>The Launch Checklist</h4><p>Every action from Day 1 through Day 7 on a single page, in order.</p></div>
+          </div>
+      </div>
+    </div>
+
+    <!-- ===== TOTAL BANNER ===== -->
+    <div class="rc-banner">
+      <div class="rc-left">
+        <div class="rc-bolt">⚡</div>
+        <div>
+          <h3 class="rc-title">Super Paint Close <em>System</em></h3>
+          <p class="rc-sub">Total Value: <s>$794</s></p>
+        </div>
+      </div>
+      <div class="rc-price">
+        <small>YOUR PRICE TODAY</small>
+        <div>Get it <u>today</u> for <b>$17</b></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ===== END RECAP — SEPARATE PRODUCT CARDS ===== -->
