@@ -27,9 +27,13 @@
   .rc-card h3{margin:0 0 12px;color:#111111;font-size:24px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
   .rc-card h3 em{font-style:normal;color:#ff6a00}
   .rc-card p{margin:0 0 14px;color:#4b5563;font-size:17px;line-height:1.7}
-  .rc-list{list-style:none;margin:0 auto 16px;padding:0;text-align:left;display:inline-block}
-  .rc-list li{position:relative;padding:6px 0 6px 32px;color:#374151;font-size:17px;line-height:1.4}
-  .rc-list li::before{content:"✓";position:absolute;left:0;color:#ff6a00;font-weight:700}
+  /* thumbnail grids: --n = thumbnails per row */
+  .rc-thumbs{--n:3;--g:12px;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--g);margin:0 0 18px}
+  .rc-thumbs.rc-n4{--n:4}
+  .rc-th{width:calc((100% - var(--g) * (var(--n) - 1)) / var(--n));text-align:center}
+  .rc-th img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:10px;background:#111111;border:1px solid rgba(255,106,0,.4);box-shadow:0 6px 16px rgba(17,17,17,.14)}
+  .rc-th span{display:block;margin-top:8px;color:#374151;font-size:13px;font-weight:500;line-height:1.3}
+  .rc-th span b{display:block;color:#ff6a00;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px}
   .rc-tag{
     align-self:center;margin-top:auto;
     background:#f3f4f6;color:#4b5563;
@@ -74,10 +78,13 @@
   @media(max-width:700px){
     .rc-grid{grid-template-columns:1fr}
     .rc-media{min-height:0}
+    .rc-thumbs.rc-n4{--n:3}
   }
   @media(max-width:560px){
     .rc-wrap{padding:0 14px}
     .rc-card{padding:20px 18px 22px}
+    .rc-thumbs{--n:2}
+    .rc-thumbs.rc-n4{--n:3;--g:8px}
     .rc-card h3{font-size:21px}
     .rc-banner{padding:16px;border-radius:18px}
     .rc-title{font-size:21px}
@@ -96,14 +103,14 @@
         <span class="rc-val">Value: $297</span>
         <h3>The Super Paint Close <em>Playbook</em></h3>
         <p>Six copy-paste tools, already written for a painting contractor:</p>
-        <div><ul class="rc-list">
-          <li>The Copy-Paste Post</li>
-          <li>The Ad to Share</li>
-          <li>The Camera Script</li>
-          <li>The Lead Network Squeeze Guide</li>
-          <li>The Referral Ask Script</li>
-          <li>The SMS Follow-Up Sequence</li>
-        </ul></div>
+        <div class="rc-thumbs">
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2dcd7225ed372621fb.webp" alt="The Copy-Paste Post" width="300" height="300" loading="lazy"><span>The Copy-Paste Post</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2f989628c77ab83788.webp" alt="The Ad to Share" width="300" height="300" loading="lazy"><span>The Ad to Share</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2f3cacdd9117019daa.webp" alt="The Camera Script" width="300" height="300" loading="lazy"><span>The Camera Script</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2f436f78fefbd36fd1.webp" alt="The Lead Network Squeeze Guide" width="300" height="300" loading="lazy"><span>The Lead Network Squeeze Guide</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2f436f78fefbd36fdc.webp" alt="The Referral Ask Script" width="300" height="300" loading="lazy"><span>The Referral Ask Script</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f30436f78fefbd36fe9.webp" alt="The SMS Follow-Up Sequence" width="300" height="300" loading="lazy"><span>The SMS Follow-Up Sequence</span></div>
+        </div>
         <span class="rc-tag">🔓 Instant Access</span>
       </div>
 
@@ -112,15 +119,15 @@
         <span class="rc-val">Value: $497</span>
         <h3><em>FREE BONUS</em> — The 7-Day Fast Start Kit</h3>
         <p>Seven one-page tools, one per day:</p>
-        <div><ul class="rc-list">
-          <li>Day 1 — The $10,500 Math Sheet</li>
-          <li>Day 2 — The No-Show Text</li>
-          <li>Day 3 — The First Call Script</li>
-          <li>Day 4 — The Estimate Close Card</li>
-          <li>Day 5 — The Job Profit Sheet</li>
-          <li>Day 6 — The Review Text</li>
-          <li>Day 7 — The Launch Checklist</li>
-        </ul></div>
+        <div class="rc-thumbs rc-n4">
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f28cd7225ed3726217b.webp" alt="Day 1 The $10,500 Math Sheet" width="300" height="300" loading="lazy"><span><b>Day 1</b>The $10,500 Math Sheet</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f28436f78fefbd36e8d.webp" alt="Day 2 The No-Show Text" width="300" height="300" loading="lazy"><span><b>Day 2</b>The No-Show Text</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f28989628c77ab83667.webp" alt="Day 3 The First Call Script" width="300" height="300" loading="lazy"><span><b>Day 3</b>The First Call Script</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f28f9a985d42c4fcd2c.webp" alt="Day 4 The Estimate Close Card" width="300" height="300" loading="lazy"><span><b>Day 4</b>The Estimate Close Card</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f28989628c77ab83666.webp" alt="Day 5 The Job Profit Sheet" width="300" height="300" loading="lazy"><span><b>Day 5</b>The Job Profit Sheet</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2af9a985d42c4fcda4.webp" alt="Day 6 The Review Text" width="300" height="300" loading="lazy"><span><b>Day 6</b>The Review Text</span></div>
+          <div class="rc-th"><img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f2bf9a985d42c4fcdb0.webp" alt="Day 7 The Launch Checklist" width="300" height="300" loading="lazy"><span><b>Day 7</b>The Launch Checklist</span></div>
+        </div>
         <span class="rc-tag">📬 One tool lands in your inbox each day</span>
       </div>
 
