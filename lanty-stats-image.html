@@ -1,34 +1,41 @@
 <!-- ===== LANTY STATS + IMAGE — copy & paste (GHL Custom HTML/JS element) =====
-     Your original .pp- code, plus the image. Desktop: image on the left, 4 stat rows on the right.
-     Phone: image on top, stat rows below. To put the image on the RIGHT, change "row" to "row-reverse" in .pp-wrap. -->
+     Desktop: photo on the left, the 4 stat rows on the right (rows stretch to the photo's full height).
+     Phone: photo on top, rows below. To put the photo on the RIGHT, change "row" to "row-reverse" in .pp-wrap. -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&display=swap');
   .pp-wrap,.pp-wrap *{box-sizing:border-box}
-  .pp-wrap{display:flex !important;flex-direction:row;align-items:center;gap:28px;width:100% !important;max-width:1000px;margin:0 auto;font-family:'DM Sans',sans-serif !important;}
-  .pp-media{flex:1 1 48%;min-width:0;border-radius:16px;overflow:hidden;background:#111111;border:1px solid rgba(255,106,0,0.35);box-shadow:0 18px 40px rgba(17,17,17,.18);}
-  .pp-media img{display:block;width:100%;height:auto;}
-  .pp-list{flex:1 1 52%;min-width:0;}
-  .pp-row{margin-bottom:8px;}
-  .pp-row:last-child{margin-bottom:0;}
-  .pp-card{display:flex;align-items:center;padding:14px 20px;gap:16px;border-radius:6px;background:rgba(255,106,0,0.06);border:1px solid rgba(255,106,0,0.25);}
-  .pp-check{flex-shrink:0;width:22px;height:22px;}
-  .pp-amount{font-size:21px;font-weight:700;color:#ff6a00;white-space:nowrap;min-width:110px;}
-  .pp-divider-v{width:1px;height:22px;background:rgba(255,106,0,0.3);flex-shrink:0;}
-  .pp-note{font-size:18px;color:#374151;font-weight:600;}
+  .pp-wrap{display:flex !important;flex-direction:row;align-items:stretch;gap:28px;width:100% !important;margin:0 auto;font-family:'DM Sans',sans-serif !important;}
+  .pp-media{flex:1 1 46%;min-width:0;border-radius:16px;overflow:hidden;background:#111111;border:1px solid rgba(255,106,0,0.35);box-shadow:0 18px 40px rgba(17,17,17,.18);}
+  .pp-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+  .pp-list{flex:1 1 54%;min-width:0;display:flex;flex-direction:column;gap:12px;}
+  .pp-row{flex:1;display:flex;}
+  .pp-card{flex:1;display:flex;align-items:center;padding:14px 22px;gap:16px;border-radius:10px;background:rgba(255,106,0,0.06);border:1px solid rgba(255,106,0,0.25);}
+  .pp-check{flex-shrink:0;width:26px;height:26px;}
+  .pp-amount{font-size:28px;font-weight:700;color:#ff6a00;white-space:nowrap;min-width:120px;line-height:1.1;}
+  .pp-divider-v{width:1px;height:28px;background:rgba(255,106,0,0.3);flex-shrink:0;}
+  .pp-note{font-size:20px;color:#374151;font-weight:600;line-height:1.3;}
   @media(max-width:820px){
     .pp-wrap{flex-direction:column;gap:18px;}
     .pp-media,.pp-list{flex:none;width:100%;}
+    .pp-media img{height:auto;aspect-ratio:4/3;}
+    .pp-list{gap:8px;}
+    .pp-row{flex:none;}
+    .pp-card{padding:14px 18px;}
+    .pp-check{width:22px;height:22px;}
+    .pp-amount{font-size:22px;min-width:96px;}
+    .pp-divider-v{height:22px;}
+    .pp-note{font-size:17px;}
   }
   @media(max-width:480px){
     .pp-card{padding:12px 14px;gap:12px;}
-    .pp-amount{font-size:19px;min-width:88px;}
-    .pp-note{font-size:16px;}
+    .pp-amount{font-size:19px;min-width:80px;}
+    .pp-note{font-size:15.5px;}
   }
 </style>
 
 <div class="pp-wrap">
   <div class="pp-media">
-    <img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad83f323cacdd9117019dd2.webp" alt="Super Paint & Close Playbook Masterclass" width="1600" height="900" loading="lazy">
+    <img src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad9722ca0c3fa1f7d651b91.webp" alt="Lanty with his family" width="1200" height="1100" loading="lazy">
   </div>
 
   <div class="pp-list">
@@ -49,7 +56,7 @@
 
     <div class="pp-row"><div class="pp-card" style="border-color:rgba(255,106,0,.5);background:rgba(255,106,0,.12);">
       <svg class="pp-check" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#ff6a00"/><path d="M7 12.5l3.2 3.2L17 8.8" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div class="pp-amount" style="font-size:23px;">Home</div><div class="pp-divider-v"></div><div class="pp-note" style="color:#111;">for dinner, every night</div>
+      <div class="pp-amount">Home</div><div class="pp-divider-v"></div><div class="pp-note" style="color:#111;">for dinner, every night</div>
     </div></div>
   </div>
 </div>
