@@ -1,0 +1,33 @@
+<!-- ===== "JUST ADD $100" PRICE (stacked, OTO2) — copy & paste (GHL Custom HTML/JS element) =====
+     3 simple lines, all left-aligned:  YOURS TODAY / Just add $100 / more, one-time -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700;800&family=JetBrains+Mono:wght@400&display=swap');
+  #pr-497,#pr-497 *{box-sizing:border-box}
+  #pr-497{display:block !important;width:100% !important;margin:0;padding:0;text-align:left}
+  #pr-497 .pr-mo{
+    display:block;margin:0;
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:16px;font-weight:400;line-height:1.4;color:#6b7280;
+  }
+  #pr-497 .pr-row{display:flex;align-items:baseline;gap:12px;margin:4px 0 2px}
+  #pr-497 .pr-add{
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:30px;font-weight:700;line-height:1;letter-spacing:-.02em;color:#d95500;white-space:nowrap;
+  }
+  #pr-497 .pr-amt{
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:72px;font-weight:800;line-height:1;letter-spacing:-.05em;color:#ff6a00;white-space:nowrap;
+  }
+  @media(max-width:560px){
+    #pr-497 .pr-mo{font-size:14px}
+    #pr-497 .pr-row{gap:8px}
+    #pr-497 .pr-add{font-size:22px}
+    #pr-497 .pr-amt{font-size:56px}
+  }
+</style>
+
+<div id="pr-497">
+  <span class="pr-mo">Yours today</span>
+  <div class="pr-row"><span class="pr-add">Just add</span><span class="pr-amt">$100</span></div>
+  <span class="pr-mo">more, one-time</span>
+</div>
