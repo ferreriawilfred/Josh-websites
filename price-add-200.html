@@ -1,0 +1,33 @@
+<!-- ===== "JUST ADD $200" PRICE — copy & paste (GHL Custom HTML/JS element) =====
+     Same look as the $247 side: "Yours today" label on the left, big orange number, small "more per month" on the right.
+     "Just add" sits small above the number so the big text never wraps into two lines. -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700;800&family=JetBrains+Mono:wght@400&display=swap');
+  #pr-497,#pr-497 *{box-sizing:border-box}
+  #pr-497{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:0;padding:0}
+  #pr-497 .pr-mo{
+    font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace !important;
+    font-size:16px;font-weight:400;line-height:1.3;color:#6b7280;white-space:nowrap;padding-bottom:10px;
+  }
+  #pr-497 .pr-main{display:flex;flex-direction:column;align-items:flex-start}
+  #pr-497 .pr-add{
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:24px;font-weight:700;line-height:1;letter-spacing:-.02em;color:#d95500;margin:0 0 4px;white-space:nowrap;
+  }
+  #pr-497 .pr-amt{
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif !important;
+    font-size:64px;font-weight:800;line-height:1;letter-spacing:-.05em;color:#ff6a00;white-space:nowrap;
+  }
+  @media(max-width:560px){
+    #pr-497{gap:10px}
+    #pr-497 .pr-add{font-size:20px}
+    #pr-497 .pr-amt{font-size:52px}
+    #pr-497 .pr-mo{font-size:14px;padding-bottom:8px}
+  }
+</style>
+
+<div id="pr-497">
+  <span class="pr-mo">Yours today</span>
+  <span class="pr-main"><span class="pr-add">Just add</span><span class="pr-amt">$200</span></span>
+  <span class="pr-mo">more per month</span>
+</div>
