@@ -1,0 +1,31 @@
+<!-- ===== ORDER SUMMARY BOX (red border) — copy & paste (GHL Custom HTML/JS element) ===== -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  #os-wrap,#os-wrap *{box-sizing:border-box}
+  #os-wrap{display:block !important;width:100% !important;max-width:680px;margin:0 auto;padding:4px;font-family:'Noto Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif !important}
+  #os-wrap .os-box{padding:20px 24px 22px;border:2px solid #e00000;background:#fafafa;color:#111111;font-size:20px;line-height:1.6}
+  #os-wrap .os-title{margin:0 0 14px;font-size:20px;font-weight:700;line-height:1.4}
+  #os-wrap .os-list{list-style:none;margin:0;padding:0}
+  #os-wrap .os-list li{position:relative;margin:0 0 12px;padding-left:34px}
+  #os-wrap .os-list li:last-child{margin-bottom:0}
+  #os-wrap .os-list li::before{content:"✓";position:absolute;left:0;top:0;font-weight:700}
+  #os-wrap .os-list strong{font-weight:700}
+  @media(max-width:560px){
+    #os-wrap .os-box{padding:16px 16px 18px;font-size:17px}
+    #os-wrap .os-title{font-size:18px}
+    #os-wrap .os-list li{padding-left:28px}
+  }
+</style>
+
+<div id="os-wrap">
+  <div class="os-box">
+    <p class="os-title">Here's what you're getting today:</p>
+    <ul class="os-list">
+      <li><strong>The Super Paint Close Playbook</strong> — six copy-paste tools, step by step (Value: $297)</li>
+      <li><strong>FREE BONUS — The 7-Day Fast Start Kit</strong> — one tool lands in your inbox each day (Value: $497)</li>
+      <li><strong>Bonus 1:</strong> The $120,000-in-30-Days video case study</li>
+      <li><strong>Bonus 2:</strong> Done-For-You SMS + Close Card Templates</li>
+    </ul>
+  </div>
+</div>
+<!-- ===== END ORDER SUMMARY BOX ===== -->
