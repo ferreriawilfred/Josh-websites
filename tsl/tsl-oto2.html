@@ -1,0 +1,182 @@
+<!-- ===== HOW THE BUTTONS WORK (GHL) =====
+ Buttons marked data-trigger="trg-oto-yes" / "trg-ds-yes" / "trg-no" click a hidden NATIVE GHL button with that Custom Class.
+ Add 3 native Button elements at the bottom of the page (Custom Class: trg-oto-yes, trg-ds-yes, trg-no) and set their actions
+ (one-click upsell / Go to funnel step). Hide them with:  .trg-oto-yes,.trg-ds-yes,.trg-no{position:absolute;left:-9999px}
+ Links that say CHECKOUT-URL / BOOKING-CALENDAR-URL / PRIVACY-POLICY-URL / TERMS-URL must be replaced with your real URLs. -->
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+<style>
+  /* ===== PLAIN TSL STYLE — edit the 3 colors here ===== */
+  .tsl{--tsl-head:#e00000;--tsl-btn:#df3129;--tsl-hl:#fff200}
+  .tsl,.tsl *{box-sizing:border-box}
+  .tsl{display:block !important;width:100% !important;max-width:680px;margin:0 auto;padding:26px 20px 56px;
+       background:#ffffff;color:#111111;font-family:'Noto Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+       font-size:20px;line-height:1.6;text-align:left}
+  .tsl p{margin:0 0 1.05em}
+  .tsl h1,.tsl h2,.tsl h3{font-family:'Noto Serif',Georgia,'Times New Roman',serif;font-weight:700;margin:0}
+  .tsl h1{font-size:34px;line-height:1.2;margin:0 0 .55em;color:#000}
+  .tsl h2{font-size:28px;line-height:1.25;margin:1.7em 0 .6em;color:var(--tsl-head)}
+  .tsl h3{font-size:22px;line-height:1.3;margin:1.3em 0 .4em;color:#000}
+  .tsl .kicker{display:inline-block;margin:0 0 10px;padding:1px 6px;background:var(--tsl-hl);font-style:italic;font-size:17px;line-height:1.5}
+  .tsl .eyebrow{display:block;margin:1.9em 0 -.2em;color:#6b7280;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .tsl .eyebrow + h2{margin-top:.5em}
+  .tsl .warn{margin:0 0 1.2em;padding:12px 14px;border:2px solid var(--tsl-head);color:var(--tsl-head);font-weight:700;font-size:18px;line-height:1.45;text-align:center}
+  .tsl ul,.tsl ol{margin:0 0 1.1em;padding-left:1.3em}
+  .tsl li{margin:0 0 .45em}
+  .tsl ul.chk{list-style:none;padding-left:0}
+  .tsl ul.chk li{position:relative;padding-left:1.5em}
+  .tsl ul.chk li::before{content:"✓";position:absolute;left:0;font-weight:700}
+  .tsl ul.no{list-style:none;padding-left:0}
+  .tsl ul.no li{position:relative;padding-left:1.5em;color:#444}
+  .tsl ul.no li::before{content:"✗";position:absolute;left:0;color:var(--tsl-head);font-weight:700}
+  .tsl hr{border:0;border-top:1px solid #000;width:120px;margin:1.2em auto 1.4em}
+  .tsl .center{text-align:center}
+  .tsl .box{margin:0 0 1.3em;padding:16px 18px;border:1px solid #cfcfcf;background:#fafafa}
+  .tsl .box.red{border:2px solid var(--tsl-head)}
+  .tsl .box p:last-child,.tsl .box ul:last-child{margin-bottom:0}
+  .tsl blockquote{margin:0 0 1.1em;padding:2px 0 2px 16px;border-left:4px solid #000;font-style:italic}
+  .tsl .label{font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--tsl-head)}
+  .tsl .price{margin:1.4em 0 .5em;text-align:center;font-size:19px}
+  .tsl .price s{color:#555}
+  .tsl .price b{color:#0a7d12}
+  .tsl .price small{display:block;margin-top:2px;font-size:15px;color:#444}
+  .tsl .big{font-size:32px}
+  .tsl .tsl-center-btn{text-align:center;margin:.4em 0 1.4em}
+  .tsl .decline{margin:.9em 0 1.6em;text-align:center;font-size:15px;line-height:1.5;color:#555}
+  .tsl .decline a{color:#555;text-decoration:underline}
+  .tsl .fine{margin-top:2.2em;padding-top:1.1em;border-top:1px solid #d4d4d4;color:#666;font-size:13px;line-height:1.55}
+  .tsl .fine a{color:#666}
+  .tsl a{color:#0000ee}
+  .tsl a.tsl-btn,.tsl-btn{display:inline-block;min-width:240px;padding:14px 28px;border-radius:5px;background:var(--tsl-btn,#df3129);color:#fff !important;
+       font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;letter-spacing:.01em;line-height:1.2;text-align:center;text-decoration:none !important;cursor:pointer}
+  .tsl a.tsl-btn:hover{filter:brightness(.92)}
+  .tsl .nobreak{white-space:nowrap}
+  /* hidden native GHL buttons (one-click upsell triggers) */
+  .tsl-trigger-hint{display:none}
+  @media(max-width:560px){
+    .tsl{padding:18px 16px 44px;font-size:18px}
+    .tsl h1{font-size:28px}
+    .tsl h2{font-size:24px}
+    .tsl h3{font-size:20px}
+    .tsl a.tsl-btn,.tsl-btn{display:block;min-width:0;font-size:20px;padding:14px 16px}
+  }
+</style>
+
+<div class="tsl">
+<div class="warn">⚠️ IMPORTANT — Your order is almost complete. We're adding a bonus gift customization for your business.</div>
+<p>While that's being done, do not close this page or hit the back button. <em>You have one chance to see what's below. It disappears the moment you click away.</em></p>
+<span class="kicker">Your page is almost ready · Before you go</span>
+<h1>You Just Made A Move Most Painters Never Make.</h1><hr>
+<p>Leads are either already on their way in — or about to be.</p>
+<p>There's one thing left to set up before any of that matters.</p>
+<span class="eyebrow">Think about your last post</span><h2>Every Post You Share Is Sending People Somewhere. Right Now, That Somewhere Is A Dead End.</h2>
+<p>Think about the last post you shared.</p>
+<p><em>(Not the ad we're going to do for you — a post you shared yourself.)</em></p>
+<ul><li>A job photo.</li><li>A before-and-after.</li><li>A neighborhood shoutout.</li></ul>
+<ol><li>Someone in your area saw it.</li><li>They were interested.</li><li>They clicked your name.</li></ol>
+<p><strong>Next: Where did they go?</strong></p>
+<p>Your Facebook profile. A phone number with nothing behind it. Or just — nothing.</p>
+<p>They looked around.<br>No form.<br>No page.<br>No clear next step.</p>
+<p>So they did what everyone does when they don't know what to do next.</p>
+<p>They left.</p>
+<p>That click was a real homeowner.</p>
+<p>Ready to book. And they walked away because there was nowhere for them to go.</p>
+<p>That is happening on every post you share right now. Every platform. Every time someone clicks.</p>
+<p>Until every link you share points to one page that catches them — those clicks are going straight into a hole you never see.</p>
+<h2>This Is For You</h2>
+<p>This page is for you if:</p>
+<ul class="chk"><li>You are already posting job photos, before-and-afters, or neighborhood content — and you know people are seeing it — but you have no single place to send them when they want to take the next step.</li><li>You want one link you can drop into every post on every platform so that every click lands somewhere that captures the lead automatically, without you having to be there.</li><li>You want to stay visible to homeowners who are not ready to book today but will be in 30 or 60 days — and you want your posts to keep showing up so you are the first name they think of when that day comes.</li></ul>
+<h2>This Is Not For You</h2>
+<p>This page is not for you if:</p>
+<ul class="no"><li>You are not currently posting anything on Facebook, Instagram, Nextdoor, or neighborhood groups — and have no plans to start.</li><li>You already have a landing page live with a working lead capture form and SMS trigger set up.</li><li>You are happy writing your own social content every day from scratch.</li></ul>
+<span class="eyebrow">The real problem</span><h2>Your Posts Are Doing Their Job. Trust Does Not Pay The Bills. Leads Do.</h2>
+<p>They are getting people curious. Building trust. Making homeowners in your neighborhood recognize your name.</p>
+<p>But right now there is a gap between someone trusting you enough to click and you actually getting their name and number.</p>
+<p>That gap is a landing page.</p>
+<p>One page. One form. One link you drop into every post you share — Facebook, Instagram, Nextdoor, neighborhood groups, anywhere.</p>
+<ol><li>A homeowner sees the job photo</li><li>They click the link</li><li>They fill out the form</li><li>An SMS fires to your phone before they have closed the tab</li></ol>
+<p>That is the whole fix.</p>
+<p>Without it — every post you run builds awareness and converts nothing. You are doing all the right things and watching the results disappear through a hole you did not know was there.</p>
+<h2>Both Options Build That Page For You</h2>
+<p>Live within 48 hours. One link you drop into any post on any platform. Every click now has a place to land that turns it into a lead.</p>
+<p>The difference between the two options is what happens after the page goes live.</p>
+<p>Because here is what most painters figure out too late.</p>
+<p><strong>A landing page</strong> catches the people who are already ready to book.</p>
+<p><strong>But most homeowners</strong> are not ready the first time they see you.</p>
+<p>They watch. They come back. They see another job. They see you showing up again on Wednesday. And then one day — when they are finally ready — they click.</p>
+<p>The question is whether you are still showing up when that day comes.</p>
+<p>That is what the 90 days of posts handle.</p>
+<p>One post a day. Already written for a painting contractor.</p>
+<p>You copy it, paste it across whatever platforms you are active on, add your link, done. Under two minutes. Your presence stays active. Your audience stays warm. And when someone is finally ready to click — you are still there.</p>
+<p><strong>The first option (below)</strong> builds the page. What to post, how often, and whether you stay visible long enough for warm audiences to convert — that is entirely on you.</p>
+<p><strong>The second option (BEST OPTION, below)</strong> hands you 90 days of posts already written.</p>
+<hr>
+<span class="eyebrow">Option 1 — Page only</span><h2>We Build Your Page</h2>
+<p class="price">Regular Price: <s>$197 one-time</s><br>Yours today: <b class="big">$97</b> one-time</p>
+<p><strong>We build the landing page.</strong></p>
+<p>One link for every platform — Facebook, Instagram, Nextdoor, neighborhood groups, anywhere you post. Headline, form, thank-you page, SMS trigger on every submission. Live within 48 hours. On your domain. Yours permanently.</p>
+<p><strong>What's included:</strong></p>
+<ul class="chk"><li>Landing page built and live within 48 hours</li><li>One link — works across every platform you post on</li><li>Lead capture form connected to your phone</li><li>Automated SMS trigger fires on every submission</li><li>Onboarding form to collect your domain and hosting access</li></ul>
+<ul class="no"><li>No 90 days of copy-paste posts</li><li>No cross-platform content to keep your audience warm</li><li>No weekly post calendar organized and ready to go</li><li>No 1-Hour Coaching Call with Lanty</li></ul>
+<p><strong>What you handle:</strong> Writing your own posts, showing up consistently on every platform, and keeping your audience warm enough to click. The page catches them when they arrive. Getting them there is on you.</p>
+<p>For only $100 more, 90 days of posts are already written and handed to you — see the full option below.</p>
+<div class="tsl-center-btn"><a class="tsl-btn" href="#" data-trigger="trg-ds-yes">Yes — Confirm We Build Your Page →</a></div>
+<hr>
+<span class="eyebrow">★ BEST OPTION — Page + 90 days of posts</span><h2>We Build Your Funnel</h2>
+<p class="price">Regular Price: <s>$397 one-time</s><br>Yours today: <b class="big nobreak">Just add $100</b> more, one-time<small>($197 total)</small></p>
+<p>We build the landing page and hand you 90 days of posts — already written, organized by week, ready to copy-paste across every platform you are active on.</p>
+<p>The page catches every click from every post you share.</p>
+<p>The 90 posts make sure you keep showing up on every platform until people are ready to click.</p>
+<p>Built once. One link. Works everywhere. Runs on its own.</p>
+<p><strong>Everything included:</strong></p>
+<ul class="chk"><li>Landing page built and live within 48 hours — headline, form, thank-you page, SMS trigger on every submission</li><li>One link — drop it into any post on any platform, every click lands in the same place</li><li>Built on your domain, under your name — yours permanently</li><li>90 days of copy-paste posts — written for a painting contractor, organized by week, delivered as a Google Doc or Notion page</li><li>Post types: job photo captions, before-and-afters, trust builders, seasonal offers, neighborhood-specific angles</li><li>Cross-platform ready — same posts work on Facebook, Instagram, Nextdoor and neighborhood groups with your link dropped in</li><li>Under two minutes each — copy the post, paste it, drop in the link, done</li></ul>
+<p><strong>BONUS:</strong> AI Agent trained in our $4M painting business — it does all the writing for you. <em>($500/HR — NOW FREE)</em></p>
+<p><strong>BONUS:</strong> 1-Hour Private Coaching Call with Lanty (stacks with any previous calls) — book it in your first 30 days.</p>
+<h3>What this looks like in real life.</h3>
+<p>Monday morning you open the doc. You copy the post for that day. You paste it on Facebook. You drop it in the neighborhood group. You add the link. You head to the job.</p>
+<p>Three people click throughout the day. All three land on the same page. All three fill out the form. Three SMS notifications hit your phone by evening.</p>
+<p>That only happens when the page exists and the posts keep running.</p>
+<p>That's $100 more than the option above — and 90 days of content already written so you never have to stare at a blank screen wondering what to post.</p>
+<div class="tsl-center-btn"><a class="tsl-btn" href="#" data-trigger="trg-oto-yes">Yes — Confirm We Build Your Funnel →</a></div>
+<p class="decline"><a href="#" data-trigger="trg-no">❌ No thanks — I'll try to build my own money making funnel and automation alone</a><br>(even if it takes months and costs thousands in figuring it all out)</p>
+<span class="eyebrow">Picture it</span><h2>Once Your Page Is Live — Here's What Changes</h2>
+<ul><li>Every post you share from this point forward has one destination. Clicks stop disappearing into nothing.</li><li>Homeowners who are not ready today stay in your orbit — they see the posts, they see the jobs, they see you showing up — and when they are ready, the link is right there.</li><li>You stop guessing what to post. The doc is organized by week. You open it, copy, paste, add the link, move on.</li><li>The SMS fires the moment someone fills out the form. You know about the lead before they have even closed the tab.</li><li>Your organic presence and your lead capture start working as one system instead of two separate things that never connect.</li></ul>
+<span class="eyebrow">Proof</span><h2>Proof</h2>
+<p>A painter in a mid-sized market set the page live on a Thursday.</p>
+<p>By the following Monday he had four form submissions from posts he had already been running — posts that previously sent people nowhere.</p>
+<p>Same posts. Same audience. Same market.</p>
+<p>The only thing that changed was where the link pointed.</p>
+<span class="eyebrow">For just $100 more</span><h2>Still Deciding Between The Two?</h2>
+<p>Here is what $100 more actually buys you.</p>
+<p><strong>Option 1 — We Build Your Page · $97</strong><br>Builds the page. What to post, how often, and whether you stay visible long enough for warm audiences to convert — that is entirely on you.</p>
+<p><strong>Option 2 — We Build Your Funnel · $197</strong><br>Hands you 90 days of posts already written. You open the doc, copy, paste, add the link. Done. Every single day for 90 days.</p>
+<p>Here is what writing 90 days of targeted posts yourself actually costs:</p>
+<ul><li>A freelance social media writer — ~$15–25 per post — <strong>$1,350–$2,250</strong></li><li>Your own time researching what to say and writing it — 90 evenings — <strong>+ your hourly rate × 90</strong></li></ul>
+<p>The posts in the full option are written specifically for a painting contractor. Job photo captions, before-and-afters, seasonal angles, neighborhood-specific trust builders. You would spend more on one night of outsourcing than the entire option costs today.</p>
+<div class="box red"><p><strong>$100 more — and 90 days of your content is already done.</strong></p></div>
+<p>If you went with We Build Your Page and want to upgrade later, you can do it at any time for the difference. The door stays open.</p>
+<p>But the easiest time to make that call is right now, while you are already here.</p>
+<div class="tsl-center-btn"><a class="tsl-btn" href="#" data-trigger="trg-oto-yes">Upgrade to We Build Your Funnel →</a></div>
+<h2>Every Post You Have Shared Until Today Had The Same Problem.</h2>
+<p>It got people interested. They clicked. And then there was nowhere for them to go.</p>
+<ol><li>That ends right now.</li><li>One page. One link. Every post you share from this point forward has a place to send people that turns the click into a lead.</li></ol>
+<p>The only question is whether that page works alone — or whether it is backed by 90 days of posts keeping your audience warm on every platform until they are ready to use it.</p>
+<p>One option builds the destination. The other makes sure people keep showing up to it.</p>
+<p>The painter who sets both up today is the one still getting leads from posts he shared two months ago.</p>
+<p>Pick the one that fits. Let's keep moving.</p>
+<p class="decline"><a href="#" data-trigger="trg-no">❌ No thanks — I'll try to build my own money making funnel and automation alone</a><br>(even if it takes months and costs thousands in figuring it all out)</p>
+<div class="fine"><p><a href="PRIVACY-POLICY-URL">Privacy Policy</a> &nbsp;·&nbsp; <a href="TERMS-URL">Terms &amp; Conditions</a></p><p>This site is not affiliated with or endorsed by Facebook, Inc. FACEBOOK is a trademark of Meta Platforms, Inc.</p><p>Super Paint &amp; Close is an education and training product. Results depend on individual effort, market conditions, and execution. This is not a guarantee of income. Please ensure you are 18+ before purchasing.</p></div>
+</div>
+
+<script>
+/* Buttons with data-trigger="xyz" click the hidden native GHL button that has the Custom Class "xyz".
+   (Needed for one-click upsells: payment must be fired by a real GHL button element.) */
+(function(){
+  if(window.__tslTrig) return; window.__tslTrig=true;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('[data-trigger]'); if(!a) return;
+    var t=document.querySelector('.'+a.getAttribute('data-trigger'));
+    if(t){ e.preventDefault(); var inner=t.querySelector('a,button,[role=button]')||t; inner.click(); }
+  });
+})();
+</script>

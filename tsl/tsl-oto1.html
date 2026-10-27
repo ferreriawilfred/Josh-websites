@@ -1,0 +1,183 @@
+<!-- ===== HOW THE BUTTONS WORK (GHL) =====
+ Buttons marked data-trigger="trg-oto-yes" / "trg-ds-yes" / "trg-no" click a hidden NATIVE GHL button with that Custom Class.
+ Add 3 native Button elements at the bottom of the page (Custom Class: trg-oto-yes, trg-ds-yes, trg-no) and set their actions
+ (one-click upsell / Go to funnel step). Hide them with:  .trg-oto-yes,.trg-ds-yes,.trg-no{position:absolute;left:-9999px}
+ Links that say CHECKOUT-URL / BOOKING-CALENDAR-URL / PRIVACY-POLICY-URL / TERMS-URL must be replaced with your real URLs. -->
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+<style>
+  /* ===== PLAIN TSL STYLE — edit the 3 colors here ===== */
+  .tsl{--tsl-head:#e00000;--tsl-btn:#df3129;--tsl-hl:#fff200}
+  .tsl,.tsl *{box-sizing:border-box}
+  .tsl{display:block !important;width:100% !important;max-width:680px;margin:0 auto;padding:26px 20px 56px;
+       background:#ffffff;color:#111111;font-family:'Noto Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+       font-size:20px;line-height:1.6;text-align:left}
+  .tsl p{margin:0 0 1.05em}
+  .tsl h1,.tsl h2,.tsl h3{font-family:'Noto Serif',Georgia,'Times New Roman',serif;font-weight:700;margin:0}
+  .tsl h1{font-size:34px;line-height:1.2;margin:0 0 .55em;color:#000}
+  .tsl h2{font-size:28px;line-height:1.25;margin:1.7em 0 .6em;color:var(--tsl-head)}
+  .tsl h3{font-size:22px;line-height:1.3;margin:1.3em 0 .4em;color:#000}
+  .tsl .kicker{display:inline-block;margin:0 0 10px;padding:1px 6px;background:var(--tsl-hl);font-style:italic;font-size:17px;line-height:1.5}
+  .tsl .eyebrow{display:block;margin:1.9em 0 -.2em;color:#6b7280;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .tsl .eyebrow + h2{margin-top:.5em}
+  .tsl .warn{margin:0 0 1.2em;padding:12px 14px;border:2px solid var(--tsl-head);color:var(--tsl-head);font-weight:700;font-size:18px;line-height:1.45;text-align:center}
+  .tsl ul,.tsl ol{margin:0 0 1.1em;padding-left:1.3em}
+  .tsl li{margin:0 0 .45em}
+  .tsl ul.chk{list-style:none;padding-left:0}
+  .tsl ul.chk li{position:relative;padding-left:1.5em}
+  .tsl ul.chk li::before{content:"✓";position:absolute;left:0;font-weight:700}
+  .tsl ul.no{list-style:none;padding-left:0}
+  .tsl ul.no li{position:relative;padding-left:1.5em;color:#444}
+  .tsl ul.no li::before{content:"✗";position:absolute;left:0;color:var(--tsl-head);font-weight:700}
+  .tsl hr{border:0;border-top:1px solid #000;width:120px;margin:1.2em auto 1.4em}
+  .tsl .center{text-align:center}
+  .tsl .box{margin:0 0 1.3em;padding:16px 18px;border:1px solid #cfcfcf;background:#fafafa}
+  .tsl .box.red{border:2px solid var(--tsl-head)}
+  .tsl .box p:last-child,.tsl .box ul:last-child{margin-bottom:0}
+  .tsl blockquote{margin:0 0 1.1em;padding:2px 0 2px 16px;border-left:4px solid #000;font-style:italic}
+  .tsl .label{font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--tsl-head)}
+  .tsl .price{margin:1.4em 0 .5em;text-align:center;font-size:19px}
+  .tsl .price s{color:#555}
+  .tsl .price b{color:#0a7d12}
+  .tsl .price small{display:block;margin-top:2px;font-size:15px;color:#444}
+  .tsl .big{font-size:32px}
+  .tsl .tsl-center-btn{text-align:center;margin:.4em 0 1.4em}
+  .tsl .decline{margin:.9em 0 1.6em;text-align:center;font-size:15px;line-height:1.5;color:#555}
+  .tsl .decline a{color:#555;text-decoration:underline}
+  .tsl .fine{margin-top:2.2em;padding-top:1.1em;border-top:1px solid #d4d4d4;color:#666;font-size:13px;line-height:1.55}
+  .tsl .fine a{color:#666}
+  .tsl a{color:#0000ee}
+  .tsl a.tsl-btn,.tsl-btn{display:inline-block;min-width:240px;padding:14px 28px;border-radius:5px;background:var(--tsl-btn,#df3129);color:#fff !important;
+       font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;letter-spacing:.01em;line-height:1.2;text-align:center;text-decoration:none !important;cursor:pointer}
+  .tsl a.tsl-btn:hover{filter:brightness(.92)}
+  .tsl .nobreak{white-space:nowrap}
+  /* hidden native GHL buttons (one-click upsell triggers) */
+  .tsl-trigger-hint{display:none}
+  @media(max-width:560px){
+    .tsl{padding:18px 16px 44px;font-size:18px}
+    .tsl h1{font-size:28px}
+    .tsl h2{font-size:24px}
+    .tsl h3{font-size:20px}
+    .tsl a.tsl-btn,.tsl-btn{display:block;min-width:0;font-size:20px;padding:14px 16px}
+  }
+</style>
+
+<div class="tsl">
+<div class="warn">⚠️ IMPORTANT — Your order is not complete. Do not close this page.</div>
+<p><em>You have one chance to see what's below. It disappears the moment you click away.</em></p>
+<span class="kicker">Booked on autopilot · Before you go</span>
+<h1>Congratulations! You Just Did What Most Painters Never Do.</h1><hr>
+<p>They read the page. They know it would help them. But then they doubt themselves and close the tab.</p>
+<p>That's not you. You stopped waiting and made a move.</p>
+<h2>The Playbook Gets Homeowners Raising Their Hand. But Something Has To Catch Them The Moment They Do.</h2>
+<p><strong>From the desk of Lanty</strong><br>Founder, Home Pro Jobs</p>
+<p>I started as a painting contractor myself.</p>
+<p>Not a marketer who stumbled into the trades. A painter who built crews, ran estimates, chased leads, and figured out the hard way what actually works in this business.</p>
+<ul><li><strong>$4M+</strong> — gross revenue, 5 years</li><li><strong>$1M</strong> — on track this year</li><li><strong>25%</strong> — profit margins</li><li><strong>$15</strong> — cost per lead</li></ul>
+<p>Over the last five years, our painting operation generated over $4 million in gross revenue. This year we're on track for $1 million — with 25% profit margins.</p>
+<p>We got there because we stopped doing what everyone else was doing.</p>
+<ul><li>Referral grinding</li><li>Post-and-pray</li><li>Cold calling homeowner lists</li></ul>
+<p>We built a system that brought $15 leads into our own inbox, converted them to appointments at 60%, and closed 40% of those estimates to signed jobs.</p>
+<p>That system is what the Super Paint Close Playbook teaches.</p>
+<p>What I'm about to show you on this page is how we made sure none of those leads slipped through the cracks once they came in.</p>
+<p>Because the second we got our response time under five minutes — the calendar never had a gap again.</p>
+<p>That's the one thing I'm going to show you how to install today.</p>
+<h2>This Is For You</h2>
+<p>This page is for you if:</p>
+<ul class="chk"><li>You are a painting contractor running residential jobs and you want a consistent, predictable flow of booked estimates coming into your calendar — without spending your evenings chasing leads.</li><li>You have posted on Facebook or neighborhood groups before, got some interest, and then watched the leads go cold before you could get back to them. You know the problem wasn't the post. It was the gap between the lead coming in and someone picking up the phone.</li><li>You are busy enough on the tools that you cannot also be the person monitoring the inbox, texting new leads within minutes, and handling all the appointment booking on top of running a crew.</li><li>You want the business to work harder than you do — leads come in, someone qualifies them, appointments land in your calendar, and you show up to the estimate while the machine keeps running in the background.</li><li>You understand that one closed job at $3,500 pays for months of this — and that math doesn't feel like a stretch to you. It feels obvious.</li></ul>
+<h2>This Is Not For You</h2>
+<p>This page is not for you if:</p>
+<ul class="no"><li>You are not yet actively running a residential painting business and quoting jobs.</li><li>You want to stay fully in control of every lead conversation yourself and prefer to handle your own follow-up your own way.</li><li>You are expecting leads to turn into jobs without showing up to the estimate and closing the work.</li><li>You want to think about it for a few weeks — because the window on this offer does not stay open.</li></ul>
+<h2>Here Is What Is About To Happen</h2>
+<ol><li>You share the post.</li><li>A homeowner in your area sees it.</li><li>They're interested.</li><li>They fill out the form.</li></ol>
+<p><strong>And then — they wait.</strong></p>
+<p>You're wrapping a job.<br>Your phone is in the truck.<br>You don't see the notification for two hours.</p>
+<p>By the time you text back — they already booked with the painter who called them in four minutes.</p>
+<p>That job was yours. You did everything right. You ran the post, you got the lead. And you still lost it.</p>
+<p>Not because your price was wrong.<br>Not because your work wasn't good enough.</p>
+<p>Because there was a gap.</p>
+<p>A gap between the moment the lead came in and the moment someone picked up the phone.</p>
+<p>That gap is silent. You never see it happen.</p>
+<p>The lead just goes cold and you move on, not knowing what you lost.</p>
+<span class="eyebrow">The proof</span><h2>Here Is What The Numbers Say About Painting Leads.</h2>
+<div class="box"><p><strong>RESPONDS IN UNDER 5 MINUTES: 80%+</strong><br>A painter who responds to a fresh lead in under five minutes books the estimate more than 80% of the time.</p></div>
+<div class="box"><p><strong>WAITS 2 HOURS: &lt;20%</strong><br>That same painter — waiting two hours on the same lead, same homeowner, same job — books it less than 20% of the time.</p></div>
+<p>Same post.<br>Same price.<br>Same quality of work.</p>
+<p>The only thing that changed is the five-minute window.</p>
+<p>That's the whole game.</p>
+<p>And that's the only thing left between you and a full calendar.</p>
+<h2>So Here Is Where You Are Right Now</h2>
+<p><strong>You have:</strong> The Playbook. That's the engine.</p>
+<p><strong>But:</strong> An engine without a driver leaves jobs on the table.</p>
+<p>Right now — when a lead comes in at 6:45pm on a Tuesday while you're finishing a job — who picks up that call?</p>
+<p>What you're about to see gives you a better answer than “me, whenever I can get to it.”</p>
+<p>Two options. Both build directly on the Playbook. Both close the gap.</p>
+<p><strong>The first option (below)</strong> hands you the tools and you run the inbox yourself.</p>
+<p><strong>The second option (below, marked BEST OPTION)</strong> does it completely for you.</p>
+<p>Look at both. One of them is exactly where you are right now.</p>
+<hr>
+<span class="eyebrow">Option 1 — You run the inbox</span><h2>We Get You Leads</h2>
+<p class="price">Regular Price: <s>$497/mo</s><br>Yours today: <b class="big">$247</b> /mo</p>
+<p>We build and turn on one Facebook Messenger ad for you.</p>
+<p>When a homeowner clicks it, they land in your Facebook inbox. You get the notification. You reply with the copy-paste script we give you. You book the appointment yourself.</p>
+<p><strong>Here is what's included:</strong></p>
+<ul class="chk"><li>Facebook Messenger ad built and activated within 48 hours</li><li>Ad targeting set up for your service area</li><li>Inbox reply script — copy-paste ready</li><li>3-message follow-up sequence for leads that go quiet</li></ul>
+<ul class="no"><li>No team following up within 5 minutes</li><li>No appointments booked into your calendar</li><li>No weekly performance reporting</li><li>No Profits Vault — the 10-module business training</li><li>No 1-Hour Coaching Call with Lanty</li></ul>
+<p><strong>What you handle:</strong> The conversation, the follow-up, and the booking.</p>
+<p>For only $200 more, every single one of those is covered for you — see the full option below.</p>
+<p>If volume grows faster than you can keep up with, you can upgrade to We Get You Booked at any time for just the $250 difference. Nothing is lost.</p>
+<div class="tsl-center-btn"><a class="tsl-btn" href="#" data-trigger="trg-ds-yes">Yes — Confirm We Get You Leads →</a></div>
+<hr>
+<span class="eyebrow">★ BEST OPTION — Done for you</span><h2>We Get You Booked</h2>
+<p class="price">Regular Price: <s>$697/mo</s><br>Yours today: <b class="big nobreak">Just add $200</b> <span class="nobreak">more per month</span><small>($497/mo total)</small></p>
+<p>We run the ad. We follow up with every lead within five minutes. We book confirmed estimates straight into your calendar.</p>
+<p>Your job is to show up to the estimate. That's it.</p>
+<p>When a lead hits at 6:45pm — our team picks it up. They text, they call, they follow up until the appointment is set. It appears in your Google Calendar. You didn't do a single thing between the lead coming in and the estimate on your books.</p>
+<p><strong>Everything included:</strong></p>
+<ul class="chk"><li>Facebook ad written, built, and live within 48 hours</li><li>Every lead followed up by our team within 5 minutes — text and phone</li><li>Confirmed estimates booked straight into your Google Calendar</li><li>Weekly report: leads in, appointments set, estimates booked</li><li><strong>INCLUDED:</strong> The Profits Vault — 10 modules on the full business side of painting. Job costing, closing, crew structure, cash flow, reading your numbers. Yours on Day 1, kept permanently even if you leave.</li><li><strong>FREE:</strong> 1-Hour Private Coaching Call with Lanty — book it in your first 30 days. Bring your numbers, your market, your close rate. Yours free today.</li></ul>
+<h3>The math.</h3>
+<p>Five confirmed estimates a month. Average job $3,500. One closed job pays the retainer. The other four are margin you didn't have before.</p>
+<p>That's $200 more than the option above — and zero inbox management, zero follow-up, zero booking on your end. The team handles all of it.</p>
+<div class="tsl-center-btn"><a class="tsl-btn" href="#" data-trigger="trg-oto-yes">Yes — Confirm We Get You Booked →</a></div>
+<p class="decline"><a href="#" data-trigger="trg-no">❌ No thanks — I'll try to build my own predictable repeatable ads process alone</a><br>(even if it takes months and costs thousands in figuring it all out)</p>
+<span class="eyebrow">Picture it</span><h2>Once We Get You Booked Is Running — Here's What Happens</h2>
+<ul><li>Your calendar gets filled with confirmed estimates, automatically — homeowners who said yes before you even picked up the phone.</li><li>Every lead that comes in gets a callback within five minutes, whether you're on a ladder, driving to a job, or putting the kids to bed.</li><li>No more “I'll follow up tomorrow” leading into never. The lead gets worked the moment it comes in.</li><li>That slow week you've been dreading — the one where the phone goes quiet and you start wondering where the next job is coming from — stops being a thing you have to manage.</li><li>You show up to the estimate. You do the work you're actually good at. The machine handles everything before that point.</li></ul>
+<span class="eyebrow">For just $200 more</span><h2>Still On The Fence About The Full Option?</h2>
+<p>Here is what $200 more actually buys you.</p>
+<p><strong>Option 1 — We Get You Leads · $247/mo</strong><br>Turns on the ad and delivers leads to your inbox. You follow up. You book. You manage the conversation.</p>
+<p><strong>Option 2 — We Get You Booked · $497/mo</strong><br>Does all of that for you.</p>
+<ul><li>For $200 more, you never touch the inbox.</li><li>For $200 more, you never chase a lead that went quiet.</li><li>For $200 more, every confirmed estimate lands in your Google Calendar while you are already on a job.</li></ul>
+<p>Here is what it would cost to build that follow-up and booking system yourself:</p>
+<ul><li>A VA to monitor the inbox and follow up within 5 minutes — <strong>~$800/mo</strong></li><li>A setter to qualify leads and book appointments — <strong>~$600/mo</strong></li><li>Your own time managing the back-and-forth every evening — <strong>+ your hourly rate</strong></li></ul>
+<div class="box red"><p><strong>$1,400+</strong> a month to piece it together.<br>Or <strong>$497</strong> to have our team run it.</p></div>
+<p>The math does not leave a lot of room for debate.</p>
+<p>If you went with We Get You Leads and want to upgrade, you can do it at any time for just the $250 difference. The door stays open.</p>
+<p>But if you are going to make the move — make it now, while you are already here and the decision is in front of you.</p>
+<h2>Your Two Options Again</h2>
+<p><strong>Option 1 — We Get You Leads:</strong> <s>$497/mo</s> <strong>$247/mo</strong>. You run the inbox.</p>
+<div class="tsl-center-btn"><a class="tsl-btn" href="#" data-trigger="trg-ds-yes">Yes — Confirm We Get You Leads →</a></div>
+<p><strong>Option 2 — We Get You Booked (BEST OPTION):</strong> <s>$697/mo</s> <strong>Just add $200</strong> more per month ($497/mo total). We do it all.</p>
+<div class="tsl-center-btn"><a class="tsl-btn" href="#" data-trigger="trg-oto-yes">Yes — Confirm We Get You Booked →</a></div>
+<h2>Right Now, Two Things Are True.</h2>
+<ol><li>The Playbook is already getting homeowners to raise their hand.</li><li>And the painter who responds fastest wins the job. Every time.</li></ol>
+<p>That's true whether you pick the first option or the second.</p>
+<p>The only question is: when that hand goes up at 6:45 on a Tuesday night — are you the one working the inbox, or is someone else handling it while you're finishing the job?</p>
+<p>One of those costs you time you don't have.</p>
+<p>The other costs you $497 and fills your calendar while you sleep.</p>
+<p>Pick the one that makes sense for where you are right now. Then let's get to work.</p>
+<p class="decline"><a href="#" data-trigger="trg-no">❌ No thanks — I'll try to build my own predictable repeatable ads process alone</a><br>(even if it takes months and costs thousands in figuring it all out)</p>
+<div class="fine"><p><a href="PRIVACY-POLICY-URL">Privacy Policy</a> &nbsp;·&nbsp; <a href="TERMS-URL">Terms &amp; Conditions</a></p><p>This site is not affiliated with or endorsed by Facebook, Inc. FACEBOOK is a trademark of Meta Platforms, Inc.</p><p>Super Paint &amp; Close is an education and training product. Results depend on individual effort, market conditions, and execution. This is not a guarantee of income. Please ensure you are 18+ before purchasing.</p></div>
+</div>
+
+<script>
+/* Buttons with data-trigger="xyz" click the hidden native GHL button that has the Custom Class "xyz".
+   (Needed for one-click upsells: payment must be fired by a real GHL button element.) */
+(function(){
+  if(window.__tslTrig) return; window.__tslTrig=true;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('[data-trigger]'); if(!a) return;
+    var t=document.querySelector('.'+a.getAttribute('data-trigger'));
+    if(t){ e.preventDefault(); var inner=t.querySelector('a,button,[role=button]')||t; inner.click(); }
+  });
+})();
+</script>

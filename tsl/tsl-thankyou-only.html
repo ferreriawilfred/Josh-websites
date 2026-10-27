@@ -1,0 +1,103 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+<style>
+  /* ===== PLAIN TSL STYLE — edit the 3 colors here ===== */
+  .tsl{--tsl-head:#e00000;--tsl-btn:#df3129;--tsl-hl:#fff200}
+  .tsl,.tsl *{box-sizing:border-box}
+  .tsl{display:block !important;width:100% !important;max-width:680px;margin:0 auto;padding:26px 20px 56px;
+       background:#ffffff;color:#111111;font-family:'Noto Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+       font-size:20px;line-height:1.6;text-align:left}
+  .tsl p{margin:0 0 1.05em}
+  .tsl h1,.tsl h2,.tsl h3{font-family:'Noto Serif',Georgia,'Times New Roman',serif;font-weight:700;margin:0}
+  .tsl h1{font-size:34px;line-height:1.2;margin:0 0 .55em;color:#000}
+  .tsl h2{font-size:28px;line-height:1.25;margin:1.7em 0 .6em;color:var(--tsl-head)}
+  .tsl h3{font-size:22px;line-height:1.3;margin:1.3em 0 .4em;color:#000}
+  .tsl .kicker{display:inline-block;margin:0 0 10px;padding:1px 6px;background:var(--tsl-hl);font-style:italic;font-size:17px;line-height:1.5}
+  .tsl .eyebrow{display:block;margin:1.9em 0 -.2em;color:#6b7280;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .tsl .eyebrow + h2{margin-top:.5em}
+  .tsl .warn{margin:0 0 1.2em;padding:12px 14px;border:2px solid var(--tsl-head);color:var(--tsl-head);font-weight:700;font-size:18px;line-height:1.45;text-align:center}
+  .tsl ul,.tsl ol{margin:0 0 1.1em;padding-left:1.3em}
+  .tsl li{margin:0 0 .45em}
+  .tsl ul.chk{list-style:none;padding-left:0}
+  .tsl ul.chk li{position:relative;padding-left:1.5em}
+  .tsl ul.chk li::before{content:"✓";position:absolute;left:0;font-weight:700}
+  .tsl ul.no{list-style:none;padding-left:0}
+  .tsl ul.no li{position:relative;padding-left:1.5em;color:#444}
+  .tsl ul.no li::before{content:"✗";position:absolute;left:0;color:var(--tsl-head);font-weight:700}
+  .tsl hr{border:0;border-top:1px solid #000;width:120px;margin:1.2em auto 1.4em}
+  .tsl .center{text-align:center}
+  .tsl .box{margin:0 0 1.3em;padding:16px 18px;border:1px solid #cfcfcf;background:#fafafa}
+  .tsl .box.red{border:2px solid var(--tsl-head)}
+  .tsl .box p:last-child,.tsl .box ul:last-child{margin-bottom:0}
+  .tsl blockquote{margin:0 0 1.1em;padding:2px 0 2px 16px;border-left:4px solid #000;font-style:italic}
+  .tsl .label{font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--tsl-head)}
+  .tsl .price{margin:1.4em 0 .5em;text-align:center;font-size:19px}
+  .tsl .price s{color:#555}
+  .tsl .price b{color:#0a7d12}
+  .tsl .price small{display:block;margin-top:2px;font-size:15px;color:#444}
+  .tsl .big{font-size:32px}
+  .tsl .tsl-center-btn{text-align:center;margin:.4em 0 1.4em}
+  .tsl .decline{margin:.9em 0 1.6em;text-align:center;font-size:15px;line-height:1.5;color:#555}
+  .tsl .decline a{color:#555;text-decoration:underline}
+  .tsl .fine{margin-top:2.2em;padding-top:1.1em;border-top:1px solid #d4d4d4;color:#666;font-size:13px;line-height:1.55}
+  .tsl .fine a{color:#666}
+  .tsl a{color:#0000ee}
+  .tsl a.tsl-btn,.tsl-btn{display:inline-block;min-width:240px;padding:14px 28px;border-radius:5px;background:var(--tsl-btn,#df3129);color:#fff !important;
+       font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;letter-spacing:.01em;line-height:1.2;text-align:center;text-decoration:none !important;cursor:pointer}
+  .tsl a.tsl-btn:hover{filter:brightness(.92)}
+  .tsl .nobreak{white-space:nowrap}
+  /* hidden native GHL buttons (one-click upsell triggers) */
+  .tsl-trigger-hint{display:none}
+  @media(max-width:560px){
+    .tsl{padding:18px 16px 44px;font-size:18px}
+    .tsl h1{font-size:28px}
+    .tsl h2{font-size:24px}
+    .tsl h3{font-size:20px}
+    .tsl a.tsl-btn,.tsl-btn{display:block;min-width:0;font-size:20px;padding:14px 16px}
+  }
+</style>
+
+<div class="tsl">
+<span class="kicker">Order confirmed</span>
+<h1>You're in. Take a breath.</h1><hr>
+<p>What you just did matters more than you think.</p>
+<h2>Welcome To The Other Side.</h2>
+<p>The painters who figure this out look back and say the same thing:</p>
+<blockquote>“I wish I did this sooner.”</blockquote>
+<p>Most painters spend years doing it the hard way.</p>
+<p>Chasing leads that go cold.<br>Driving to estimates they lose at the table.<br>Watching the slow months come around like clockwork.<br>Hoping this time it's different.</p>
+<p>You just made the decision that changes all of that.</p>
+<p>Not someday. Starting this week.</p>
+<p>Everything you put in place today — the Playbook, the posts, the page, the follow-up, the close — is about to start working for you.</p>
+<p><strong>Not</strong> because it's complicated. <strong>But</strong> because it's already built. All you have to do is use it.</p>
+<p>The hardest part is already behind you.</p>
+<p>You made the right call.</p>
+<span class="eyebrow">What happens next</span><h2>Here's Exactly What Happens From This Moment Forward.</h2>
+<h3>Step 1 — Check Your Inbox Right Now</h3>
+<p>An email is on its way to you from us.</p>
+<p>When it arrives — star it, mark it as important, and reply to it. This tells your email provider we're not spam and makes sure nothing we send you ever gets buried.</p>
+<p>Also check your spam or promotions folder right now. If you see anything from us in there, move it to your inbox and mark it as not spam. Everything we're about to send you lives in your email.</p>
+<h3>Step 2 — Open Your Access Email</h3>
+<p>Within the next few minutes you'll receive your access email with everything you purchased today.</p>
+<p>Your Super Paint Close Playbook arrives immediately. Open it tonight. Your first post is on page one and takes under a minute to use.</p>
+<p>Starting tomorrow morning — and every morning for the next 7 days — one bonus PDF from your 7-Day Fast Start Kit lands in your inbox. Each one is one page, built for one specific moment you'll hit in your first week. Open it, read it, use it that day. That's it.</p>
+<h3>Step 3 — Watch For Your Custom Setup Email</h3>
+<p>If you added anything to your order that we build for you — a landing page, a Facebook ad, a Messenger setup — you'll receive a separate onboarding email within 24 hours with a short form to fill out.</p>
+<p>That form is how we collect everything we need to get your custom deliverables built and live.</p>
+<p>Fill it out the moment it arrives. The faster it comes back to us, the faster everything goes live for you.</p>
+<p><strong>Here's what to expect based on what you ordered:</strong></p>
+<div class="box"><p>📋 <strong>If you ordered We Get You Booked or We Get You Leads</strong><br>Onboarding form incoming. We'll collect your service area, ad account access, and calendar link. Your ad goes live within 48 hours of us receiving that form.</p></div>
+<div class="box"><p>📋 <strong>If you ordered We Build Your Funnel or We Build Your Page</strong><br>Onboarding form incoming. We'll collect your domain and hosting access. Your landing page goes live within 48 hours of us receiving that form.</p></div>
+<div class="box"><p>📋 <strong>If you ordered We Help You Close or We Pre-Frame Your Close</strong><br>Everything is in your access email already. Open it, read it, and use it before your next lead comes in or your next post goes out.</p></div>
+<span class="eyebrow">Don't freeze up</span><h2>Your Action List For The Next 10 Minutes:</h2>
+<ul class="chk"><li><strong>Check your inbox</strong> — your access email is on the way</li><li><strong>Check spam</strong> — move anything from us to your inbox right now</li><li><strong>Star and reply to our first email</strong> — keeps us out of spam permanently</li><li><strong>Open the Playbook the moment it arrives</strong> — your first post is on page one</li></ul>
+<h2>You're One Step Away From The First Lead Coming In.</h2>
+<p>Not a maybe lead. Not a shared lead that three other painters got at the same time.</p>
+<p>A homeowner in your neighborhood — your market — who saw your post, clicked your link, filled out your form, and is waiting for you to call.</p>
+<p>That's what's on the other side of the next 48 hours.</p>
+<p>We built this for painting contractors who are done leaving jobs on the table.</p>
+<p>You just proved you're one of them.</p>
+<p>Let's get to work.</p>
+<p>— Lanty &amp; The Super Paint Close Team</p>
+<div class="fine"><p>Questions? Email us at <a href="mailto:info@homeprojobs.com">info@homeprojobs.com</a>. We respond within one business day.</p><p><a href="PRIVACY-POLICY-URL">Privacy Policy</a> &nbsp;·&nbsp; <a href="TERMS-URL">Terms &amp; Conditions</a></p><p>This site is not affiliated with or endorsed by Facebook, Inc. FACEBOOK is a trademark of Meta Platforms, Inc.</p><p>Super Paint &amp; Close is an education and training product. Results depend on individual effort, market conditions, and execution. This is not a guarantee of income. Please ensure you are 18+ before purchasing.</p></div>
+</div>

@@ -1,0 +1,175 @@
+<!-- ===== HOW THE BUTTONS WORK (GHL) =====
+ Buttons marked data-trigger="trg-oto-yes" / "trg-ds-yes" / "trg-no" click a hidden NATIVE GHL button with that Custom Class.
+ Add 3 native Button elements at the bottom of the page (Custom Class: trg-oto-yes, trg-ds-yes, trg-no) and set their actions
+ (one-click upsell / Go to funnel step). Hide them with:  .trg-oto-yes,.trg-ds-yes,.trg-no{position:absolute;left:-9999px}
+ Links that say CHECKOUT-URL / BOOKING-CALENDAR-URL / PRIVACY-POLICY-URL / TERMS-URL must be replaced with your real URLs. -->
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+<style>
+  /* ===== PLAIN TSL STYLE — edit the 3 colors here ===== */
+  .tsl{--tsl-head:#e00000;--tsl-btn:#df3129;--tsl-hl:#fff200}
+  .tsl,.tsl *{box-sizing:border-box}
+  .tsl{display:block !important;width:100% !important;max-width:680px;margin:0 auto;padding:26px 20px 56px;
+       background:#ffffff;color:#111111;font-family:'Noto Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+       font-size:20px;line-height:1.6;text-align:left}
+  .tsl p{margin:0 0 1.05em}
+  .tsl h1,.tsl h2,.tsl h3{font-family:'Noto Serif',Georgia,'Times New Roman',serif;font-weight:700;margin:0}
+  .tsl h1{font-size:34px;line-height:1.2;margin:0 0 .55em;color:#000}
+  .tsl h2{font-size:28px;line-height:1.25;margin:1.7em 0 .6em;color:var(--tsl-head)}
+  .tsl h3{font-size:22px;line-height:1.3;margin:1.3em 0 .4em;color:#000}
+  .tsl .kicker{display:inline-block;margin:0 0 10px;padding:1px 6px;background:var(--tsl-hl);font-style:italic;font-size:17px;line-height:1.5}
+  .tsl .eyebrow{display:block;margin:1.9em 0 -.2em;color:#6b7280;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .tsl .eyebrow + h2{margin-top:.5em}
+  .tsl .warn{margin:0 0 1.2em;padding:12px 14px;border:2px solid var(--tsl-head);color:var(--tsl-head);font-weight:700;font-size:18px;line-height:1.45;text-align:center}
+  .tsl ul,.tsl ol{margin:0 0 1.1em;padding-left:1.3em}
+  .tsl li{margin:0 0 .45em}
+  .tsl ul.chk{list-style:none;padding-left:0}
+  .tsl ul.chk li{position:relative;padding-left:1.5em}
+  .tsl ul.chk li::before{content:"✓";position:absolute;left:0;font-weight:700}
+  .tsl ul.no{list-style:none;padding-left:0}
+  .tsl ul.no li{position:relative;padding-left:1.5em;color:#444}
+  .tsl ul.no li::before{content:"✗";position:absolute;left:0;color:var(--tsl-head);font-weight:700}
+  .tsl hr{border:0;border-top:1px solid #000;width:120px;margin:1.2em auto 1.4em}
+  .tsl .center{text-align:center}
+  .tsl .box{margin:0 0 1.3em;padding:16px 18px;border:1px solid #cfcfcf;background:#fafafa}
+  .tsl .box.red{border:2px solid var(--tsl-head)}
+  .tsl .box p:last-child,.tsl .box ul:last-child{margin-bottom:0}
+  .tsl blockquote{margin:0 0 1.1em;padding:2px 0 2px 16px;border-left:4px solid #000;font-style:italic}
+  .tsl .label{font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--tsl-head)}
+  .tsl .price{margin:1.4em 0 .5em;text-align:center;font-size:19px}
+  .tsl .price s{color:#555}
+  .tsl .price b{color:#0a7d12}
+  .tsl .price small{display:block;margin-top:2px;font-size:15px;color:#444}
+  .tsl .big{font-size:32px}
+  .tsl .tsl-center-btn{text-align:center;margin:.4em 0 1.4em}
+  .tsl .decline{margin:.9em 0 1.6em;text-align:center;font-size:15px;line-height:1.5;color:#555}
+  .tsl .decline a{color:#555;text-decoration:underline}
+  .tsl .fine{margin-top:2.2em;padding-top:1.1em;border-top:1px solid #d4d4d4;color:#666;font-size:13px;line-height:1.55}
+  .tsl .fine a{color:#666}
+  .tsl a{color:#0000ee}
+  .tsl a.tsl-btn,.tsl-btn{display:inline-block;min-width:240px;padding:14px 28px;border-radius:5px;background:var(--tsl-btn,#df3129);color:#fff !important;
+       font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;letter-spacing:.01em;line-height:1.2;text-align:center;text-decoration:none !important;cursor:pointer}
+  .tsl a.tsl-btn:hover{filter:brightness(.92)}
+  .tsl .nobreak{white-space:nowrap}
+  /* hidden native GHL buttons (one-click upsell triggers) */
+  .tsl-trigger-hint{display:none}
+  @media(max-width:560px){
+    .tsl{padding:18px 16px 44px;font-size:18px}
+    .tsl h1{font-size:28px}
+    .tsl h2{font-size:24px}
+    .tsl h3{font-size:20px}
+    .tsl a.tsl-btn,.tsl-btn{display:block;min-width:0;font-size:20px;padding:14px 16px}
+  }
+</style>
+
+<div class="tsl">
+<div class="warn">⚠️ Hold on — your order is still being processed.</div>
+<p>We're adding one final piece before everything is sent over. <em>Do not close this page.</em></p>
+<span class="kicker">The last piece · Before you go</span>
+<h1>One Problem Nobody Warned You About</h1><hr>
+<p>You now have leads coming in and a page that catches every click.</p>
+<p>There is one problem nobody warned you about.</p>
+<p>Getting to the estimate is the easy part. Leaving with the job is where most painters lose money they already earned.</p>
+<span class="eyebrow">You pull up to the curb</span><h2>You've Solved The Hardest Part Of This Business. Getting In Front Of Them. Now Here's What Determines Whether You Leave With A Deposit Or A “We'll Think About It.”</h2>
+<p>The homeowner already knows who you are — they saw the post, clicked the link, filled out the form, and booked the estimate themselves.</p>
+<p>That almost never happened before.</p>
+<p>But here is what happens next that nobody talks about.</p>
+<p><strong>Three other painters are quoting the same job.</strong></p>
+<p>And the homeowner has already started deciding — before you knock.</p>
+<ul><li><strong>CLOCKED</strong> — Whether you drove a clean truck or a beat-up one.</li><li><strong>NOTICED</strong> — How you walked up to the door.</li><li><strong>FELT</strong> — Something in the first handshake.</li><li><strong>NOW</strong> — You're sitting across from them — and they've already formed an opinion.</li></ul>
+<p>Most painters show up hoping their work will speak for itself.</p>
+<p>The painters who close at 40% know the decision was already forming before they opened their mouth.</p>
+<h2>This Is For You</h2>
+<p>This page is for you if:</p>
+<ul class="chk"><li>You are now getting estimates booked — or you are about to be — and you want to make sure you close a high percentage of the jobs you actually show up to, not just the easy ones.</li><li>You have lost estimates you thought you had, walked away with a “we'll think about it,” and never heard back — and you know the problem wasn't your price or your work. Something happened in the room.</li><li>You want the words for the three moments that kill more estimates than anything else: “I need to think about it,” the spouse who wasn't home, and the homeowner sliding a competitor's quote across the table.</li></ul>
+<h2>This Is Not For You</h2>
+<p>This page is not for you if:</p>
+<ul class="no"><li>You are not yet getting to the estimate stage — come back when the calendar is filling.</li><li>You already have a close rate above 50% on residential estimates and a documented follow-up sequence for cold leads.</li><li>You want to keep winging it at the table and figure it out as you go.</li></ul>
+<span class="eyebrow">The real problem</span><h2>The Homeowner Has Already Started Saying Yes Or No Before You Open Your Mouth.</h2>
+<p>Every micro-moment from the second you pull up — how you look, how you knock, how you walk the property, what you say before the price ever comes out — is stacking toward a decision.</p>
+<p><strong>Stack enough micro yeses</strong> before the number lands and the price almost doesn't matter.</p>
+<p><strong>Stack micro nos</strong> and the price becomes the wall.</p>
+<p>When a homeowner has already decided they want you — decided before the quote — the price becomes a formality. When they haven't decided yet, the price becomes the objection.</p>
+<p>The game is not to defend the number. The game is to build the yes before the number ever comes out.</p>
+<p>One sentence at the right moment does it. Something like:</p>
+<p><strong>THE PRE-FRAME</strong></p>
+<blockquote>“I want to be upfront — we're not the cheapest option out there. Good work costs what it costs. But let me show you exactly what you're getting for it.”</blockquote>
+<p>Their guard drops. Because you just told them the number will be real money — and that honesty reads as confidence.</p>
+<p>Confidence reads as quality. And quality is what they were already hoping you'd be.</p>
+<p>By the time the actual price lands, they've already mentally prepared for something higher. The real number feels like a relief.</p>
+<p>That's the frame. And it works before a single objection is raised.</p>
+<span class="eyebrow">Proof</span><h2>Proof</h2>
+<p>A painter using the Competitor Pre-Frame Script reported closing two jobs in one week from estimates where multiple painters were quoting.</p>
+<p>Both homeowners told him the same thing after signing: “We already decided before you gave us the number.”</p>
+<p>Same market. Same prices. Same quality of work.</p>
+<p>The only thing that changed was what he said before the quote came out.</p>
+<h2>The Tools On This Page Handle All Of It</h2>
+<ul><li><strong>BEFORE</strong> — What to do before you knock.</li><li><strong>WALK IN</strong> — What to say when you walk in.</li><li><strong>BUILD</strong> — How to build micro yeses all the way to the table.</li><li><strong>FRAME</strong> — How to set the price frame so the number lands right.</li><li><strong>OBJECTIONS</strong> — What to say in the three moments that kill the most estimates.</li><li><strong>FOLLOW-UP</strong> — What to do with every lead that went cold after the first two texts.</li></ul>
+<p>Because the job that books on week nine of the follow-up sequence is just as real as the one that booked on day one.</p>
+<p>Again, you have two options below.</p>
+<p><strong>The first option (below)</strong> gives you the single script that sets you up before any other painter even arrives to quote.</p>
+<p><strong>The second option (BEST OPTION)</strong> gives you the whole system — from the moment you pull up to the curb to the follow-up text nine weeks after they went quiet.</p>
+<hr>
+<span class="eyebrow">Option 1 — One script</span><h2>We Pre-Frame Your Close</h2>
+<p class="price">Regular Price: <s>$67 one-time</s><br>Yours today: <b class="big">$27</b> one-time</p>
+<p><strong>One script.</strong> For the moment a homeowner tells you other painters are coming out to quote.</p>
+<p>One question that shifts how they compare you. One statement that positions you as the obvious choice before anyone else walks through their door. Works on the phone, in a text, or face to face.</p>
+<p><strong>What's included:</strong></p>
+<ul class="chk"><li>Competitor Pre-Frame Script — single page, copy-paste or read verbatim</li></ul>
+<ul class="no"><li>No First Impression Protocol — no guidance on how to show up, knock, or stack micro yeses</li><li>No Price Frame — no way to set expectations before the number comes out</li><li>No Estimate Close Card — no words for the three objections that kill most estimates</li><li>No 90-Day Cold Lead Follow-Up Sequence</li><li>No 1-Hour Coaching Call with Lanty</li></ul>
+<p><strong>What you handle:</strong> Everything else at the estimate — how you show up, how you set the price frame, how you handle objections at the table, and what you do with leads that went cold. The pre-frame sets you up before you arrive. The rest is still on you.</p>
+<p>For only $20 more, every one of those is handled — see the full option below.</p>
+<div class="tsl-center-btn"><a class="tsl-btn" href="#" data-trigger="trg-ds-yes">Yes — Confirm We Pre-Frame Your Close →</a></div>
+<hr>
+<span class="eyebrow">★ BEST OPTION — The whole closing system</span><h2>We Help You Close</h2>
+<p class="price">Regular Price: <s>$97 one-time</s><br>Yours today: <b class="big nobreak">Just add $20</b> more, one-time<small>($47 total)</small></p>
+<p>Everything you need from the moment you pull up to the curb to the moment they sign.</p>
+<p><strong>The First Impression Protocol</strong><br>How to show up, knock, introduce yourself, and walk the property so you are stacking micro yeses before a single word about price is spoken.</p>
+<p><strong>The Price Frame</strong><br>One sentence that sets the expectation before the number comes out, so it lands as confidence instead of sticker shock.</p>
+<p><strong>The Competitor Pre-Frame Script</strong><br>What to say the moment a homeowner mentions other painters are coming out to quote. Works by phone, text, or in person.</p>
+<p><strong>The Estimate Close Card</strong><br>Exact words for the three moments that kill more estimates than anything else. “I need to think about it.” The spouse wasn't home. “Can you do any better on price?” All three handled in under 60 seconds each. Print it, laminate it, bring it to every estimate.</p>
+<p><strong>The 90-Day Cold Lead Follow-Up Sequence</strong><br>One message per week for 12 weeks, written for SMS and Messenger. For every lead that went quiet after the first two contacts. Most painters give up after two texts. The job that replies on week nine is money they would have left on the table.</p>
+<p><strong>Everything included:</strong></p>
+<ul class="chk"><li>First Impression Protocol — how to show up and stack micro yeses before you quote</li><li>Price Frame — one sentence that makes the number land right</li><li>Competitor Pre-Frame Script — sets you up before anyone else arrives</li><li>Estimate Close Card — three objections, three answers, laminate-ready</li><li>90-Day Cold Lead Follow-Up Sequence — 12 weekly messages, SMS and Messenger ready</li><li><strong>FREE:</strong> 1-Hour Private Coaching Call with Lanty (stacks with previous calls) — book it in your first 30 days.</li></ul>
+<p>One extra closed estimate this month covers this pack a hundred times over.</p>
+<div class="tsl-center-btn"><a class="tsl-btn" href="#" data-trigger="trg-oto-yes">Yes — Confirm We Help You Close →</a></div>
+<p class="decline"><a href="#" data-trigger="trg-no">❌ No thanks — I'll try to figure out my own sales process alone</a><br>(even if it takes months and costs thousands in unclosed jobs)</p>
+<span class="eyebrow">Picture it</span><h2>Once We Help You Close Is In Your Hands — Here's What Changes</h2>
+<ul><li>You show up to every estimate knowing exactly what to do before you knock — and the homeowner is already leaning toward yes before the number comes out.</li><li>The moment a homeowner mentions other painters are quoting, you have one sentence ready that makes you the reference point before anyone else shows up.</li><li>You stop winging the three hardest moments at the table. “I need to think about it” no longer ends the conversation. Neither does the absent spouse or the competing quote.</li><li>Leads that went quiet after the first two texts stop being dead leads. Week nine of the follow-up sequence has booked jobs that looked gone for two months.</li><li>Your close rate on residential estimates goes up — not because your work got better, but because the decision was already forming in your favor before you sat down.</li></ul>
+<span class="eyebrow">For just $20 more</span><h2>Still Deciding Between The Two?</h2>
+<p>Here is what $20 more actually buys you.</p>
+<p><strong>Option 1 — We Pre-Frame Your Close · $27</strong><br>Gives you one script. It handles the moment another painter is in the picture. Everything else at the estimate is still on you.</p>
+<p><strong>Option 2 — We Help You Close · $47</strong><br>Gives you all five tools. The approach, the frame, the pre-frame, the close card, and 12 weeks of follow-up for every lead that went quiet.</p>
+<p>Here is what it would cost to put those pieces together yourself:</p>
+<ul><li>A sales trainer or closer coach for one session — <strong>$150–500/hr</strong></li><li>A copywriter to write a 12-week SMS follow-up sequence — <strong>$300–800</strong></li><li>Your own time researching and scripting the objection handlers — <strong>+ your hourly rate</strong></li></ul>
+<div class="box red"><p><strong>$450+</strong> to build the same five tools separately.<br>Or <strong>$47</strong> to have all of them today.</p></div>
+<p>For $20 more — you are not choosing between two scripts.</p>
+<p>You are choosing between one tool and a complete closing system.</p>
+<p>If you went with We Pre-Frame Your Close and want to upgrade later, you can do it at any time for the $20 difference. The door stays open.</p>
+<p>But the time to make the call is right now, while you are already here.</p>
+<div class="tsl-center-btn"><a class="tsl-btn" href="#" data-trigger="trg-oto-yes">Upgrade to We Help You Close →</a></div>
+<p class="decline"><a href="#" data-trigger="trg-no">❌ No thanks — I'll try to figure out my own sales process alone</a><br>(even if it takes months and costs thousands in unclosed jobs)</p>
+<h2>This Is The Last Piece.</h2>
+<ol><li>The leads are coming in. The appointments are booked. Everything upstream is handled.</li><li>This is what happens when you're standing in front of them.</li></ol>
+<p>Most painters lose jobs they already had. Not because the work wasn't good. Not because the price was wrong.</p>
+<p>But because nobody ever gave them the words, the frame, or the approach that turns a homeowner who's already interested into one who signs on the spot.</p>
+<p>One option gives you the single script that positions you before anyone else arrives.</p>
+<p>The other hands you the whole system — from the moment you pull up to the curb to the follow-up message nine weeks after they went quiet.</p>
+<p>One extra closed job covers either one completely.</p>
+<p>Pick the one that fits where you are right now. Then go close something.</p>
+<p class="decline"><a href="#" data-trigger="trg-no">❌ No thanks — I'll try to figure out my own sales process alone</a><br>(even if it takes months and costs thousands in unclosed jobs)</p>
+<div class="fine"><p><a href="PRIVACY-POLICY-URL">Privacy Policy</a> &nbsp;·&nbsp; <a href="TERMS-URL">Terms &amp; Conditions</a></p><p>This site is not affiliated with or endorsed by Facebook, Inc. FACEBOOK is a trademark of Meta Platforms, Inc.</p><p>Super Paint &amp; Close is an education and training product. Results depend on individual effort, market conditions, and execution. This is not a guarantee of income. Please ensure you are 18+ before purchasing.</p></div>
+</div>
+
+<script>
+/* Buttons with data-trigger="xyz" click the hidden native GHL button that has the Custom Class "xyz".
+   (Needed for one-click upsells: payment must be fired by a real GHL button element.) */
+(function(){
+  if(window.__tslTrig) return; window.__tslTrig=true;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('[data-trigger]'); if(!a) return;
+    var t=document.querySelector('.'+a.getAttribute('data-trigger'));
+    if(t){ e.preventDefault(); var inner=t.querySelector('a,button,[role=button]')||t; inner.click(); }
+  });
+})();
+</script>

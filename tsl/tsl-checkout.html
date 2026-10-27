@@ -1,0 +1,82 @@
+<!-- BLOCK A: paste in a Custom HTML element ABOVE your GHL Order Form -->
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+<style>
+  /* ===== PLAIN TSL STYLE — edit the 3 colors here ===== */
+  .tsl{--tsl-head:#e00000;--tsl-btn:#df3129;--tsl-hl:#fff200}
+  .tsl,.tsl *{box-sizing:border-box}
+  .tsl{display:block !important;width:100% !important;max-width:680px;margin:0 auto;padding:26px 20px 56px;
+       background:#ffffff;color:#111111;font-family:'Noto Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+       font-size:20px;line-height:1.6;text-align:left}
+  .tsl p{margin:0 0 1.05em}
+  .tsl h1,.tsl h2,.tsl h3{font-family:'Noto Serif',Georgia,'Times New Roman',serif;font-weight:700;margin:0}
+  .tsl h1{font-size:34px;line-height:1.2;margin:0 0 .55em;color:#000}
+  .tsl h2{font-size:28px;line-height:1.25;margin:1.7em 0 .6em;color:var(--tsl-head)}
+  .tsl h3{font-size:22px;line-height:1.3;margin:1.3em 0 .4em;color:#000}
+  .tsl .kicker{display:inline-block;margin:0 0 10px;padding:1px 6px;background:var(--tsl-hl);font-style:italic;font-size:17px;line-height:1.5}
+  .tsl .eyebrow{display:block;margin:1.9em 0 -.2em;color:#6b7280;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .tsl .eyebrow + h2{margin-top:.5em}
+  .tsl .warn{margin:0 0 1.2em;padding:12px 14px;border:2px solid var(--tsl-head);color:var(--tsl-head);font-weight:700;font-size:18px;line-height:1.45;text-align:center}
+  .tsl ul,.tsl ol{margin:0 0 1.1em;padding-left:1.3em}
+  .tsl li{margin:0 0 .45em}
+  .tsl ul.chk{list-style:none;padding-left:0}
+  .tsl ul.chk li{position:relative;padding-left:1.5em}
+  .tsl ul.chk li::before{content:"✓";position:absolute;left:0;font-weight:700}
+  .tsl ul.no{list-style:none;padding-left:0}
+  .tsl ul.no li{position:relative;padding-left:1.5em;color:#444}
+  .tsl ul.no li::before{content:"✗";position:absolute;left:0;color:var(--tsl-head);font-weight:700}
+  .tsl hr{border:0;border-top:1px solid #000;width:120px;margin:1.2em auto 1.4em}
+  .tsl .center{text-align:center}
+  .tsl .box{margin:0 0 1.3em;padding:16px 18px;border:1px solid #cfcfcf;background:#fafafa}
+  .tsl .box.red{border:2px solid var(--tsl-head)}
+  .tsl .box p:last-child,.tsl .box ul:last-child{margin-bottom:0}
+  .tsl blockquote{margin:0 0 1.1em;padding:2px 0 2px 16px;border-left:4px solid #000;font-style:italic}
+  .tsl .label{font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:15px;color:var(--tsl-head)}
+  .tsl .price{margin:1.4em 0 .5em;text-align:center;font-size:19px}
+  .tsl .price s{color:#555}
+  .tsl .price b{color:#0a7d12}
+  .tsl .price small{display:block;margin-top:2px;font-size:15px;color:#444}
+  .tsl .big{font-size:32px}
+  .tsl .tsl-center-btn{text-align:center;margin:.4em 0 1.4em}
+  .tsl .decline{margin:.9em 0 1.6em;text-align:center;font-size:15px;line-height:1.5;color:#555}
+  .tsl .decline a{color:#555;text-decoration:underline}
+  .tsl .fine{margin-top:2.2em;padding-top:1.1em;border-top:1px solid #d4d4d4;color:#666;font-size:13px;line-height:1.55}
+  .tsl .fine a{color:#666}
+  .tsl a{color:#0000ee}
+  .tsl a.tsl-btn,.tsl-btn{display:inline-block;min-width:240px;padding:14px 28px;border-radius:5px;background:var(--tsl-btn,#df3129);color:#fff !important;
+       font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;letter-spacing:.01em;line-height:1.2;text-align:center;text-decoration:none !important;cursor:pointer}
+  .tsl a.tsl-btn:hover{filter:brightness(.92)}
+  .tsl .nobreak{white-space:nowrap}
+  /* hidden native GHL buttons (one-click upsell triggers) */
+  .tsl-trigger-hint{display:none}
+  @media(max-width:560px){
+    .tsl{padding:18px 16px 44px;font-size:18px}
+    .tsl h1{font-size:28px}
+    .tsl h2{font-size:24px}
+    .tsl h3{font-size:20px}
+    .tsl a.tsl-btn,.tsl-btn{display:block;min-width:0;font-size:20px;padding:14px 16px}
+  }
+</style>
+
+<div class="tsl">
+<span class="kicker">Almost there</span>
+<h1>Complete Your Order — Get The Super Paint Close Playbook</h1><hr>
+<p>You're one step away from the system we used to hit <strong>$1 million this year</strong> at 25% profit margins.</p>
+<p>Fill in the form below to get instant access.</p>
+<div class="box red"><p><strong>Here's what you're getting today:</strong></p><ul class="chk"><li><strong>The Super Paint Close Playbook</strong> — six copy-paste tools, step by step (Value: $297)</li><li><strong>FREE BONUS — The 7-Day Fast Start Kit</strong> — one tool lands in your inbox each day (Value: $497)</li><li><strong>Bonus 1:</strong> The $120,000-in-30-Days video case study</li><li><strong>Bonus 2:</strong> Done-For-You SMS + Close Card Templates</li></ul></div>
+<p class="price">Price: <s>$97</s> <b class="big">$17</b> one-time<small>Total value $794 — you pay $17 today</small></p>
+</div>
+
+
+<!-- >>> PLACE YOUR GHL ORDER FORM ELEMENT HERE <<< -->
+
+<!-- BLOCK B: paste in a Custom HTML element BELOW the Order Form (CSS already loaded by block A) -->
+<div class="tsl">
+<h2>Your 365-Day, 100% Money-Back Guarantee</h2>
+<p>If you want your money back — for whatever reason — just send me an email or shoot me a text.</p>
+<p>I'll return every single penny, as if the transaction never happened. Even on day 364.</p>
+<p><strong>What happens after you order:</strong></p>
+<ol><li>You land on a confirmation page right away.</li><li>You get an access email with your Playbook within minutes.</li><li>Starting tomorrow, one Fast Start Kit tool lands in your inbox each day for 7 days.</li></ol>
+<p><em>Secure checkout. Your information is encrypted.</em></p>
+<div class="fine"><p>Questions? Email us at <a href="mailto:info@homeprojobs.com">info@homeprojobs.com</a>. We respond within one business day.</p><p><a href="PRIVACY-POLICY-URL">Privacy Policy</a> &nbsp;·&nbsp; <a href="TERMS-URL">Terms &amp; Conditions</a></p><p>This site is not affiliated with or endorsed by Facebook, Inc. FACEBOOK is a trademark of Meta Platforms, Inc.</p><p>Super Paint &amp; Close is an education and training product. Results depend on individual effort, market conditions, and execution. This is not a guarantee of income. Please ensure you are 18+ before purchasing.</p></div>
+</div>
