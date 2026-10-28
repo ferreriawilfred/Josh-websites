@@ -1,0 +1,246 @@
+<!-- ===== PAGE 1 — SURVEY PAGE (ad landing) — paste into ONE Custom HTML/JS element on a blank GHL page =====
+     Flow: Ad → this page → booking page (qualified) or Playbook page (low fit).
+     Edit the CONFIG block at the bottom (webhook + page URLs). Nothing else needs changing. -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  .fb,.fb *{box-sizing:border-box}
+  .fb{--o:#ff6a00;--o2:#ff8a1f;--od:#d95500;--soft:#fff1e6;--soft2:#ffe3cc;--k:#111111;--gray:#4b5563;--gray2:#6b7280;--ln:#e8e8ec;
+      display:block !important;width:100% !important;margin:0;padding:0 0 40px;background:#ffffff;color:var(--k);
+      font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:18px;line-height:1.6}
+  .fb .fb-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:880px;margin:0 auto;padding:14px 20px}
+  .fb .fb-logo{height:46px;width:auto;display:block}
+  .fb .fb-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--soft);border:1px solid rgba(255,106,0,.4);
+      font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--od);white-space:nowrap}
+  .fb .fb-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--o);box-shadow:0 0 8px var(--o)}
+  .fb .fb-wrap{max-width:760px;margin:0 auto;padding:18px 20px 0}
+  .fb h1{margin:10px 0 12px;font-size:42px;font-weight:800;line-height:1.12;letter-spacing:-.03em;text-align:center;text-wrap:balance}
+  .fb h1 em{font-style:normal;color:var(--o)}
+  .fb .fb-sub{margin:0 auto 26px;max-width:600px;text-align:center;color:var(--gray);font-size:19px}
+  .fb .fb-card{background:#fff;border:1px solid var(--ln);border-radius:22px;padding:26px 28px 28px;box-shadow:0 14px 40px rgba(17,17,17,.08)}
+  /* progress */
+  .fb .fb-prog{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 18px}
+  .fb .fb-step{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2);white-space:nowrap}
+  .fb .fb-track{flex:1;height:8px;border-radius:99px;background:#f1f1f4;overflow:hidden}
+  .fb .fb-fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--o),var(--o2));transition:width .35s ease}
+  .fb .fb-q{margin:0 0 6px;font-size:25px;font-weight:800;line-height:1.25;letter-spacing:-.02em;text-wrap:balance}
+  .fb .fb-help{margin:0 0 18px;color:var(--gray2);font-size:15px}
+  .fb .fb-opts{display:grid;gap:10px;margin:0;padding:0;border:0}
+  .fb .fb-opt{position:relative;display:block}
+  .fb .fb-opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+  .fb .fb-opt span{display:flex;align-items:center;gap:14px;padding:15px 18px;border:1.5px solid var(--ln);border-radius:14px;background:#fff;font-size:18px;font-weight:500;line-height:1.35;transition:border-color .15s,background .15s,transform .15s}
+  .fb .fb-opt span::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #cfd3da;background:#fff;transition:all .15s}
+  .fb .fb-opt:hover span{border-color:rgba(255,106,0,.6);background:#fffaf5}
+  .fb .fb-opt input:focus-visible + span{outline:3px solid rgba(255,106,0,.45);outline-offset:2px}
+  .fb .fb-opt input:checked + span{border-color:var(--o);background:var(--soft)}
+  .fb .fb-opt input:checked + span::before{border-color:var(--o);background:radial-gradient(circle,var(--o) 0 5px,#fff 6px)}
+  .fb .fb-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;min-height:40px}
+  .fb .fb-back{appearance:none;background:none;border:0;padding:8px 2px;font:inherit;font-size:15px;font-weight:700;color:var(--gray2);cursor:pointer}
+  .fb .fb-back:hover{color:var(--k)}
+  .fb .fb-back[hidden]{display:none}
+  /* contact step */
+  .fb .fb-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fb .fb-field{display:block}
+  .fb .fb-field.full{grid-column:1/-1}
+  .fb .fb-field b{display:block;margin:0 0 5px;font-size:14px;font-weight:700;color:var(--gray)}
+  .fb .fb-field input[type=text],.fb .fb-field input[type=email],.fb .fb-field input[type=tel]{width:100%;padding:14px 16px;border:1.5px solid var(--ln);border-radius:12px;background:#fff;font:inherit;font-size:17px;color:var(--k)}
+  .fb .fb-field input:focus{outline:none;border-color:var(--o);box-shadow:0 0 0 3px rgba(255,106,0,.18)}
+  .fb .fb-field input.bad{border-color:#dc2626;background:#fff7f7}
+  .fb .fb-consent{display:flex;gap:10px;align-items:flex-start;margin:14px 0 4px;font-size:13px;line-height:1.5;color:var(--gray2)}
+  .fb .fb-consent input{flex:none;width:18px;height:18px;margin:2px 0 0;accent-color:var(--o)}
+  .fb .fb-consent a{color:var(--gray2)}
+  .fb .fb-err{min-height:20px;margin:8px 0 0;color:#dc2626;font-size:14px;font-weight:500}
+  .fb .fb-btn{display:block;width:100%;margin-top:8px;padding:17px 22px;border:0;border-radius:14px;background:linear-gradient(180deg,var(--o2),var(--o));color:#fff;font:inherit;font-size:19px;font-weight:800;letter-spacing:-.01em;cursor:pointer;box-shadow:0 10px 24px rgba(255,106,0,.35);transition:transform .15s,filter .15s}
+  .fb .fb-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+  .fb .fb-btn:disabled{opacity:.6;cursor:wait;transform:none}
+  .fb .fb-safe{margin:12px 0 0;text-align:center;color:var(--gray2);font-size:13px}
+  /* result panels */
+  .fb .fb-panel{text-align:center;padding:8px 4px}
+  .fb .fb-panel h2{margin:0 0 10px;font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+  .fb .fb-panel p{margin:0 0 14px;color:var(--gray)}
+  .fb .fb-spin{width:34px;height:34px;margin:14px auto;border-radius:50%;border:4px solid var(--soft2);border-top-color:var(--o);animation:fbspin .8s linear infinite}
+  @keyframes fbspin{to{transform:rotate(360deg)}}
+  .fb .fb-note{margin:16px 0 0;padding:12px 14px;border:1px dashed var(--o);border-radius:12px;background:var(--soft);color:var(--od);font-size:14px;text-align:left}
+  .fb .fb-link{display:inline-block;margin-top:6px;padding:14px 24px;border-radius:12px;background:var(--k);color:#fff !important;font-weight:700;text-decoration:none !important}
+  /* trust row */
+  .fb .fb-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:22px 0 0;padding:0;list-style:none;color:var(--gray);font-size:15px}
+  .fb .fb-trust li::before{content:"✓";margin-right:7px;color:var(--o);font-weight:800}
+  .fb .fb-foot{max-width:760px;margin:26px auto 0;padding:0 20px;text-align:center;color:var(--gray2);font-size:12.5px;line-height:1.55}
+  .fb .fb-foot a{color:var(--gray2)}
+  @media(max-width:600px){
+    .fb{font-size:17px}
+    .fb .fb-bar{padding:10px 16px}
+    .fb .fb-logo{height:38px}
+    .fb .fb-pill{font-size:10px;padding:7px 11px;letter-spacing:.1em}
+    .fb .fb-wrap{padding:10px 14px 0}
+    .fb h1{font-size:30px}
+    .fb .fb-sub{font-size:17px}
+    .fb .fb-card{padding:20px 16px 22px;border-radius:18px}
+    .fb .fb-q{font-size:21px}
+    .fb .fb-opt span{padding:13px 14px;font-size:16.5px}
+    .fb .fb-grid{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){.fb *{transition:none !important;animation:none !important}}
+</style>
+
+<div class="fb" id="fb-survey">
+  <div class="fb-bar">
+    <img class="fb-logo" src="https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ac76a95d5f4a8af43a6694b.png" alt="Super Paint &amp; Close" width="108" height="46">
+    <span class="fb-pill">For painting contractors</span>
+  </div>
+
+  <div class="fb-wrap">
+    <h1>Want A Calendar Full Of <em>Booked Painting Estimates?</em></h1>
+    <p class="fb-sub">Answer a few quick questions to see if our done-for-you system is a fit for your painting business. It takes about 60 seconds.</p>
+
+    <div class="fb-card" id="fb-card" aria-live="polite">
+      <div class="fb-prog"><span class="fb-step" id="fb-step">Question 1 of 7</span><div class="fb-track"><div class="fb-fill" id="fb-fill"></div></div></div>
+      <div id="fb-body"></div>
+      <div class="fb-nav"><button type="button" class="fb-back" id="fb-back" hidden>← Back</button><span></span></div>
+    </div>
+
+    <ul class="fb-trust">
+      <li>Free, no-obligation</li>
+      <li>Takes about 60 seconds</li>
+      <li>For residential painters</li>
+    </ul>
+  </div>
+
+  <p class="fb-foot">By answering, you're requesting a call about our services. Results vary and depend on your market, effort and execution. This is not a guarantee of income.<br>
+    <a href="PRIVACY-POLICY-URL">Privacy Policy</a> · <a href="TERMS-URL">Terms &amp; Conditions</a><br>
+    This site is not affiliated with or endorsed by Facebook, Inc. FACEBOOK is a trademark of Meta Platforms, Inc.</p>
+</div>
+
+<script>
+(function(){
+  if(window.__fbSurvey) return; window.__fbSurvey=true;
+
+  /* ============================== CONFIG — edit these ============================== */
+  var CFG = {
+    WEBHOOK_URL : '',                                  // GHL workflow trigger "Inbound Webhook" URL (creates/updates the contact). Leave '' to preview.
+    BOOKING_URL : 'REPLACE-WITH-BOOKING-PAGE-URL',     // page 2 (calendar). Good fit → goes here.
+    LOWFIT_URL  : 'REPLACE-WITH-PLAYBOOK-PAGE-URL',    // low fit → goes here (e.g. your $17 Super Paint Close Playbook page).
+    PRIVACY_URL : 'PRIVACY-POLICY-URL',
+    TERMS_URL   : 'TERMS-URL'
+  };
+
+  /* ============================== QUESTIONS ============================== */
+  var Q = [
+    {id:'business_type', q:'Which best describes your painting business?', help:'Pick the closest one.',
+     o:['Solo painter / owner-operator','Small crew (2–5 painters)','Established company (6+ painters)','I’m not running a painting business yet']},
+    {id:'avg_job', q:'What’s your average residential job worth?',
+     o:['Under $2,000','$2,000 – $4,000','$4,000 – $8,000','$8,000 or more']},
+    {id:'lead_source', q:'Where do most of your leads come from today?',
+     o:['Referrals and word of mouth','Angie’s List, HomeAdvisor or Thumbtack','Facebook / Instagram ads','Nothing consistent right now']},
+    {id:'estimates_month', q:'How many estimates do you book in a typical month?',
+     o:['0 – 5','6 – 10','11 – 20','More than 20']},
+    {id:'bottleneck', q:'What’s the biggest thing holding your calendar back?',
+     o:['Not enough leads coming in','Leads go cold before I can follow up','I lose estimates at the kitchen table','I don’t have time to run any of this']},
+    {id:'goal', q:'If your calendar was fuller, what would that change most?',
+     o:['More jobs and revenue','More time at home with family','A better crew and steadier work','All of the above']},
+    {id:'investment', q:'Our done-for-you service is a monthly investment, typically $500 – $2,500 a month depending on the plan. Could you invest that if it fits?', help:'Honest answer helps us not waste your time.',
+     o:['Yes, I’m ready if it’s a fit','Maybe, I’d need to see the plan first','Not right now']}
+  ];
+  var TOTAL = Q.length;
+  var A = {}, i = 0, busy = false;
+  var $ = function(id){return document.getElementById(id)};
+  var body=$('fb-body'), stepEl=$('fb-step'), fill=$('fb-fill'), back=$('fb-back');
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+  function showQ(){
+    var q=Q[i];
+    stepEl.textContent='Question '+(i+1)+' of '+TOTAL;
+    fill.style.width=((i)/(TOTAL+1)*100)+'%';
+    back.hidden = i===0;
+    var h='<fieldset class="fb-opts" style="min-width:0"><legend class="fb-q">'+esc(q.q)+'</legend>'+(q.help?'<p class="fb-help">'+esc(q.help)+'</p>':'');
+    q.o.forEach(function(t,k){
+      var id='fbq'+i+'_'+k;
+      h+='<label class="fb-opt" for="'+id+'"><input type="radio" name="'+q.id+'" id="'+id+'" value="'+esc(t)+'"'+(A[q.id]===t?' checked':'')+'><span>'+esc(t)+'</span></label>';
+    });
+    body.innerHTML=h+'</fieldset>';
+    body.querySelectorAll('input').forEach(function(r){
+      r.addEventListener('change',function(){
+        A[q.id]=r.value;
+        setTimeout(function(){ if(i<TOTAL-1){i++;showQ()} else {showContact()} },260);
+      });
+    });
+  }
+
+  function showContact(){
+    stepEl.textContent='Last step'; fill.style.width=(TOTAL/(TOTAL+1)*100)+'%'; back.hidden=false;
+    body.innerHTML='<h2 class="fb-q">Where should we send your results?</h2><p class="fb-help">We’ll show you the next step right after this. No spam.</p>'+
+      '<form id="fb-form" novalidate><div class="fb-grid">'+
+      '<label class="fb-field"><b>First name</b><input type="text" id="fb-fn" autocomplete="given-name" required></label>'+
+      '<label class="fb-field"><b>Last name</b><input type="text" id="fb-ln" autocomplete="family-name" required></label>'+
+      '<label class="fb-field"><b>Mobile phone</b><input type="tel" id="fb-ph" autocomplete="tel" inputmode="tel" required></label>'+
+      '<label class="fb-field"><b>Email</b><input type="email" id="fb-em" autocomplete="email" required></label>'+
+      '<label class="fb-field full"><b>City / service area</b><input type="text" id="fb-city" autocomplete="address-level2" placeholder="e.g. Columbus, OH"></label>'+
+      '</div>'+
+      '<label class="fb-consent"><input type="checkbox" id="fb-ok"><span>I agree to receive calls and text messages (including automated) from Super Paint &amp; Close about my request. Consent is not a condition of purchase. Msg &amp; data rates may apply. Reply STOP to opt out. See our <a href="'+esc(CFG.PRIVACY_URL)+'">Privacy Policy</a> and <a href="'+esc(CFG.TERMS_URL)+'">Terms</a>.</span></label>'+
+      '<div class="fb-err" id="fb-err" role="alert"></div>'+
+      '<button class="fb-btn" type="submit" id="fb-go">See If I Qualify →</button>'+
+      '<p class="fb-safe">🔒 Your information is private and never sold.</p></form>';
+    $('fb-form').addEventListener('submit',submit);
+  }
+
+  function isFit(){
+    return A.business_type.indexOf('not running')===-1 && A.investment!=='Not right now';
+  }
+
+  function utm(){
+    var o={}, p=new URLSearchParams(location.search);
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){ if(p.get(k)) o[k]=p.get(k) });
+    return o;
+  }
+
+  function submit(e){
+    e.preventDefault(); if(busy) return;
+    var fn=$('fb-fn'),ln=$('fb-ln'),ph=$('fb-ph'),em=$('fb-em'),ok=$('fb-ok'),err=$('fb-err');
+    [fn,ln,ph,em].forEach(function(x){x.classList.remove('bad')});
+    var bad=[];
+    if(!fn.value.trim()) bad.push(fn);
+    if(!ln.value.trim()) bad.push(ln);
+    if(ph.value.replace(/\D/g,'').length<10) bad.push(ph);
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())) bad.push(em);
+    if(bad.length){ bad.forEach(function(x){x.classList.add('bad')}); err.textContent='Please check the highlighted fields.'; bad[0].focus(); return; }
+    if(!ok.checked){ err.textContent='Please tick the box so we’re allowed to call or text you.'; return; }
+    err.textContent=''; busy=true; $('fb-go').disabled=true; $('fb-go').textContent='One moment…';
+
+    var fit=isFit();
+    var d={first_name:fn.value.trim(),last_name:ln.value.trim(),phone:ph.value.trim(),email:em.value.trim(),city:$('fb-city').value.trim(),
+           sms_consent:true,fit:fit?'qualified':'low_fit',page:location.href.split('?')[0]};
+    Object.keys(A).forEach(function(k){d[k]=A[k]}); var u=utm(); Object.keys(u).forEach(function(k){d[k]=u[k]});
+    try{ sessionStorage.setItem('fb_lead',JSON.stringify({first_name:d.first_name,last_name:d.last_name,email:d.email,phone:d.phone,fit:d.fit})) }catch(x){}
+
+    var dest = fit ? CFG.BOOKING_URL : CFG.LOWFIT_URL;
+    var q = new URLSearchParams({first_name:d.first_name,last_name:d.last_name,email:d.email,phone:d.phone}).toString();
+    var url = dest + (dest.indexOf('?')>-1?'&':'?') + q;
+
+    function go(){
+      fill.style.width='100%'; stepEl.textContent='Done'; back.hidden=true;
+      var preview = /^REPLACE/.test(dest);
+      body.innerHTML = fit
+        ? '<div class="fb-panel"><h2>You look like a great fit, '+esc(d.first_name)+'.</h2><p>Next, pick a time for your free strategy call.</p>'+(preview?'':'<div class="fb-spin"></div>')+'</div>'
+        : '<div class="fb-panel"><h2>Thanks, '+esc(d.first_name)+'.</h2><p>Based on your answers, our done-for-you service may not be the right fit yet. Our $17 playbook gives you the exact tools we use, so you can start on your own.</p>'+(preview?'':'<div class="fb-spin"></div>')+'</div>';
+      if(preview){
+        body.firstChild.insertAdjacentHTML('beforeend','<div class="fb-note"><b>Preview only.</b> In GHL this sends the lead to your webhook and then redirects to <b>'+(fit?'the booking page':'the Playbook page')+'</b> ('+esc(url.slice(0,70))+'…). Set BOOKING_URL / LOWFIT_URL in the CONFIG block.<br><br><b>Data sent:</b> '+esc(JSON.stringify(d))+'</div>');
+      } else { setTimeout(function(){ location.href=url; },900); }
+    }
+
+    if(CFG.WEBHOOK_URL){
+      var done=false, t=setTimeout(function(){ if(!done){done=true;go()} },2500);
+      fetch(CFG.WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(d).toString(),keepalive:true})
+        .then(function(){ if(!done){done=true;clearTimeout(t);go()} })
+        .catch(function(){ if(!done){done=true;clearTimeout(t);go()} });
+    } else { go(); }
+  }
+
+  back.addEventListener('click',function(){
+    if(busy) return;
+    if(stepEl.textContent==='Last step'){ i=TOTAL-1; showQ(); }
+    else if(i>0){ i--; showQ(); }
+  });
+
+  showQ();
+})();
+</script>
