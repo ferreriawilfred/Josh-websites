@@ -1,36 +1,39 @@
-<!-- ===== SURVEY SKIN — makes the NATIVE GHL Survey look like the template (full-width pill options, Back / Next arrows) =====
-     Paste this in ONE Custom HTML/JS element on the same page as your Survey element (anywhere on the page).
-     It finds the survey's radio options and Back/Next buttons by their TEXT and type, so it does not depend on GHL's class names.
-     Optional: give your "BOOK YOUR FREE ESTIMATE" heading the Custom Class  ppr-title  (Settings > Custom Class) to get the condensed font. -->
+<!-- ===== SURVEY SKIN v2 — makes the NATIVE GHL Survey look like the template =====
+     Paste in ONE Custom HTML/JS element on the same page as your Survey element.
+     What it does: full-width pill options (gap between them, centered text), dark/gray Back / Next (no blue arrows),
+     and AUTO-NEXT: choosing an option moves to the next slide by itself (set AUTO_NEXT=false below to turn it off).
+     Optional: give your "BOOK YOUR FREE ESTIMATE" heading the Custom Class  ppr-title  for the condensed font. -->
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
 <style>
-  .ppr-root,.ppr-root *{font-family:'Barlow',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif !important}
+  .ppr-root,.ppr-root *,.ppr-next,.ppr-next *,.ppr-back,.ppr-back *{font-family:'Barlow',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif !important}
   .ppr-title,.ppr-title *{font-family:'Barlow Condensed',Impact,'Arial Narrow',sans-serif !important;font-weight:700 !important;text-transform:uppercase !important;letter-spacing:.01em !important}
-  /* option group */
-  .ppr-group{display:grid !important;grid-template-columns:1fr !important;gap:8px !important}
-  .ppr-group.ppr-two{grid-template-columns:1fr 1fr !important;gap:10px !important}
-  /* each option = full-width pill, centered text */
+  /* the list of options */
+  .ppr-group{display:grid !important;grid-template-columns:1fr !important;gap:10px !important;margin:0 !important;padding:0 !important}
+  .ppr-group.ppr-two{grid-template-columns:1fr 1fr !important}
+  /* each option = full-width pill */
   .ppr-opt,.ppr-opt *{box-sizing:border-box !important}
   .ppr-opt{position:relative !important;display:flex !important;align-items:center !important;justify-content:center !important;
-           width:100% !important;min-height:48px !important;margin:0 !important;padding:10px 16px !important;
-           border:1px solid #e4e2da !important;border-radius:10px !important;background:#ffffff !important;
+           width:100% !important;min-height:50px !important;margin:0 !important;padding:10px 16px !important;
+           border:1px solid #e4e2da !important;border-radius:10px !important;background:#ffffff !important;box-shadow:none !important;
            color:#26282b !important;font-size:16px !important;font-weight:500 !important;line-height:1.3 !important;text-align:center !important;
            cursor:pointer;transition:border-color .15s,background .15s}
+  .ppr-opt *{margin:0 !important;padding:0 !important;border:0 !important;background:transparent !important;box-shadow:none !important;
+             color:inherit !important;text-align:center !important;cursor:pointer}
+  .ppr-opt label{display:block !important;width:100% !important}
   .ppr-opt:hover{border-color:#b9b6aa !important}
   .ppr-two .ppr-opt{min-height:62px !important}
-  .ppr-opt > *{margin:0 !important;text-align:center !important;color:inherit !important}
   .ppr-opt input[type=radio]{position:absolute !important;opacity:0 !important;pointer-events:none !important;width:1px !important;height:1px !important}
   .ppr-opt [class*="radio"]:not(label),.ppr-opt [class*="circle"]:not(label),.ppr-opt [class*="indicator"]:not(label){display:none !important}
   .ppr-opt.ppr-sel{background:#f6f5f0 !important;border-color:#26282b !important;font-weight:600 !important}
   .ppr-opt:focus-within{outline:3px solid rgba(245,166,35,.55);outline-offset:2px}
-  /* Back / Next */
+  /* Back / Next: text + arrow in ONE color (no blue icon) */
   .ppr-next,.ppr-back{background:transparent !important;border:0 !important;box-shadow:none !important;padding:8px 6px !important;
            font-size:20px !important;font-weight:600 !important;line-height:1.2 !important;cursor:pointer;text-decoration:none !important}
-  .ppr-next{color:#26282b !important}
-  .ppr-back{color:#6b6f76 !important}
-  .ppr-next:hover{opacity:.7}
+  .ppr-next,.ppr-next *{color:#26282b !important;fill:#26282b !important;stroke:#26282b !important}
+  .ppr-back,.ppr-back *{color:#6b6f76 !important;fill:#6b6f76 !important;stroke:#6b6f76 !important}
+  .ppr-next svg *,.ppr-back svg *{fill:none !important}
+  .ppr-next:hover,.ppr-back:hover{opacity:.7}
   @media(max-width:600px){
-    .ppr-group.ppr-two{grid-template-columns:1fr 1fr !important}
     .ppr-opt{font-size:15.5px !important;padding:10px 12px !important}
     .ppr-next,.ppr-back{font-size:18px !important}
   }
@@ -38,30 +41,36 @@
 
 <script>
 (function(){
-  if(window.__pprSkin) return; window.__pprSkin=true;
-  var NEXT=/^\s*(next|continue|submit)\b[\s→>»]*$/i, BACK=/^\s*[←<«]?\s*(go\s*back|back|previous)\s*$/i;
+  if(window.__pprSkin2) return; window.__pprSkin2=true;
+  var AUTO_NEXT=true;     // true = choosing an option goes to the next slide automatically
+  var AUTO_DELAY=280;     // ms to wait so the person sees their choice highlight
+  var NEXT=/^\s*(next|continue)\b[\s→>»]*$/i, BACK=/^\s*[←<«]?\s*(go\s*back|back|previous)\s*$/i;
+
+  function lca(a,b){ var p=a; while(p&&!p.contains(b)) p=p.parentElement; return p; }
 
   function skin(){
-    /* 1) options: every radio input becomes a full-width pill */
-    document.querySelectorAll('input[type=radio]').forEach(function(r){
-      var opt=r.closest('label')||r.parentElement;
-      if(!opt) return;
-      if(opt.querySelectorAll('input[type=radio]').length>1) opt=r.parentElement;
-      var group=opt.parentElement; if(!group) return;
-      var root=r.closest('form')||r.closest('[class*="survey"]')||group.parentElement;
-      if(root) root.classList.add('ppr-root');
-      if(!opt.classList.contains('ppr-opt')){
-        opt.classList.add('ppr-opt'); group.classList.add('ppr-group');
-        r.addEventListener('change',sync);
-      }
-    });
-    document.querySelectorAll('.ppr-group').forEach(function(g){
-      var n=g.querySelectorAll(':scope > .ppr-opt').length;
-      g.classList.toggle('ppr-two', n===2);
+    /* 1) group radios by name, find their common parent, make each direct child (the option) a pill */
+    var byName={};
+    document.querySelectorAll('input[type=radio]').forEach(function(r){ (byName[r.name||'_']=byName[r.name||'_']||[]).push(r); });
+    Object.keys(byName).forEach(function(k){
+      var rs=byName[k], common=rs[0].parentElement;
+      for(var i=1;i<rs.length;i++) common=lca(common,rs[i]);
+      if(rs.length===1) common=rs[0].parentElement.parentElement||common;
+      if(!common) return;
+      var items=[];
+      rs.forEach(function(r){
+        var it=r; while(it&&it.parentElement!==common) it=it.parentElement;
+        if(it&&items.indexOf(it)<0) items.push(it);
+      });
+      if(!items.length) return;
+      common.classList.add('ppr-group'); common.classList.toggle('ppr-two',items.length===2);
+      var root=rs[0].closest('form')||rs[0].closest('[class*="survey"]')||common.parentElement; if(root) root.classList.add('ppr-root');
+      items.forEach(function(it){ it.classList.add('ppr-opt'); });
+      rs.forEach(function(r){ if(!r.__ppr){ r.__ppr=1; r.addEventListener('change',function(){ sync(); autoNext(r); }); } });
     });
     sync();
     /* 2) Back / Next buttons, found by their text */
-    document.querySelectorAll('button,a,[role=button],div').forEach(function(b){
+    document.querySelectorAll('button,a,[role=button],div,span').forEach(function(b){
       if(b.children.length>3) return;
       var t=(b.textContent||'').trim(); if(!t||t.length>20) return;
       if(NEXT.test(t)) b.classList.add('ppr-next'); else if(BACK.test(t)) b.classList.add('ppr-back');
@@ -69,8 +78,15 @@
   }
   function sync(){
     document.querySelectorAll('.ppr-opt').forEach(function(o){
-      var r=o.querySelector('input[type=radio]'); o.classList.toggle('ppr-sel', !!(r&&r.checked));
+      var r=o.querySelector('input[type=radio]'); o.classList.toggle('ppr-sel',!!(r&&r.checked));
     });
+  }
+  function autoNext(r){
+    if(!AUTO_NEXT) return;
+    setTimeout(function(){
+      var scope=r.closest('form')||r.closest('[class*="survey"]')||document, nx=scope.querySelector('.ppr-next')||document.querySelector('.ppr-next');
+      if(nx){ var inner=nx.matches('button,a,[role=button]')?nx:(nx.querySelector('button,a,[role=button]')||nx); inner.click(); }
+    },AUTO_DELAY);
   }
   document.addEventListener('click',function(){setTimeout(sync,0)},true);
   var t=null, mo=new MutationObserver(function(){clearTimeout(t);t=setTimeout(skin,60)});
