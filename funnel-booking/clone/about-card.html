@@ -1,0 +1,35 @@
+<!-- ===== ABOUT CARD (dark card, photo + intro + 3 check lines) — copy & paste (GHL Custom HTML/JS element) ===== -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+<style>
+  .ab,.ab *{box-sizing:border-box}
+  .ab{display:block !important;width:100% !important;max-width:860px;margin:0 auto;padding:4px}
+  .ab .ab-card{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center;padding:30px;border-radius:26px;background:#26282b;color:#ffffff;
+               font-family:'Barlow',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
+  .ab .ab-photo{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top;border-radius:18px;background:#3a3d41}
+  .ab .ab-title{margin:0 0 10px;font-family:'Barlow Condensed',Impact,'Arial Narrow',sans-serif;font-weight:700;font-size:40px;line-height:1.05;letter-spacing:.01em;text-transform:uppercase;color:#f5a623}
+  .ab .ab-text{margin:0 0 14px;font-size:18px;line-height:1.7;color:#e5e7ea}
+  .ab .ab-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .ab .ab-list li{position:relative;padding-left:30px;font-size:18px;line-height:1.45;color:#ffffff}
+  .ab .ab-list li::before{content:"✔";position:absolute;left:0;top:0;color:#f5a623;font-weight:700}
+  @media(max-width:700px){
+    .ab .ab-card{grid-template-columns:1fr;gap:18px;padding:22px 18px;border-radius:20px}
+    .ab .ab-photo{max-width:240px;margin:0 auto}
+    .ab .ab-title{font-size:34px;text-align:center}
+    .ab .ab-text,.ab .ab-list li{font-size:17px}
+  }
+</style>
+
+<div class="ab">
+  <div class="ab-card">
+    <img class="ab-photo" src="PASTE-YOUR-PHOTO-URL-HERE" alt="Lanty with his family" width="520" height="520" loading="lazy">
+    <div>
+      <h2 class="ab-title">Hey, I’m Lanty</h2>
+      <p class="ab-text">I started as a painting contractor myself. I built crews, ran estimates and chased leads before I figured out what actually fills a calendar. Now we do it for other painters:</p>
+      <ul class="ab-list">
+        <li>We run it the way we run our own painting company</li>
+        <li>Every lead followed up within five minutes</li>
+        <li>A straight answer on the call, even if it’s not a fit</li>
+      </ul>
+    </div>
+  </div>
+</div>
