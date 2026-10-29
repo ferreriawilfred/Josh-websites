@@ -1,0 +1,25 @@
+<!-- ===== 4 FEATURE CARDS (icon + title + text) — copy & paste (GHL Custom HTML/JS) ===== -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+<style>
+  .fc,.fc *{box-sizing:border-box}
+  .fc{display:block !important;width:100% !important;max-width:1000px;margin:0 auto;padding:6px;font-family:'Barlow',system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
+  .fc .fc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .fc .fc-card{background:#fff;border:1px solid #e4e2da;border-radius:22px;padding:26px 18px 24px;text-align:center;box-shadow:0 8px 26px rgba(38,40,43,.08)}
+  .fc .fc-ic{display:flex;align-items:center;justify-content:center;height:48px;margin:0 0 10px;font-size:38px;line-height:1}
+  .fc .fc-ic img{display:block;width:44px;height:44px;object-fit:contain}
+  .fc .fc-t{margin:0 0 8px;font-family:'Barlow Condensed',Impact,'Arial Narrow',sans-serif;font-weight:700;font-size:27px;line-height:1.1;text-transform:uppercase;color:#26282b}
+  .fc .fc-p{margin:0;font-size:17px;line-height:1.5;color:#6b6f76}
+  @media(max-width:760px){
+    .fc .fc-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+    .fc .fc-card{padding:20px 12px 18px;border-radius:18px}
+    .fc .fc-t{font-size:22px}
+    .fc .fc-p{font-size:15.5px}
+  }
+</style>
+<!-- To use your own icon images: replace the emoji with <img src="IMAGE-URL" alt=""> -->
+<div class="fc"><div class="fc-grid">
+  <div class="fc-card"><div class="fc-ic">📣</div><h3 class="fc-t">Ad live<br>in 48 hrs</h3><p class="fc-p">We write, build and launch your Facebook ad.</p></div>
+  <div class="fc-card"><div class="fc-ic">⚡</div><h3 class="fc-t">5-minute<br>follow-up</h3><p class="fc-p">Every lead gets a text and a call within five minutes.</p></div>
+  <div class="fc-card"><div class="fc-ic">🗓️</div><h3 class="fc-t">Booked<br>estimates</h3><p class="fc-p">Confirmed appointments land in your Google Calendar.</p></div>
+  <div class="fc-card"><div class="fc-ic">📊</div><h3 class="fc-t">Weekly<br>report</h3><p class="fc-p">Leads in, appointments set, estimates booked.</p></div>
+</div></div>
