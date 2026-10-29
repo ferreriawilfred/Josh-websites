@@ -1,0 +1,80 @@
+<!-- ===== SURVEY SKIN — makes the NATIVE GHL Survey look like the template (full-width pill options, Back / Next arrows) =====
+     Paste this in ONE Custom HTML/JS element on the same page as your Survey element (anywhere on the page).
+     It finds the survey's radio options and Back/Next buttons by their TEXT and type, so it does not depend on GHL's class names.
+     Optional: give your "BOOK YOUR FREE ESTIMATE" heading the Custom Class  ppr-title  (Settings > Custom Class) to get the condensed font. -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+<style>
+  .ppr-root,.ppr-root *{font-family:'Barlow',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif !important}
+  .ppr-title,.ppr-title *{font-family:'Barlow Condensed',Impact,'Arial Narrow',sans-serif !important;font-weight:700 !important;text-transform:uppercase !important;letter-spacing:.01em !important}
+  /* option group */
+  .ppr-group{display:grid !important;grid-template-columns:1fr !important;gap:8px !important}
+  .ppr-group.ppr-two{grid-template-columns:1fr 1fr !important;gap:10px !important}
+  /* each option = full-width pill, centered text */
+  .ppr-opt,.ppr-opt *{box-sizing:border-box !important}
+  .ppr-opt{position:relative !important;display:flex !important;align-items:center !important;justify-content:center !important;
+           width:100% !important;min-height:48px !important;margin:0 !important;padding:10px 16px !important;
+           border:1px solid #e4e2da !important;border-radius:10px !important;background:#ffffff !important;
+           color:#26282b !important;font-size:16px !important;font-weight:500 !important;line-height:1.3 !important;text-align:center !important;
+           cursor:pointer;transition:border-color .15s,background .15s}
+  .ppr-opt:hover{border-color:#b9b6aa !important}
+  .ppr-two .ppr-opt{min-height:62px !important}
+  .ppr-opt > *{margin:0 !important;text-align:center !important;color:inherit !important}
+  .ppr-opt input[type=radio]{position:absolute !important;opacity:0 !important;pointer-events:none !important;width:1px !important;height:1px !important}
+  .ppr-opt [class*="radio"]:not(label),.ppr-opt [class*="circle"]:not(label),.ppr-opt [class*="indicator"]:not(label){display:none !important}
+  .ppr-opt.ppr-sel{background:#f6f5f0 !important;border-color:#26282b !important;font-weight:600 !important}
+  .ppr-opt:focus-within{outline:3px solid rgba(245,166,35,.55);outline-offset:2px}
+  /* Back / Next */
+  .ppr-next,.ppr-back{background:transparent !important;border:0 !important;box-shadow:none !important;padding:8px 6px !important;
+           font-size:20px !important;font-weight:600 !important;line-height:1.2 !important;cursor:pointer;text-decoration:none !important}
+  .ppr-next{color:#26282b !important}
+  .ppr-back{color:#6b6f76 !important}
+  .ppr-next:hover{opacity:.7}
+  @media(max-width:600px){
+    .ppr-group.ppr-two{grid-template-columns:1fr 1fr !important}
+    .ppr-opt{font-size:15.5px !important;padding:10px 12px !important}
+    .ppr-next,.ppr-back{font-size:18px !important}
+  }
+</style>
+
+<script>
+(function(){
+  if(window.__pprSkin) return; window.__pprSkin=true;
+  var NEXT=/^\s*(next|continue|submit)\b[\s→>»]*$/i, BACK=/^\s*[←<«]?\s*(go\s*back|back|previous)\s*$/i;
+
+  function skin(){
+    /* 1) options: every radio input becomes a full-width pill */
+    document.querySelectorAll('input[type=radio]').forEach(function(r){
+      var opt=r.closest('label')||r.parentElement;
+      if(!opt) return;
+      if(opt.querySelectorAll('input[type=radio]').length>1) opt=r.parentElement;
+      var group=opt.parentElement; if(!group) return;
+      var root=r.closest('form')||r.closest('[class*="survey"]')||group.parentElement;
+      if(root) root.classList.add('ppr-root');
+      if(!opt.classList.contains('ppr-opt')){
+        opt.classList.add('ppr-opt'); group.classList.add('ppr-group');
+        r.addEventListener('change',sync);
+      }
+    });
+    document.querySelectorAll('.ppr-group').forEach(function(g){
+      var n=g.querySelectorAll(':scope > .ppr-opt').length;
+      g.classList.toggle('ppr-two', n===2);
+    });
+    sync();
+    /* 2) Back / Next buttons, found by their text */
+    document.querySelectorAll('button,a,[role=button],div').forEach(function(b){
+      if(b.children.length>3) return;
+      var t=(b.textContent||'').trim(); if(!t||t.length>20) return;
+      if(NEXT.test(t)) b.classList.add('ppr-next'); else if(BACK.test(t)) b.classList.add('ppr-back');
+    });
+  }
+  function sync(){
+    document.querySelectorAll('.ppr-opt').forEach(function(o){
+      var r=o.querySelector('input[type=radio]'); o.classList.toggle('ppr-sel', !!(r&&r.checked));
+    });
+  }
+  document.addEventListener('click',function(){setTimeout(sync,0)},true);
+  var t=null, mo=new MutationObserver(function(){clearTimeout(t);t=setTimeout(skin,60)});
+  mo.observe(document.body,{childList:true,subtree:true});
+  skin(); setTimeout(skin,600); setTimeout(skin,1800);
+})();
+</script>
