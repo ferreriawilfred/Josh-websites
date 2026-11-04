@@ -77,6 +77,8 @@
   .hp .gal h2{color:#fff;font-size:30px;line-height:1.15;text-align:center;margin-bottom:8px}
   .hp .gal .hint{text-align:center;color:#d0d0d0;font-size:16px;margin:0 0 20px}
   .hp .track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 18px 12px;scrollbar-width:thin}
+  .hp .track>.slide:first-child{margin-left:auto}
+  .hp .track>.slide:last-child{margin-right:auto}
   .hp .slide{flex:0 0 86%;max-width:480px;scroll-snap-align:center}
   .hp .ba{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#333;user-select:none;-webkit-user-select:none;touch-action:pan-y}
   .hp .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
@@ -99,6 +101,13 @@
   .hp .rvc .by{margin:0;font-weight:700;color:var(--mut);font-size:17px}
   .hp .rvc.empty{border:2px dashed var(--acc);background:var(--soft);color:var(--accd);text-align:center;font-weight:700;font-size:16px}
 
+  .hp .vid{margin:30px auto 0;max-width:640px;text-align:center}
+  .hp .vid h3{font-size:24px;line-height:1.2;margin:0 0 14px}
+  .hp .vbox{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#111;box-shadow:0 12px 30px rgba(17,17,17,.2)}
+  .hp .vbox video,.hp .vbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
+  .hp .vbox.empty{display:flex;align-items:center;justify-content:center;padding:16px;border:2px dashed var(--acc);background:var(--soft);color:var(--accd);font-weight:700;font-size:16px;box-shadow:none}
+  .hp .vid .vc{margin:10px 0 0;color:var(--mut);font-weight:700;font-size:17px}
+
   /* final */
   .hp .fin{background:var(--ink);color:#fff;text-align:center}
   .hp .fin h2{color:#fff;font-size:32px;line-height:1.15;margin-bottom:12px}
@@ -116,7 +125,7 @@
   }
   @media(min-width:761px){
     .hp .hero h1{font-size:46px}.hp .sv h2,.hp .story h2,.hp .gal h2,.hp .rvs h2{font-size:38px}.hp .fin h2{font-size:42px}
-    .hp .slide{flex-basis:420px}.hp .track{justify-content:flex-start}
+    .hp .track{justify-content:center}.hp .slide{flex:0 0 min(420px,calc((100% - 78px)/4))}
     .hp .rvl{grid-template-columns:repeat(3,1fr)}.hp .rvs .w{max-width:1000px}
     .hp .card{padding:30px 28px}
   }
@@ -206,6 +215,7 @@
     <div class="w">
       <h2>Don’t Just Take Our Word For It</h2>
       <div class="rvl" id="hp-rv"></div>
+      <div class="vid"><h3>Hear It From a Homeowner</h3><div id="hp-video"></div><p class="vc" id="hp-vcap"></p></div>
     </div>
   </section>
 
@@ -241,6 +251,7 @@
       {before:'',after:'',caption:'Exterior repaint — Akron, OH'},
       {before:'',after:'',caption:'Interior refresh — Akron, OH'}
     ],
+    VIDEO:{url:'',poster:'',caption:''},  // video testimonial: .mp4 link (GHL media library), or a YouTube / Vimeo link. '' = placeholder
     REVIEWS:[                // real Google reviews only. Empty slots show a placeholder.
       {name:'Michelle T.',place:'Akron, OH',text:'Home Pro Jobs transformed the outside of our home completely. Lanty and his crew were on time, clean, and the price was exactly what they quoted — no surprises.'},
       {name:'',place:'',text:''},
@@ -287,6 +298,16 @@
                 : '<div class="rvc empty">Add a real Google review here</div>';
   });
   $('hp-rv').innerHTML=rh;
+
+  /* ----- video testimonial ----- */
+  (function(){
+    var V=CFG.VIDEO||{},u=(V.url||'').trim(),vb=$('hp-video'),m;
+    $('hp-vcap').textContent=V.caption||'';
+    if(!u){vb.innerHTML='<div class="vbox empty">Add a real customer video here (set VIDEO in SETTINGS)</div>';return}
+    if((m=u.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/))) vb.innerHTML='<div class="vbox"><iframe src="https://www.youtube.com/embed/'+m[1]+'?rel=0" title="Customer video" allow="accelerometer;encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
+    else if((m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/))) vb.innerHTML='<div class="vbox"><iframe src="https://player.vimeo.com/video/'+m[1]+'" title="Customer video" allow="fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
+    else vb.innerHTML='<div class="vbox"><video controls playsinline preload="metadata" src="'+esc(u)+'"'+(V.poster?' poster="'+esc(V.poster)+'"':'')+'></video></div>';
+  })();
 
   /* ============================ SURVEY ============================ */
   var Q=[
