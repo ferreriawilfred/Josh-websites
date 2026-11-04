@@ -1,0 +1,88 @@
+<!-- ===== HOME PRO JOBS — CONCRETE BOOKING PAGE (page after the survey) =====
+     BLOCK A goes in a Custom HTML/JS element ABOVE your GHL Calendar element. BLOCK B (further down) goes in another Custom HTML element BELOW the calendar.
+     Set the page/section background to #fff1e6 (light orange) so the calendar sits nicely. In the survey, set the redirect to this page. -->
+
+<!-- ============================ BLOCK A — above the calendar ============================ -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  .bk,.bk *{box-sizing:border-box}
+  .bk{--ink:#111111;--acc:#ff6a00;--accd:#d95500;--soft:#fff1e6;--line:#ffd9bd;--mut:#4d4d4d;
+      display:block !important;width:100% !important;margin:0;padding:0;color:var(--ink);font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:20px;line-height:1.6}
+  .bk [hidden]{display:none !important}
+  .bk h1,.bk h2,.bk h3{margin:0;font-family:inherit;font-weight:800;color:var(--ink);text-wrap:balance}
+  .bk p{margin:0 0 14px}
+  .bk .w{max-width:760px;margin:0 auto;padding:0 18px}
+  .bk .btn{display:block;width:100%;max-width:520px;margin:0 auto;padding:16px 20px;border-radius:14px;background:var(--acc);color:#fff !important;font-weight:800;font-size:20px;line-height:1.25;text-align:center;text-decoration:none !important;box-shadow:0 10px 26px rgba(255,106,0,.35)}
+  .bk .btn:hover{background:var(--accd)}
+  .bk .hero{background:var(--ink);color:#fff;text-align:center;padding:34px 0 38px}
+  .bk .hero h1{color:#fff;font-size:34px;line-height:1.15;margin-bottom:12px}
+  .bk .hero h1 em{font-style:normal;color:var(--acc)}
+  .bk .eyebrow{display:inline-block;margin:0 0 12px;padding:6px 14px;border-radius:999px;background:rgba(255,106,0,.18);color:#ffb273;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+  .bk .hero .sub{max-width:600px;margin:0 auto 14px;color:#e8e8e8}
+  .bk .hero .pick{margin:0;color:#fff;font-weight:800;font-size:18px}
+  .bk .or{margin:16px 0 0;font-size:17px;color:#d0d0d0}
+  .bk .or a{color:#fff;font-weight:800}
+  @media(min-width:761px){.bk .hero h1{font-size:44px}}
+</style>
+<div class="bk" id="bk-a">
+  <section class="hero"><div class="w">
+    <span class="eyebrow" id="bk-hi">Step 2 of 2</span>
+    <h1>Pick a Time For Your <em>Free Quote</em></h1>
+    <p class="sub">Choose a day and time that works for you, by phone or at your property. We’ll send a confirmation by text.</p>
+    <p class="pick">👇 Select a date and time below</p>
+    <p class="or">Rather talk now? Call <a href="tel:+15717151538">+1 571-715-1538</a></p>
+  </div></section>
+</div>
+<script>
+(function(){
+  if(window.__bkHi) return; window.__bkHi=true;
+  try{var n=new URLSearchParams(location.search).get('first_name');if(n){var e=document.getElementById('bk-hi');if(e)e.textContent=n.replace(/[<>]/g,'')+', you’re almost done'}}catch(x){}
+})();
+</script>
+
+<!-- >>>>>>>>>>>>>>>>>>>>>>>  PLACE YOUR GHL CALENDAR ELEMENT HERE  <<<<<<<<<<<<<<<<<<<<<<< -->
+
+<!-- ============================ BLOCK B — below the calendar ============================ -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  .bkb,.bkb *{box-sizing:border-box}
+  .bkb{--ink:#111111;--acc:#ff6a00;--soft:#fff1e6;--line:#ffd9bd;--mut:#4d4d4d;
+       display:block !important;width:100% !important;margin:0;padding:0;color:var(--ink);font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:20px;line-height:1.6}
+  .bkb h2,.bkb h3{margin:0;font-family:inherit;font-weight:800;color:var(--ink);text-wrap:balance}
+  .bkb .w{max-width:760px;margin:0 auto;padding:0 18px}
+  .bkb .sec{padding-top:40px;padding-bottom:12px}
+  .bkb h2.t{font-size:30px;line-height:1.15;text-align:center;margin-bottom:20px}
+  .bkb ol{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+  .bkb li.s{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;padding:18px 16px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px rgba(255,106,0,.1)}
+  .bkb li.s b{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:var(--acc);color:#fff;font-weight:800;font-size:26px;line-height:1}
+  .bkb li.s h3{font-size:21px;line-height:1.2;margin:2px 0 6px}
+  .bkb li.s p{margin:0;color:var(--mut);font-size:18px;line-height:1.5}
+  .bkb .ok{list-style:none;margin:0 auto;padding:0;display:grid;gap:10px;max-width:560px}
+  .bkb .ok li{position:relative;padding-left:34px;font-size:19px;line-height:1.45;font-weight:500}
+  .bkb .ok li::before{content:"✔";position:absolute;left:0;top:0;color:var(--acc);font-weight:800}
+  .bkb .help{margin:34px auto 0;max-width:520px;padding:20px 18px;border-radius:18px;background:var(--ink);color:#fff;text-align:center}
+  .bkb .help p{margin:0 0 12px;color:#e8e8e8;font-size:18px}
+  .bkb .help a.call{display:block;padding:14px;border-radius:12px;background:var(--acc);color:#fff !important;font-weight:800;font-size:20px;text-decoration:none !important}
+  .bkb .foot{padding:26px 18px 36px;text-align:center;color:#777;font-size:13px;line-height:1.5}
+  .bkb .foot a{color:#555}
+  @media(min-width:761px){.bkb h2.t{font-size:36px}.bkb li.s h3{font-size:23px}}
+</style>
+<div class="bkb" id="bk-b">
+  <div class="w sec">
+    <h2 class="t">What to Expect</h2>
+    <ol>
+      <li class="s"><b>1</b><div><h3>We learn about your project</h3><p>You tell us what you want done, by phone or at your property.</p></div></li>
+      <li class="s"><b>2</b><div><h3>We give you a straight, honest quote</h3><p>No padding and no pressure. Just an honest answer on what your project costs.</p></div></li>
+      <li class="s"><b>3</b><div><h3>You pay when you love it</h3><p>You don’t pay in full until you love what you see.</p></div></li>
+    </ol>
+  </div>
+  <div class="w sec">
+    <ul class="ok">
+      <li>Free quote, no pressure, no obligation</li>
+      <li>You don’t pay in full until you love what you see</li>
+      <li>Family owned, right here in Akron</li>
+    </ul>
+    <div class="help"><p>Need to change your time, or have a question?</p><a class="call" href="tel:+15717151538">📞 Call +1 571-715-1538</a></div>
+  </div>
+  <div class="foot">Home Pro Jobs · Akron, OH<br><a href="PRIVACY-POLICY-URL">Privacy Policy</a> &nbsp;|&nbsp; <a href="TERMS-URL">Terms &amp; Conditions</a></div>
+</div>
