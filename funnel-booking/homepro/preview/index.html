@@ -136,6 +136,10 @@
   .hp .ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
   .hp .cap{margin:10px 2px 0;color:#fff;font-weight:700;font-size:17px}
 
+  .hp .gnav{display:flex;justify-content:center;gap:12px;margin:12px 0 0}
+  .hp .gnav button{width:46px;height:46px;border:0;border-radius:50%;background:var(--acc);color:#fff;font:inherit;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 6px 16px rgba(255,106,0,.35)}
+  .hp .gnav button:hover{background:var(--accd)}
+
   /* reviews */
   .hp .rvs h2{font-size:30px;line-height:1.15;text-align:center;margin-bottom:22px}
   .hp .rvl{display:grid;gap:14px}
@@ -169,7 +173,7 @@
   }
   @media(min-width:761px){
     .hp .hero h1{font-size:46px}.hp .sv h2,.hp .story h2,.hp .gal h2,.hp .rvs h2{font-size:38px}.hp .fin h2{font-size:42px}
-    .hp .slide{flex:0 0 min(420px,calc((100% - 78px)/4));max-width:none}
+    .hp .slide{flex:0 0 min(560px,88%);max-width:none}
     .hp .rvl{grid-template-columns:repeat(3,1fr)}.hp .rvs .w{max-width:1000px}
     .hp .card{padding:30px 28px}
   }
@@ -296,6 +300,7 @@
   <section class="gal sec">
     <div class="w"><h2>Real Work. Real Homes. Right Here in Akron.</h2><p class="hint">Swipe to see more · drag each photo to compare</p></div>
     <div class="track" id="hp-track"></div>
+    <div class="gnav"><button type="button" id="hp-gprev" aria-label="Previous photo">←</button><button type="button" id="hp-gnext" aria-label="Next photo">→</button></div>
   </section>
 
   <!-- SECTION 6 — SOCIAL PROOF -->
@@ -373,6 +378,8 @@
       '<span class="ln"></span><span class="kn">⇄</span></div><p class="cap">'+esc(g.caption)+'</p></div>';
   });
   tr.innerHTML=gh;
+  function gstep(d){var sl=tr.querySelector('.slide');tr.scrollBy({left:d*(sl.getBoundingClientRect().width+14),behavior:'smooth'})}
+  $('hp-gprev').addEventListener('click',function(){gstep(-1)});$('hp-gnext').addEventListener('click',function(){gstep(1)});
   tr.querySelectorAll('.ba').forEach(function(b){
     var r=b.querySelector('input'),im=b.querySelector('.b'),ln=b.querySelector('.ln'),kn=b.querySelector('.kn');
     function set(v){im.style.clipPath='inset(0 '+(100-v)+'% 0 0)';ln.style.left=v+'%';kn.style.left=v+'%'}
