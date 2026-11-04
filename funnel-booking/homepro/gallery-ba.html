@@ -1,8 +1,9 @@
-<!-- ===== BEFORE / AFTER GALLERY (4 photos, drag to compare, swipe on phone) — copy & paste (GHL Custom HTML/JS). Put on a dark section. ===== -->
+<!-- ===== BEFORE / AFTER GALLERY (4 photos, drag to compare, swipe on phone) — copy & paste (GHL Custom HTML/JS). Works on light or dark sections (see CAPTION COLOR below). ===== -->
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
   .gl,.gl *{box-sizing:border-box}
-  .gl{display:block !important;width:100% !important;margin:0 auto;padding:6px 0;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#fff}
+  .gl{--gl-cap:#111111}  /* CAPTION COLOR: #111111 on a light/cream section, #ffffff on a dark section */
+  .gl{display:block !important;width:100% !important;margin:0 auto;padding:6px 0;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--gl-cap)}
   .gl .gl-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 18px 12px;justify-content:flex-start}
   .gl .gl-track>.gl-slide:first-child{margin-left:auto}
   .gl .gl-track>.gl-slide:last-child{margin-right:auto}
@@ -12,12 +13,12 @@
   .gl .gl-ba .gl-b{clip-path:inset(0 50% 0 0)}
   .gl .gl-ln{position:absolute;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.4);pointer-events:none}
   .gl .gl-kn{position:absolute;top:50%;left:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:#ff6a00;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 14px rgba(0,0,0,.4);pointer-events:none}
-  .gl .gl-tg{position:absolute;bottom:10px;padding:5px 10px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:.12em;color:#fff;pointer-events:none}
+  .gl .gl-tg{position:absolute;bottom:10px;padding:4px 9px;border-radius:6px;font-size:11px;white-space:nowrap;font-weight:800;letter-spacing:.12em;color:#fff;pointer-events:none}
   .gl .gl-l{left:10px;background:rgba(17,17,17,.85)}
   .gl .gl-r{right:10px;background:#ff6a00}
   .gl .gl-ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
-  .gl .gl-cap{margin:10px 2px 0;font-weight:700;font-size:17px;color:#fff}
-  @media(min-width:761px){.gl .gl-track{justify-content:center;padding:0 36px 12px}.gl .gl-slide{flex:0 0 min(420px,calc((100% - 78px)/4))}}
+  .gl .gl-cap{margin:10px 2px 0;font-weight:700;font-size:17px;line-height:1.3;color:var(--gl-cap)}
+  @media(min-width:561px){.gl .gl-track{padding:0 36px 12px}.gl .gl-slide{flex:0 0 clamp(270px,calc((100% - 78px)/4),420px);max-width:none}}
 </style>
 <div class="gl"><div class="gl-track" id="gl-track">
   <div class="gl-slide"><div class="gl-ba"><img class="gl-a" alt="After painting" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/IDydFQb41NrO8sH3Xt3i/media/6a15368d60ad4b06193a41c5.webp" loading="lazy" width="800" height="600"><img class="gl-b" alt="Before painting" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/IDydFQb41NrO8sH3Xt3i/media/6a15368fd2747625ad8cbb1c.webp" loading="lazy" width="800" height="600"><span class="gl-tg gl-l">BEFORE</span><span class="gl-tg gl-r">AFTER</span><input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after"><span class="gl-ln"></span><span class="gl-kn">⇄</span></div><p class="gl-cap">Exterior repaint</p></div>

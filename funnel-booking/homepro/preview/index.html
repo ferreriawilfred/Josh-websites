@@ -169,7 +169,7 @@
   }
   @media(min-width:761px){
     .hp .hero h1{font-size:46px}.hp .sv h2,.hp .story h2,.hp .gal h2,.hp .rvs h2{font-size:38px}.hp .fin h2{font-size:42px}
-    .hp .track{justify-content:center}.hp .slide{flex:0 0 min(420px,calc((100% - 78px)/4))}
+    .hp .slide{flex:0 0 clamp(270px,calc((100% - 78px)/4),420px);max-width:none}
     .hp .rvl{grid-template-columns:repeat(3,1fr)}.hp .rvs .w{max-width:1000px}
     .hp .card{padding:30px 28px}
   }
