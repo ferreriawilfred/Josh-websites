@@ -1,0 +1,505 @@
+<!-- ===== HOME PRO JOBS — CONCRETE LANDING PAGE (mobile first) — ONE Custom HTML/JS element on a blank GHL page =====
+     Fill the SETTINGS block at the bottom (webhook, thank-you URL, photos, reviews). Leave a value '' to keep the sample/placeholder. -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  .hp{--ink:#111111;--acc:#ff6a00;--acc2:#ff8a1f;--accd:#d95500;--soft:#fff1e6;--line:#ffd9bd;--mut:#4d4d4d;--bg:#ffffff;
+      display:block !important;width:100% !important;margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:20px;line-height:1.6;-webkit-text-size-adjust:100%}
+  .hp,.hp *{box-sizing:border-box}
+  .hp [hidden]{display:none !important}
+  .hp h1,.hp h2,.hp h3{font-family:'DM Sans',system-ui,sans-serif;font-weight:800;margin:0;color:var(--ink);text-wrap:balance}
+  .hp p{margin:0 0 16px}
+  .hp a{color:inherit}
+  .hp .w{max-width:760px;margin:0 auto;padding:0 18px}
+  .hp .sec{padding-top:44px;padding-bottom:44px}
+  .hp .btn{display:block;width:100%;max-width:520px;margin:0 auto;padding:18px 20px;border:0;border-radius:14px;background:var(--acc);color:#fff !important;font:inherit;font-weight:800;font-size:21px;line-height:1.25;text-align:center;text-decoration:none !important;cursor:pointer;box-shadow:0 10px 26px rgba(255,106,0,.35)}
+  .hp .btn:hover{background:var(--accd)}
+  .hp .btn:focus-visible,.hp input:focus-visible,.hp textarea:focus-visible{outline:3px solid #111;outline-offset:2px}
+
+  /* hero */
+  .hp .hero{background:var(--ink);color:#fff;text-align:center;padding:34px 0 40px}
+  .hp .hero h1{color:#fff;font-size:34px;line-height:1.15;margin-bottom:14px}
+  .hp .hero h1 em{font-style:normal;color:var(--acc)}
+  .hp .hero p.sub{color:#e8e8e8;margin:0 auto 24px;max-width:600px}
+  .hp .hero .alt{margin:16px 0 0;color:#d0d0d0;font-size:18px}
+  .hp .hero .alt a{color:#fff;font-weight:700}
+
+  .hp .tbwrap{background:var(--ink);padding:0 0 34px;margin-top:-1px}
+  .hp .hero{padding-bottom:26px}
+
+  .tb,.tb *{box-sizing:border-box}
+  .tb{display:block !important;width:100% !important;max-width:620px;margin:0 auto;padding:6px 4px;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#fff;text-align:left}
+  .tb .tb-pill,.tb .tb-bar{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);box-shadow:0 10px 30px rgba(0,0,0,.25);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .tb .tb-pill{display:inline-flex;align-items:center;gap:14px;padding:10px 22px 10px 12px;border-radius:999px;margin:0 0 12px}
+  .tb .tb-avs{display:flex}
+  .tb .tb-av{display:block;width:44px;height:44px;margin-left:-12px;border-radius:50%;border:2px solid #2a2a2a;background:#555 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='20' cy='15' r='7' fill='%23bbb'/><path d='M6 40c0-9 6-14 14-14s14 5 14 14z' fill='%23bbb'/></svg>") center/cover;object-fit:cover}
+  .tb .tb-av:first-child{margin-left:0}
+  .tb .tb-big{display:block;font-weight:800;font-size:25px;line-height:1.05}
+  .tb .tb-sm{display:block;margin-top:3px;font-size:15px;line-height:1.1;color:rgba(255,255,255,.72);letter-spacing:.02em}
+  .tb .tb-bar{display:grid;grid-template-columns:1.25fr 1fr 1fr;border-radius:18px;padding:16px 6px}
+  .tb .tb-it{display:flex;align-items:center;justify-content:center;gap:10px;padding:2px 10px;min-width:0}
+  .tb .tb-it + .tb-it{border-left:1px solid rgba(255,255,255,.2)}
+  .tb .tb-ic{flex:0 0 auto;width:30px;height:30px;display:block}
+  .tb .tb-stars{display:block;color:#ffb400;font-size:13px;letter-spacing:2px;line-height:1;margin:0 0 3px}
+  .tb .tb-val{display:block;font-weight:800;font-size:19px;line-height:1.1}
+  .tb .tb-lbl{display:block;margin-top:2px;font-size:11.5px;line-height:1.15;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+  /* slide-up (only when JS is on and motion is allowed; otherwise everything is simply visible) */
+  .tb.tb-js .tb-rise{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .tb.tb-js .tb-rise.tb-in{opacity:1;transform:none}
+  @media(max-width:520px){
+    .tb{max-width:340px}
+    .tb .tb-bar{padding:9px 0;border-radius:14px;grid-template-columns:1.15fr 1fr 1fr}
+    .tb .tb-it{flex-direction:column;gap:3px;text-align:center;padding:1px 4px}
+    .tb .tb-ic{width:20px;height:20px}
+    .tb .tb-stars{font-size:9px;letter-spacing:1px;margin:0 0 2px}
+    .tb .tb-val{font-size:14px}
+    .tb .tb-lbl{font-size:8.5px;letter-spacing:.04em;margin-top:1px;white-space:nowrap}
+    .tb .tb-g{display:flex;flex-direction:column;align-items:center;gap:3px}
+    .tb .tb-pill{padding:7px 16px 7px 9px;gap:10px;margin-bottom:8px}
+    .tb .tb-av{width:32px;height:32px;margin-left:-9px}
+    .tb .tb-big{font-size:19px}
+    .tb .tb-sm{font-size:12px}
+  }
+
+  /* survey */
+  .hp .sv{background:var(--soft)}
+  .hp .sv h2{font-size:30px;line-height:1.15;text-align:center;margin-bottom:10px}
+  .hp .sv .sub{text-align:center;color:var(--mut);margin-bottom:24px;font-size:19px}
+  .hp .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 18px;box-shadow:0 12px 34px rgba(255,106,0,.12)}
+  .hp .prog{height:8px;border-radius:99px;background:var(--soft);overflow:hidden;margin:0 0 6px}
+  .hp .prog i{display:block;height:100%;width:0;background:var(--acc);border-radius:99px;transition:width .3s}
+  .hp .stp{margin:0 0 14px;color:var(--mut);font-size:16px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .hp .q{margin:0 0 16px;padding:0;font-size:24px;line-height:1.25;font-weight:800}
+  .hp fieldset{border:0;margin:0;padding:0;min-width:0}
+  .hp .opts{display:grid;gap:10px}
+  .hp .opt{position:relative;display:block;cursor:pointer}
+  .hp .opt input{position:absolute;opacity:0;width:1px;height:1px}
+  .hp .opt span{display:flex;align-items:center;min-height:58px;padding:12px 16px;border:2px solid var(--line);border-radius:14px;background:#fff;font-weight:700;font-size:19px;line-height:1.3;transition:border-color .15s,background .15s}
+  .hp .opt:hover span{border-color:var(--acc)}
+  .hp .opt input:checked + span{border-color:var(--acc);background:var(--soft)}
+  .hp .opt input:focus-visible + span{outline:3px solid var(--ink);outline-offset:2px}
+  .hp .nav{display:flex;gap:10px;margin-top:18px}
+  .hp .nav .btn{box-shadow:none;max-width:none;margin:0;padding:14px 18px;font-size:19px}
+  .hp .nav .back{flex:0 0 auto;width:auto;background:transparent;color:var(--mut) !important;border:2px solid var(--line)}
+  .hp .nav .back:hover{background:var(--soft)}
+  .hp .nav .nx{flex:1}
+  .hp textarea,.hp .fld input{display:block;width:100%;padding:14px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-size:19px;line-height:1.4}
+  .hp textarea{min-height:140px;resize:vertical}
+  .hp .fld{display:block;margin:0 0 12px}
+  .hp .fld b{display:block;margin:0 0 4px;font-size:16px;font-weight:700}
+  .hp .fld small{font-weight:500;color:var(--mut)}
+  .hp .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hp .bad{border-color:#d12727 !important}
+  .hp .err{margin:8px 0 0;color:#b42318;font-weight:700;font-size:17px;min-height:0}
+  .hp .consent{display:flex;gap:10px;align-items:flex-start;margin:6px 0 12px;font-size:14px;line-height:1.45;color:var(--mut)}
+  .hp .consent input{flex:0 0 auto;width:20px;height:20px;margin-top:2px;accent-color:var(--acc)}
+  .hp .after{margin:14px 0 0;text-align:center;color:var(--mut);font-size:17px}
+  .hp .done{text-align:center;padding:10px 0}
+  .hp .done h3{font-size:28px;margin-bottom:8px}
+  .hp .prev{margin-top:14px;padding:12px;border:1px dashed var(--acc);border-radius:10px;background:var(--soft);color:var(--accd);font-size:14px;text-align:left;word-break:break-word}
+
+  /* story */
+  .hp .story h2{font-size:30px;line-height:1.15;margin-bottom:22px;text-align:center}
+  .hp .story .blk{margin:0 0 26px}
+  .hp .story .blk p:last-child{margin-bottom:0}
+  .hp .story strong{color:var(--accd)}
+  .hp .ph{display:block;width:100%;height:auto;margin:0 0 26px;border-radius:18px;box-shadow:0 12px 30px rgba(17,17,17,.16)}
+  .hp .slot{display:flex;align-items:center;justify-content:center;min-height:220px;margin:0 0 26px;padding:16px;border:2px dashed var(--acc);border-radius:18px;background:var(--soft);color:var(--accd);text-align:center;font-weight:700;font-size:16px}
+
+  /* how it works + why us */
+  .hp .how{background:var(--soft)}
+  .hp .how h2{font-size:30px;line-height:1.15;text-align:center;margin-bottom:24px}
+  .hp .stepl{list-style:none;margin:0 0 40px;padding:0;display:grid;gap:12px}
+  .hp .stepl li{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;padding:18px 16px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px rgba(255,106,0,.1)}
+  .hp .stepl b.n{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:var(--acc);color:#fff;font-weight:800;font-size:26px;line-height:1}
+  .hp .stepl h3{font-size:21px;line-height:1.2;margin:2px 0 6px}
+  .hp .stepl p{margin:0;color:var(--mut);font-size:18px;line-height:1.5}
+  .hp .whyg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .hp .whyc{padding:20px 14px;background:#fff;border:1px solid var(--line);border-radius:18px;text-align:center;box-shadow:0 8px 24px rgba(255,106,0,.1)}
+  .hp .whyc svg{display:block;width:34px;height:34px;margin:0 auto 10px}
+  .hp .whyc h3{font-size:18px;line-height:1.2;margin:0 0 6px}
+  .hp .whyc p{margin:0;color:var(--mut);font-size:16px;line-height:1.45}
+  .hp .how .w2{max-width:1000px;margin:0 auto;padding:0 18px}
+  @media(min-width:761px){.hp .how h2{font-size:38px}.hp .whyg{grid-template-columns:repeat(4,1fr)}.hp .stepl h3{font-size:23px}}
+
+  /* gallery */
+  .hp .gal{background:var(--ink);color:#fff}
+  .hp .gal h2{color:#fff;font-size:30px;line-height:1.15;text-align:center;margin-bottom:8px}
+  .hp .gal .hint{text-align:center;color:#d0d0d0;font-size:16px;margin:0 0 20px}
+  .hp .track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 18px 12px;scrollbar-width:thin}
+  .hp .track>.slide:first-child{margin-left:auto}
+  .hp .track>.slide:last-child{margin-right:auto}
+  .hp .slide{flex:0 0 86%;max-width:480px;scroll-snap-align:center}
+  .hp .ba{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#333;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+  .hp .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+  .hp .ba .b{clip-path:inset(0 50% 0 0)}
+  .hp .ba .ln{position:absolute;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.4);pointer-events:none}
+  .hp .ba .kn{position:absolute;top:50%;left:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 14px rgba(0,0,0,.4);pointer-events:none}
+  .hp .ba .tg{position:absolute;bottom:10px;padding:5px 10px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:.12em;color:#fff;pointer-events:none}
+  .hp .ba .tg.l{left:10px;background:rgba(17,17,17,.85)}
+  .hp .ba .tg.r{right:10px;background:var(--acc)}
+  .hp .ba .smp{position:absolute;top:10px;left:10px;right:10px;text-align:center;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,.9);color:#111;font-size:12px;font-weight:700;pointer-events:none}
+  .hp .ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+  .hp .cap{margin:10px 2px 0;color:#fff;font-weight:700;font-size:17px}
+
+  .hp .gnav{display:flex;justify-content:center;gap:12px;margin:12px 0 0}
+  .hp .gnav button{width:46px;height:46px;border:0;border-radius:50%;background:var(--acc);color:#fff;font:inherit;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 6px 16px rgba(255,106,0,.35)}
+  .hp .gnav button:hover{background:var(--accd)}
+
+  /* reviews */
+  .hp .rvs h2{font-size:30px;line-height:1.15;text-align:center;margin-bottom:22px}
+  .hp .rvl{display:grid;gap:14px}
+  .hp .rvc{padding:20px 18px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(255,106,0,.1)}
+  .hp .rvc .st{color:var(--acc);letter-spacing:.12em;font-size:22px;line-height:1;margin:0 0 10px}
+  .hp .rvc q{display:block;quotes:none;margin:0 0 12px}
+  .hp .rvc .by{margin:0;font-weight:700;color:var(--mut);font-size:17px}
+  .hp .rvc.empty{border:2px dashed var(--acc);background:var(--soft);color:var(--accd);text-align:center;font-weight:700;font-size:16px}
+
+  .hp .vid{margin:30px auto 0;max-width:640px;text-align:center}
+  .hp .vid h3{font-size:24px;line-height:1.2;margin:0 0 14px}
+  .hp .vbox{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#111;box-shadow:0 12px 30px rgba(17,17,17,.2)}
+  .hp .vbox video,.hp .vbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000}
+  .hp .vbox.empty{display:flex;align-items:center;justify-content:center;padding:16px;border:2px dashed var(--acc);background:var(--soft);color:var(--accd);font-weight:700;font-size:16px;box-shadow:none}
+  .hp .vid .vc{margin:10px 0 0;color:var(--mut);font-weight:700;font-size:17px}
+
+  /* final */
+  .hp .fin{background:var(--ink);color:#fff;text-align:center}
+  .hp .fin h2{color:#fff;font-size:32px;line-height:1.15;margin-bottom:12px}
+  .hp .fin h2 em{font-style:normal;color:var(--acc)}
+  .hp .fin p{color:#e8e8e8}
+  .hp .fin .btn{margin:22px auto 16px}
+  .hp .foot{padding:22px 0 96px;background:#0a0a0a;color:#aaa;text-align:center;font-size:13px;line-height:1.5}
+  .hp .foot a{color:#ddd}
+
+  /* sticky call bar (phones) */
+  .hp .call{display:none}
+  @media(max-width:760px){
+    .hp .call{display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(17,17,17,.96);box-shadow:0 -6px 20px rgba(0,0,0,.3)}
+    .hp .call a{display:block;padding:14px;border-radius:12px;background:var(--acc);color:#fff !important;text-align:center;text-decoration:none !important;font-weight:800;font-size:19px}
+  }
+  @media(min-width:761px){
+    .hp .hero h1{font-size:46px}.hp .sv h2,.hp .story h2,.hp .gal h2,.hp .rvs h2{font-size:38px}.hp .fin h2{font-size:42px}
+    .hp .slide{flex:0 0 min(560px,88%);max-width:none}
+    .hp .rvl{grid-template-columns:repeat(3,1fr)}.hp .rvs .w{max-width:1000px}
+    .hp .card{padding:30px 28px}
+  }
+  @media(max-width:420px){.hp .row2{grid-template-columns:1fr}}
+</style>
+
+<div class="hp" id="hp">
+
+  <!-- SECTION 1 — HERO -->
+  <section class="hero">
+    <div class="w">
+      <h1>The <em>Best Looking Driveway and Patio</em> on Your Street — Guaranteed</h1>
+      <p class="sub">Over 1,000 jobs completed across the Akron area. Family owned. Fair pricing. You don’t pay in full until you love what you see.</p>
+      <a class="btn" href="tel:+15717151538">📞 Call Us Now — Get a Free Quote</a>
+      <p class="alt">Prefer to do it online? <a href="#hp-survey">Get your quote in 60 seconds ↓</a></p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — TRUST BAR -->
+  <div class="tbwrap"><div class="w">
+<div class="tb" id="tb">
+  <div class="tb-pill tb-rise">
+    <span class="tb-avs">
+      <!-- to use real customer photos, replace each <span class="tb-av"></span> with: <img class="tb-av" src="PHOTO-URL" alt=""> -->
+      <span class="tb-av"></span><span class="tb-av"></span><span class="tb-av"></span>
+    </span>
+    <span><span class="tb-big">1,000+</span><span class="tb-sm">Served</span></span>
+  </div>
+
+  <div class="tb-bar tb-rise" data-d="140">
+    <div class="tb-it tb-g">
+      <svg class="tb-ic" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      <span><span class="tb-stars" aria-label="5 stars">★★★★★</span><span class="tb-val">4.9 Rating</span><span class="tb-lbl">Google Reviews</span></span>
+    </div>
+    <div class="tb-it">
+      <svg class="tb-ic" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>
+      <span><span class="tb-val">1,000+</span><span class="tb-lbl">Slabs Done</span></span>
+    </div>
+    <div class="tb-it">
+      <svg class="tb-ic" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3 5 6v5.5c0 4.4 2.9 7.9 7 9.5 4.1-1.6 7-5.1 7-9.5V6z"/><path d="m8.8 12 2.4 2.4 4.2-4.6"/></svg>
+      <span><span class="tb-val">100%</span><span class="tb-lbl">Satisfaction</span></span>
+    </div>
+  </div>
+</div>
+  </div></div>
+
+  <!-- SECTION 3 — SURVEY -->
+  <section class="sv sec" id="hp-survey" style="scroll-margin-top:8px">
+    <div class="w">
+      <h2>Get Your Free Concrete Quote in 60 Seconds</h2>
+      <p class="sub">No pressure. No obligation. Just a straight honest answer on what your project costs.</p>
+      <div class="card">
+        <div class="prog"><i id="hp-bar"></i></div>
+        <p class="stp" id="hp-step"></p>
+        <div id="hp-body"></div>
+        <div class="nav" id="hp-nav"><button type="button" class="btn back" id="hp-back" hidden>← Back</button><button type="button" class="btn nx" id="hp-next" hidden>Next →</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — THE PROBLEM + WHY US -->
+  <section class="story sec">
+    <div class="w">
+      <h2>Why Akron Homeowners Trust Home Pro Jobs With Their Concrete</h2>
+
+      <div class="blk">
+        <p>You’ve driven past homes in your neighborhood with driveways so clean and sharp they make the whole house look brand new.</p>
+        <p>And then you pull into yours.</p>
+        <p>Cracked slabs. Patched sections that look worse than the original. A patio out back you’ve basically stopped using. A walkway that’s been an eyesore for longer than you want to admit.</p>
+        <p>And when you finally decide to do something about it — the quotes come back all over the place.</p>
+      </div>
+      <div id="hp-fam-0"></div>
+
+      <div class="blk">
+        <p><strong>Here’s what’s driving the expensive ones.</strong></p>
+        <p>Large concrete companies carry serious overhead. Equipment financing, big crews on payroll, wrapped trucks, sometimes franchise fees if they’re part of a national brand.</p>
+        <p>None of that makes the concrete better. It just makes your invoice bigger — because all of that cost runs straight through to you.</p>
+      </div>
+
+      <div class="blk">
+        <p>And the suspiciously cheap quotes? Thin pours. Improper base prep. Work that looks fine in month one and starts cracking by year two.</p>
+        <p><strong>Home Pro Jobs exists because neither of those options is good enough.</strong></p>
+      </div>
+      <div id="hp-fam-1"></div>
+
+      <div class="blk">
+        <p>I’m Lanty — my wife and I run this business together out of Akron. My ten year old son is already on job sites with us, watching every pour, learning every step.</p>
+        <p>We’re not a franchise. We don’t have corporate overhead sitting on top of your quote.</p>
+        <p>It’s just our family, our crew, and our name on every single job we complete.</p>
+      </div>
+      <div id="hp-fam-2"></div>
+
+      <div class="blk">
+        <p>Because we run lean and local, we can price honestly. What you get quoted is about your project — not our business expenses.</p>
+      </div>
+
+      <div class="blk">
+        <p>And we believe in giving back to the community that gave us everything. A portion of every job we complete goes toward supporting Akron families in need.</p>
+        <p>This neighborhood built Home Pro Jobs — and we don’t forget that.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS + WHY US -->
+  <section class="how sec">
+    <div class="w">
+      <h2>How It Works</h2>
+      <ol class="stepl">
+        <li><b class="n">1</b><div><h3>Tell us about your project</h3><p>Answer 5 quick questions in about 60 seconds, or just call us.</p></div></li>
+        <li><b class="n">2</b><div><h3>We reach out within 24 hours</h3><p>A real conversation and a straight, honest answer on what your project costs.</p></div></li>
+        <li><b class="n">3</b><div><h3>We pour. You pay when you love it.</h3><p>You don’t pay in full until you love what you see.</p></div></li>
+      </ol>
+    </div>
+    <div class="w2">
+      <h2>Why Akron Homeowners Choose Us</h2>
+      <div class="whyg">
+        <div class="whyc"><svg viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg><h3>Honest pricing</h3><p>We run lean and local, so your quote is about your project, not our expenses.</p></div>
+        <div class="whyc"><svg viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg><h3>Family owned</h3><p>Not a franchise. No corporate overhead on top of your quote.</p></div>
+        <div class="whyc"><svg viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5.5c0 4.4 2.9 7.9 7 9.5 4.1-1.6 7-5.1 7-9.5V6z"/><path d="m8.8 12 2.4 2.4 4.2-4.6"/></svg><h3>Pay when you love it</h3><p>You don’t pay in full until you love what you see.</p></div>
+        <div class="whyc"><svg viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.6 2.6L16 9.4"/></svg><h3>Satisfaction guaranteed</h3><p>Over 1,000 jobs completed across the Akron area.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — BEFORE / AFTER GALLERY -->
+  <section class="gal sec">
+    <div class="w"><h2>Real Concrete. Real Homes. Right Here in Akron.</h2><p class="hint">Swipe to see more · drag each photo to compare</p></div>
+    <div class="track" id="hp-track"></div>
+    <div class="gnav"><button type="button" id="hp-gprev" aria-label="Previous photo">←</button><button type="button" id="hp-gnext" aria-label="Next photo">→</button></div>
+  </section>
+
+  <!-- SECTION 6 — SOCIAL PROOF -->
+  <section class="rvs sec">
+    <div class="w">
+      <h2>What Akron Homeowners Are Saying</h2>
+      <div class="rvl" id="hp-rv"></div>
+      <div class="vid"><h3>Hear It From a Homeowner</h3><div id="hp-video"></div><p class="vc" id="hp-vcap"></p></div>
+    </div>
+  </section>
+
+  <!-- SECTION 7 — FINAL CTA -->
+  <section class="fin sec">
+    <div class="w">
+      <h2>Your Driveway Could Be the Best on the Street — <em>Let’s Make It Happen</em></h2>
+      <p>Slots in our schedule fill up fast — especially heading into the season. Don’t let another year go by looking at concrete that needs to go.</p>
+      <a class="btn" href="tel:+15717151538">📞 Call Now — It’s Free to Talk</a>
+      <p style="font-size:18px;margin:0">No pressure. No obligation. Just a straight honest quote from a family that takes pride in every pour.</p>
+    </div>
+  </section>
+  <div class="foot"><div class="w">Home Pro Jobs · Akron, OH · <a href="tel:+15717151538">+1 571-715-1538</a><br>
+    <a href="PRIVACY-POLICY-URL" id="hp-pp">Privacy Policy</a> &nbsp;|&nbsp; <a href="TERMS-URL" id="hp-tc">Terms &amp; Conditions</a><br>
+    Results and offers vary.</div></div>
+
+  <div class="call"><a href="tel:+15717151538">📞 Call Now: +1 571-715-1538</a></div>
+</div>
+
+<script>
+(function(){
+  if(window.__hpLanding) return; window.__hpLanding=true;
+
+  /* ============================ SETTINGS — fill these in ============================ */
+  var CFG={
+    WEBHOOK_URL:'',          // GHL workflow trigger "Inbound Webhook" URL. Leave '' to preview (nothing is sent).
+    THANKYOU_URL:'',         // page to open after the form is sent. '' = show the thank-you message here.
+    PRIVACY_URL:'PRIVACY-POLICY-URL', TERMS_URL:'TERMS-URL',
+    FAMILY_IMGS:['','','https://assets.cdn.filesafe.space/rzWWI4hea0493V8Cskl4/media/6ad9722ca0c3fa1f7d651b91.webp'],  // 3 family photos for the "Why us" section, in order ('' = placeholder box)
+    GALLERY:[                // before/after pairs ('' = sample drawing). caption = text under the photo
+      {before:'',after:'',caption:'Full driveway replacement — Stow, OH'},
+      {before:'',after:'',caption:'Stamped patio pour — Cuyahoga Falls, OH'},
+      {before:'',after:'',caption:'Walkway and slab — Akron, OH'}
+    ],
+    VIDEO:{url:'',poster:'',caption:''},  // video testimonial: .mp4 link (GHL media library), or a YouTube / Vimeo link. '' = placeholder
+    REVIEWS:[                // real Google reviews only. The first one is the example from the copy: replace it with a real one.
+      {name:'Dave R.',place:'Stow, OH',text:'Our driveway looks better than any on the block. Lanty’s crew was professional, on time, and the finished product was beyond what we expected. Worth every penny.'},
+      {name:'',place:'',text:''},
+      {name:'',place:'',text:''}
+    ]
+  };
+
+  var $=function(id){return document.getElementById(id)};
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  $('hp-pp').href=CFG.PRIVACY_URL;$('hp-tc').href=CFG.TERMS_URL;
+
+  /* ----- family photos ----- */
+  CFG.FAMILY_IMGS.forEach(function(u,k){
+    var h=$('hp-fam-'+k);if(!h)return;
+    h.innerHTML=u?'<img class="ph" src="'+esc(u)+'" alt="The Home Pro Jobs family" loading="lazy" width="760" height="570">':'<div class="slot">Add family photo '+(k+1)+' here</div>';
+  });
+
+  /* ----- before / after gallery ----- */
+  function house(c1,c2,c3,dr,crack){
+    var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="'+c1+'"/><rect y="215" width="400" height="85" fill="'+c3+'"/><polygon points="70,125 200,45 330,125" fill="'+c2+'" opacity=".85"/><rect x="85" y="125" width="230" height="110" fill="'+c2+'"/><rect x="108" y="150" width="46" height="40" fill="#cfe6ff"/><rect x="246" y="150" width="46" height="40" fill="#cfe6ff"/><rect x="170" y="190" width="60" height="45" fill="#6b4f35"/><polygon points="120,300 280,300 230,235 170,235" fill="'+dr+'"/>'+(crack?'<path d="M200 296l-8-22 10-14-6-16 8-9" fill="none" stroke="#444" stroke-width="2.5"/><path d="M160 290l14-12" stroke="#444" stroke-width="2.2"/>':'')+'</svg>';
+    return 'data:image/svg+xml;utf8,'+encodeURIComponent(s);
+  }
+  var tr=$('hp-track'),gh='';
+  CFG.GALLERY.forEach(function(g,k){
+    var sample=!(g.before&&g.after);
+    gh+='<div class="slide"><div class="ba" data-i="'+k+'">'+
+      '<img class="a" alt="After" src="'+esc(g.after||house('#bfe0ff','#f4f6f8','#5f9a63','#d9dbdd',false))+'" loading="lazy" width="800" height="600">'+
+      '<img class="b" alt="Before" src="'+esc(g.before||house('#cfd8e3','#8a8178','#7a8a6a','#7b7b7b',true))+'" loading="lazy" width="800" height="600">'+
+      '<span class="tg l">BEFORE</span><span class="tg r">AFTER</span>'+(sample?'<span class="smp">Sample drawing — add your photos in SETTINGS</span>':'')+
+      '<input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">'+
+      '<span class="ln"></span><span class="kn">⇄</span></div><p class="cap">'+esc(g.caption)+'</p></div>';
+  });
+  tr.innerHTML=gh;
+  function gstep(d){var sl=tr.querySelector('.slide');tr.scrollBy({left:d*(sl.getBoundingClientRect().width+14),behavior:'smooth'})}
+  $('hp-gprev').addEventListener('click',function(){gstep(-1)});$('hp-gnext').addEventListener('click',function(){gstep(1)});
+  tr.querySelectorAll('.ba').forEach(function(b){
+    var r=b.querySelector('input'),im=b.querySelector('.b'),ln=b.querySelector('.ln'),kn=b.querySelector('.kn');
+    function set(v){im.style.clipPath='inset(0 '+(100-v)+'% 0 0)';ln.style.left=v+'%';kn.style.left=v+'%'}
+    r.addEventListener('input',function(){set(+r.value)});set(50);
+  });
+
+  /* ----- reviews ----- */
+  var rh='';
+  CFG.REVIEWS.forEach(function(r){
+    rh+= r.text ? '<div class="rvc"><p class="st" aria-label="5 stars">★★★★★</p><q>“'+esc(r.text)+'”</q><p class="by">— '+esc(r.name)+(r.place?', '+esc(r.place):'')+'</p></div>'
+                : '<div class="rvc empty">Add a real Google review here</div>';
+  });
+  $('hp-rv').innerHTML=rh;
+
+  /* ----- video testimonial ----- */
+  (function(){
+    var V=CFG.VIDEO||{},u=(V.url||'').trim(),vb=$('hp-video'),m;
+    $('hp-vcap').textContent=V.caption||'';
+    if(!u){vb.innerHTML='<div class="vbox empty">Add a real customer video here (set VIDEO in SETTINGS)</div>';return}
+    if((m=u.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/))) vb.innerHTML='<div class="vbox"><iframe src="https://www.youtube.com/embed/'+m[1]+'?rel=0" title="Customer video" allow="accelerometer;encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
+    else if((m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/))) vb.innerHTML='<div class="vbox"><iframe src="https://player.vimeo.com/video/'+m[1]+'" title="Customer video" allow="fullscreen;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
+    else vb.innerHTML='<div class="vbox"><video controls playsinline preload="metadata" src="'+esc(u)+'"'+(V.poster?' poster="'+esc(V.poster)+'"':'')+'></video></div>';
+  })();
+
+  /* ============================ SURVEY ============================ */
+  var Q=[
+    {id:'project_type',q:'What kind of concrete work are you looking for?',o:['Driveway replacement or new pour','Patio or outdoor living space','Walkway or pathway','Slab or foundation work','Not sure yet — I just know something needs to change']},
+    {id:'timing',q:'How soon are you looking to get started?',o:['As soon as possible','Within the next month','1 to 3 months from now','Just exploring my options']},
+    {id:'budget',q:'Do you have a rough budget in mind?',o:['Under $5,000','$5,000 to $10,000','$10,000 to $15,000','Not sure yet — just need a real number']},
+    {id:'quote_method',q:'How would you like to receive your quote?',o:['Call me — I prefer to talk','Come out and see the property','Either works for me']},
+    {id:'finish',q:'Any finish or style in mind for your project?',o:['Standard poured concrete — clean and classic finish','Stamped or decorative — I want it to look incredible','Not sure yet — show me what’s possible','Just want it done right']}
+  ];
+  var T=Q.length,A={},i=0,busy=false,timer=null;
+  var host=$('hp-body'),bar=$('hp-bar'),stp=$('hp-step'),back=$('hp-back'),nextB=$('hp-next'),nav=$('hp-nav');
+
+  function showQ(){
+    var q=Q[i];clearTimeout(timer);
+    bar.style.width=(i/(T+1)*100)+'%';stp.textContent='Question '+(i+1)+' of '+T;
+    back.hidden=(i===0);nav.hidden=false;
+    if(q.text){
+      nextB.hidden=false;nextB.textContent='Next →';
+      host.innerHTML='<label class="q" for="hp-q5" style="display:block">'+esc(q.q)+' <small style="font-weight:500;color:var(--mut);font-size:17px">(Optional)</small></label><textarea id="hp-q5" placeholder="'+esc(q.ph)+'">'+esc(A[q.id]||'')+'</textarea>';
+      $('hp-q5').addEventListener('input',function(){A[q.id]=this.value});
+      return;
+    }
+    nextB.hidden=true;
+    var h='<fieldset><legend class="q">'+esc(q.q)+'</legend><div class="opts">';
+    q.o.forEach(function(o,k){var id='hpq'+i+'_'+k;h+='<label class="opt" for="'+id+'"><input type="radio" name="'+q.id+'" id="'+id+'" value="'+esc(o)+'"'+(A[q.id]===o?' checked':'')+'><span>'+esc(o)+'</span></label>'});
+    host.innerHTML=h+'</div></fieldset>';
+    host.querySelectorAll('input').forEach(function(r){r.addEventListener('change',function(){A[q.id]=r.value;clearTimeout(timer);timer=setTimeout(function(){if(i<T-1){i++;showQ()}else showContact()},260)})});
+  }
+
+  function showContact(){
+    clearTimeout(timer);bar.style.width=(T/(T+1)*100)+'%';stp.textContent='Last step';back.hidden=false;nav.hidden=true;
+    host.innerHTML='<p class="q" style="margin-bottom:12px">Almost done — where should we send your quote?</p>'+
+      '<form id="hp-form" novalidate>'+
+      '<label class="fld"><b>First Name *</b><input type="text" id="hp-fn" autocomplete="given-name"></label>'+
+      '<div class="row2"><label class="fld"><b>Zip Code *</b><input type="text" id="hp-zip" autocomplete="postal-code" inputmode="numeric"></label><label class="fld"><b>City *</b><input type="text" id="hp-city" autocomplete="address-level2"></label></div>'+
+      '<label class="fld"><b>Phone Number *</b><input type="tel" id="hp-ph" autocomplete="tel" inputmode="tel"></label>'+
+      '<label class="fld"><b>Email <small>(optional)</small></b><input type="email" id="hp-em" autocomplete="email"></label>'+
+      '<label class="consent"><input type="checkbox" id="hp-ok"><span>I agree to receive calls and text messages (including automated) from Home Pro Jobs about my request. Consent is not a condition of purchase. Msg &amp; data rates may apply. Reply STOP to opt out. See our <a href="'+esc(CFG.PRIVACY_URL)+'" target="_blank" rel="noopener">Privacy Policy</a> and <a href="'+esc(CFG.TERMS_URL)+'" target="_blank" rel="noopener">Terms</a>.</span></label>'+
+      '<div class="err" id="hp-err" role="alert"></div>'+
+      '<button class="btn" type="submit" id="hp-go">Get My Free Quote →</button>'+
+      '<p class="after">We’ll reach out within 24 hours. No pushy sales calls — just a real conversation about your project.</p></form>';
+    $('hp-form').addEventListener('submit',submit);
+  }
+
+  function submit(e){
+    e.preventDefault();if(busy)return;
+    var fn=$('hp-fn'),zp=$('hp-zip'),ct=$('hp-city'),ph=$('hp-ph'),em=$('hp-em'),ok=$('hp-ok'),err=$('hp-err'),bad=[];
+    [fn,zp,ct,ph,em].forEach(function(x){x.classList.remove('bad')});
+    if(fn.value.trim().length<2)bad.push(fn);
+    if(zp.value.trim().length<5)bad.push(zp);
+    if(ct.value.trim().length<2)bad.push(ct);
+    if(ph.value.replace(/\D/g,'').length<10)bad.push(ph);
+    if(em.value.trim()&&!/^\S+@\S+\.\S+$/.test(em.value.trim()))bad.push(em);
+    if(bad.length){bad.forEach(function(x){x.classList.add('bad')});err.textContent='Please fill in the highlighted fields.';bad[0].focus();return}
+    if(!ok.checked){err.textContent='Please tick the box so we’re allowed to call or text you.';return}
+    err.textContent='';busy=true;$('hp-go').disabled=true;$('hp-go').textContent='One moment…';
+    var d={first_name:fn.value.trim(),postal_code:zp.value.trim(),city:ct.value.trim(),phone:ph.value.trim(),email:em.value.trim(),sms_consent:true,page:location.href.split('?')[0]};
+    Object.keys(A).forEach(function(k){d[k]=A[k]});
+    var p=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){if(p.get(k))d[k]=p.get(k)});
+    function go(){
+      bar.style.width='100%';back.hidden=true;stp.textContent='';
+      if(CFG.THANKYOU_URL){location.href=CFG.THANKYOU_URL+(CFG.THANKYOU_URL.indexOf('?')>-1?'&':'?')+'first_name='+encodeURIComponent(d.first_name);return}
+      host.innerHTML='<div class="done"><h3>Thanks, '+esc(d.first_name)+'!</h3><p>We got your details and will reach out within 24 hours. Need it sooner? Call <a href="tel:+15717151538"><b>+1 571-715-1538</b></a>.</p>'+
+        (CFG.WEBHOOK_URL?'':'<div class="prev"><b>Preview only.</b> Nothing was sent. Set WEBHOOK_URL in SETTINGS to send leads to GHL.<br><br><b>Data:</b> '+esc(JSON.stringify(d))+'</div>')+'</div>';
+    }
+    if(CFG.WEBHOOK_URL){var done=false,t=setTimeout(function(){if(!done){done=true;go()}},2500);
+      fetch(CFG.WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(d).toString(),keepalive:true})
+        .then(function(){if(!done){done=true;clearTimeout(t);go()}}).catch(function(){if(!done){done=true;clearTimeout(t);go()}})}
+    else go();
+  }
+
+  nextB.addEventListener('click',function(){if(busy)return;if(i<T-1){i++;showQ()}else showContact()});
+  back.addEventListener('click',function(){if(busy)return;if(nav.hidden){i=T-1;showQ()}else if(i>0){i--;showQ()}});
+  showQ();
+})();
+</script>
+<script>
+(function(){
+  if(window.__tbInit) return; window.__tbInit=true;
+  var root=document.getElementById('tb');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!root||reduce||!('IntersectionObserver' in window)) return;   /* no animation: everything stays visible */
+  var items=root.querySelectorAll('.tb-rise');
+  root.classList.add('tb-js');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting) return;
+    var el=e.target,d=+(el.getAttribute('data-d')||0);
+    setTimeout(function(){el.classList.add('tb-in')},d); io.unobserve(el);
+  })},{threshold:.2});
+  items.forEach(function(el){io.observe(el)});
+  setTimeout(function(){items.forEach(function(el){el.classList.add('tb-in')})},4000); /* safety net */
+})();
+</script>
