@@ -1,0 +1,48 @@
+<!-- ===== BEFORE / AFTER GALLERY (4 photos, drag to compare, swipe on phone) — copy & paste (GHL Custom HTML/JS). Works on light or dark sections (see CAPTION COLOR below). It breaks out of a narrow GHL column: it is centred on the page and up to 1200px wide. ===== -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  .gl,.gl *{box-sizing:border-box}
+  .gl{--gl-cap:#111111}  /* CAPTION COLOR: #111111 on a light/cream section, #ffffff on a dark section */
+  .gl{display:block !important;position:relative;left:50%;transform:translateX(-50%);width:min(1200px,calc(100vw - 32px)) !important;max-width:none;margin:0;padding:6px 0;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--gl-cap)}
+  .gl .gl-track{scrollbar-width:none;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 18px 12px;justify-content:flex-start}
+  .gl .gl-track>.gl-slide:first-child{margin-left:auto}
+  .gl .gl-track>.gl-slide:last-child{margin-right:auto}
+  .gl .gl-slide{flex:0 0 86%;max-width:480px;scroll-snap-align:center}
+  .gl .gl-ba{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#333;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+  .gl .gl-ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+  .gl .gl-ba .gl-b{clip-path:inset(0 50% 0 0)}
+  .gl .gl-ln{position:absolute;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.4);pointer-events:none}
+  .gl .gl-kn{position:absolute;top:50%;left:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:#ff6a00;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 14px rgba(0,0,0,.4);pointer-events:none}
+  .gl .gl-tg{position:absolute;bottom:10px;padding:4px 9px;border-radius:6px;font-size:11px;white-space:nowrap;font-weight:800;letter-spacing:.12em;color:#fff;pointer-events:none}
+  .gl .gl-l{left:10px;background:rgba(17,17,17,.85)}
+  .gl .gl-r{right:10px;background:#ff6a00}
+  .gl .gl-ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+  .gl .gl-cap{margin:10px 2px 0;font-weight:700;font-size:17px;line-height:1.3;color:var(--gl-cap)}
+  @media(min-width:561px){.gl .gl-track{padding:0 24px 12px}.gl .gl-slide{flex:0 0 min(560px,88%);max-width:none}}
+  .gl .gl-track::-webkit-scrollbar{display:none}
+  .gl .gl-nav{display:flex;justify-content:center;gap:12px;margin:8px 0 0}
+  .gl .gl-nav button{width:46px;height:46px;border:0;border-radius:50%;background:#ff6a00;color:#fff;font:inherit;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 6px 16px rgba(255,106,0,.35)}
+  .gl .gl-nav button:hover{background:#d95500}
+  .gl .gl-nav button:focus-visible{outline:3px solid #111;outline-offset:2px}
+</style>
+<div class="gl"><div class="gl-track" id="gl-track">
+  <div class="gl-slide"><div class="gl-ba"><img class="gl-a" alt="After" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/IDydFQb41NrO8sH3Xt3i/media/6a15c008449f78709ed65309.jpg" loading="lazy" width="960" height="720"><img class="gl-b" alt="Before" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/IDydFQb41NrO8sH3Xt3i/media/6a15c008fe894fbda0d226fc.jpg" loading="lazy" width="960" height="720"><span class="gl-tg gl-l">BEFORE</span><span class="gl-tg gl-r">AFTER</span><input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after"><span class="gl-ln"></span><span class="gl-kn">⇄</span></div><p class="gl-cap">Patio replacement</p></div>
+  <div class="gl-slide"><div class="gl-ba"><img class="gl-a" alt="After" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/IDydFQb41NrO8sH3Xt3i/media/6a16600cab53822e7e000e69.jpg" loading="lazy" width="960" height="720"><img class="gl-b" alt="Before" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/IDydFQb41NrO8sH3Xt3i/media/6a16600cecd67a415b97f131.jpg" loading="lazy" width="960" height="720"><span class="gl-tg gl-l">BEFORE</span><span class="gl-tg gl-r">AFTER</span><input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after"><span class="gl-ln"></span><span class="gl-kn">⇄</span></div><p class="gl-cap">Stamped patio pour</p></div>
+  <div class="gl-slide"><div class="gl-ba"><img class="gl-a" alt="After" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/IDydFQb41NrO8sH3Xt3i/media/6a16600cd2af304d120fea2b.jpg" loading="lazy" width="960" height="720"><img class="gl-b" alt="Before" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/IDydFQb41NrO8sH3Xt3i/media/6a16600cab53822e7e000e68.jpg" loading="lazy" width="960" height="720"><span class="gl-tg gl-l">BEFORE</span><span class="gl-tg gl-r">AFTER</span><input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after"><span class="gl-ln"></span><span class="gl-kn">⇄</span></div><p class="gl-cap">Driveway replacement</p></div>
+  <div class="gl-slide"><div class="gl-ba"><img class="gl-a" alt="After" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/IDydFQb41NrO8sH3Xt3i/media/6a15be03449f78709ed62827.jpg" loading="lazy" width="960" height="720"><img class="gl-b" alt="Before" src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/IDydFQb41NrO8sH3Xt3i/media/6a15be036c22e95c9ec345f3.jpg" loading="lazy" width="960" height="720"><span class="gl-tg gl-l">BEFORE</span><span class="gl-tg gl-r">AFTER</span><input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after"><span class="gl-ln"></span><span class="gl-kn">⇄</span></div><p class="gl-cap">Slab pour</p></div>
+</div>
+<div class="gl-nav"><button type="button" id="gl-prev" aria-label="Previous photo">←</button><button type="button" id="gl-next" aria-label="Next photo">→</button></div></div>
+<script>
+(function(){
+  if(window.__glInit) return; window.__glInit=true;
+  var tr=document.getElementById('gl-track');
+  function step(d){var sl=tr.querySelector('.gl-slide');tr.scrollBy({left:d*(sl.getBoundingClientRect().width+14),behavior:'smooth'})}
+  document.getElementById('gl-prev').addEventListener('click',function(){step(-1)});
+  document.getElementById('gl-next').addEventListener('click',function(){step(1)});
+  document.querySelectorAll('#gl-track .gl-ba').forEach(function(b){
+    var r=b.querySelector('input'),im=b.querySelector('.gl-b'),ln=b.querySelector('.gl-ln'),kn=b.querySelector('.gl-kn');
+    function set(v){im.style.clipPath='inset(0 '+(100-v)+'% 0 0)';ln.style.left=v+'%';kn.style.left=v+'%'}
+    r.addEventListener('input',function(){set(+r.value)});set(50);
+  });
+})();
+</script>
