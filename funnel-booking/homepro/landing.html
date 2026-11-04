@@ -1,0 +1,366 @@
+<!-- ===== HOME PRO JOBS — PAINTING LANDING PAGE (mobile first) — ONE Custom HTML/JS element on a blank GHL page =====
+     Fill the SETTINGS block at the bottom (webhook, thank-you URL, photos, reviews). Leave a value '' to keep the sample/placeholder. -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  .hp{--ink:#111111;--acc:#ff6a00;--acc2:#ff8a1f;--accd:#d95500;--soft:#fff1e6;--line:#ffd9bd;--mut:#4d4d4d;--bg:#ffffff;
+      display:block !important;width:100% !important;margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:20px;line-height:1.6;-webkit-text-size-adjust:100%}
+  .hp,.hp *{box-sizing:border-box}
+  .hp [hidden]{display:none !important}
+  .hp h1,.hp h2,.hp h3{font-family:'DM Sans',system-ui,sans-serif;font-weight:800;margin:0;color:var(--ink);text-wrap:balance}
+  .hp p{margin:0 0 16px}
+  .hp a{color:inherit}
+  .hp .w{max-width:760px;margin:0 auto;padding:0 18px}
+  .hp .sec{padding-top:44px;padding-bottom:44px}
+  .hp .btn{display:block;width:100%;max-width:520px;margin:0 auto;padding:18px 20px;border:0;border-radius:14px;background:var(--acc);color:#fff !important;font:inherit;font-weight:800;font-size:21px;line-height:1.25;text-align:center;text-decoration:none !important;cursor:pointer;box-shadow:0 10px 26px rgba(255,106,0,.35)}
+  .hp .btn:hover{background:var(--accd)}
+  .hp .btn:focus-visible,.hp input:focus-visible,.hp textarea:focus-visible{outline:3px solid #111;outline-offset:2px}
+
+  /* hero */
+  .hp .hero{background:var(--ink);color:#fff;text-align:center;padding:34px 0 40px}
+  .hp .hero h1{color:#fff;font-size:34px;line-height:1.15;margin-bottom:14px}
+  .hp .hero h1 em{font-style:normal;color:var(--acc)}
+  .hp .hero p.sub{color:#e8e8e8;margin:0 auto 24px;max-width:600px}
+  .hp .hero .alt{margin:16px 0 0;color:#d0d0d0;font-size:18px}
+  .hp .hero .alt a{color:#fff;font-weight:700}
+  .hp .bar{background:var(--acc);color:#fff;font-weight:700;font-size:17px;line-height:1.35}
+  .hp .bar .w{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding-top:14px;padding-bottom:14px;text-align:center}
+  .hp .bar span{display:block}
+
+  /* survey */
+  .hp .sv{background:var(--soft)}
+  .hp .sv h2{font-size:30px;line-height:1.15;text-align:center;margin-bottom:10px}
+  .hp .sv .sub{text-align:center;color:var(--mut);margin-bottom:24px;font-size:19px}
+  .hp .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 18px;box-shadow:0 12px 34px rgba(255,106,0,.12)}
+  .hp .prog{height:8px;border-radius:99px;background:var(--soft);overflow:hidden;margin:0 0 6px}
+  .hp .prog i{display:block;height:100%;width:0;background:var(--acc);border-radius:99px;transition:width .3s}
+  .hp .stp{margin:0 0 14px;color:var(--mut);font-size:16px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .hp .q{margin:0 0 16px;padding:0;font-size:24px;line-height:1.25;font-weight:800}
+  .hp fieldset{border:0;margin:0;padding:0;min-width:0}
+  .hp .opts{display:grid;gap:10px}
+  .hp .opt{position:relative;display:block;cursor:pointer}
+  .hp .opt input{position:absolute;opacity:0;width:1px;height:1px}
+  .hp .opt span{display:flex;align-items:center;min-height:58px;padding:12px 16px;border:2px solid var(--line);border-radius:14px;background:#fff;font-weight:700;font-size:19px;line-height:1.3;transition:border-color .15s,background .15s}
+  .hp .opt:hover span{border-color:var(--acc)}
+  .hp .opt input:checked + span{border-color:var(--acc);background:var(--soft)}
+  .hp .opt input:focus-visible + span{outline:3px solid var(--ink);outline-offset:2px}
+  .hp .nav{display:flex;gap:10px;margin-top:18px}
+  .hp .nav .btn{box-shadow:none;max-width:none;margin:0;padding:14px 18px;font-size:19px}
+  .hp .nav .back{flex:0 0 auto;width:auto;background:transparent;color:var(--mut) !important;border:2px solid var(--line)}
+  .hp .nav .back:hover{background:var(--soft)}
+  .hp .nav .nx{flex:1}
+  .hp textarea,.hp .fld input{display:block;width:100%;padding:14px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-size:19px;line-height:1.4}
+  .hp textarea{min-height:140px;resize:vertical}
+  .hp .fld{display:block;margin:0 0 12px}
+  .hp .fld b{display:block;margin:0 0 4px;font-size:16px;font-weight:700}
+  .hp .fld small{font-weight:500;color:var(--mut)}
+  .hp .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hp .bad{border-color:#d12727 !important}
+  .hp .err{margin:8px 0 0;color:#b42318;font-weight:700;font-size:17px;min-height:0}
+  .hp .consent{display:flex;gap:10px;align-items:flex-start;margin:6px 0 12px;font-size:14px;line-height:1.45;color:var(--mut)}
+  .hp .consent input{flex:0 0 auto;width:20px;height:20px;margin-top:2px;accent-color:var(--acc)}
+  .hp .after{margin:14px 0 0;text-align:center;color:var(--mut);font-size:17px}
+  .hp .done{text-align:center;padding:10px 0}
+  .hp .done h3{font-size:28px;margin-bottom:8px}
+  .hp .prev{margin-top:14px;padding:12px;border:1px dashed var(--acc);border-radius:10px;background:var(--soft);color:var(--accd);font-size:14px;text-align:left;word-break:break-word}
+
+  /* story */
+  .hp .story h2{font-size:30px;line-height:1.15;margin-bottom:22px;text-align:center}
+  .hp .story .blk{margin:0 0 26px}
+  .hp .story .blk p:last-child{margin-bottom:0}
+  .hp .story strong{color:var(--accd)}
+  .hp .ph{display:block;width:100%;height:auto;margin:0 0 26px;border-radius:18px;box-shadow:0 12px 30px rgba(17,17,17,.16)}
+  .hp .slot{display:flex;align-items:center;justify-content:center;min-height:220px;margin:0 0 26px;padding:16px;border:2px dashed var(--acc);border-radius:18px;background:var(--soft);color:var(--accd);text-align:center;font-weight:700;font-size:16px}
+
+  /* gallery */
+  .hp .gal{background:var(--ink);color:#fff}
+  .hp .gal h2{color:#fff;font-size:30px;line-height:1.15;text-align:center;margin-bottom:8px}
+  .hp .gal .hint{text-align:center;color:#d0d0d0;font-size:16px;margin:0 0 20px}
+  .hp .track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 18px 12px;scrollbar-width:thin}
+  .hp .slide{flex:0 0 86%;max-width:480px;scroll-snap-align:center}
+  .hp .ba{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#333;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+  .hp .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+  .hp .ba .b{clip-path:inset(0 50% 0 0)}
+  .hp .ba .ln{position:absolute;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.4);pointer-events:none}
+  .hp .ba .kn{position:absolute;top:50%;left:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 14px rgba(0,0,0,.4);pointer-events:none}
+  .hp .ba .tg{position:absolute;bottom:10px;padding:5px 10px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:.12em;color:#fff;pointer-events:none}
+  .hp .ba .tg.l{left:10px;background:rgba(17,17,17,.85)}
+  .hp .ba .tg.r{right:10px;background:var(--acc)}
+  .hp .ba .smp{position:absolute;top:10px;left:10px;right:10px;text-align:center;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,.9);color:#111;font-size:12px;font-weight:700;pointer-events:none}
+  .hp .ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+  .hp .cap{margin:10px 2px 0;color:#fff;font-weight:700;font-size:17px}
+
+  /* reviews */
+  .hp .rvs h2{font-size:30px;line-height:1.15;text-align:center;margin-bottom:22px}
+  .hp .rvl{display:grid;gap:14px}
+  .hp .rvc{padding:20px 18px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(255,106,0,.1)}
+  .hp .rvc .st{color:var(--acc);letter-spacing:.12em;font-size:22px;line-height:1;margin:0 0 10px}
+  .hp .rvc q{display:block;quotes:none;margin:0 0 12px}
+  .hp .rvc .by{margin:0;font-weight:700;color:var(--mut);font-size:17px}
+  .hp .rvc.empty{border:2px dashed var(--acc);background:var(--soft);color:var(--accd);text-align:center;font-weight:700;font-size:16px}
+
+  /* final */
+  .hp .fin{background:var(--ink);color:#fff;text-align:center}
+  .hp .fin h2{color:#fff;font-size:32px;line-height:1.15;margin-bottom:12px}
+  .hp .fin h2 em{font-style:normal;color:var(--acc)}
+  .hp .fin p{color:#e8e8e8}
+  .hp .fin .btn{margin:22px auto 16px}
+  .hp .foot{padding:22px 0 96px;background:#0a0a0a;color:#aaa;text-align:center;font-size:13px;line-height:1.5}
+  .hp .foot a{color:#ddd}
+
+  /* sticky call bar (phones) */
+  .hp .call{display:none}
+  @media(max-width:760px){
+    .hp .call{display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(17,17,17,.96);box-shadow:0 -6px 20px rgba(0,0,0,.3)}
+    .hp .call a{display:block;padding:14px;border-radius:12px;background:var(--acc);color:#fff !important;text-align:center;text-decoration:none !important;font-weight:800;font-size:19px}
+  }
+  @media(min-width:761px){
+    .hp .hero h1{font-size:46px}.hp .sv h2,.hp .story h2,.hp .gal h2,.hp .rvs h2{font-size:38px}.hp .fin h2{font-size:42px}
+    .hp .slide{flex-basis:420px}.hp .track{justify-content:flex-start}
+    .hp .rvl{grid-template-columns:repeat(3,1fr)}.hp .rvs .w{max-width:1000px}
+    .hp .card{padding:30px 28px}
+  }
+  @media(max-width:420px){.hp .bar{font-size:15px}.hp .row2{grid-template-columns:1fr}}
+</style>
+
+<div class="hp" id="hp">
+
+  <!-- SECTION 1 — HERO -->
+  <section class="hero">
+    <div class="w">
+      <h1>Akron’s Trusted House Painters — <em>Interior &amp; Exterior</em> Done Right</h1>
+      <p class="sub">Over 1,000 homes painted in the Akron area. Fair pricing. Family owned. You don’t pay in full until you’re happy.</p>
+      <a class="btn" href="tel:+18887276121">📞 Call Us Now — Get a Free Quote</a>
+      <p class="alt">Prefer to do it online? <a href="#hp-survey">Get your quote in 60 seconds ↓</a></p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — TRUST BAR -->
+  <div class="bar"><div class="w">
+    <span>⭐ 4.9<br>Google Rating</span><span>🏠 1,000+<br>Jobs Done</span><span>✅ Satisfaction<br>Guaranteed</span>
+  </div></div>
+
+  <!-- SECTION 3 — SURVEY -->
+  <section class="sv sec" id="hp-survey" style="scroll-margin-top:8px">
+    <div class="w">
+      <h2>Get Your Free Painting Quote in 60 Seconds</h2>
+      <p class="sub">No pressure. No obligation. Just a straight honest answer on what your project costs.</p>
+      <div class="card">
+        <div class="prog"><i id="hp-bar"></i></div>
+        <p class="stp" id="hp-step"></p>
+        <div id="hp-body"></div>
+        <div class="nav" id="hp-nav"><button type="button" class="btn back" id="hp-back" hidden>← Back</button><button type="button" class="btn nx" id="hp-next" hidden>Next →</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — THE PROBLEM + WHY US -->
+  <section class="story sec">
+    <div class="w">
+      <h2>Why Akron Homeowners Choose Home Pro Jobs Over the Big Guys</h2>
+
+      <div class="blk">
+        <p>Getting quotes for house painting in Akron can feel like a guessing game.</p>
+        <p>One painter hands you a number on a piece of paper with no explanation. Another sends a salesperson who sits at your kitchen table until you feel pressured to sign.</p>
+        <p>And the prices? All over the place — for the exact same house.</p>
+      </div>
+      <div id="hp-fam-0"></div>
+
+      <div class="blk">
+        <p><strong>Here’s what’s actually driving those high quotes.</strong></p>
+        <p>Big painting companies carry big overhead. Fancy offices, fleets of trucks, billboard ads, commission-based sales teams.</p>
+        <p>They’re not charging you more because they paint better. They’re charging you more because they need to cover all of that — and you’re the one paying for it.</p>
+      </div>
+
+      <div class="blk">
+        <p>On the other end, the unusually cheap quotes usually mean something is being cut. Old paint reused. Thin coats. Prep work skipped. And within a year you’re seeing it peel.</p>
+        <p><strong>We built Home Pro Jobs to sit in the honest middle.</strong></p>
+      </div>
+      <div id="hp-fam-1"></div>
+
+      <div class="blk">
+        <p>I’m Lanty — my wife and I started this business together right here in Akron. My ten year old son is already on job sites with us, learning every step.</p>
+        <p>This isn’t a franchise. There’s no corporate office taking a cut. It’s just our family, our crew, and our reputation on the line with every single job we take.</p>
+      </div>
+
+      <div class="blk">
+        <p>And because we run lean, we can price honestly — without the padding that bigger operations need to survive.</p>
+      </div>
+      <div id="hp-fam-2"></div>
+
+      <div class="blk">
+        <p>We also believe in giving back to the community that built us. A portion of every job goes toward supporting local Akron families in need.</p>
+        <p>When this neighborhood does well, we all do well — and we don’t take that lightly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — BEFORE / AFTER GALLERY -->
+  <section class="gal sec">
+    <div class="w"><h2>Real Work. Real Homes. Right Here in Akron.</h2><p class="hint">Swipe to see more · drag each photo to compare</p></div>
+    <div class="track" id="hp-track"></div>
+  </section>
+
+  <!-- SECTION 6 — SOCIAL PROOF -->
+  <section class="rvs sec">
+    <div class="w">
+      <h2>Don’t Just Take Our Word For It</h2>
+      <div class="rvl" id="hp-rv"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 7 — FINAL CTA -->
+  <section class="fin sec">
+    <div class="w">
+      <h2>Ready to Finally <em>Get It Done?</em></h2>
+      <p>Spots fill up fast — especially with our current interior offer. <b>Paint 3 rooms and get the 4th completely free.</b></p>
+      <a class="btn" href="tel:+18887276121">📞 Call Now — It’s Free to Talk</a>
+      <p style="font-size:18px;margin:0">No pressure. No obligation. Just a straight honest quote from a family that actually cares about your home.</p>
+    </div>
+  </section>
+  <div class="foot"><div class="w">Home Pro Jobs · Akron, OH · <a href="tel:+18887276121">+1 888-727-6121</a><br>
+    <a href="PRIVACY-POLICY-URL" id="hp-pp">Privacy Policy</a> &nbsp;|&nbsp; <a href="TERMS-URL" id="hp-tc">Terms &amp; Conditions</a><br>
+    Offer: paint 3 rooms, get the 4th free. Interior projects only; terms apply. Results and offers vary.</div></div>
+
+  <div class="call"><a href="tel:+18887276121">📞 Call Now: +1 888-727-6121</a></div>
+</div>
+
+<script>
+(function(){
+  if(window.__hpLanding) return; window.__hpLanding=true;
+
+  /* ============================ SETTINGS — fill these in ============================ */
+  var CFG={
+    WEBHOOK_URL:'',          // GHL workflow trigger "Inbound Webhook" URL. Leave '' to preview (nothing is sent).
+    THANKYOU_URL:'',         // page to open after the form is sent. '' = show the thank-you message here.
+    PRIVACY_URL:'PRIVACY-POLICY-URL', TERMS_URL:'TERMS-URL',
+    FAMILY_IMGS:['','',''],  // 3 family photos for the "Why us" section, in order ('' = placeholder box)
+    GALLERY:[                // before/after pairs ('' = sample drawing). caption = text under the photo
+      {before:'',after:'',caption:'Exterior repaint — Cuyahoga Falls, OH'},
+      {before:'',after:'',caption:'Interior refresh — Stow, OH'},
+      {before:'',after:'',caption:'Exterior repaint — Akron, OH'},
+      {before:'',after:'',caption:'Interior refresh — Akron, OH'}
+    ],
+    REVIEWS:[                // real Google reviews only. Empty slots show a placeholder.
+      {name:'Michelle T.',place:'Akron, OH',text:'Home Pro Jobs transformed the outside of our home completely. Lanty and his crew were on time, clean, and the price was exactly what they quoted — no surprises.'},
+      {name:'',place:'',text:''},
+      {name:'',place:'',text:''}
+    ]
+  };
+
+  var $=function(id){return document.getElementById(id)};
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  $('hp-pp').href=CFG.PRIVACY_URL;$('hp-tc').href=CFG.TERMS_URL;
+
+  /* ----- family photos ----- */
+  CFG.FAMILY_IMGS.forEach(function(u,k){
+    var h=$('hp-fam-'+k);if(!h)return;
+    h.innerHTML=u?'<img class="ph" src="'+esc(u)+'" alt="The Home Pro Jobs family" loading="lazy" width="760" height="570">':'<div class="slot">Add family photo '+(k+1)+' here</div>';
+  });
+
+  /* ----- before / after gallery ----- */
+  function house(c1,c2,c3){
+    var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="'+c1+'"/><rect y="215" width="400" height="85" fill="'+c3+'"/><polygon points="70,125 200,45 330,125" fill="'+c2+'" opacity=".85"/><rect x="85" y="125" width="230" height="110" fill="'+c2+'"/><rect x="180" y="170" width="40" height="65" fill="#7a5a3a"/><rect x="108" y="150" width="46" height="40" fill="#cfe6ff"/><rect x="246" y="150" width="46" height="40" fill="#cfe6ff"/></svg>';
+    return 'data:image/svg+xml;utf8,'+encodeURIComponent(s);
+  }
+  var tr=$('hp-track'),gh='';
+  CFG.GALLERY.forEach(function(g,k){
+    var sample=!(g.before&&g.after);
+    gh+='<div class="slide"><div class="ba" data-i="'+k+'">'+
+      '<img class="a" alt="After painting" src="'+esc(g.after||house('#bfe0ff','#f4f6f8','#5f9a63'))+'" loading="lazy" width="800" height="600">'+
+      '<img class="b" alt="Before painting" src="'+esc(g.before||house('#cfd8e3','#8a8178','#7a8a6a'))+'" loading="lazy" width="800" height="600">'+
+      '<span class="tg l">BEFORE</span><span class="tg r">AFTER</span>'+(sample?'<span class="smp">Sample drawing — add your photos in SETTINGS</span>':'')+
+      '<input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">'+
+      '<span class="ln"></span><span class="kn">⇄</span></div><p class="cap">'+esc(g.caption)+'</p></div>';
+  });
+  tr.innerHTML=gh;
+  tr.querySelectorAll('.ba').forEach(function(b){
+    var r=b.querySelector('input'),im=b.querySelector('.b'),ln=b.querySelector('.ln'),kn=b.querySelector('.kn');
+    function set(v){im.style.clipPath='inset(0 '+(100-v)+'% 0 0)';ln.style.left=v+'%';kn.style.left=v+'%'}
+    r.addEventListener('input',function(){set(+r.value)});set(50);
+  });
+
+  /* ----- reviews ----- */
+  var rh='';
+  CFG.REVIEWS.forEach(function(r){
+    rh+= r.text ? '<div class="rvc"><p class="st" aria-label="5 stars">★★★★★</p><q>“'+esc(r.text)+'”</q><p class="by">— '+esc(r.name)+(r.place?', '+esc(r.place):'')+'</p></div>'
+                : '<div class="rvc empty">Add a real Google review here</div>';
+  });
+  $('hp-rv').innerHTML=rh;
+
+  /* ============================ SURVEY ============================ */
+  var Q=[
+    {id:'project_type',q:'What kind of painting work are you looking for?',o:['Interior painting','Exterior painting','Both interior and exterior','Not sure yet']},
+    {id:'timing',q:'How soon are you looking to get started?',o:['As soon as possible','Within the next month','1 to 3 months from now','Just exploring my options']},
+    {id:'budget',q:'Do you have a rough budget in mind?',o:['Under $2,000','$2,000 to $5,000','$5,000 to $10,000','Not sure yet — just need a number']},
+    {id:'quote_method',q:'How would you like to receive your quote?',o:['Call me — I prefer to talk','Come out and see the property','Either works for me']},
+    {id:'details',q:'Anything about your project we should know upfront?',text:true,ph:'Old paint, specific rooms, tight timeline — anything helps us come prepared.'}
+  ];
+  var T=Q.length,A={},i=0,busy=false,timer=null;
+  var host=$('hp-body'),bar=$('hp-bar'),stp=$('hp-step'),back=$('hp-back'),nextB=$('hp-next'),nav=$('hp-nav');
+
+  function showQ(){
+    var q=Q[i];clearTimeout(timer);
+    bar.style.width=(i/(T+1)*100)+'%';stp.textContent='Question '+(i+1)+' of '+T;
+    back.hidden=(i===0);nav.hidden=false;
+    if(q.text){
+      nextB.hidden=false;nextB.textContent='Next →';
+      host.innerHTML='<label class="q" for="hp-q5" style="display:block">'+esc(q.q)+' <small style="font-weight:500;color:var(--mut);font-size:17px">(Optional)</small></label><textarea id="hp-q5" placeholder="'+esc(q.ph)+'">'+esc(A[q.id]||'')+'</textarea>';
+      $('hp-q5').addEventListener('input',function(){A[q.id]=this.value});
+      return;
+    }
+    nextB.hidden=true;
+    var h='<fieldset><legend class="q">'+esc(q.q)+'</legend><div class="opts">';
+    q.o.forEach(function(o,k){var id='hpq'+i+'_'+k;h+='<label class="opt" for="'+id+'"><input type="radio" name="'+q.id+'" id="'+id+'" value="'+esc(o)+'"'+(A[q.id]===o?' checked':'')+'><span>'+esc(o)+'</span></label>'});
+    host.innerHTML=h+'</div></fieldset>';
+    host.querySelectorAll('input').forEach(function(r){r.addEventListener('change',function(){A[q.id]=r.value;clearTimeout(timer);timer=setTimeout(function(){i++;showQ()},260)})});
+  }
+
+  function showContact(){
+    clearTimeout(timer);bar.style.width=(T/(T+1)*100)+'%';stp.textContent='Last step';back.hidden=false;nav.hidden=true;
+    host.innerHTML='<p class="q" style="margin-bottom:12px">Almost done — where should we send your quote?</p>'+
+      '<form id="hp-form" novalidate>'+
+      '<div class="row2"><label class="fld"><b>First Name *</b><input type="text" id="hp-fn" autocomplete="given-name"></label><label class="fld"><b>Last Name *</b><input type="text" id="hp-ln" autocomplete="family-name"></label></div>'+
+      '<div class="row2"><label class="fld"><b>Zip Code *</b><input type="text" id="hp-zip" autocomplete="postal-code" inputmode="numeric"></label><label class="fld"><b>City *</b><input type="text" id="hp-city" autocomplete="address-level2"></label></div>'+
+      '<label class="fld"><b>Phone Number *</b><input type="tel" id="hp-ph" autocomplete="tel" inputmode="tel"></label>'+
+      '<label class="fld"><b>Email <small>(optional)</small></b><input type="email" id="hp-em" autocomplete="email"></label>'+
+      '<label class="consent"><input type="checkbox" id="hp-ok"><span>I agree to receive calls and text messages (including automated) from Home Pro Jobs about my request. Consent is not a condition of purchase. Msg &amp; data rates may apply. Reply STOP to opt out. See our <a href="'+esc(CFG.PRIVACY_URL)+'" target="_blank" rel="noopener">Privacy Policy</a> and <a href="'+esc(CFG.TERMS_URL)+'" target="_blank" rel="noopener">Terms</a>.</span></label>'+
+      '<div class="err" id="hp-err" role="alert"></div>'+
+      '<button class="btn" type="submit" id="hp-go">Get My Free Quote →</button>'+
+      '<p class="after">We’ll reach out within 24 hours. No pushy sales calls — just a real conversation.</p></form>';
+    $('hp-form').addEventListener('submit',submit);
+  }
+
+  function submit(e){
+    e.preventDefault();if(busy)return;
+    var fn=$('hp-fn'),ln=$('hp-ln'),zp=$('hp-zip'),ct=$('hp-city'),ph=$('hp-ph'),em=$('hp-em'),ok=$('hp-ok'),err=$('hp-err'),bad=[];
+    [fn,ln,zp,ct,ph,em].forEach(function(x){x.classList.remove('bad')});
+    if(fn.value.trim().length<2)bad.push(fn);
+    if(ln.value.trim().length<1)bad.push(ln);
+    if(zp.value.trim().length<5)bad.push(zp);
+    if(ct.value.trim().length<2)bad.push(ct);
+    if(ph.value.replace(/\D/g,'').length<10)bad.push(ph);
+    if(em.value.trim()&&!/^\S+@\S+\.\S+$/.test(em.value.trim()))bad.push(em);
+    if(bad.length){bad.forEach(function(x){x.classList.add('bad')});err.textContent='Please fill in the highlighted fields.';bad[0].focus();return}
+    if(!ok.checked){err.textContent='Please tick the box so we’re allowed to call or text you.';return}
+    err.textContent='';busy=true;$('hp-go').disabled=true;$('hp-go').textContent='One moment…';
+    var d={first_name:fn.value.trim(),last_name:ln.value.trim(),postal_code:zp.value.trim(),city:ct.value.trim(),phone:ph.value.trim(),email:em.value.trim(),sms_consent:true,page:location.href.split('?')[0]};
+    Object.keys(A).forEach(function(k){d[k]=A[k]});
+    var p=new URLSearchParams(location.search);['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){if(p.get(k))d[k]=p.get(k)});
+    function go(){
+      bar.style.width='100%';back.hidden=true;stp.textContent='';
+      if(CFG.THANKYOU_URL){location.href=CFG.THANKYOU_URL+(CFG.THANKYOU_URL.indexOf('?')>-1?'&':'?')+'first_name='+encodeURIComponent(d.first_name);return}
+      host.innerHTML='<div class="done"><h3>Thanks, '+esc(d.first_name)+'!</h3><p>We got your details and will reach out within 24 hours. Need it sooner? Call <a href="tel:+18887276121"><b>+1 888-727-6121</b></a>.</p>'+
+        (CFG.WEBHOOK_URL?'':'<div class="prev"><b>Preview only.</b> Nothing was sent. Set WEBHOOK_URL in SETTINGS to send leads to GHL.<br><br><b>Data:</b> '+esc(JSON.stringify(d))+'</div>')+'</div>';
+    }
+    if(CFG.WEBHOOK_URL){var done=false,t=setTimeout(function(){if(!done){done=true;go()}},2500);
+      fetch(CFG.WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(d).toString(),keepalive:true})
+        .then(function(){if(!done){done=true;clearTimeout(t);go()}}).catch(function(){if(!done){done=true;clearTimeout(t);go()}})}
+    else go();
+  }
+
+  nextB.addEventListener('click',function(){if(busy)return;if(i<T-1){i++;showQ()}else showContact()});
+  back.addEventListener('click',function(){if(busy)return;if(nav.hidden){i=T-1;showQ()}else if(i>0){i--;showQ()}});
+  showQ();
+})();
+</script>
