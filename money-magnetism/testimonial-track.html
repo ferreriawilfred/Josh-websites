@@ -12,6 +12,16 @@
 .kz-tst *{box-sizing:border-box}
 .kz-tst-track{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 4px;margin:0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .kz-tst-track::-webkit-scrollbar{display:none}
+.kz-tst-track{cursor:grab}
+.kz-tst-track.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}
+.kz-tst-track.is-drag *{pointer-events:none}
+.kz-tst-wrap{position:relative}
+.kz-tst-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--accent);box-shadow:0 6px 16px -6px rgba(27,23,18,.35);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:opacity .2s,transform .15s}
+.kz-tst-arrow:hover{transform:translateY(-50%) scale(1.06)}
+.kz-tst-arrow svg{width:18px;height:18px}
+.kz-tst-arrow.prev{left:-14px}.kz-tst-arrow.next{right:-14px}
+.kz-tst-arrow[disabled]{opacity:0;pointer-events:none}
+.kz-tst-arrow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .kz-tst-card{flex:0 0 auto;width:406px;scroll-snap-align:start;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px 22px 11px;box-shadow:0 16px 32px -22px rgba(27,23,18,.3);display:flex;flex-direction:column;gap:2px}
 .kz-tst-body{display:flex;gap:16px;align-items:flex-start}
 .kz-tst-photo{flex:none;width:80px;height:80px;border-radius:50%;object-fit:cover;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--accent-lt),var(--accent));box-shadow:0 0 0 3px var(--card),0 0 0 4.5px var(--line)}
@@ -26,6 +36,7 @@
 .kz-tst-dot{width:6px;height:6px;border-radius:50%;padding:0;border:none;background:rgba(27,23,18,.2);cursor:pointer;transition:background .2s,width .2s}
 .kz-tst-dot.is-on{width:18px;border-radius:4px;background:var(--accent)}
 @media(max-width:640px){
+  .kz-tst-arrow{display:none}
   .kz-tst-card{flex:0 0 100%;width:auto;padding:18px 18px 10px}
   .kz-tst-photo{width:72px;height:72px}
   .kz-tst-quote{font-size:16.5px}
@@ -33,7 +44,10 @@
 </style>
 
 <div class="kz-tst">
-  <div class="kz-tst-track" id="kzTstTrack">
+  <div class="kz-tst-wrap">
+  <button class="kz-tst-arrow prev" id="kzTstPrev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg></button>
+  <button class="kz-tst-arrow next" id="kzTstNext" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
+  <div class="kz-tst-track" id="kzTstTrack" tabindex="0" aria-label="Testimonials — swipe or use arrow keys">
 
     <div class="kz-tst-card">
       <div class="kz-tst-body">
@@ -244,24 +258,59 @@
     </div>
 
   </div>
+  </div>
   <div class="kz-tst-dots" id="kzTstDots"></div>
 </div>
 
 <script>
 (function(){
   var track=document.getElementById("kzTstTrack"), dots=document.getElementById("kzTstDots");
+  var prev=document.getElementById("kzTstPrev"), next=document.getElementById("kzTstNext");
   if(!track||!dots) return;
   var cards=track.querySelectorAll(".kz-tst-card");
+  function pos(c){ return c.offsetLeft-track.offsetLeft-4; }
+  function nearest(){
+    var x=track.scrollLeft, best=0, d=1e9;
+    cards.forEach(function(c,i){ var k=Math.abs(pos(c)-x); if(k<d){d=k;best=i;} });
+    return best;
+  }
+  function go(i){ i=Math.max(0,Math.min(cards.length-1,i)); track.scrollTo({left:pos(cards[i]),behavior:"smooth"}); }
   cards.forEach(function(c,i){
     var b=document.createElement("button"); b.className="kz-tst-dot"; b.type="button"; b.setAttribute("aria-label","Testimonial "+(i+1));
-    b.onclick=function(){ track.scrollTo({left:c.offsetLeft-track.offsetLeft-4,behavior:"smooth"}); };
+    b.onclick=function(){ go(i); };
     dots.appendChild(b);
   });
   function upd(){
-    var x=track.scrollLeft, best=0, d=1e9;
-    cards.forEach(function(c,i){ var k=Math.abs((c.offsetLeft-track.offsetLeft-4)-x); if(k<d){d=k;best=i;} });
-    dots.querySelectorAll(".kz-tst-dot").forEach(function(el,i){ el.classList.toggle("is-on",i===best); });
+    var n=nearest(), atEnd=track.scrollLeft+track.clientWidth>=track.scrollWidth-4;
+    dots.querySelectorAll(".kz-tst-dot").forEach(function(el,i){ el.classList.toggle("is-on",i===n); });
+    if(prev) prev.disabled=track.scrollLeft<=4;
+    if(next) next.disabled=atEnd;
   }
-  track.addEventListener("scroll",upd,{passive:true}); upd();
+  if(prev) prev.onclick=function(){ go(nearest()-1); };
+  if(next) next.onclick=function(){ go(nearest()+1); };
+  track.addEventListener("keydown",function(e){
+    if(e.key==="ArrowRight"){e.preventDefault();go(nearest()+1);}
+    if(e.key==="ArrowLeft"){e.preventDefault();go(nearest()-1);}
+  });
+  // mouse drag left/right (touch already swipes natively)
+  var down=false,sx=0,sl=0,moved=false;
+  track.addEventListener("pointerdown",function(e){
+    if(e.pointerType!=="mouse"||e.button!==0) return;
+    down=true;moved=false;sx=e.clientX;sl=track.scrollLeft;
+  });
+  window.addEventListener("pointermove",function(e){
+    if(!down) return;
+    var dx=e.clientX-sx;
+    if(!moved&&Math.abs(dx)>4){moved=true;track.classList.add("is-drag");}
+    if(moved) track.scrollLeft=sl-dx;
+  });
+  function end(){
+    if(!down) return; down=false;
+    if(moved){ track.classList.remove("is-drag"); go(nearest()); }
+  }
+  window.addEventListener("pointerup",end);
+  window.addEventListener("pointercancel",end);
+  track.addEventListener("dragstart",function(e){e.preventDefault();});
+  track.addEventListener("scroll",upd,{passive:true}); window.addEventListener("resize",upd); upd();
 })();
 </script>
