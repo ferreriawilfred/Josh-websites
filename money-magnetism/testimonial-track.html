@@ -1,42 +1,36 @@
 <!-- TESTIMONIAL TRACK (avatar-left cards + dots) — paste as-is into a Custom HTML/Code block (GHL, etc.)
      Colors are CSS variables at the top of .kz-tst — change them to re-theme.
      Photos: replace  <div class="kz-tst-photo">RD</div>  with  <img class="kz-tst-photo" src="PHOTO_URL" alt="Name">  -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 .kz-tst{
-  --ink:#1b1712; --ink-soft:#5d564b; --accent:#a8863f; --accent-lt:#d8b56a;
-  --gold:#C8A45A; --green:#2f8f5b; --card:#ffffff; --line:#e8e2d4;
+  --ink:#3B2756; --ink-soft:#6E5E86; --accent:#7150A9; --accent-lt:#9B72CF;
+  --gold:#D9A441; --green:#1B7D45; --card:#ffffff; --line:rgba(59,39,86,.16);
   box-sizing:border-box;max-width:660px;margin:0 auto;padding:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:var(--ink);
+  font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:var(--ink);
 }
 .kz-tst *{box-sizing:border-box}
-.kz-tst-track{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 4px;margin:0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.kz-tst-track{scroll-behavior:auto;overscroll-behavior-x:contain;display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 4px;margin:0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .kz-tst-track::-webkit-scrollbar{display:none}
 .kz-tst-track{cursor:grab}
+.kz-tst-track:focus{outline:none}
+.kz-tst-track:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:12px}
 .kz-tst-track.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}
 .kz-tst-track.is-drag *{pointer-events:none}
-.kz-tst-wrap{position:relative}
-.kz-tst-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--accent);box-shadow:0 6px 16px -6px rgba(27,23,18,.35);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:opacity .2s,transform .15s}
-.kz-tst-arrow:hover{transform:translateY(-50%) scale(1.06)}
-.kz-tst-arrow svg{width:18px;height:18px}
-.kz-tst-arrow.prev{left:-14px}.kz-tst-arrow.next{right:-14px}
-.kz-tst-arrow[disabled]{opacity:0;pointer-events:none}
-.kz-tst-arrow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.kz-tst-card{flex:0 0 auto;width:406px;scroll-snap-align:start;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px 22px 11px;box-shadow:0 16px 32px -22px rgba(27,23,18,.3);display:flex;flex-direction:column;gap:2px}
+.kz-tst-card{flex:0 0 auto;width:406px;scroll-snap-align:start;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px 22px 11px;box-shadow:0 16px 32px -22px rgba(59,39,86,.32);display:flex;flex-direction:column;gap:2px}
 .kz-tst-body{display:flex;gap:16px;align-items:flex-start}
 .kz-tst-photo{flex:none;width:80px;height:80px;border-radius:50%;object-fit:cover;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--accent-lt),var(--accent));box-shadow:0 0 0 3px var(--card),0 0 0 4.5px var(--line)}
 .kz-tst-content{flex:1 1 auto;min-width:0}
 .kz-tst-stars{display:block;margin:0 0 6px;font-size:14px;color:var(--gold);letter-spacing:2px}
-.kz-tst-quote{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:500;font-size:17px;line-height:1.4;color:var(--ink);margin:0 0 9px}
+.kz-tst-quote{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:500;font-size:16px;line-height:1.4;color:var(--ink);margin:0 0 9px}
 .kz-tst-name{display:block;font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
 .kz-tst-loc{display:block;font-size:12px;color:var(--ink-soft)}
 .kz-tst-verified{display:inline-flex;align-items:center;gap:5px;align-self:flex-end;font-size:12px;font-weight:600;color:var(--green);margin-top:4px}
 .kz-tst-verified svg{width:14px;height:14px;flex:none}
 .kz-tst-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:2px}
-.kz-tst-dot{width:6px;height:6px;border-radius:50%;padding:0;border:none;background:rgba(27,23,18,.2);cursor:pointer;transition:background .2s,width .2s}
+.kz-tst-dot{width:6px;height:6px;border-radius:50%;padding:0;border:none;background:rgba(59,39,86,.22);cursor:pointer;transition:background .2s,width .2s}
 .kz-tst-dot.is-on{width:18px;border-radius:4px;background:var(--accent)}
 @media(max-width:640px){
-  .kz-tst-arrow{display:none}
   .kz-tst-card{flex:0 0 100%;width:auto;padding:18px 18px 10px}
   .kz-tst-photo{width:72px;height:72px}
   .kz-tst-quote{font-size:16.5px}
@@ -44,9 +38,6 @@
 </style>
 
 <div class="kz-tst">
-  <div class="kz-tst-wrap">
-  <button class="kz-tst-arrow prev" id="kzTstPrev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg></button>
-  <button class="kz-tst-arrow next" id="kzTstNext" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
   <div class="kz-tst-track" id="kzTstTrack" tabindex="0" aria-label="Testimonials — swipe or use arrow keys">
 
     <div class="kz-tst-card">
@@ -258,14 +249,12 @@
     </div>
 
   </div>
-  </div>
   <div class="kz-tst-dots" id="kzTstDots"></div>
 </div>
 
 <script>
 (function(){
   var track=document.getElementById("kzTstTrack"), dots=document.getElementById("kzTstDots");
-  var prev=document.getElementById("kzTstPrev"), next=document.getElementById("kzTstNext");
   if(!track||!dots) return;
   var cards=track.querySelectorAll(".kz-tst-card");
   function pos(c){ return c.offsetLeft-track.offsetLeft-4; }
@@ -277,36 +266,47 @@
   function go(i){ i=Math.max(0,Math.min(cards.length-1,i)); track.scrollTo({left:pos(cards[i]),behavior:"smooth"}); }
   cards.forEach(function(c,i){
     var b=document.createElement("button"); b.className="kz-tst-dot"; b.type="button"; b.setAttribute("aria-label","Testimonial "+(i+1));
-    b.onclick=function(){ go(i); };
+    b.onclick=function(){ glide(i); };
     dots.appendChild(b);
   });
   function upd(){
-    var n=nearest(), atEnd=track.scrollLeft+track.clientWidth>=track.scrollWidth-4;
+    var n=nearest();
     dots.querySelectorAll(".kz-tst-dot").forEach(function(el,i){ el.classList.toggle("is-on",i===n); });
-    if(prev) prev.disabled=track.scrollLeft<=4;
-    if(next) next.disabled=atEnd;
   }
-  if(prev) prev.onclick=function(){ go(nearest()-1); };
-  if(next) next.onclick=function(){ go(nearest()+1); };
   track.addEventListener("keydown",function(e){
-    if(e.key==="ArrowRight"){e.preventDefault();go(nearest()+1);}
-    if(e.key==="ArrowLeft"){e.preventDefault();go(nearest()-1);}
+    if(e.key==="ArrowRight"){e.preventDefault();glide(Math.min(cards.length-1,nearest()+1));}
+    if(e.key==="ArrowLeft"){e.preventDefault();glide(Math.max(0,nearest()-1));}
   });
-  // mouse drag left/right (touch already swipes natively)
-  var down=false,sx=0,sl=0,moved=false;
+  // mouse drag: follows the cursor 1:1, then glides to the next/nearest card
+  var down=false,startIdx=0,sx=0,sl=0,moved=false,lastX=0,lastT=0,vel=0,settle=null;
+  function glide(i){
+    clearTimeout(settle);
+    track.classList.add("is-drag");           // snap off so the animation isn't fought
+    go(i);
+    settle=setTimeout(function(){ track.classList.remove("is-drag"); },520);
+  }
   track.addEventListener("pointerdown",function(e){
     if(e.pointerType!=="mouse"||e.button!==0) return;
-    down=true;moved=false;sx=e.clientX;sl=track.scrollLeft;
+    clearTimeout(settle);
+    down=true;moved=false;startIdx=nearest();sx=lastX=e.clientX;sl=track.scrollLeft;lastT=performance.now();vel=0;
   });
   window.addEventListener("pointermove",function(e){
     if(!down) return;
-    var dx=e.clientX-sx;
+    var dx=e.clientX-sx, now=performance.now();
     if(!moved&&Math.abs(dx)>4){moved=true;track.classList.add("is-drag");}
-    if(moved) track.scrollLeft=sl-dx;
+    if(moved){
+      track.scrollLeft=sl-dx;
+      vel=(e.clientX-lastX)/Math.max(1,now-lastT); lastX=e.clientX; lastT=now;
+    }
   });
   function end(){
     if(!down) return; down=false;
-    if(moved){ track.classList.remove("is-drag"); go(nearest()); }
+    if(!moved) return;
+    var dx=lastX-sx, n=startIdx;
+    if(dx<-60||vel<-0.35) n=startIdx+1;
+    else if(dx>60||vel>0.35) n=startIdx-1;
+    n=Math.max(0,Math.min(cards.length-1,n));
+    glide(n);
   }
   window.addEventListener("pointerup",end);
   window.addEventListener("pointercancel",end);
