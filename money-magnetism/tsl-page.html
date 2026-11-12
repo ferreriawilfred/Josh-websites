@@ -7,20 +7,20 @@
 <meta name="description" content="Tell me your name and date of birth, and tonight I begin clearing the money block. Money Magnetism Spell by Kaia Zephra. 365-day guarantee.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#ffffff; --off:#FAFAF9; --ink:#1b1712; --dim:#5d564b;
-  --gold:#C8A45A; --gold-d:#a8863f; --gold-soft:#f6efdd;
-  --line:#e8e2d4; --green:#2f8f5b; --btn:#1b1712;
+  --bg:#ffffff; --off:#F6EFE7; --tint:#FBF6EF; --ink:#3B2756; --dim:#6E5E86;
+  --gold:#D9A441; --gold-d:#7150A9; --gold-soft:#F6EFE7; --purple:#7150A9; --purple-lt:#9B72CF;
+  --line:rgba(59,39,86,.13); --green:#1B7D45; --btn:#CC6B3F;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+body{font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;padding-bottom:84px}
 .wrap{max-width:660px;margin:0 auto;padding:0 16px}
 section{padding:48px 0}
 .off{background:var(--off)}
-h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;line-height:1.2}
+h1,h2,h3,.serif{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.25}
 p{margin:0 0 18px}
 .c{text-align:center}
 .big{font-size:22px;font-weight:700;text-align:center;margin:24px 0}
@@ -33,7 +33,7 @@ b,strong{font-weight:700}
 .hook h1{font-size:clamp(30px,6.4vw,46px);margin-bottom:22px}
 .hook p{font-size:19px;margin-bottom:14px}
 .hook .small{font-size:15px;color:var(--dim);font-style:italic}
-.hook .gold{color:var(--gold-d)}
+.hook .gold{color:var(--purple)}
 
 /* trust bar */
 .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--off);padding:14px 0;font-size:14px}
@@ -42,39 +42,47 @@ b,strong{font-weight:700}
 .trust b{color:var(--ink)}
 
 /* buttons */
-.btn{display:block;width:100%;max-width:520px;margin:26px auto 8px;padding:18px 20px;text-align:center;text-decoration:none;color:#fff;background:linear-gradient(180deg,#d8b56a,#b78f3f);border-radius:10px;font-weight:700;font-size:18px;letter-spacing:.2px;box-shadow:0 6px 18px rgba(168,134,63,.35);transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
+.btn{display:block;width:100%;max-width:520px;margin:26px auto 8px;padding:16px 32px;text-align:center;text-decoration:none;color:#fff;background:var(--btn);border:1px solid #fff;border-radius:5px;font-family:Fraunces,Georgia,serif;font-weight:500;font-size:19px;transition:transform .15s,filter .15s}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
 .btn-sub{text-align:center;font-size:13px;color:var(--dim);margin-bottom:6px}
 
 /* swipe testimonials */
-.swipe{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 16px 18px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.swipe{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:700px;margin:0 auto}
+.swipe::-webkit-scrollbar{display:none}
 .swipe::-webkit-scrollbar{height:6px}.swipe::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
-.card{flex:0 0 min(84%,340px);scroll-snap-align:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-.card .stars{color:var(--gold);letter-spacing:2px;font-size:16px}
-.card .who{display:flex;align-items:center;gap:10px;margin:8px 0 10px}
-.card .who b{font-size:15px;line-height:1.2}
-.card .who small{display:block;color:var(--dim);font-size:12px}
-.card q{display:block;font-size:15px;line-height:1.6;quotes:none}
-.av{width:44px;height:44px;border-radius:50%;background:var(--gold-soft);color:var(--gold-d);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex:none;object-fit:cover}
-.ver{color:var(--green);font-size:12px;font-weight:600;margin-top:10px}
+.card{flex:0 0 406px;scroll-snap-align:start;text-align:left;background:#fff;border:1.5px solid rgba(59,39,86,.16);border-radius:18px;padding:20px 22px 11px;box-shadow:0 16px 32px -22px rgba(59,39,86,.32);display:flex;flex-direction:column;gap:2px}
+.card .body{display:flex;gap:16px;align-items:flex-start}
+.card .content{flex:1 1 auto;min-width:0}
+.card .stars{display:block;margin:0 0 6px;font-size:14px;color:var(--gold);letter-spacing:2px}
+.card q{display:block;font-family:Fraunces,Georgia,serif;font-style:italic;font-size:16px;line-height:1.42;color:var(--ink);margin:0 0 9px;quotes:none}
+.card .nm{display:block;font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.card .nm small{display:block;font-weight:500;letter-spacing:.02em;text-transform:none;color:var(--dim);font-size:12px}
+.av{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--purple-lt),var(--purple));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;flex:none;object-fit:cover;box-shadow:0 0 0 3px #fff,0 0 0 4.5px rgba(59,39,86,.14)}
+.ver{align-self:flex-end;color:var(--green);font-size:12px;font-weight:600;margin-top:6px}
+@media(max-width:640px){.card{flex:0 0 100%;padding:18px 18px 10px}.av{width:72px;height:72px}.card q{font-size:15.5px}}
 
 /* sparkle rows */
 .sp{display:flex;gap:12px;align-items:flex-start;margin:0 0 16px;font-size:17px;line-height:1.6}
 .sp span{color:var(--gold);flex:none}
 
 /* timeline */
-.tl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
-.tl div{border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:12px;padding:18px;background:#fff}
-.tl h3{font-size:30px;color:var(--gold-d);margin-bottom:2px}
-.tl h4{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
-.tl p{font-size:15px;margin:0 0 10px;line-height:1.6}
-@media(max-width:640px){.tl{grid-template-columns:1fr}.hook{text-align:left}.sp{font-size:17px}}
+.tl{display:flex;flex-direction:column;gap:16px;margin:26px 0}
+.tl .ph{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+.tl .hd{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 22px;border-bottom:1px solid var(--line)}
+.tl .ph.pa .hd{background:rgba(113,80,152,.06)}.tl .ph.pb .hd{background:rgba(113,80,152,.14)}.tl .ph.pc .hd{background:rgba(113,80,152,.22)}
+.tl .tm{font-family:Fraunces,Georgia,serif;color:var(--purple);font-size:27px;font-weight:600;line-height:1}
+.tl .tm small{font-family:"DM Sans",sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-left:8px}
+.tl .mt{display:flex;gap:4px;align-items:flex-end}.tl .mt i{display:block;width:6px;border-radius:2px;background:rgba(113,80,152,.22)}
+.tl .mt i:nth-child(1){height:10px}.tl .mt i:nth-child(2){height:15px}.tl .mt i:nth-child(3){height:20px}.tl .mt i.on{background:var(--purple)}
+.tl .bd{padding:20px 22px}.tl .bd p{font-size:16px;margin:0 0 14px}.tl .bd p:last-child{margin:0}
+.tl .em{background:rgba(113,80,152,.09);border-left:3px solid var(--purple);border-radius:0 8px 8px 0;padding:12px 16px;font-weight:700;color:var(--purple)}
+@media(max-width:640px){.tl .hd{padding:12px 16px}.tl .bd{padding:18px 16px}.hook{text-align:left}.sp{font-size:17px}}
 
 h2.sec{font-size:clamp(28px,5.5vw,38px);text-align:center;margin-bottom:22px}
-.promise{font-size:20px;font-weight:700;text-align:center;margin:10px 0}
+.promise{font-family:Fraunces,Georgia,serif;font-size:22px;font-weight:600;color:var(--purple);text-align:center;margin:10px 0}
 
 /* kaia */
-.kaia-img{width:110px;height:110px;border-radius:50%;background:var(--gold-soft);border:3px solid var(--gold);float:right;margin:0 0 10px 14px;display:flex;align-items:center;justify-content:center;font-family:"Cormorant Garamond",serif;font-size:42px;color:var(--gold-d);object-fit:cover}
+.kaia-img{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--purple-lt),var(--purple));color:#fff;border:3px solid #fff;box-shadow:0 0 0 1.5px rgba(59,39,86,.2);float:right;margin:0 0 10px 14px;display:flex;align-items:center;justify-content:center;font-family:Fraunces,Georgia,serif;font-size:42px;object-fit:cover}
 .kaia-cap{float:right;clear:right;width:110px;text-align:center;font-size:12px;color:var(--dim);margin-left:14px}
 .sig{font-style:italic;font-size:15px;margin-top:24px}
 .intro-i{font-style:italic;font-size:16px}
@@ -84,15 +92,15 @@ h2.sec{font-size:clamp(28px,5.5vw,38px);text-align:center;margin-bottom:22px}
 /* wall */
 .wall{display:grid;gap:16px;margin-top:20px}
 .wall .card{flex:none}
-.wall h3{font-size:21px;margin:6px 0 8px;line-height:1.25}
+.wall h3{font-size:19px;margin:0 0 8px;line-height:1.25;color:var(--purple)}
 
 /* price */
 .turn{font-weight:800;text-transform:uppercase;text-align:center;font-size:22px;margin:24px 0;letter-spacing:.5px}
-.price{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:68px;color:var(--gold);text-align:center;line-height:1;margin:8px 0}
+.price{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:68px;color:var(--purple);text-align:center;line-height:1;margin:8px 0}
 .fin{font-style:italic;text-align:center}
 
 /* guarantee */
-.gbox{border:2px solid var(--gold);border-radius:14px;padding:28px 20px;background:#fff}
+.gbox{border:2px solid var(--purple);border-radius:14px;padding:28px 20px;background:#fff}
 .gbox h2{text-align:center;font-size:32px;margin-bottom:16px}
 .cases{display:grid;gap:14px;margin:22px 0}
 .case{border-radius:10px;padding:16px;font-size:16px}
@@ -102,13 +110,13 @@ h2.sec{font-size:clamp(28px,5.5vw,38px);text-align:center;margin-bottom:22px}
 
 /* steps */
 .step{display:flex;gap:14px;margin-bottom:22px}
-.step .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px}
-.step h3{font-family:Inter,sans-serif;font-size:17px;font-weight:700;margin-bottom:4px}
+.step .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--purple);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px}
+.step h3{font-family:"DM Sans",sans-serif;font-size:17px;font-weight:700;margin-bottom:4px}
 .step p{font-size:16px;margin:0}
 
 /* scarcity */
 .scar{text-align:center}
-.slots{font-family:"Cormorant Garamond",serif;font-size:56px;color:var(--gold-d);font-weight:700;line-height:1}
+.slots{font-family:Fraunces,Georgia,serif;font-size:56px;color:var(--purple);font-weight:700;line-height:1}
 
 footer{padding:34px 0 20px;font-size:12px;color:var(--dim);text-align:center;border-top:1px solid var(--line)}
 footer a{color:var(--dim);margin:0 6px}
@@ -231,15 +239,9 @@ footer a{color:var(--dim);margin:0 6px}
 
   <h2 class="sec" style="margin-top:44px">After 14,200 castings, the pattern is always the same</h2>
   <div class="tl">
-    <div><h3>24 Hours</h3><h4>The body changes first</h4>
-      <p>A specific loosening in the chest. The math that runs every night goes quiet — not solved, just quieter. Women describe sleeping differently. Some describe crying without knowing why, then waking up lighter.</p>
-      <p><b>The channel is opening.</b> The release is physical before it is financial.</p></div>
-    <div><h3>Days 2–4</h3><h4>Small things arrive</h4>
-      <p>From directions you weren’t watching. A Venmo from someone paying back money you forgot they owed. A refund that processes early. A message about a shift, a contract, an opportunity.</p>
-      <p>Here is what I tell every woman at this stage: <b>stay open.</b> Don’t explain it. Don’t dismiss it. Just let it land.</p></div>
-    <div><h3>Day 7+</h3><h4>It compounds</h4>
-      <p>The small arrivals become a pattern. An unexpected check. A bill that settles for less than owed. A raise that wasn’t supposed to happen until next quarter. An old account with money you forgot existed.</p>
-      <p><b>This is the week the pattern breaks.</b></p></div>
+<div class="ph pa"><div class="hd"><div class="tm">24<small>Hours</small></div><div class="mt"><i class="on"></i><i></i><i></i></div></div><div class="bd"><p>A specific loosening in the chest. The math that runs every night goes quiet — not solved, just quieter. Women describe sleeping differently. Some describe crying without knowing why, then waking up lighter.</p><p class="em">The channel is opening. The release is physical before it is financial.</p></div></div>
+<div class="ph pb"><div class="hd"><div class="tm">Days<small>2–4</small></div><div class="mt"><i class="on"></i><i class="on"></i><i></i></div></div><div class="bd"><p>Small things arrive from directions you weren’t watching. A Venmo from someone paying back money you forgot they owed. A refund that processes early. A message about a shift, a contract, an opportunity.</p><p>Here is what I tell every woman at this stage: <b>stay open.</b> Don’t explain it. Don’t dismiss it. Just let it land.</p></div></div>
+<div class="ph pc"><div class="hd"><div class="tm">Day<small>7+</small></div><div class="mt"><i class="on"></i><i class="on"></i><i class="on"></i></div></div><div class="bd"><p>By now it compounds. The small arrivals become a pattern. An unexpected check. A bill that settles for less than owed. A raise that wasn’t supposed to happen until next quarter. An old account with money you forgot existed.</p><p class="em">This is the week the pattern breaks.</p></div></div>
   </div>
 </div></section>
 
@@ -483,11 +485,11 @@ function avatar(n,img){return img?'<img class="av" src="'+img+'" alt="'+n+'">':'
 function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
 
 document.getElementById("swipe1").innerHTML = swipe.map(function(t){
-  return '<div class="card"><div class="stars">★★★★★</div><div class="who">'+avatar(t[0],t[3])+'<div><b>'+t[0]+'</b><small>'+t[1]+'</small></div></div><q>“'+esc(t[2])+'”</q><div class="ver">✓ Verified</div></div>';
+  return '<div class="card"><div class="body">'+avatar(t[0],t[3])+'<div class="content"><span class="stars">★★★★★</span><q>“'+esc(t[2])+'”</q><span class="nm">'+t[0]+'<small>'+t[1]+'</small></span></div></div><div class="ver">✓ Verified</div></div>';
 }).join("");
 
 document.getElementById("wall").innerHTML = wall.map(function(t){
-  return '<div class="card"><div class="who">'+avatar(t.n,t.img)+'<div><b>'+t.n+' — '+t.l+'</b></div></div><div class="stars">★★★★★</div><h3>'+t.h+'</h3><q>“'+esc(t.q)+'”</q><div class="ver">✓ Verified</div></div>';
+  return '<div class="card"><div class="body">'+avatar(t.n,t.img)+'<div class="content"><span class="stars">★★★★★</span><h3>'+t.h+'</h3><q>“'+esc(t.q)+'”</q><span class="nm">'+t.n+'<small>'+t.l+'</small></span></div></div><div class="ver">✓ Verified</div></div>';
 }).join("");
 
 // CTA links + slots
