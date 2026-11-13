@@ -64,9 +64,9 @@ b,strong{font-weight:700}
 
 /* timeline */
 .tl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
-.tl div{border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:12px;padding:18px;background:#fff}
-.tl h3{font-size:30px;color:var(--gold-d);margin-bottom:2px}
-.tl h4{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.tl div{border:1px solid rgba(31,122,76,.22);border-top:4px solid #D4AF37;border-radius:12px;padding:18px;background:#fff}
+.tl h3{font-size:30px;color:#1F7A4C;margin-bottom:2px}
+.tl h4{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:#4E5B47;margin-bottom:10px}
 .tl p{font-size:15px;margin:0 0 10px;line-height:1.6}
 @media(max-width:640px){.tl{grid-template-columns:1fr}.hook{text-align:left}.sp{font-size:17px}}
 
@@ -83,8 +83,8 @@ h2.sec{font-size:clamp(28px,5.5vw,38px);text-align:center;margin-bottom:22px}
 
 /* wall */
 .wall{display:grid;gap:16px;margin-top:20px}
-.wall .card{flex:none}
-.wall h3{font-size:21px;margin:6px 0 8px;line-height:1.25}
+.wall .kz-tst-card{flex:none;width:auto}
+.kz-wall-h{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:18px;line-height:1.25;color:var(--accent);margin:0 0 8px}
 
 /* price */
 .turn{font-weight:800;text-transform:uppercase;text-align:center;font-size:22px;margin:24px 0;letter-spacing:.5px}
@@ -657,7 +657,7 @@ footer a{color:var(--dim);margin:0 6px}
 <section class="off"><div class="wrap">
   <h2 class="sec" style="margin-bottom:6px">Real women. Real results.</h2>
   <p class="c" style="color:var(--dim)">What happened after Kaia cast for them</p>
-  <div class="wall" id="wall"></div>
+  <div class="wall kz-tst" id="wall"></div>
 </div></section>
 
 <!-- GIFT PROMISE -->
@@ -792,8 +792,10 @@ function initials(n){return n.split(" ").map(function(p){return p[0]}).join("").
 function avatar(n,img){return img?'<img class="av" src="'+img+'" alt="'+n+'">':'<div class="av">'+initials(n)+'</div>'}
 function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
 
+var CHK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>';
 document.getElementById("wall").innerHTML = wall.map(function(t){
-  return '<div class="card"><div class="who">'+avatar(t.n,t.img)+'<div><b>'+t.n+' — '+t.l+'</b></div></div><div class="stars">★★★★★</div><h3>'+t.h+'</h3><q>“'+esc(t.q)+'”</q><div class="ver">✓ Verified</div></div>';
+  var ph=t.img?'<img class="kz-tst-photo" src="'+t.img+'" alt="'+t.n+'">':'<div class="kz-tst-photo" role="img" aria-label="'+t.n+'">'+initials(t.n)+'</div>';
+  return '<div class="kz-tst-card"><div class="kz-tst-body">'+ph+'<div class="kz-tst-content"><span class="kz-tst-stars">★★★★★</span><h3 class="kz-wall-h">'+t.h+'</h3><p class="kz-tst-quote">“'+esc(t.q)+'”</p><span class="kz-tst-name">'+t.n+'</span><span class="kz-tst-loc">'+t.l+'</span></div></div><span class="kz-tst-verified">'+CHK+'Verified</span></div>';
 }).join("");
 
 // CTA links + slots
