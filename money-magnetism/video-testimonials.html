@@ -1,0 +1,180 @@
+<!-- VIDEO TESTIMONIALS (swipe) — paste as-is into a Custom HTML/Code block (GHL, etc.)
+     Transparent background: it sits on whatever section color is behind it.
+     TO ADD YOUR VIDEOS: on each <video> add  src="YOUR_VIDEO.mp4"  and  poster="YOUR_THUMBNAIL.jpg"
+     (until then, a green placeholder with the person's initials shows and the play button does nothing). -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.kz-vc{
+  --deep:#0F2A1A; --green:#1C5C37; --accent:#1F7A4C; --gold:#D4AF37; --paper:#F6EFE0;
+  box-sizing:border-box;max-width:660px;margin:0 auto;padding:0;background:transparent;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+.kz-vc *{box-sizing:border-box}
+.kz-vc-track{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 4px 16px;margin:0;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab}
+.kz-vc-track::-webkit-scrollbar{display:none}
+.kz-vc-track:focus{outline:none}
+.kz-vc-track:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:12px}
+.kz-vc-track.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}
+.kz-vc-track.is-drag *{pointer-events:none}
+
+.kz-vc-card{flex:0 0 auto;width:246px;scroll-snap-align:start;border-radius:20px;overflow:hidden;background:var(--deep);box-shadow:0 18px 40px -20px rgba(15,42,26,.55);border:1px solid rgba(212,175,55,.28)}
+.kz-vc-media{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#2E8B57,var(--deep));overflow:hidden;line-height:0}
+.kz-vc-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:64px;color:rgba(246,239,224,.28)}
+.kz-vc-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;background:transparent;display:block}
+.kz-vc-video.no-src{display:none}
+
+.kz-vc-play{position:absolute;inset:0;width:100%;height:100%;border:none;padding:0;cursor:pointer;background:linear-gradient(180deg,rgba(15,42,26,0) 52%,rgba(15,42,26,.58));display:flex;align-items:center;justify-content:center;transition:background .2s}
+.kz-vc-play:hover{background:linear-gradient(180deg,rgba(15,42,26,.10) 42%,rgba(15,42,26,.66))}
+.kz-vc-play:focus-visible{outline:3px solid var(--gold);outline-offset:-4px}
+.kz-vc-circle{width:112px;height:112px;border-radius:50%;background:rgba(255,255,255,.3);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center}
+.kz-vc-circle svg{width:52px;height:52px;margin-left:6px;fill:#fff}
+.kz-vc-cue{position:absolute;left:0;right:0;bottom:9px;text-align:center;pointer-events:none;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);text-shadow:0 1px 7px rgba(0,0,0,.7);line-height:1.2}
+.kz-vc-media.is-playing .kz-vc-play,.kz-vc-media.is-playing .kz-vc-cue{display:none}
+
+.kz-vc-cap{background:linear-gradient(180deg,var(--green) 0%,var(--deep) 100%);padding:15px 18px 17px;text-align:center;border-top:1px solid rgba(212,175,55,.25)}
+.kz-vc-stars{display:block;font-size:13px;color:var(--gold);letter-spacing:2px;margin-bottom:7px}
+.kz-vc-quote{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:15px;line-height:1.4;color:var(--paper);margin:0 0 8px}
+.kz-vc-name{display:block;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);line-height:1.45}
+
+.kz-vc-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:6px}
+.kz-vc-dot{width:6px;height:6px;border-radius:50%;padding:0;border:none;background:rgba(29,42,34,.22);cursor:pointer;transition:background .2s,width .2s}
+.kz-vc-dot.is-on{width:18px;border-radius:4px;background:var(--accent)}
+.kz-vc-dot:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(max-width:640px){.kz-vc-card{width:74vw;max-width:290px}}
+</style>
+
+<div class="kz-vc">
+  <div class="kz-vc-track" id="kzVcTrack" tabindex="0" aria-label="Video testimonials — swipe or use arrow keys">
+
+    <div class="kz-vc-card">
+      <div class="kz-vc-media">
+        <div class="kz-vc-ph" aria-hidden="true">R</div>
+        <video class="kz-vc-video" preload="metadata" playsinline></video>
+        <button class="kz-vc-play" type="button" aria-label="Play Renee's video"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+        <div class="kz-vc-cue">Watch Renee</div>
+      </div>
+      <div class="kz-vc-cap">
+        <span class="kz-vc-stars">★★★★★</span>
+        <p class="kz-vc-quote">“By that Friday my sister called saying she had money she’d owed me for years. It covered everything.”</p>
+        <span class="kz-vc-name">Renee D. · Memphis, TN</span>
+      </div>
+    </div>
+
+    <div class="kz-vc-card">
+      <div class="kz-vc-media">
+        <div class="kz-vc-ph" aria-hidden="true">T</div>
+        <video class="kz-vc-video" preload="metadata" playsinline></video>
+        <button class="kz-vc-play" type="button" aria-label="Play Tammy's video"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+        <div class="kz-vc-cue">Watch Tammy</div>
+      </div>
+      <div class="kz-vc-cap">
+        <span class="kz-vc-stars">★★★★★</span>
+        <p class="kz-vc-quote">“I’m a nurse. Three weeks later I picked up two extra shifts and my tax refund came early.”</p>
+        <span class="kz-vc-name">Tammy W. · Bakersfield, CA</span>
+      </div>
+    </div>
+
+    <div class="kz-vc-card">
+      <div class="kz-vc-media">
+        <div class="kz-vc-ph" aria-hidden="true">D</div>
+        <video class="kz-vc-video" preload="metadata" playsinline></video>
+        <button class="kz-vc-play" type="button" aria-label="Play Donna's video"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+        <div class="kz-vc-cue">Watch Donna</div>
+      </div>
+      <div class="kz-vc-cap">
+        <span class="kz-vc-stars">★★★★★</span>
+        <p class="kz-vc-quote">“That card got settled for less than half what I owed because the company offered it out of nowhere.”</p>
+        <span class="kz-vc-name">Donna R. · Louisville, KY</span>
+      </div>
+    </div>
+
+    <div class="kz-vc-card">
+      <div class="kz-vc-media">
+        <div class="kz-vc-ph" aria-hidden="true">M</div>
+        <video class="kz-vc-video" preload="metadata" playsinline></video>
+        <button class="kz-vc-play" type="button" aria-label="Play Michelle's video"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+        <div class="kz-vc-cue">Watch Michelle</div>
+      </div>
+      <div class="kz-vc-cap">
+        <span class="kz-vc-stars">★★★★★</span>
+        <p class="kz-vc-quote">“Within ten days I had three unexpected things come in. None of that is normal for me.”</p>
+        <span class="kz-vc-name">Michelle L. · Fresno, CA</span>
+      </div>
+    </div>
+
+    <!-- COPY a whole <div class="kz-vc-card"> block above to add more videos. Dots update automatically. -->
+  </div>
+  <div class="kz-vc-dots" id="kzVcDots"></div>
+</div>
+
+<script>
+(function(){
+  var track=document.getElementById("kzVcTrack"), dots=document.getElementById("kzVcDots");
+  if(!track||!dots) return;
+  var cards=track.querySelectorAll(".kz-vc-card");
+  function pos(c){ return c.offsetLeft-track.offsetLeft-4; }
+  function nearest(){
+    var x=track.scrollLeft,best=0,d=1e9;
+    cards.forEach(function(c,i){ var k=Math.abs(pos(c)-x); if(k<d){d=k;best=i;} });
+    return best;
+  }
+  var settle=null;
+  function glide(i){
+    i=Math.max(0,Math.min(cards.length-1,i));
+    clearTimeout(settle);
+    track.classList.add("is-drag");
+    track.scrollTo({left:pos(cards[i]),behavior:"smooth"});
+    settle=setTimeout(function(){ track.classList.remove("is-drag"); },520);
+  }
+  cards.forEach(function(c,i){
+    var b=document.createElement("button"); b.className="kz-vc-dot"; b.type="button"; b.setAttribute("aria-label","Video "+(i+1));
+    b.onclick=function(){ glide(i); }; dots.appendChild(b);
+  });
+  function upd(){
+    var n=nearest();
+    dots.querySelectorAll(".kz-vc-dot").forEach(function(el,i){ el.classList.toggle("is-on",i===n); });
+  }
+  track.addEventListener("scroll",upd,{passive:true}); window.addEventListener("resize",upd); upd();
+  track.addEventListener("keydown",function(e){
+    if(e.key==="ArrowRight"){e.preventDefault();glide(nearest()+1);}
+    if(e.key==="ArrowLeft"){e.preventDefault();glide(nearest()-1);}
+  });
+
+  // mouse drag (touch swipes natively)
+  var down=false,moved=false,wasDrag=false,startIdx=0,sx=0,sl=0,lastX=0,lastT=0,vel=0;
+  track.addEventListener("pointerdown",function(e){
+    if(e.pointerType!=="mouse"||e.button!==0) return;
+    clearTimeout(settle); down=true;moved=false;startIdx=nearest();sx=lastX=e.clientX;sl=track.scrollLeft;lastT=performance.now();vel=0;
+  });
+  window.addEventListener("pointermove",function(e){
+    if(!down) return;
+    var dx=e.clientX-sx, now=performance.now();
+    if(!moved&&Math.abs(dx)>4){moved=true;track.classList.add("is-drag");}
+    if(moved){ track.scrollLeft=sl-dx; vel=(e.clientX-lastX)/Math.max(1,now-lastT); lastX=e.clientX; lastT=now; }
+  });
+  function end(){
+    if(!down) return; down=false;
+    if(!moved) return;
+    wasDrag=true; setTimeout(function(){wasDrag=false;},50);
+    var dx=lastX-sx,n=startIdx;
+    if(dx<-60||vel<-0.35) n=startIdx+1; else if(dx>60||vel>0.35) n=startIdx-1;
+    glide(n);
+  }
+  window.addEventListener("pointerup",end); window.addEventListener("pointercancel",end);
+  track.addEventListener("dragstart",function(e){e.preventDefault();});
+  track.addEventListener("click",function(e){ if(wasDrag){e.stopPropagation();e.preventDefault();} },true);
+
+  // play / pause: one video at a time
+  var vids=track.querySelectorAll(".kz-vc-video");
+  vids.forEach(function(v){
+    if(!v.getAttribute("src")) v.classList.add("no-src");
+    var media=v.parentNode, btn=media.querySelector(".kz-vc-play");
+    btn.addEventListener("click",function(){
+      if(!v.getAttribute("src")) return;
+      vids.forEach(function(o){ if(o!==v){ o.pause(); } });
+      v.controls=true; media.classList.add("is-playing");
+      var p=v.play(); if(p&&p.catch) p.catch(function(){});
+    });
+  });
+})();
+</script>
