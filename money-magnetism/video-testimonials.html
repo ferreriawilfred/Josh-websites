@@ -1,10 +1,12 @@
 <!-- VIDEO TESTIMONIALS (swipe) — paste as-is into a Custom HTML/Code block (GHL, etc.)
      Transparent background: it sits on whatever section color is behind it.
-     TO ADD YOUR VIDEOS: on each <video> add  src="YOUR_VIDEO.mp4"  and  poster="YOUR_THUMBNAIL.jpg"
-     (until then, a green placeholder with the person's initials shows and the play button does nothing). -->
+     VIDEOS: each <video src="..."> below is already set. To swap one, change its src (keep the #t=0.1 so the first frame shows as the thumbnail).
+     Card shape: change --ratio in .kz-vc (4/5 default; 9/16 shows the full vertical video).
+     Names/quotes under each video are placeholders — make sure they match the person in that video. -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 .kz-vc{
+  --ratio:4/5;
   --deep:#0F2A1A; --green:#1C5C37; --accent:#1F7A4C; --gold:#D4AF37; --paper:#F6EFE0;
   box-sizing:border-box;max-width:660px;margin:0 auto;padding:0;background:transparent;
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
@@ -18,7 +20,7 @@
 .kz-vc-track.is-drag *{pointer-events:none}
 
 .kz-vc-card{flex:0 0 auto;width:246px;scroll-snap-align:start;border-radius:20px;overflow:hidden;background:var(--deep);box-shadow:0 18px 40px -20px rgba(15,42,26,.55);border:1px solid rgba(212,175,55,.28)}
-.kz-vc-media{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#2E8B57,var(--deep));overflow:hidden;line-height:0}
+.kz-vc-media{position:relative;aspect-ratio:var(--ratio);background:linear-gradient(160deg,#2E8B57,var(--deep));overflow:hidden;line-height:0}
 .kz-vc-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:64px;color:rgba(246,239,224,.28)}
 .kz-vc-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;background:transparent;display:block}
 .kz-vc-video.no-src{display:none}
@@ -49,7 +51,7 @@
     <div class="kz-vc-card">
       <div class="kz-vc-media">
         <div class="kz-vc-ph" aria-hidden="true">R</div>
-        <video class="kz-vc-video" preload="metadata" playsinline></video>
+        <video class="kz-vc-video" src="https://assets.cdn.filesafe.space/0GHiKOeeObKjNntuvEXA/media/6a17c209c460f23b3af93d29.mp4#t=0.1" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
         <button class="kz-vc-play" type="button" aria-label="Play Renee's video"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
         <div class="kz-vc-cue">Watch Renee</div>
       </div>
@@ -63,7 +65,7 @@
     <div class="kz-vc-card">
       <div class="kz-vc-media">
         <div class="kz-vc-ph" aria-hidden="true">T</div>
-        <video class="kz-vc-video" preload="metadata" playsinline></video>
+        <video class="kz-vc-video" src="https://assets.cdn.filesafe.space/0GHiKOeeObKjNntuvEXA/media/6a17c2095be84ad6401438c8.mp4#t=0.1" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
         <button class="kz-vc-play" type="button" aria-label="Play Tammy's video"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
         <div class="kz-vc-cue">Watch Tammy</div>
       </div>
@@ -77,7 +79,7 @@
     <div class="kz-vc-card">
       <div class="kz-vc-media">
         <div class="kz-vc-ph" aria-hidden="true">D</div>
-        <video class="kz-vc-video" preload="metadata" playsinline></video>
+        <video class="kz-vc-video" src="https://assets.cdn.filesafe.space/0GHiKOeeObKjNntuvEXA/media/6a17c209c460f23b3af93d28.mp4#t=0.1" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
         <button class="kz-vc-play" type="button" aria-label="Play Donna's video"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
         <div class="kz-vc-cue">Watch Donna</div>
       </div>
@@ -91,7 +93,7 @@
     <div class="kz-vc-card">
       <div class="kz-vc-media">
         <div class="kz-vc-ph" aria-hidden="true">M</div>
-        <video class="kz-vc-video" preload="metadata" playsinline></video>
+        <video class="kz-vc-video" src="https://assets.cdn.filesafe.space/0GHiKOeeObKjNntuvEXA/media/6a17c209ff82912d6577797c.mp4#t=0.1" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
         <button class="kz-vc-play" type="button" aria-label="Play Michelle's video"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
         <div class="kz-vc-cue">Watch Michelle</div>
       </div>
