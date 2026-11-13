@@ -1,14 +1,14 @@
 <!-- TESTIMONIAL TRACK (avatar-left cards + dots) — paste as-is into a Custom HTML/Code block (GHL, etc.)
      Colors and the quote font are CSS variables at the top of .kz-tst (--quote-font) — change them to re-theme.
      Photos: replace  <div class="kz-tst-photo">RD</div>  with  <img class="kz-tst-photo" src="PHOTO_URL" alt="Name">  -->
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 .kz-tst{
-  --quote-font:"Caveat","Segoe Script","Bradley Hand",cursive;
+  --quote-font:"Fraunces",Georgia,"Times New Roman",serif;
   --ink:#1D2A22; --ink-soft:#4E5B47; --accent:#1F7A4C; --accent-lt:#2E8B57;
   --gold:#D4AF37; --green:#1F7A4C; --card:#ffffff; --line:rgba(31,122,76,.22);
   box-sizing:border-box;max-width:660px;margin:0 auto;padding:0;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:var(--ink);
+  font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:var(--ink);
 }
 .kz-tst *{box-sizing:border-box}
 .kz-tst-track{scroll-behavior:auto;overscroll-behavior-x:contain;display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 4px;margin:0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -23,7 +23,7 @@
 .kz-tst-photo{flex:none;width:80px;height:80px;border-radius:50%;object-fit:cover;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--accent-lt),var(--accent));box-shadow:0 0 0 3px var(--card),0 0 0 4.5px var(--line)}
 .kz-tst-content{flex:1 1 auto;min-width:0}
 .kz-tst-stars{display:block;margin:0 0 6px;font-size:14px;color:var(--gold);letter-spacing:2px}
-.kz-tst-quote{font-family:var(--quote-font);font-style:normal;font-weight:500;font-size:22px;line-height:1.28;color:var(--ink);margin:0 0 9px}
+.kz-tst-quote{font-family:var(--quote-font);font-style:italic;font-weight:400;font-size:16px;line-height:1.5;color:var(--ink);margin:0 0 9px}
 .kz-tst-name{display:block;font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
 .kz-tst-loc{display:block;font-size:12px;color:var(--ink-soft)}
 .kz-tst-verified{display:inline-flex;align-items:center;gap:5px;align-self:flex-end;font-size:12px;font-weight:600;color:var(--green);margin-top:4px}
@@ -34,7 +34,7 @@
 @media(max-width:640px){
   .kz-tst-card{flex:0 0 100%;width:auto;padding:18px 18px 10px}
   .kz-tst-photo{width:72px;height:72px}
-  .kz-tst-quote{font-size:21px}
+  .kz-tst-quote{font-size:16px}
 }
 </style>
 
