@@ -214,6 +214,32 @@ img.kz-pf-photo{display:block}
 .kz-pf-verified{flex:none;display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:var(--accent)}
 .kz-pf-verified svg{width:13px;height:13px;flex:none}
 @media(max-width:640px){.kz-pf{padding:24px 14px}.kz-pf-grid{grid-template-columns:1fr;gap:16px}.kz-pf-quote{font-size:15px}}
+.kz-gr{
+  --ink:#1D2A22; --soft:#4E5B47; --accent:#1F7A4C; --gold:#D4AF37; --line:rgba(29,42,34,.13);
+  box-sizing:border-box;max-width:660px;margin:0 auto;padding:28px 20px;background:transparent;color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;
+}
+.kz-gr *{box-sizing:border-box}
+.kz-gr-h2{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:clamp(27px,5vw,34px);line-height:1.2;margin:0 0 18px;color:var(--ink);text-wrap:balance}
+.kz-gr p{margin:0 0 14px;font-size:17px}
+.kz-gr b{color:var(--accent);font-weight:700}
+.kz-gr-card{display:flex;align-items:center;gap:26px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;margin:26px 0 40px}
+.kz-gr-badge{flex:none;width:80px;height:80px;border-radius:50%;background:var(--accent);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;box-shadow:0 8px 18px -8px rgba(31,122,76,.6)}
+.kz-gr-badge span{font-family:"Playfair Display",Georgia,serif;font-size:25px;font-weight:600}
+.kz-gr-badge small{font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
+.kz-gr-text{flex:1 1 auto;min-width:0;color:var(--soft)}
+.kz-gr-text p{font-size:16px;margin:0 0 12px}
+.kz-gr-text p:last-child{margin-bottom:0}
+.kz-gr-sig{font-family:"Playfair Display",Georgia,serif;font-style:italic;color:var(--ink)!important;font-size:16px!important;margin-top:16px!important}
+.kz-gr-cases{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.kz-gr-case{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.kz-gr-case.best{border-top:3px solid var(--accent)}
+.kz-gr-case.worst{border-top:3px solid var(--gold)}
+.kz-gr-case .lb{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.kz-gr-case.worst .lb{color:#8a6d12}
+.kz-gr-case p{margin:0;font-size:15.5px}
+.kz-gr-either{text-align:center;max-width:480px;margin:26px auto 0!important;font-size:18px!important}
+@media(max-width:640px){.kz-gr-card{flex-direction:column;align-items:flex-start;gap:18px;padding:24px 20px}.kz-gr-cases{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -908,22 +934,29 @@ img.kz-pf-photo{display:block}
 
 <!-- GUARANTEE -->
 <section><div class="wrap">
-  <div class="gbox">
-    <h2>You are not taking a risk today. I am.</h2>
-    <p>You have <b>365 full days</b> after I cast your spell to feel the shift in your wealth channel.</p>
-    <p class="promise">365 days.</p>
-    <p>If the block does not feel cleared. If the channel does not feel open. If the specific sense of financial stagnation — the effort-to-result gap that has been following you — does not lift…</p>
-    <p>Email me. And I will perform an even more powerful wealth channel opening ritual for you at no additional charge.</p>
-    <p>If you are still not satisfied after that, every penny of your offering is returned. No questions. No arguments. No delay.</p>
-    <p class="sig">— Kaia Zephra</p>
-    <div class="cases">
-      <div class="case best"><b>BEST CASE</b>Days from now, the channel is open. Within weeks, money is moving toward you in ways that defy what you have previously accepted as possible. The income arrives. The opportunity finds you. The number on the screen makes you look again.</div>
-      <div class="case worst"><b>WORST CASE</b>You get your $17.17 back. Every penny.</div>
+<div class="kz-gr">
+  <h2 class="kz-gr-h2">You are not taking a risk today. I am.</h2>
+  <p>You have <b>365 full days</b> after I cast your spell to feel the shift in your wealth channel.</p>
+  <p>365 days.</p>
+
+  <div class="kz-gr-card">
+    <div class="kz-gr-badge"><span>365</span><small>Days</small></div>
+    <div class="kz-gr-text">
+      <p>If the block does not feel cleared. If the channel does not feel open. If the specific sense of financial stagnation — the effort-to-result gap that has been following you — does not lift…</p>
+      <p>Email me. And I will perform an even more powerful wealth channel opening ritual for you at no additional charge.</p>
+      <p>If you are still not satisfied after that, every penny of your offering is returned. No questions. No arguments. No delay.</p>
+      <p class="kz-gr-sig">— Kaia Zephra</p>
     </div>
-    <p class="c"><b>Either way — you finally stopped accepting that this is simply how things are for you.</b></p>
-    <a class="btn" href="#order" data-cta>Yes — Cast It Tonight</a>
-    <p class="btn-sub">365-Day Money Back &amp; Recast Guarantee | Private &amp; Confidential</p>
   </div>
+
+  <div class="kz-gr-cases">
+    <div class="kz-gr-case best"><span class="lb">Best case</span><p>Days from now, the channel is open. Within weeks, money is moving toward you in ways that defy what you have previously accepted as possible. The income arrives. The opportunity finds you. The number on the screen makes you look again.</p></div>
+    <div class="kz-gr-case worst"><span class="lb">Worst case</span><p>You get your $17.17 back. Every penny.</p></div>
+  </div>
+  <p class="kz-gr-either">Either way — you finally stopped accepting that this is simply how things are for you.</p>
+</div>
+  <a class="btn" href="#order" data-cta>Yes — Cast It Tonight</a>
+  <p class="btn-sub">365-Day Money Back &amp; Recast Guarantee | Private &amp; Confidential</p>
 </div></section>
 
 <!-- WHAT HAPPENS AFTER YOU ORDER -->
