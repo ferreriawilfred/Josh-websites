@@ -7,7 +7,7 @@
 <meta name="description" content="Tell me your name and date of birth, and tonight I begin clearing the money block. Money Magnetism Spell by Kaia Zephra. 365-day guarantee.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#ffffff; --off:#FAFAF9; --ink:#1b1712; --dim:#5d564b;
@@ -134,10 +134,320 @@ footer a{color:var(--dim);margin:0 6px}
   <span class="stars">★★★★★</span><span><b>4.9/5</b></span><span>·</span><span><b>11,111</b> Women</span><span>·</span><span><b>12</b> Years of Practice</span><span>·</span><span><b>60+</b> Countries</span>
 </div></div>
 
-<!-- TESTIMONIAL SWIPE -->
-<section style="padding:30px 0 10px">
-  <div class="swipe" id="swipe1"></div>
-</section>
+<!-- TESTIMONIAL SWIPE (purple, smooth drag) -->
+<style>
+.kz-tst{
+  --ink:#3B2756; --ink-soft:#6E5E86; --accent:#7150A9; --accent-lt:#9B72CF;
+  --gold:#D9A441; --green:#1B7D45; --card:#ffffff; --line:rgba(59,39,86,.16);
+  box-sizing:border-box;max-width:660px;margin:0 auto;padding:0;
+  font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:var(--ink);
+}
+.kz-tst *{box-sizing:border-box}
+.kz-tst-track{scroll-behavior:auto;overscroll-behavior-x:contain;display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 4px;margin:0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.kz-tst-track::-webkit-scrollbar{display:none}
+.kz-tst-track{cursor:grab}
+.kz-tst-track:focus{outline:none}
+.kz-tst-track:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:12px}
+.kz-tst-track.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}
+.kz-tst-track.is-drag *{pointer-events:none}
+.kz-tst-card{flex:0 0 auto;width:406px;scroll-snap-align:start;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px 22px 11px;box-shadow:0 16px 32px -22px rgba(59,39,86,.32);display:flex;flex-direction:column;gap:2px}
+.kz-tst-body{display:flex;gap:16px;align-items:flex-start}
+.kz-tst-photo{flex:none;width:80px;height:80px;border-radius:50%;object-fit:cover;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--accent-lt),var(--accent));box-shadow:0 0 0 3px var(--card),0 0 0 4.5px var(--line)}
+.kz-tst-content{flex:1 1 auto;min-width:0}
+.kz-tst-stars{display:block;margin:0 0 6px;font-size:14px;color:var(--gold);letter-spacing:2px}
+.kz-tst-quote{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:500;font-size:16px;line-height:1.4;color:var(--ink);margin:0 0 9px}
+.kz-tst-name{display:block;font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.kz-tst-loc{display:block;font-size:12px;color:var(--ink-soft)}
+.kz-tst-verified{display:inline-flex;align-items:center;gap:5px;align-self:flex-end;font-size:12px;font-weight:600;color:var(--green);margin-top:4px}
+.kz-tst-verified svg{width:14px;height:14px;flex:none}
+.kz-tst-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:2px}
+.kz-tst-dot{width:6px;height:6px;border-radius:50%;padding:0;border:none;background:rgba(59,39,86,.22);cursor:pointer;transition:background .2s,width .2s}
+.kz-tst-dot.is-on{width:18px;border-radius:4px;background:var(--accent)}
+@media(max-width:640px){
+  .kz-tst-card{flex:0 0 100%;width:auto;padding:18px 18px 10px}
+  .kz-tst-photo{width:72px;height:72px}
+  .kz-tst-quote{font-size:16.5px}
+}
+</style>
+<section style="padding:30px 0 10px"><div class="wrap">
+<div class="kz-tst">
+  <div class="kz-tst-track" id="kzTstTrack" tabindex="0" aria-label="Testimonials — swipe or use arrow keys">
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Renee D.">RD</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I was behind on my light bill and my car note at the same time. I didn't tell anybody. I did this on a Tuesday night. By that Friday my sister called me out of nowhere and said she had money she owed me from years back — I completely forgot about it. Covered both. I don't know what to say except it worked.”</p>
+          <span class="kz-tst-name">Renee D.</span>
+          <span class="kz-tst-loc">Memphis, TN</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Tammy W.">TW</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“Like I'm not someone who does spells. I'm a nurse. I work nights. I was literally doing math in my head on my break to figure out if rent was gonna clear. I saw this and something told me just do it. Three weeks later I picked up two extra shifts I hadn't been offered in months AND my tax refund came early. I was not expecting any of that.”</p>
+          <span class="kz-tst-name">Tammy W.</span>
+          <span class="kz-tst-loc">Bakersfield, CA</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Patricia G.">PG</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“Girl I am 58 years old and I have been behind on something my whole life. My mama was behind her whole life too. I did this and prayed over it and asked the Lord to let whatever needed to move go on and move. Cause I been holding too tight to too little for too long. First thing that happened was small — found $200 I forgot was in an old account. Then a bigger thing. Then another. I ain't trying to explain it. I'm just grateful.”</p>
+          <span class="kz-tst-name">Patricia G.</span>
+          <span class="kz-tst-loc">Jackson, MS</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Donna R.">DR</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I work retail. I make $14.75 an hour. I was three weeks from collections on a credit card I'd had since 2019. I did the ritual exactly how it said and listened to the audio every night. That card got settled for less than half what I owed because the company offered it out of nowhere. That does not happen. I know that does not happen. But it did.”</p>
+          <span class="kz-tst-name">Donna R.</span>
+          <span class="kz-tst-loc">Louisville, KY</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Michelle L.">ML</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“Literally did this because I had already tried everything else. I had a vision board. I had a budget app. I listened to manifestation podcasts. Nothing moved. This was seventeen dollars and I figured what do I actually have to lose. Within ten days I had three unexpected things come in — a freelance job, a Venmo from a friend paying me back from like a year ago, and an overpayment refund from my insurance. None of that is normal for me.”</p>
+          <span class="kz-tst-name">Michelle L.</span>
+          <span class="kz-tst-loc">Fresno, CA</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Sandra M.">SM</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I ain't gonna lie I was skeptical. I'm a church woman. But I've also been broke and praying for forty years so I figured God might use a channel I hadn't tried yet. I did it. Something shifted. I can't describe it other than to say the tightness I carry around money just... loosened a little. And then money I didn't expect started showing up. I'm still praying. I'm also still grateful for this.”</p>
+          <span class="kz-tst-name">Sandra M.</span>
+          <span class="kz-tst-loc">Birmingham, AL</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Carolyn B.">CB</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I'm a single mom. Two kids. I work full time and I was still somehow $400 short on rent every month and just rotating what I delayed. I had been doing that for two years. After I did this I got a raise I had been told wasn't happening until next review cycle. My manager said they made an exception. That has never once happened to me in my entire working life.”</p>
+          <span class="kz-tst-name">Carolyn B.</span>
+          <span class="kz-tst-loc">Stockton, CA</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Joyce H.">JH</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“My credit score was 511 for three years. I had given up on it changing. After I did this I disputed something I'd been putting off and it came off clean — 47 point jump. Same month I got approved for a card I'd been denied for twice. I'm not saying it's magic. I'm saying I had stopped trying and something made me try again.”</p>
+          <span class="kz-tst-name">Joyce H.</span>
+          <span class="kz-tst-loc">Kansas City, MO</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Diane F.">DF</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“My hours got cut last winter and I fell behind on everything. I was answering collections calls and just freezing on the phone. Did this, started the audio track, and within a week I had the energy to actually deal with it — negotiated two accounts down and got on payment plans I could manage. I know that sounds like just doing the work but I had been frozen for months. Something broke the freeze.”</p>
+          <span class="kz-tst-name">Diane F.</span>
+          <span class="kz-tst-loc">San Bernardino, CA</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Angela T.">AT</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I've done a lot of spiritual work and I've never felt something shift that fast. First night, chest opened up. I slept differently. By day 4 my ex-husband overpaid on child support — first time in six years he's ever overpaid anything. By day 8 I had a client inquiry I hadn't gotten in months. It moves fast once it starts moving.”</p>
+          <span class="kz-tst-name">Angela T.</span>
+          <span class="kz-tst-loc">Raleigh, NC</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Lori P.">LP</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I was embarrassed to buy this. That's the truth. I make decent money as an office manager and I'm still living paycheck to paycheck and I couldn't figure out why. The part about ancestral patterns — that hit me because my mom never got ahead either. I did it. Something released. I can feel it in my body different than before. The money stuff is still moving but I already know something changed.”</p>
+          <span class="kz-tst-name">Lori P.</span>
+          <span class="kz-tst-loc">Tucson, AZ</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Marguerite T.">MT</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I'm literally an accountant. I believe in numbers. And I had been making good money for fifteen years and always ending up in the same place — broke and in debt. After Kaia cast for me I received an inheritance my lawyer said should never have come through. He called it a legal anomaly. Girl, I call it Kaia.”</p>
+          <span class="kz-tst-name">Marguerite T.</span>
+          <span class="kz-tst-loc">Boston, MA</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Renata C.">RC</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I had the same business for four years and the income just... stopped growing. Like I tried everything. Within two weeks of her casting I landed the biggest client I'd ever worked with. That was eight months ago and I haven't slowed down since. We’re opening a new location!”</p>
+          <span class="kz-tst-name">Renata C.</span>
+          <span class="kz-tst-loc">Austin, TX</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Christina H.">CH</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“Ok so I spent THOUSANDS on coaches, masterminds, all the courses. Done all of it. And I kept hitting this wall I could not explain. I spent $17 on Kaia and closed more in the next month than I had in the six months before it. I don't have an explanation for that. I really don't.”</p>
+          <span class="kz-tst-name">Christina H.</span>
+          <span class="kz-tst-loc">Seattle, WA</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Josephine M.">JM</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I'm not going to pretend I believed this. I have an MBA. I rolled my eyes at my husband when he sent me the link. I did it because I had literally run out of things to try. Something happened the second night. What I do have: my business just crossed the ceiling I had been stuck below for three years. Right after the casting. My husband doesn't roll his eyes anymore.”</p>
+          <span class="kz-tst-name">Josephine M.</span>
+          <span class="kz-tst-loc">San Francisco, CA</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <div class="kz-tst-photo" role="img" aria-label="Sandra B.">SB</div>
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“She's the real thing. She checked in before she even started. She described exactly what was blocking me and I started crying because nobody had ever gotten that close to it — not a coach, not a therapist, nobody. Within a month the money started moving different.”</p>
+          <span class="kz-tst-name">Sandra B.</span>
+          <span class="kz-tst-loc">Denver, CO</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+  </div>
+  <div class="kz-tst-dots" id="kzTstDots"></div>
+</div>
+
+<script>
+(function(){
+  var track=document.getElementById("kzTstTrack"), dots=document.getElementById("kzTstDots");
+  if(!track||!dots) return;
+  var cards=track.querySelectorAll(".kz-tst-card");
+  function pos(c){ return c.offsetLeft-track.offsetLeft-4; }
+  function nearest(){
+    var x=track.scrollLeft, best=0, d=1e9;
+    cards.forEach(function(c,i){ var k=Math.abs(pos(c)-x); if(k<d){d=k;best=i;} });
+    return best;
+  }
+  function go(i){ i=Math.max(0,Math.min(cards.length-1,i)); track.scrollTo({left:pos(cards[i]),behavior:"smooth"}); }
+  cards.forEach(function(c,i){
+    var b=document.createElement("button"); b.className="kz-tst-dot"; b.type="button"; b.setAttribute("aria-label","Testimonial "+(i+1));
+    b.onclick=function(){ glide(i); };
+    dots.appendChild(b);
+  });
+  function upd(){
+    var n=nearest();
+    dots.querySelectorAll(".kz-tst-dot").forEach(function(el,i){ el.classList.toggle("is-on",i===n); });
+  }
+  track.addEventListener("keydown",function(e){
+    if(e.key==="ArrowRight"){e.preventDefault();glide(Math.min(cards.length-1,nearest()+1));}
+    if(e.key==="ArrowLeft"){e.preventDefault();glide(Math.max(0,nearest()-1));}
+  });
+  // mouse drag: follows the cursor 1:1, then glides to the next/nearest card
+  var down=false,startIdx=0,sx=0,sl=0,moved=false,lastX=0,lastT=0,vel=0,settle=null;
+  function glide(i){
+    clearTimeout(settle);
+    track.classList.add("is-drag");           // snap off so the animation isn't fought
+    go(i);
+    settle=setTimeout(function(){ track.classList.remove("is-drag"); },520);
+  }
+  track.addEventListener("pointerdown",function(e){
+    if(e.pointerType!=="mouse"||e.button!==0) return;
+    clearTimeout(settle);
+    down=true;moved=false;startIdx=nearest();sx=lastX=e.clientX;sl=track.scrollLeft;lastT=performance.now();vel=0;
+  });
+  window.addEventListener("pointermove",function(e){
+    if(!down) return;
+    var dx=e.clientX-sx, now=performance.now();
+    if(!moved&&Math.abs(dx)>4){moved=true;track.classList.add("is-drag");}
+    if(moved){
+      track.scrollLeft=sl-dx;
+      vel=(e.clientX-lastX)/Math.max(1,now-lastT); lastX=e.clientX; lastT=now;
+    }
+  });
+  function end(){
+    if(!down) return; down=false;
+    if(!moved) return;
+    var dx=lastX-sx, n=startIdx;
+    if(dx<-60||vel<-0.35) n=startIdx+1;
+    else if(dx>60||vel>0.35) n=startIdx-1;
+    n=Math.max(0,Math.min(cards.length-1,n));
+    glide(n);
+  }
+  window.addEventListener("pointerup",end);
+  window.addEventListener("pointercancel",end);
+  track.addEventListener("dragstart",function(e){e.preventDefault();});
+  track.addEventListener("scroll",upd,{passive:true}); window.addEventListener("resize",upd); upd();
+})();
+</script>
+</div></section>
 
 <!-- OPENING COPY -->
 <section><div class="wrap">
@@ -481,10 +791,6 @@ var wall = [
 function initials(n){return n.split(" ").map(function(p){return p[0]}).join("").slice(0,2)}
 function avatar(n,img){return img?'<img class="av" src="'+img+'" alt="'+n+'">':'<div class="av">'+initials(n)+'</div>'}
 function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
-
-document.getElementById("swipe1").innerHTML = swipe.map(function(t){
-  return '<div class="card"><div class="stars">★★★★★</div><div class="who">'+avatar(t[0],t[3])+'<div><b>'+t[0]+'</b><small>'+t[1]+'</small></div></div><q>“'+esc(t[2])+'”</q><div class="ver">✓ Verified</div></div>';
-}).join("");
 
 document.getElementById("wall").innerHTML = wall.map(function(t){
   return '<div class="card"><div class="who">'+avatar(t.n,t.img)+'<div><b>'+t.n+' — '+t.l+'</b></div></div><div class="stars">★★★★★</div><h3>'+t.h+'</h3><q>“'+esc(t.q)+'”</q><div class="ver">✓ Verified</div></div>';
