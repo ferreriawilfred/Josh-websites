@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Psychic Circle — Kaia Zephra (Luxe)</title>
+<meta name="description" content="A monthly spell, tarot reading, psychic prediction and teaching from Kaia Zephra. 7,777 women. $7.77/month.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#100716;--green-d:#4A1D6B;--green:#6A2C91;--green-lt:#D81B60;--gold:#D4AF37;--gold-lt:#E6C76A;--gold-d:#A8841E;--cream:#FBEFF5;--off:#FBF7FA;--ink:#1B1022;--soft:#5B4B66;--line:rgba(27,16,34,.13)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:var(--ink);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;padding-bottom:78px}
+.wrap{max-width:660px;margin:0 auto;padding:0 20px}
+.wide{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+.alt{background:var(--off)}
+p{margin:0 0 16px}
+strong,b{font-weight:700;color:var(--green)}
+h2.h{font-family:Lora,Georgia,serif;font-weight:600;font-size:clamp(26px,5.2vw,38px);line-height:1.22;margin:0 0 24px;color:var(--ink);text-wrap:balance}
+.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin:0 0 12px}
+.beats{margin:0 0 24px}
+.beats p{margin:0 0 8px;line-height:1.75}
+.big{font-family:Lora,Georgia,serif;font-weight:600;font-size:clamp(20px,4vw,24px);line-height:1.4;color:var(--green);margin:26px 0}
+.ta{text-align:left}
+@media(min-width:641px){.ta{text-align:center}.hc{text-align:center}}
+
+/* 1 HERO */
+.hero{background:radial-gradient(120% 90% at 50% 0%,#3A1553 0%,var(--deep) 62%,#050209 100%);color:var(--cream);padding:68px 0 60px}
+.hero .wrap{max-width:780px}
+.hero h1{font-family:Lora,Georgia,serif;font-weight:600;font-size:clamp(30px,7vw,52px);line-height:1.14;color:#fff;margin:0 0 30px}
+.hero h1 span{display:block;margin:0 0 .5em;text-wrap:balance}
+.hero .sub{font-size:clamp(18px,3.8vw,22px);line-height:1.6;color:rgba(251,239,245,.92);margin:0 0 16px}
+.hero .sub2{font-family:Lora,Georgia,serif;font-weight:500;font-size:clamp(20px,4vw,25px);line-height:1.4;color:var(--gold-lt);margin:0}
+@media(min-width:641px){.hero{text-align:center}}
+
+/* 2 proof line + carousel (kz-tst) */
+.proofline{text-align:center;font-size:18px;margin:0 0 6px}
+.kz-tst{--quote-font:Lora,Georgia,serif;--ink:#1B1022;--ink-soft:#5B4B66;--accent:#6A2C91;--accent-lt:#D81B60;--gold:#D4AF37;--green:#6A2C91;--card:#fff;--line:rgba(106,44,145,.22);max-width:700px;margin:0 auto;padding:0 20px}
+.kz-tst-track{scroll-behavior:auto;overscroll-behavior-x:contain;display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 4px;margin:0;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
+.kz-tst-track::-webkit-scrollbar{display:none}
+.kz-tst-track:focus{outline:none}
+.kz-tst-track:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:12px}
+.kz-tst-track.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}
+.kz-tst-track.is-drag *{pointer-events:none}
+.kz-tst-card{flex:0 0 auto;width:406px;scroll-snap-align:start;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px 22px 11px;box-shadow:0 16px 32px -22px rgba(27,16,34,.28);display:flex;flex-direction:column;gap:2px}
+.kz-tst-body{display:flex;gap:16px;align-items:flex-start}
+.kz-tst-photo{flex:none;width:80px;height:80px;border-radius:50%;object-fit:cover;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--accent-lt),var(--accent));box-shadow:0 0 0 3px var(--card),0 0 0 4.5px var(--line)}
+.kz-tst-content{flex:1 1 auto;min-width:0}
+.kz-tst-stars{display:block;margin:0 0 6px;font-size:14px;color:var(--gold);letter-spacing:2px}
+.kz-tst-quote{font-family:var(--quote-font);font-style:normal;font-weight:400;font-size:16px;line-height:1.55;color:var(--ink);margin:0 0 9px}
+.kz-tst-name{display:block;font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.kz-tst-loc{display:block;font-size:12px;color:var(--ink-soft)}
+.kz-tst-verified{display:inline-flex;align-items:center;gap:5px;align-self:flex-end;font-size:12px;font-weight:600;color:var(--green);margin-top:4px}
+.kz-tst-verified svg{width:14px;height:14px;flex:none}
+.kz-tst-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:2px}
+.kz-tst-dot{width:6px;height:6px;border-radius:50%;padding:0;border:none;background:rgba(27,16,34,.22);cursor:pointer;transition:background .2s,width .2s}
+.kz-tst-dot.is-on{width:18px;border-radius:4px;background:var(--accent)}
+@media(max-width:640px){.kz-tst-card{flex:0 0 100%;width:auto;padding:18px 18px 10px}.kz-tst-photo{width:72px;height:72px}}
+
+/* 3 + sparkle list */
+.lg{font-family:Lora,Georgia,serif;font-weight:500;font-size:clamp(21px,4.4vw,27px);line-height:1.4;margin:0 0 18px}
+.sp{list-style:none;margin:0;padding:0;text-align:left}
+.sp li{margin:0 0 24px;font-size:18px;line-height:1.65}
+.sp li:last-child{margin-bottom:0}
+.sp li::before{content:"✨ "}
+
+/* 6 pillars */
+.pillars{background:linear-gradient(180deg,var(--deep) 0%,#1A0B26 100%);color:var(--cream)}
+.pillars .eyebrow{color:var(--gold-lt);text-align:center}
+.pl-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pl-card{border:1px solid rgba(212,175,55,.32);border-radius:18px;padding:28px 26px;background:rgba(255,255,255,.04)}
+.pl-card h3{font-family:Lora,Georgia,serif;font-weight:600;font-size:23px;letter-spacing:.03em;text-transform:uppercase;color:var(--gold);line-height:1.2}
+.pl-card .mech{font-weight:600;font-size:14.5px;letter-spacing:.05em;color:#fff;margin:6px 0 16px}
+.pl-card p{color:rgba(251,239,245,.9);font-size:16px;margin:0 0 9px}
+.pl-card p:last-child{margin-bottom:0}
+@media(max-width:700px){.pl-grid{grid-template-columns:1fr}}
+
+/* 7 videos */
+.vt-track{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.vt-track{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.vt-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:6px 20px 16px;margin:0 -20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.vt-track::-webkit-scrollbar{display:none}.vt-track .kz-vc-card{flex:0 0 74vw;max-width:290px;scroll-snap-align:start}}
+.kz-vc-card{border-radius:20px;overflow:hidden;background:#100716;box-shadow:0 18px 40px -20px rgba(16,7,22,.55);border:1px solid rgba(212,175,55,.28)}
+.kz-vc-media{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#D81B60,#100716);overflow:hidden;line-height:0}
+.kz-vc-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:Lora,Georgia,serif;font-size:64px;color:rgba(251,239,245,.28)}
+.kz-vc-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;background:transparent;display:block}
+.kz-vc-video.no-src{display:none}
+.kz-vc-play{position:absolute;inset:0;width:100%;height:100%;border:none;padding:0;cursor:pointer;background:linear-gradient(180deg,rgba(16,7,22,0) 52%,rgba(16,7,22,.58));display:flex;align-items:center;justify-content:center;transition:background .2s}
+.kz-vc-play:hover{background:linear-gradient(180deg,rgba(16,7,22,.10) 42%,rgba(16,7,22,.66))}
+.kz-vc-play:focus-visible{outline:3px solid var(--gold);outline-offset:-4px}
+.kz-vc-circle{width:96px;height:96px;border-radius:50%;background:rgba(255,255,255,.3);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center}
+.kz-vc-circle svg{width:46px;height:46px;margin-left:5px;fill:#fff}
+.kz-vc-cue{position:absolute;left:0;right:0;bottom:9px;text-align:center;pointer-events:none;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);text-shadow:0 1px 7px rgba(0,0,0,.7);line-height:1.2}
+.kz-vc-media.is-playing .kz-vc-play,.kz-vc-media.is-playing .kz-vc-cue{display:none}
+.kz-vc-cap{background:linear-gradient(180deg,var(--green-d) 0%,#100716 100%);padding:15px 16px 17px;text-align:center;border-top:1px solid rgba(212,175,55,.25)}
+.kz-vc-stars{display:block;font-size:13px;color:var(--gold);letter-spacing:2px;margin-bottom:7px}
+.kz-vc-quote{font-family:Lora,Georgia,serif;font-size:14.5px;line-height:1.45;color:var(--cream);margin:0 0 8px}
+.kz-vc-name{display:block;font-weight:700;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);line-height:1.45}
+
+/* 9 timeline numbers */
+.tn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tn{border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:18px;background:#fff;padding:26px 22px}
+.tn .num{font-family:Lora,Georgia,serif;font-weight:600;font-size:76px;line-height:1;color:var(--green)}
+.tn .lbl{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin:6px 0 16px}
+.tn p{font-size:15.5px;margin:0 0 12px}
+.tn p:last-child{margin-bottom:0}
+.tn .em{font-weight:700;color:var(--green)}
+@media(max-width:820px){.tn-grid{grid-template-columns:1fr}}
+
+/* 11 founder */
+.kz-fs-photo{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:8/7;object-fit:cover;border-radius:14px;margin:0 auto 28px;background:linear-gradient(160deg,#D81B60,#100716);color:rgba(251,239,245,.32);font-family:Lora,Georgia,serif;font-size:92px}
+
+/* 12 ledger */
+.kz-wtw{--ink:#1B1022;--soft:#5B4B66;--accent:#6A2C91;--gold:#D4AF37;--card:#FBF7FA;--line:rgba(27,16,34,.13)}
+.kz-wtw-ledger{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:8px 30px;position:relative;overflow:hidden}
+.kz-wtw-ledger::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),#D81B60,var(--accent))}
+.kz-wtw-row{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line)}
+.kz-wtw-row:last-child{border-bottom:none}
+.kz-wtw-icon{flex:none;width:30px;height:30px;border-radius:50%;background:#fff;border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.kz-wtw-icon svg{width:15px;height:15px;color:var(--accent)}
+.kz-wtw-row p{margin:0;font-size:16.5px;padding-top:4px}
+.kz-wtw-banner{margin:30px 0 0;text-align:center;padding:26px 24px;background:linear-gradient(135deg,#3A1553,#B3166F);border-radius:16px;color:#fff}
+.kz-wtw-banner p{margin:0}
+.kz-wtw-banner .l1{font-family:Lora,Georgia,serif;font-weight:600;font-size:28px;margin-bottom:10px}
+.kz-wtw-banner .l2{font-size:16px;color:rgba(255,255,255,.92);max-width:480px;margin:0 auto}
+@media(max-width:560px){.kz-wtw-ledger{padding:4px 18px}.kz-wtw-row{gap:12px;padding:16px 0}.kz-wtw-row p{font-size:16px}}
+
+/* 13 photo grid */
+.kz-pf{--ink:#1B1022;--soft:#5B4B66;--accent:#6A2C91;--gold:#D4AF37;--line:rgba(27,16,34,.13)}
+.kz-pf-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.kz-pf-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px 12px 14px;display:flex;flex-direction:column;box-shadow:0 18px 38px -26px rgba(27,16,34,.4)}
+.kz-pf-photo{position:relative;width:100%;aspect-ratio:4/5;border-radius:14px;overflow:hidden;object-fit:cover;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,#D81B60,#100716);color:rgba(251,239,245,.3);font-family:Lora,Georgia,serif;font-size:84px}
+.kz-pf-body{padding:16px 8px 2px;display:flex;flex-direction:column;gap:10px}
+.kz-pf-label{font-weight:800;font-size:13.5px;letter-spacing:.05em;line-height:1.35;text-transform:uppercase;color:var(--accent);margin:0}
+.kz-pf-stars{color:var(--gold);letter-spacing:1.5px;font-size:13px}
+.kz-pf-quote{font-family:Lora,Georgia,serif;font-size:15.5px;line-height:1.55;color:var(--ink);margin:0}
+.kz-pf-author{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:4px;padding-top:12px;border-top:1px solid var(--line)}
+.kz-pf-who{flex:1 1 auto;min-width:0}
+.kz-pf-name{font-weight:700;font-size:13.5px;color:var(--ink)}
+.kz-pf-loc{font-size:12px;color:var(--soft)}
+.kz-pf-verified{flex:none;display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:var(--accent)}
+.kz-pf-verified svg{width:13px;height:13px;flex:none}
+@media(max-width:700px){.kz-pf-grid{grid-template-columns:1fr;gap:16px}}
+
+/* 16 price */
+.price{font-family:Lora,Georgia,serif;font-weight:600;font-size:clamp(68px,18vw,104px);line-height:1;color:var(--gold-d);text-align:center;margin:10px 0 22px}
+
+/* 17/20/22 CTA */
+.cta{display:block;width:100%;max-width:520px;margin:28px auto 6px;padding:16px 22px;text-align:center;text-decoration:none;color:#fff;background:linear-gradient(135deg,#E0245E 0%,#B3166F 45%,#6A2C91 100%);border:1.5px solid var(--gold);border-radius:14px;box-shadow:0 0 0 4px rgba(212,175,55,.14),0 14px 30px -12px rgba(179,22,111,.55);transition:transform .15s,filter .15s}
+.cta:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.cta .t{display:block;font-family:Lora,Georgia,serif;font-weight:600;font-size:20px;line-height:1.25}
+.cta .s{display:block;font-size:13.5px;color:rgba(255,255,255,.88);margin-top:3px}
+.ctasec{text-align:center;padding:40px 0}
+
+/* 18/19 guarantee */
+.kz-gr{--ink:#1B1022;--soft:#5B4B66;--accent:#6A2C91;--gold:#D4AF37;--line:rgba(27,16,34,.13)}
+.kz-gr-card{display:flex;align-items:center;gap:26px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;margin:26px 0 28px}
+.kz-gr-badge{flex:none;width:96px;height:96px;border-radius:50%;background:var(--accent);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;box-shadow:0 8px 18px -8px rgba(106,44,145,.6)}
+.kz-gr-badge span{font-family:Lora,Georgia,serif;font-size:36px;font-weight:600}
+.kz-gr-badge small{font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-top:5px}
+.kz-gr-text{flex:1 1 auto;min-width:0;color:var(--soft)}
+.kz-gr-text p{font-size:16px;margin:0 0 12px}
+.kz-gr-text p:last-child{margin-bottom:0}
+.kz-gr-sig{font-family:Lora,Georgia,serif;color:var(--ink)!important;margin-top:16px!important}
+.kz-gr-cases{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.kz-gr-case{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.kz-gr-case.best{border-top:3px solid var(--accent)}
+.kz-gr-case.worst{border-top:3px solid var(--gold)}
+.kz-gr-case .lb{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.kz-gr-case.worst .lb{color:#8a6d12}
+.kz-gr-case p{margin:0;font-size:15.5px}
+.either{text-align:center;max-width:500px;margin:26px auto 0;font-size:18px}
+@media(max-width:640px){.kz-gr-card{flex-direction:column;align-items:flex-start;gap:18px;padding:24px 20px}.kz-gr-cases{grid-template-columns:1fr}}
+
+/* 21 FAQ */
+.faq-sub{color:var(--soft);font-size:15px;margin:-10px 0 22px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:#fff;margin:0 0 12px;overflow:hidden}
+.faq-q{display:flex;width:100%;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:none;border:0;text-align:left;font:600 17px/1.4 Inter,system-ui,sans-serif;color:var(--ink);cursor:pointer}
+.faq-q:focus-visible{outline:2px solid var(--green);outline-offset:-2px}
+.faq-q i{flex:none;width:22px;height:22px;position:relative}
+.faq-q i::before,.faq-q i::after{content:"";position:absolute;left:4px;right:4px;top:10px;height:2px;background:var(--green);border-radius:2px;transition:transform .2s}
+.faq-q i::after{transform:rotate(90deg)}
+.faq-q[aria-expanded="true"] i::after{transform:rotate(0)}
+.faq-a{padding:0 20px 18px}
+.faq-a p{margin:0;font-size:16px;color:var(--soft)}
+
+/* 23 footer + sticky */
+footer{padding:34px 0 24px;font-size:12px;color:var(--soft);text-align:center;border-top:1px solid var(--line)}
+footer p{margin:0 0 10px}
+footer a{color:var(--soft);margin:0 6px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-top:1px solid var(--line);padding:10px 14px;transform:translateY(110%);transition:transform .25s}
+.sticky.show{transform:none}
+.sticky .cta{margin:0 auto;padding:13px 16px}
+.sticky .cta .t{font-size:17px}
+@media(min-width:900px){.sticky{display:none}body{padding-bottom:0}}
+</style>
+</head>
+<body>
+
+<!-- 1 HERO -->
+<header class="hero"><div class="wrap">
+  <h1><span>Don't wait for him to come around.</span><span>Don't keep pushing through the money stress alone.</span><span>Don't spend another month feeling like everyone else's life is moving except yours.</span></h1>
+  <p class="sub">Tell me what's going on — tonight I'll cast a spell for you, read your cards, and tell you exactly what's already in motion in your life.</p>
+  <p class="sub2">Then I'll teach you how to see all of it yourself.</p>
+</div></header>
+
+<!-- 2 SOCIAL PROOF + CAROUSEL -->
+<section style="padding:36px 0 32px"><div class="wrap">
+  <p class="proofline">In 12 years I've worked with over <strong>7,777 women.</strong> Here is what happened:</p>
+</div>
+<!-- Photos: replace <div class="kz-tst-photo">..</div> with <img class="kz-tst-photo" src="PHOTO_URL" alt="Name">. Add more testimonials by copying a whole card. -->
+<div class="kz-tst">
+  <div class="kz-tst-track" id="kzTstTrack" tabindex="0" aria-label="Testimonials — swipe or use arrow keys">
+    <div class="kz-tst-card"><div class="kz-tst-body">
+      <div class="kz-tst-photo" role="img" aria-label="Simone A.">SA</div>
+      <div class="kz-tst-content"><span class="kz-tst-stars">★★★★★</span><p class="kz-tst-quote">“I came to Kaia about him. I stayed because of everything else. My finances, my health, the job I was afraid to leave. She reads all of it. She sees all of it. I don't make a major move without checking in with her anymore.”</p><span class="kz-tst-name">Simone A.</span><span class="kz-tst-loc">Chicago, IL</span></div>
+    </div><span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span></div>
+    <div class="kz-tst-card"><div class="kz-tst-body">
+      <div class="kz-tst-photo" role="img" aria-label="Diana R.">DR</div>
+      <div class="kz-tst-content"><span class="kz-tst-stars">★★★★★</span><p class="kz-tst-quote">“Eleven days after she cast for me he texted at 1:47 in the morning asking if he could call. We talked for three hours. I'd felt something shift three days before but I didn't know what to name it yet.”</p><span class="kz-tst-name">Diana R.</span><span class="kz-tst-loc">Atlanta, GA</span></div>
+    </div><span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span></div>
+    <div class="kz-tst-card"><div class="kz-tst-body">
+      <div class="kz-tst-photo" role="img" aria-label="Priya M.">PM</div>
+      <div class="kz-tst-content"><span class="kz-tst-stars">★★★★★</span><p class="kz-tst-quote">“I came to her about money, not a man. I'd been stuck at the same income for three years. She read something in my chart that explained the entire pattern in four sentences. The next month I landed the client that changed my year.”</p><span class="kz-tst-name">Priya M.</span><span class="kz-tst-loc">London, UK</span></div>
+    </div><span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span></div>
+    <div class="kz-tst-card"><div class="kz-tst-body">
+      <div class="kz-tst-photo" role="img" aria-label="Rachel B.">RB</div>
+      <div class="kz-tst-content"><span class="kz-tst-stars">★★★★★</span><p class="kz-tst-quote">“The health reading told me something was off six weeks before my doctor found it. She wasn't diagnosing me — she was seeing an energy block and told me to get checked. Early detection. I don't like to think about what happens if I'd waited.”</p><span class="kz-tst-name">Rachel B.</span><span class="kz-tst-loc">Toronto, Canada</span></div>
+    </div><span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span></div>
+  </div>
+  <div class="kz-tst-dots" id="kzTstDots"></div>
+</div></section>
+
+<!-- 3 SITUATION AGNOSTIC + PROMISE -->
+<section class="alt"><div class="wrap ta">
+  <p class="lg">It doesn't matter how long this has been going on.</p>
+  <p class="lg">It doesn't matter if you've tried everything and nothing changed.</p>
+  <p class="lg">It doesn't matter if the situation right now feels completely out of your hands.</p>
+  <p style="margin:30px 0 34px">Because in the next few minutes you're going to understand something that changes why everything you've been doing hasn't been working — and what actually does.</p>
+  <div class="beats">
+    <p>So that the man who went cold or ghosted you starts making his way back to you.</p>
+    <p>So that the money situation that's been sitting on your chest starts to break open.</p>
+    <p>So that your body starts responding to the life you're trying to build, not the stress you've been carrying.</p>
+    <p>So that you stop waking up feeling like the day has already been lost before you've started it.</p>
+    <p>And so that you become the woman who sees what's coming — before it arrives.</p>
+    <p>And have that superpower in life because all choices you make simply works in your favor</p>
+  </div>
+</div></section>
+
+<!-- 4 I'VE WITNESSED -->
+<section><div class="wrap">
+  <h2 class="h hc">In 12 years of this work, I have watched the same thing happen over and over:</h2>
+  <ul class="sp">
+    <li>Women whose relationships had gone completely cold — no warmth, no effort, no sign of the man they fell for — and within days of the work, something in him cracked open and he came back all the way (this time for good).</li>
+    <li>Women who had been earning the same amount for two, three, four years, doing everything right — and once the money block was removed, the financial door they'd been pushing against simply opened.</li>
+    <li>Women whose bodies had been holding emotional and mental stress so long they'd forgotten what it felt like not to — and once their energy aligned, their health started responding in ways their doctors noticed.</li>
+    <li>Women who had been moving through their own life feeling like a passenger — and who, once they learned to read what the universe was already showing them, started making decisions with a steadiness they had never felt before.</li>
+  </ul>
+</div></section>
+
+<!-- 5 MECHANISM -->
+<section class="alt"><div class="wrap">
+  <h2 class="h">There is a reason you have done everything ‘right’ and still feel like something is working against you.</h2>
+  <div class="beats"><p>It is not your effort. It is not your intelligence. It is not because you are doing it wrong.</p><p>In fact, it’s not even your fault.</p></div>
+  <p>It is because the place where the actual problem lives in is a place that logic and effort cannot reach.</p>
+  <p>Think about what has been running underneath your life for the past year.</p>
+  <div class="beats">
+    <p>The relationship that won't move no matter what you do.</p>
+    <p>The money situation that resets itself every time you get close.</p>
+    <p>The health issues your doctor treats the symptoms of but never the source.</p>
+    <p>The feeling every morning that something is off — that you are living inside a version of your life that isn't quite yours yet.</p>
+  </div>
+  <p>That is not just bad luck.</p>
+  <p class="big">That is blocked energy — specific, located, and removable.</p>
+  <div class="beats">
+    <p>Every person alive has energy in motion around them at all times.</p>
+    <p>Running between them and the people they love.</p>
+    <p>Running through their finances, their body, their sense of what is possible.</p>
+    <p>When that energy is flowing freely, things move.</p>
+    <p>Opportunities open.</p><p>The right people reach out.</p><p>The body heals.</p>
+    <p>Life and even the universe feels like it is on your side.</p>
+  </div>
+  <div class="beats">
+    <p>When it is blocked — nothing moves.</p>
+    <p>No matter what you do at the surface level, the block underneath keeps resetting the result.</p>
+  </div>
+  <div class="beats"><p><strong>What I do is find the block.</strong></p><p><strong>Remove it.</strong></p><p><strong>And redirect that energy toward the specific outcome you need.</strong></p></div>
+  <p>Then I teach you how to do it yourself — so you are never dependent on anyone else to move your own life again.</p>
+  <p class="big">That is The Psychic Circle.</p>
+</div></section>
+
+<!-- 6 FOUR PILLARS -->
+<section class="pillars"><div class="wide">
+  <p class="eyebrow">What you get each month</p>
+  <div class="pl-grid">
+    <div class="pl-card"><h3>Spell Casting</h3><p class="mech">Done for you, every month</p>
+      <p>I cast directly for your situation. And this is no ordinary spell.</p><p>This is specific to your man, your money, your health, your life.</p><p>You tell me what needs to move towards you and away from you.</p><p>I move it.</p></div>
+    <div class="pl-card"><h3>Tarot Reading</h3><p class="mech">Your situation, read in full</p>
+      <p>Every month I pull and read cards for where you are right now — what energy is surrounding you, what is coming, what is trying to leave, and what is already in motion that you haven't been able to see.</p><p>You get the reading in full</p></div>
+    <div class="pl-card"><h3>Psychic Prediction</h3><p class="mech">What is already coming</p>
+      <p>I tell you what I see ahead.</p><p>The timeline. The specific shifts. The decisions coming toward you that you will want to be ready for.</p><p>This is your situation, specifically, and what is already written in it.</p></div>
+    <div class="pl-card"><h3>The Teaching</h3><p class="mech">Learn to hold your own power</p>
+      <p>Every month you learn something new.</p><p>How to read the signs already in your life.</p><p>How to understand your own energy.</p><p>Astrology, numerology, spell-work, manifesting that actually works, opening your third eye, reading what the universe is already trying to show you.</p><p>You are becoming someone who knows how to do this for herself.</p></div>
+  </div>
+</div></section>
+
+<!-- 7 VIDEO TESTIMONIALS -->
+<section><div class="wide">
+  <p class="eyebrow hc">Watch their stories</p>
+  <!-- VIDEOS: on each <video> add  src="YOUR_VIDEO.mp4#t=0.1"  (and poster="..." if you want). Until then a green placeholder shows. -->
+  <div class="vt-track" id="vtTrack">
+    <div class="kz-vc-card"><div class="kz-vc-media"><div class="kz-vc-ph" aria-hidden="true">K</div>
+      <video class="kz-vc-video" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
+      <button class="kz-vc-play" type="button" aria-label="Play video 1"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+      <div class="kz-vc-cue">Watch her story</div></div>
+      <div class="kz-vc-cap"><span class="kz-vc-stars">★★★★★</span><p class="kz-vc-quote">“Everything she predicted — the timeline, the specific things she said — happened exactly the way she said.”</p><span class="kz-vc-name">Her prediction came true</span></div></div>
+    <div class="kz-vc-card"><div class="kz-vc-media"><div class="kz-vc-ph" aria-hidden="true">K</div>
+      <video class="kz-vc-video" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
+      <button class="kz-vc-play" type="button" aria-label="Play video 2"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+      <div class="kz-vc-cue">Watch her story</div></div>
+      <div class="kz-vc-cap"><span class="kz-vc-stars">★★★★★</span><p class="kz-vc-quote">“I came about money. I didn't expect the relationship reading to be the one that broke me open.”</p><span class="kz-vc-name">The reading that broke her open</span></div></div>
+    <div class="kz-vc-card"><div class="kz-vc-media"><div class="kz-vc-ph" aria-hidden="true">K</div>
+      <video class="kz-vc-video" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
+      <button class="kz-vc-play" type="button" aria-label="Play video 3"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+      <div class="kz-vc-cue">Watch her story</div></div>
+      <div class="kz-vc-cap"><span class="kz-vc-stars">★★★★★</span><p class="kz-vc-quote">“Three months in and I use what she teaches me every single day. I see things now I used to miss completely.”</p><span class="kz-vc-name">The teaching</span></div></div>
+    <div class="kz-vc-card"><div class="kz-vc-media"><div class="kz-vc-ph" aria-hidden="true">K</div>
+      <video class="kz-vc-video" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
+      <button class="kz-vc-play" type="button" aria-label="Play video 4"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+      <div class="kz-vc-cue">Watch her story</div></div>
+      <div class="kz-vc-cap"><span class="kz-vc-stars">★★★★★</span><p class="kz-vc-quote">“I did not expect the health reading. I did not expect to be this grateful for it.”</p><span class="kz-vc-name">The health reading</span></div></div>
+  </div>
+</div></section>
+
+<!-- 8 ANCIENT LINEAGE -->
+<section class="alt"><div class="wrap">
+  <h2 class="h">This divine knowledge is not new.</h2>
+  <p>The ability to read energy, to cast intention, to move the forces operating on a human life — women have been doing this for thousands of years.</p>
+  <div class="beats"><p>In every culture. In every century.</p><p>Whispered from mother to daughter, practiced in private, kept alive because it worked.</p></div>
+  <p><strong>It was suppressed not because it was false.</strong></p>
+  <p>It was suppressed because it gave women power that had nothing to do with who was in the room, who controlled the money, or who decided what was real.</p>
+  <p>The women who carried this knowledge quietly — who read the signs, who understood what was already in motion, who could move energy with intention — those women moved through the world differently.</p>
+  <div class="beats"><p>Men felt it without being able to name it.</p><p>Doors opened.</p><p>Things aligned.</p><p>Life responded to them in ways it did not respond to other women.</p></div>
+  <p>That knowledge still exists.</p>
+  <p>It has just never been packaged in a way that makes it accessible — affordable, structured, done-for-you so your situation is handled immediately, and taught so you are never dependent on a practitioner again.</p>
+  <p class="big">That is what The Psychic Circle is.</p>
+  <div class="beats"><p>You can be inside it.</p><p>You can harness it.</p><p>You can live life to the fullest because of it.</p></div>
+</div></section>
+
+<!-- 9 THE PATTERN -->
+<section><div class="wide">
+  <p class="eyebrow hc">The pattern</p>
+  <div class="tn-grid" style="margin-top:18px">
+    <div class="tn"><div class="num">24</div><div class="lbl">Hours</div>
+      <p>This is when the energy first shifts. You may not see it yet — but something has already started moving. He wakes up thinking about you without knowing why. The financial situation you've been pushing against starts to loosen at the edges. Your body starts responding differently to the day.</p>
+      <p class="em">The work has begun. The clock is running.</p></div>
+    <div class="tn"><div class="num">7</div><div class="lbl">Days</div>
+      <p>This is when it starts becoming visible.</p>
+      <p>A message you weren't expecting. A change in how he's showing up. A financial door that opens where there wasn't one before. An improvement in how you feel physically — your energy, your sleep, the tension you'd been carrying.</p>
+      <p class="em">Women describe this window as the first time they believed something was actually happening.</p></div>
+    <div class="tn"><div class="num">30</div><div class="lbl">Days</div>
+      <p>By the end of your first month inside The Psychic Circle, two things are true.</p>
+      <p>Your situation has moved — specifically, in the direction of the work we did together.</p>
+      <p>And you have started learning something. How to read what's already in motion. How to understand what the universe has been trying to show you. How to stop feeling like a passenger in your own life.</p>
+      <p class="em">The women who stay describe month two as when it compounds. Month three as when they stop being able to imagine going back.</p></div>
+  </div>
+</div></section>
+
+<!-- 10 WHY THIS WORKS -->
+<section class="alt"><div class="wrap">
+  <h2 class="h">Why this works when everything else didn't</h2>
+  <p><strong>Everything you've tried before worked at the surface.</strong></p>
+  <div class="beats">
+    <p>Therapy helped you understand the wound.</p><p>It did not close it.</p>
+    <p style="margin-top:14px">The affirmations gave you a practice.</p><p>They did not move the actual situation.</p>
+    <p style="margin-top:14px">The books explained the pattern.</p><p>Knowing the pattern did not change it.</p>
+    <p style="margin-top:14px">The conversations with your friends named what was happening.</p><p>Them talking about it did not stop it from happening again.</p>
+  </div>
+  <p>None of those things failed because you did them wrong.</p>
+  <p>They failed because the problem you are dealing with does not live at the level where those tools operate.</p>
+  <p>Your situation — with him, with money, with your health, with the feeling that your life is circling instead of moving — lives at the level of energy.</p>
+  <p>Blocked energy has a specific location, a specific shape, a specific cause.</p>
+  <p>It does not respond to logic. It does not respond to effort. It does not respond to willpower.</p>
+  <p>It responds to this.</p>
+  <p class="big">To divinity.</p>
+  <p>What I do is work at the layer where the actual block is.</p>
+  <div class="beats"><p>I remove it.</p><p>I redirect the energy that has been pooling and stagnating toward the specific outcome you need.</p></div>
+  <p>And because I teach you as we go — you learn to maintain it, build on it, and do it yourself.</p>
+  <div class="beats"><p>You stop starting over every time something shifts.</p><p>You stop feeling like you are always one step behind what your life is trying to do.</p><p>You become someone who knows what is in motion.</p></div>
+  <p class="big">And that changes everything.</p>
+</div></section>
+
+<!-- 11 KAIA'S STORY -->
+<section><div class="wrap">
+  <h2 class="h hc">I was not supposed to be doing this.</h2>
+  <!-- Photo: replace the next div with <img class="kz-fs-photo" src="YOUR_PHOTO.jpg" alt="Kaia Zephra"> -->
+  <div class="kz-fs-photo" role="img" aria-label="Kaia Zephra">KZ</div>
+  <p>I actually thought I should gatekeep this.</p>
+  <p>I grew up watching my grandmother do it — reading cards at the kitchen table, women coming to her door at all hours, leaving with something in their face that hadn't been there when they arrived. I thought it was something she had invented.</p>
+  <div class="beats"><p>A way to make herself necessary.</p><p>I loved her and I didn't believe a word of it.</p></div>
+  <div class="beats"><p>I had a career. I had a life that made sense from the outside.</p><p>I was not the kind of woman who sat with cards and candles.</p></div>
+  <p><strong>And then one year, in the space of three months, everything I had built fell apart.</strong></p>
+  <div class="beats"><p>The relationship ended in a way I did not choose.</p><p>The money situation collapsed faster than I could manage it.</p></div>
+  <p>And my body — which had been holding the stress of both for longer than I admitted — started breaking down in ways I could not ignore.</p>
+  <div class="beats"><p>I did everything I was supposed to do.</p><p>I talked to the right people.</p><p>I made the practical decisions.</p><p>I kept moving.</p></div>
+  <p><strong>Nothing moved back.</strong></p>
+  <p>One night, sitting alone in a way I had not sat alone in years, I picked up my grandmother's cards.</p>
+  <p>I do not know how to explain what happened next in language that doesn't sound like something I would have rolled my eyes at before that night.</p>
+  <div class="beats"><p>I pulled three cards.</p><p>I understood all three.</p><p>Without having been taught.</p></div>
+  <div class="beats"><p>I went back to her notes — the ones I'd never read, the journals she'd kept for forty years.</p><p>I read all of them.</p><p>And I understood those too.</p></div>
+  <p>The ability had been in me the whole time. I had just never had a reason to open it.</p>
+  <div class="beats"><p>I started working with women the following year.</p><p>Word moved the way word moves when something is real — quietly, person to person, through the ones who had results and told someone they trusted.</p></div>
+  <p>Twelve years later I have worked with over <strong>7,777 women.</strong></p>
+  <div class="beats"><p>Relationships that had been cold for years.</p><p>Financial situations that had been stuck for longer.</p><p>Health issues that conventional approaches hadn't reached.</p></div>
+  <p>The feeling of being a passenger in your own life — that one more than any other, because I know exactly what it costs.</p>
+  <p>I built The Psychic Circle program because the women I worked with privately kept asking for the same thing: not just the casting, not just the reading, but the knowing.</p>
+  <div class="beats"><p>They wanted to understand what I could see.</p><p>They wanted to learn to read their own lives.</p></div>
+  <p>So I built the place where both happen.</p>
+  <div class="beats"><p>Every month you get the work done for you — the spell, the reading, the prediction.</p><p>And every month you get closer to being able to do it yourself.</p></div>
+  <p class="big">I am still here because this is still the only thing I found that moves what nothing else can reach.</p>
+</div></section>
+
+<!-- 12 WILL THIS WORK IF -->
+<section class="alt"><div class="wrap">
+  <h2 class="h hc">You are probably wondering if your specific situation is one this works for.</h2>
+  <div class="kz-wtw">
+    <div class="kz-wtw-ledger"><div class="kz-wtw-row"><span class="kz-wtw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><p>It works for the woman whose <strong>relationship went completely cold</strong> — no warmth, no effort, no sign of the man she fell in love with.</p></div><div class="kz-wtw-row"><span class="kz-wtw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><p>It works for the woman whose <strong>man left and swore he was done.</strong></p></div><div class="kz-wtw-row"><span class="kz-wtw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><p>It works for the woman who is <strong>still in the relationship but knows something is slipping</strong> and doesn't know how to stop it.</p></div><div class="kz-wtw-row"><span class="kz-wtw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><p>It works for the woman who <strong>hasn't heard from him in months — or years.</strong></p></div><div class="kz-wtw-row"><span class="kz-wtw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><p>It works for the woman who is <strong>watching him with someone new</strong> and can't stop looking.</p></div><div class="kz-wtw-row"><span class="kz-wtw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><p>It works for the <strong>money situation that has been stuck</strong> at the same level no matter what she does.</p></div><div class="kz-wtw-row"><span class="kz-wtw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><p>It works for the woman whose <strong>body has been holding stress</strong> so long she can't remember what it felt like before.</p></div><div class="kz-wtw-row"><span class="kz-wtw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><p>It works for the woman who feels like <strong>her life is happening around her</strong> instead of for her.</p></div><div class="kz-wtw-row"><span class="kz-wtw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><p>It works for the woman who <strong>already half-believes in this world</strong> but has never had a practitioner she fully trusted.</p></div><div class="kz-wtw-row"><span class="kz-wtw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><p>It works for the woman who has <strong>tried everything else</strong> and is here because nothing at the surface level has reached the actual problem.</p></div></div>
+    <div class="kz-wtw-banner"><p class="l1">It works.</p><p class="l2">Because the energy I work with is not specific to one type of situation — it is the energy underneath all of them.</p></div>
+  </div>
+</div></section>
+
+<!-- 13 LABELED GRID -->
+<section><div class="wide">
+  <h2 class="h hc">What happened after Kaia worked with them:</h2>
+  <!-- Photos: replace <div class="kz-pf-photo">..</div> with <img class="kz-pf-photo" src="PHOTO_URL" alt="Name"> -->
+  <div class="kz-pf"><div class="kz-pf-grid">
+    <div class="kz-pf-card"><div class="kz-pf-photo" role="img" aria-label="Sofia G.">S</div>
+      <div class="kz-pf-body"><p class="kz-pf-label">THREE YEARS OF FINANCIAL STAGNATION, BROKEN IN ONE MONTH</p><span class="kz-pf-stars">★★★★★</span>
+        <p class="kz-pf-quote">“I'd been at the same income level for three years. Good at my job, doing everything right. After my first month with Kaia — the spell, the reading, the prediction she gave me about an opportunity coming — I landed a contract that doubled my rate. She told me it was coming. She was right.”</p>
+        <div class="kz-pf-author"><div class="kz-pf-who"><span class="kz-pf-name">Sofia G.</span> <span class="kz-pf-loc">Denver, CO</span></div><span class="kz-pf-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span></div>
+      </div></div>
+    <div class="kz-pf-card"><div class="kz-pf-photo" role="img" aria-label="Rosa D.">R</div>
+      <div class="kz-pf-body"><p class="kz-pf-label">14 MONTHS OF SILENCE. ONE TEXT.</p><span class="kz-pf-stars">★★★★★</span>
+        <p class="kz-pf-quote">“I had not heard from him in fourteen months. On day 6 I got a message at 2:11am: 'I know this is out of nowhere but you've been on my mind for two weeks and I had to reach out.' We're together now. I still think about the version of me who almost didn't do it.”</p>
+        <div class="kz-pf-author"><div class="kz-pf-who"><span class="kz-pf-name">Rosa D.</span> <span class="kz-pf-loc">San Antonio, TX</span></div><span class="kz-pf-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span></div>
+      </div></div>
+    <div class="kz-pf-card"><div class="kz-pf-photo" role="img" aria-label="Marilyn P.">M</div>
+      <div class="kz-pf-body"><p class="kz-pf-label">THE HEALTH READING THAT CHANGED EVERYTHING</p><span class="kz-pf-stars">★★★★★</span>
+        <p class="kz-pf-quote">“She told me in the reading that something in my body needed attention — not in a vague way, specifically. I booked the appointment I had been putting off. What they found was early. The doctor said catching it when they did made all the difference. Kaia saw it before anyone else.”</p>
+        <div class="kz-pf-author"><div class="kz-pf-who"><span class="kz-pf-name">Marilyn P.</span> <span class="kz-pf-loc">Frankfurt, Germany</span></div><span class="kz-pf-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span></div>
+      </div></div>
+    <div class="kz-pf-card"><div class="kz-pf-photo" role="img" aria-label="Nia W.">N</div>
+      <div class="kz-pf-body"><p class="kz-pf-label">THE TEACHING IS WHAT STAYED</p><span class="kz-pf-stars">★★★★★</span>
+        <p class="kz-pf-quote">“The spell brought him back. The coaching is what changed me. I know how to read my life now. I see the signs I used to miss. I understand what's in motion before it arrives. The relationship is better than it was before — but I'm better too. That part surprised me most.”</p>
+        <div class="kz-pf-author"><div class="kz-pf-who"><span class="kz-pf-name">Nia W.</span> <span class="kz-pf-loc">Charlotte, NC</span></div><span class="kz-pf-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span></div>
+      </div></div>
+    <div class="kz-pf-card"><div class="kz-pf-photo" role="img" aria-label="Priya S.">P</div>
+      <div class="kz-pf-body"><p class="kz-pf-label">SHE TOLD ME WHAT WAS COMING AND SHE WAS RIGHT</p><span class="kz-pf-stars">★★★★★</span>
+        <p class="kz-pf-quote">“Her psychic prediction for my month described three specific things that were going to happen. All three happened. The timeline was off by four days on one of them. I am not exaggerating. I have screenshots.”</p>
+        <div class="kz-pf-author"><div class="kz-pf-who"><span class="kz-pf-name">Priya S.</span> <span class="kz-pf-loc">New Delhi, India</span></div><span class="kz-pf-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span></div>
+      </div></div>
+    <div class="kz-pf-card"><div class="kz-pf-photo" role="img" aria-label="Diana C.">D</div>
+      <div class="kz-pf-body"><p class="kz-pf-label">I CAME FOR HIM. I STAYED FOR MY LIFE.</p><span class="kz-pf-stars">★★★★★</span>
+        <p class="kz-pf-quote">“Month one I joined for the relationship. Month three I realized the money reading and the health reading and the third-eye curriculum were the ones that had actually changed how I live. He's back. That's real. But I'm different now. That's more real.”</p>
+        <div class="kz-pf-author"><div class="kz-pf-who"><span class="kz-pf-name">Diana C.</span> <span class="kz-pf-loc">London, UK</span></div><span class="kz-pf-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span></div>
+      </div></div>
+  </div></div>
+</div></section>
+
+<!-- 14 PERSONAL SERVICE -->
+<section class="alt"><div class="wrap">
+  <h2 class="h">This is not a system where you pay and receive generic advice.</h2>
+  <div class="beats"><p>After you join, I email you personally.</p><p>I ask you what is happening — with the relationship, with the money situation, with your health, with whatever has been sitting on you.</p><p>You tell me what you need moved.</p></div>
+  <div class="beats"><p>I do the spell casting personally catered to you myself.</p><p>I pull and read the tarot cards myself.</p></div>
+  <p>The psychic prediction I give you is specific to your situation - not a general reading that could apply to any woman in any month.</p>
+  <p>What you receive every month — the spell, the reading, the prediction, the teaching — comes from twelve years of this work and from me, specifically, sitting with your situation and doing the work it requires.</p>
+  <div class="beats"><p>I still talk daily to women I first worked with years ago.</p><p>After they got what they came for.</p><p>After they got the relationship, after the money shifted, after the health improved.</p><p>We still talk.</p></div>
+  <p>Because once I know your energy, I know it — and there is always more to learn, more to see, more to work with.</p>
+  <p class="big">The Psychic Circle is the beginning of the clearest relationship you will have with your own life.</p>
+</div></section>
+
+<!-- 15 THE TEACHING -->
+<section><div class="wrap">
+  <h2 class="h">Every month inside The Psychic Circle, you learn something that stays with you.</h2>
+  <div class="beats" style="margin-bottom:30px">
+    <p style="margin-bottom:18px">How to read the signs the universe is already putting in your life — and stop second-guessing whether they mean something.</p>
+    <p style="margin-bottom:18px">How astrology actually applies to your specific chart, your specific timing, your specific decisions.</p>
+    <p style="margin-bottom:18px">How numerology works — and why the numbers in your life are not coincidences.</p>
+    <p style="margin-bottom:18px">How to cast your own spells correctly — the structure, the intention, the timing, the energy required.</p>
+    <p style="margin-bottom:18px">How to open your third eye and start trusting what you see before you can explain it.</p>
+    <p style="margin-bottom:18px">How to manifest in a way that actually moves things — not the technique, but the internal state that makes the technique work.</p>
+    <p style="margin-bottom:18px">How to read energy in the people around you — in him, in your workplace, in your body.</p>
+    <p style="margin-bottom:0">How to know when something is working and when it needs to be redirected.</p>
+  </div>
+  <p>By the end of six months inside The Psychic Circle, you will not need to outsource your own discernment to anyone.</p>
+  <div class="beats"><p><strong>You will be the woman who feels what is right</strong></p><p><strong>You will be the woman who knows what is right.</strong></p><p><strong>And you will be the woman who has the power over her life.</strong></p></div>
+</div></section>
+
+<!-- 16 PRICE -->
+<section class="alt"><div class="wrap">
+  <p class="eyebrow hc">The offering</p>
+  <p>For the first decade of this work, the women who found me paid for sessions individually.</p>
+  <p>A single casting. A reading. A prediction consultation. The women who wanted ongoing work — the ones who wanted all of it — paid $300, $500, sometimes more, every month.</p>
+  <div class="beats"><p>They paid it because nothing else was doing what this does.</p><p>Nothing else was working except what I was doing for her.</p></div>
+  <p>And then I started thinking about the women who weren't in the room.</p>
+  <p>The ones who needed this just as much, whose situations were just as real, whose lives were just as worth moving — but who couldn't put $400 or even $200 or even $100 on a table every month for private access.</p>
+  <p>She doesn't want him back any less. She doesn't lie awake any less. She doesn't deserve to be the woman who knows any less than the woman who can afford the private rate.</p>
+  <p>So I built The Psychic Circle.</p>
+  <p>Everything I do privately — the casting, the reading, the prediction, the teaching — structured into a monthly membership at a price that removes the question of whether she can afford to change her life.</p>
+  <p class="hc" style="margin-bottom:0"><strong>Your monthly membership:</strong></p>
+  <div class="price">$7.77</div>
+  <p>The number chose itself. 7 is the number of spiritual completion — the number that appears when the universe is ready to deliver what has been in motion. Three sevens is the signal that the door is fully open. $7.77 is not a price. It is the numerical confirmation that you are ready, and so is everything waiting for you on the other side.</p>
+  <p>Less than two coffees, drunk alone, waiting for something to change — for everything I have described on this page, every month, for as long as you need it.</p>
+</div></section>
+
+<!-- 17 CTA 1 -->
+<section class="ctasec"><div class="wrap"><a class="cta" href="#join" data-cta><span class="t">Join The Psychic Circle</span><span class="s">Your first casting begins tonight</span></a></div></section>
+
+<!-- 18 GUARANTEE -->
+<section class="alt"><div class="wrap kz-gr">
+  <h2 class="h">You are risking nothing.</h2>
+  <p>You have <strong><span data-days>60</span> full days</strong> from the moment you join to experience The Psychic Circle — the casting, the reading, the prediction, the teaching — and to see your situation begin to move.</p>
+  <div class="kz-gr-card">
+    <div class="kz-gr-badge"><span data-days>60</span><small>Days</small></div>
+    <div class="kz-gr-text">
+      <p>If you do not feel the shift in your relationship, your finances, your health, or your sense of what is possible in your own life —</p>
+      <p>If the prediction does not prove accurate —</p>
+      <p>If you do not feel that you are learning something real —</p>
+      <p>Email me. Every dollar you paid is returned to you. No questions. No conditions. No resistance.</p>
+      <p>Just one email, and it is returned in full.</p>
+      <p class="kz-gr-sig">— Kaia Zephra</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 19 BEST / WORST -->
+<section><div class="wrap kz-gr">
+  <div class="kz-gr-cases">
+    <div class="kz-gr-case best"><span class="lb">Best case</span><p>Your relationship moves. Your money situation breaks open. Your body starts responding differently. You begin to see what's already in motion before it arrives — and you stop feeling like a passenger in your own life.</p></div>
+    <div class="kz-gr-case worst"><span class="lb">Worst case</span><p>You get every dollar back.</p></div>
+  </div>
+  <p class="either">Either way, you will have done the one thing most women in your position never do: you stopped waiting for it to get better on its own.</p>
+</div></section>
+
+<!-- 20 CTA 2 -->
+<section class="ctasec" style="padding-top:0"><div class="wrap"><a class="cta" href="#join" data-cta><span class="t">Yes — I'm Ready</span><span class="s">Join The Psychic Circle · $7.77/month</span></a></div></section>
+
+<!-- 21 FAQ -->
+<section class="alt"><div class="wrap">
+  <h2 class="h">Questions women ask before joining:</h2>
+  <p class="faq-sub">Tap a question to open it.</p>
+  <div id="faq"><div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Does this work for my specific situation?</span><i aria-hidden="true"></i></button><div class="faq-a" hidden><p>The energy I work with is not situation-specific — it is the energy underneath every situation. Whether it's the relationship that has gone cold, the finances that won't move, the health issue that hasn't resolved, or the feeling that your life is circling and not advancing — they all live at the same layer. That layer is where this work operates.</p></div></div><div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>What if I've never believed in anything like this?</span><i aria-hidden="true"></i></button><div class="faq-a" hidden><p>Good. The women who get the most from this work are often the ones who came in skeptical. Skepticism means you are not going to talk yourself into a result that isn't there. It means that when something actually moves — and it will — you will know it is real. You will not be able to explain it away.</p></div></div><div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>What if I've tried spells or readings before and nothing happened?</span><i aria-hidden="true"></i></button><div class="faq-a" hidden><p>Then you experienced what happens when the work is done without the right foundation. A spell without understanding is a request without direction. What I do is different — not because the category is different, but because I work directly with your specific situation, not from a template, and I teach you the system underneath it so the work compounds instead of expiring.</p></div></div><div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>How fast will I see something?</span><i aria-hidden="true"></i></button><div class="faq-a" hidden><p>The energy shifts within the first 24 hours — that part is happening whether you can see it yet or not. What you can observe usually starts around day 3 to 7: a change in how he's showing up, a financial door that moves, a shift in how your body feels, something in your daily life that breaks the pattern that's been running. By the end of the first month, the direction will be clear.</p></div></div><div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>What exactly do I get every month?</span><i aria-hidden="true"></i></button><div class="faq-a" hidden><p>Every month: a spell cast directly for your specific situation, a full tarot reading for where you are now, a psychic prediction for what is coming in your life, and a new module of The Teaching — curriculum that builds your own ability to read energy, understand signs, and work with these forces yourself. All four, every month, for $7.77.</p></div></div><div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Is this private?</span><i aria-hidden="true"></i></button><div class="faq-a" hidden><p>Completely. What you share with me stays between us. He will never know. No one in your life will ever know unless you tell them. I read every message personally — I have no team, no assistants, no one else seeing your situation. What you bring me stays with me.</p></div></div><div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>What if I want to cancel?</span><i aria-hidden="true"></i></button><div class="faq-a" hidden><p>You can cancel any month, anytime, with one email. No forms, no retention sequences, no being made to feel guilty for leaving. If you cancel in your first <span data-days>60</span> days, you receive a full refund. After <span data-days>60</span> days, cancellation stops your next billing — no refund on the previous month, but no obligation to continue either.</p></div></div></div>
+</div></section>
+
+<!-- 22 FINAL CTA -->
+<section class="ctasec" id="join"><div class="wrap"><a class="cta" href="#join" data-cta><span class="t">Yes — Join The Psychic Circle</span><span class="s">$7.77/month · <span data-days>60</span>-day Money-Back Guarantee</span></a></div></section>
+
+<!-- 23 FOOTER -->
+<footer><div class="wrap">
+  <p>For entertainment purposes. Results may vary. Not a substitute for professional medical, legal, or financial advice. By joining you confirm you are 18 or older and agree to our Terms of Service, Privacy Policy, and Refund Policy.</p>
+  <p><a href="#">Terms</a>·<a href="#">Privacy</a>·<a href="#">Refund</a>·<a href="#">Contact</a></p>
+</div></footer>
+
+<div class="sticky" id="sticky"><a class="cta" href="#join" data-cta><span class="t">Join The Psychic Circle · $7.77/mo</span></a></div>
+
+<script>
+// ===== CONFIG =====
+var CHECKOUT_URL   = "#join";   // <- put the real checkout / order link here
+var GUARANTEE_DAYS = 60;        // <- one number: used in the guarantee, the FAQ and the final button
+
+(function(){
+  document.querySelectorAll("[data-days]").forEach(function(e){ e.textContent=GUARANTEE_DAYS; });
+  if(CHECKOUT_URL!=="#join") document.querySelectorAll("[data-cta]").forEach(function(a){ a.href=CHECKOUT_URL; });
+
+  // sticky CTA (mobile): show after the hero, hide near the final CTA
+  var st=document.getElementById("sticky"), join=document.getElementById("join");
+  function chk(){ var r=join.getBoundingClientRect(); st.classList.toggle("show", window.scrollY>600 && r.top>window.innerHeight*0.7); }
+  window.addEventListener("scroll",chk,{passive:true}); chk();
+
+  // FAQ: one open at a time
+  var items=document.querySelectorAll(".faq-item");
+  items.forEach(function(it){
+    var q=it.querySelector(".faq-q"), a=it.querySelector(".faq-a");
+    q.addEventListener("click",function(){
+      var open=q.getAttribute("aria-expanded")==="true";
+      items.forEach(function(o){ o.querySelector(".faq-q").setAttribute("aria-expanded","false"); o.querySelector(".faq-a").hidden=true; });
+      if(!open){ q.setAttribute("aria-expanded","true"); a.hidden=false; }
+    });
+  });
+
+  // videos: play one at a time (needs a src on the <video>)
+  var vids=document.querySelectorAll(".kz-vc-video");
+  vids.forEach(function(v){
+    if(!v.getAttribute("src")) v.classList.add("no-src");
+    var media=v.parentNode, btn=media.querySelector(".kz-vc-play");
+    btn.addEventListener("click",function(){
+      if(!v.getAttribute("src")) return;
+      vids.forEach(function(o){ if(o!==v) o.pause(); });
+      v.controls=true; media.classList.add("is-playing");
+      var p=v.play(); if(p&&p.catch) p.catch(function(){});
+    });
+  });
+
+  // testimonial carousel: drag + dots + keys + gentle autoplay
+  var track=document.getElementById("kzTstTrack"), dots=document.getElementById("kzTstDots");
+  if(!track||!dots) return;
+  var cards=track.querySelectorAll(".kz-tst-card");
+  function pos(c){ return c.offsetLeft-track.offsetLeft-4; }
+  function nearest(){ var x=track.scrollLeft,best=0,d=1e9; cards.forEach(function(c,i){ var k=Math.abs(pos(c)-x); if(k<d){d=k;best=i;} }); return best; }
+  var settle=null,down=false,moved=false,startIdx=0,sx=0,sl=0,lastX=0,lastT=0,vel=0;
+  function glide(i){ i=Math.max(0,Math.min(cards.length-1,i)); clearTimeout(settle); track.classList.add("is-drag"); track.scrollTo({left:pos(cards[i]),behavior:"smooth"}); settle=setTimeout(function(){ track.classList.remove("is-drag"); },520); }
+  cards.forEach(function(c,i){ var b=document.createElement("button"); b.className="kz-tst-dot"; b.type="button"; b.setAttribute("aria-label","Testimonial "+(i+1)); b.onclick=function(){ glide(i); }; dots.appendChild(b); });
+  function upd(){ var n=nearest(); dots.querySelectorAll(".kz-tst-dot").forEach(function(el,i){ el.classList.toggle("is-on",i===n); }); }
+  track.addEventListener("scroll",upd,{passive:true}); window.addEventListener("resize",upd); upd();
+  track.addEventListener("keydown",function(e){ if(e.key==="ArrowRight"){e.preventDefault();glide(nearest()+1);} if(e.key==="ArrowLeft"){e.preventDefault();glide(nearest()-1);} });
+  track.addEventListener("pointerdown",function(e){ if(e.pointerType!=="mouse"||e.button!==0) return; clearTimeout(settle); down=true;moved=false;startIdx=nearest();sx=lastX=e.clientX;sl=track.scrollLeft;lastT=performance.now();vel=0; });
+  window.addEventListener("pointermove",function(e){ if(!down) return; var dx=e.clientX-sx,now=performance.now(); if(!moved&&Math.abs(dx)>4){moved=true;track.classList.add("is-drag");} if(moved){ track.scrollLeft=sl-dx; vel=(e.clientX-lastX)/Math.max(1,now-lastT); lastX=e.clientX; lastT=now; } });
+  function end(){ if(!down) return; down=false; if(!moved) return; var dx=lastX-sx,n=startIdx; if(dx<-60||vel<-0.35) n=startIdx+1; else if(dx>60||vel>0.35) n=startIdx-1; glide(n); }
+  window.addEventListener("pointerup",end); window.addEventListener("pointercancel",end);
+  track.addEventListener("dragstart",function(e){ e.preventDefault(); });
+  var hold=false,holdT=null;
+  function pause(ms){ hold=true; clearTimeout(holdT); holdT=setTimeout(function(){ hold=false; },ms); }
+  ["pointerdown","touchstart","focusin","keydown"].forEach(function(ev){ track.addEventListener(ev,function(){ pause(9000); }); });
+  track.addEventListener("pointerenter",function(){ hold=true; }); track.addEventListener("pointerleave",function(){ pause(2500); });
+  if(!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)){
+    setInterval(function(){ if(hold||document.hidden||down) return; var n=nearest(); glide(n>=cards.length-1?0:n+1); },5500);
+  }
+})();
+</script>
+</body>
+</html>
