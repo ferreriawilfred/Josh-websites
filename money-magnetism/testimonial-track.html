@@ -266,6 +266,8 @@
       d.textContent=img.alt.split(" ").map(function(w){return w.charAt(0);}).join("").slice(0,2);
       img.parentNode.replaceChild(d,img);
     }
+    var src=(img.getAttribute("src")||"").trim();
+    if(!src||src.indexOf("YOUR_IMAGE_LINK_HERE")>-1){ fallback(); return; }   // link not added yet
     img.addEventListener("error",fallback);
     if(img.complete&&img.naturalWidth===0) fallback();
   });
