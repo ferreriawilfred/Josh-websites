@@ -28,12 +28,13 @@ h2.h{font-family:Lora,Georgia,serif;font-weight:600;font-size:clamp(26px,5.2vw,3
 @media(min-width:641px){.ta{text-align:center}.hc{text-align:center}}
 
 /* 1 HERO */
-.hero{background:radial-gradient(120% 90% at 50% 0%,#3A1553 0%,var(--deep) 62%,#050209 100%);color:var(--cream);padding:68px 0 60px}
+.hero{background:radial-gradient(110% 80% at 50% 0%,#F3E4F4 0%,#FBF3F8 48%,#FFFFFF 100%);color:var(--ink);padding:68px 0 60px;border-bottom:1px solid rgba(212,175,55,.45);position:relative}
+.hero::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--gold),#D81B60,var(--green))}
 .hero .wrap{max-width:780px}
-.hero h1{font-family:Lora,Georgia,serif;font-weight:600;font-size:clamp(30px,7vw,52px);line-height:1.14;color:#fff;margin:0 0 30px}
+.hero h1{font-family:Lora,Georgia,serif;font-weight:600;font-size:clamp(30px,7vw,52px);line-height:1.14;color:var(--ink);margin:0 0 30px}
 .hero h1 span{display:block;margin:0 0 .5em;text-wrap:balance}
-.hero .sub{font-size:clamp(18px,3.8vw,22px);line-height:1.6;color:rgba(251,239,245,.92);margin:0 0 16px}
-.hero .sub2{font-family:Lora,Georgia,serif;font-weight:500;font-size:clamp(20px,4vw,25px);line-height:1.4;color:var(--gold-lt);margin:0}
+.hero .sub{font-size:clamp(18px,3.8vw,22px);line-height:1.6;color:var(--soft);margin:0 0 16px}
+.hero .sub2{font-family:Lora,Georgia,serif;font-weight:500;font-size:clamp(20px,4vw,25px);line-height:1.4;color:var(--green);margin:0}
 @media(min-width:641px){.hero{text-align:center}}
 
 /* 2 proof line + carousel (kz-tst) */
