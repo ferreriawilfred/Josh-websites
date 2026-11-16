@@ -1,0 +1,75 @@
+<!-- IMAGE-ONLY TESTIMONIALS (swipe) — paste as-is into a Custom HTML/Code block (GHL, etc.)
+     No text on the cards: just the photos / screenshots.
+     TO ADD IMAGES: replace YOUR_IMAGE_LINK_HERE in each <img src="..."> with the image link (GHL: Media Library > Copy Link).
+     Until a link is added, a neutral photo placeholder shows instead.
+     Use only real photos / screenshots that the customer has given you permission to publish.
+     To add a card: copy a whole <div class="kz-img-card"> block. Dots update automatically. -->
+<style>
+.kz-img{--accent:#1F7A4C;--line:rgba(31,122,76,.22);box-sizing:border-box;max-width:700px;margin:0 auto;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.kz-img *{box-sizing:border-box}
+.kz-img-track{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 4px 16px;margin:0;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab}
+.kz-img-track::-webkit-scrollbar{display:none}
+.kz-img-track:focus{outline:none}
+.kz-img-track:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:12px}
+.kz-img-track.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}
+.kz-img-track.is-drag *{pointer-events:none}
+.kz-img-card{flex:0 0 auto;width:300px;aspect-ratio:4/5;scroll-snap-align:start;border-radius:18px;overflow:hidden;background:#fff;border:1.5px solid var(--line);box-shadow:0 16px 32px -22px rgba(29,42,34,.35)}
+.kz-img-card img,.kz-img-ph{display:block;width:100%;height:100%;object-fit:cover}
+.kz-img-ph{display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#EAF3EE,#CFE3D8);color:rgba(31,122,76,.45)}
+.kz-img-ph svg{width:54px;height:54px}
+.kz-img-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:2px}
+.kz-img-dot{width:6px;height:6px;border-radius:50%;padding:0;border:none;background:rgba(29,42,34,.22);cursor:pointer;transition:background .2s,width .2s}
+.kz-img-dot.is-on{width:18px;border-radius:4px;background:var(--accent)}
+.kz-img-dot:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(max-width:640px){.kz-img-card{flex:0 0 78vw;width:auto;max-width:330px}}
+</style>
+
+<div class="kz-img">
+  <div class="kz-img-track" id="kzImgTrack" tabindex="0" aria-label="Customer photos — swipe or use arrow keys">
+    <div class="kz-img-card"><img src="YOUR_IMAGE_LINK_HERE" alt="Customer result photo 1"></div>
+    <div class="kz-img-card"><img src="YOUR_IMAGE_LINK_HERE" alt="Customer result photo 2"></div>
+    <div class="kz-img-card"><img src="YOUR_IMAGE_LINK_HERE" alt="Customer result photo 3"></div>
+    <div class="kz-img-card"><img src="YOUR_IMAGE_LINK_HERE" alt="Customer result photo 4"></div>
+    <div class="kz-img-card"><img src="YOUR_IMAGE_LINK_HERE" alt="Customer result photo 5"></div>
+    <div class="kz-img-card"><img src="YOUR_IMAGE_LINK_HERE" alt="Customer result photo 6"></div>
+    <div class="kz-img-card"><img src="YOUR_IMAGE_LINK_HERE" alt="Customer result photo 7"></div>
+    <div class="kz-img-card"><img src="YOUR_IMAGE_LINK_HERE" alt="Customer result photo 8"></div>
+  </div>
+  <div class="kz-img-dots" id="kzImgDots"></div>
+</div>
+
+<script>
+(function(){
+  var track=document.getElementById("kzImgTrack"), dots=document.getElementById("kzImgDots");
+  if(!track||!dots) return;
+
+  // if an image link is missing or broken, show a neutral placeholder instead of a broken icon
+  var CAM='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.6-2h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6"/></svg>';
+  track.querySelectorAll(".kz-img-card img").forEach(function(img){
+    function fallback(){
+      if(!img.parentNode) return;
+      var d=document.createElement("div"); d.className="kz-img-ph"; d.setAttribute("role","img"); d.setAttribute("aria-label",img.alt); d.innerHTML=CAM;
+      img.parentNode.replaceChild(d,img);
+    }
+    var src=(img.getAttribute("src")||"").trim();
+    if(!src||src.indexOf("YOUR_IMAGE_LINK_HERE")>-1){ fallback(); return; }
+    img.addEventListener("error",fallback);
+    if(img.complete&&img.naturalWidth===0) fallback();
+  });
+
+  var cards=track.querySelectorAll(".kz-img-card");
+  function pos(c){ return c.offsetLeft-track.offsetLeft-4; }
+  function nearest(){ var x=track.scrollLeft,best=0,d=1e9; cards.forEach(function(c,i){ var k=Math.abs(pos(c)-x); if(k<d){d=k;best=i;} }); return best; }
+  var settle=null,down=false,moved=false,startIdx=0,sx=0,sl=0,lastX=0,lastT=0,vel=0;
+  function glide(i){ i=Math.max(0,Math.min(cards.length-1,i)); clearTimeout(settle); track.classList.add("is-drag"); track.scrollTo({left:pos(cards[i]),behavior:"smooth"}); settle=setTimeout(function(){ track.classList.remove("is-drag"); },520); }
+  cards.forEach(function(c,i){ var b=document.createElement("button"); b.className="kz-img-dot"; b.type="button"; b.setAttribute("aria-label","Photo "+(i+1)); b.onclick=function(){ glide(i); }; dots.appendChild(b); });
+  function upd(){ var n=nearest(); dots.querySelectorAll(".kz-img-dot").forEach(function(el,i){ el.classList.toggle("is-on",i===n); }); }
+  track.addEventListener("scroll",upd,{passive:true}); window.addEventListener("resize",upd); upd();
+  track.addEventListener("keydown",function(e){ if(e.key==="ArrowRight"){e.preventDefault();glide(nearest()+1);} if(e.key==="ArrowLeft"){e.preventDefault();glide(nearest()-1);} });
+  track.addEventListener("pointerdown",function(e){ if(e.pointerType!=="mouse"||e.button!==0) return; clearTimeout(settle); down=true;moved=false;startIdx=nearest();sx=lastX=e.clientX;sl=track.scrollLeft;lastT=performance.now();vel=0; });
+  window.addEventListener("pointermove",function(e){ if(!down) return; var dx=e.clientX-sx,now=performance.now(); if(!moved&&Math.abs(dx)>4){moved=true;track.classList.add("is-drag");} if(moved){ track.scrollLeft=sl-dx; vel=(e.clientX-lastX)/Math.max(1,now-lastT); lastX=e.clientX; lastT=now; } });
+  function end(){ if(!down) return; down=false; if(!moved) return; var dx=lastX-sx,n=startIdx; if(dx<-60||vel<-0.35) n=startIdx+1; else if(dx>60||vel>0.35) n=startIdx-1; glide(n); }
+  window.addEventListener("pointerup",end); window.addEventListener("pointercancel",end);
+  track.addEventListener("dragstart",function(e){ e.preventDefault(); });
+})();
+</script>
