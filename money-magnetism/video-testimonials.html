@@ -1,8 +1,9 @@
 <!-- VIDEO TESTIMONIALS (swipe) — paste as-is into a Custom HTML/Code block (GHL, etc.)
      Transparent background: it sits on whatever section color is behind it.
-     VIDEOS: each <video src="..."> below is already set. To swap one, change its src (keep the #t=0.1 so the first frame shows as the thumbnail).
+     VIDEOS: on each <video> add  src="YOUR_VIDEO.mp4#t=0.1"  (keep #t=0.1 so the first frame shows as the thumbnail).
+     Until a src is added, a green placeholder shows and the play button does nothing.
      Card shape: change --ratio in .kz-vc (4/5 default; 9/16 shows the full vertical video).
-     Captions under each video are short result summaries (no names). Edit the text inside each .kz-vc-quote / .kz-vc-name. -->
+     Captions under each video are short summaries (no names). Edit the text inside each .kz-vc-quote / .kz-vc-name. -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 .kz-vc{
@@ -51,56 +52,70 @@
     <div class="kz-vc-card">
       <div class="kz-vc-media">
         <div class="kz-vc-ph" aria-hidden="true">K</div>
-        <video class="kz-vc-video" src="https://assets.cdn.filesafe.space/0GHiKOeeObKjNntuvEXA/media/6a17c209c460f23b3af93d29.mp4#t=0.1" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
+        <video class="kz-vc-video" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
         <button class="kz-vc-play" type="button" aria-label="Play video 1"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
         <div class="kz-vc-cue">Watch her story</div>
       </div>
       <div class="kz-vc-cap">
         <span class="kz-vc-stars">★★★★★</span>
-        <p class="kz-vc-quote">Six years of minimum payments. Six weeks after starting, her balance showed zero.</p>
-        <span class="kz-vc-name">$12,000 debt · cleared in 6 weeks</span>
+        <p class="kz-vc-quote">Budgeting apps, side hustles, and manifestation videos didn't change it.<br>She realized her current situation does not define her future.</p>
+        <span class="kz-vc-name">Broke while working multiple jobs</span>
       </div>
     </div>
 
     <div class="kz-vc-card">
       <div class="kz-vc-media">
         <div class="kz-vc-ph" aria-hidden="true">K</div>
-        <video class="kz-vc-video" src="https://assets.cdn.filesafe.space/0GHiKOeeObKjNntuvEXA/media/6a17c2095be84ad6401438c8.mp4#t=0.1" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
+        <video class="kz-vc-video" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
         <button class="kz-vc-play" type="button" aria-label="Play video 2"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
         <div class="kz-vc-cue">Watch her story</div>
       </div>
       <div class="kz-vc-cap">
         <span class="kz-vc-stars">★★★★★</span>
-        <p class="kz-vc-quote">She had $140 in her account. Four days later, three unexpected windfalls covered the $2,800 repair.</p>
-        <span class="kz-vc-name">$2,800 car repair · paid in 4 days</span>
+        <p class="kz-vc-quote">Credit card balances, missed payments, and collection notices.<br>Budgeting alone didn't reach the shame underneath.</p>
+        <span class="kz-vc-name">Breaking the cycle of financial shame</span>
       </div>
     </div>
 
     <div class="kz-vc-card">
       <div class="kz-vc-media">
         <div class="kz-vc-ph" aria-hidden="true">K</div>
-        <video class="kz-vc-video" src="https://assets.cdn.filesafe.space/0GHiKOeeObKjNntuvEXA/media/6a17c209c460f23b3af93d28.mp4#t=0.1" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
+        <video class="kz-vc-video" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
         <button class="kz-vc-play" type="button" aria-label="Play video 3"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
         <div class="kz-vc-cue">Watch her story</div>
       </div>
       <div class="kz-vc-cap">
         <span class="kz-vc-stars">★★★★★</span>
-        <p class="kz-vc-quote">Seven weeks in, her manager offered her a new senior role she never applied for, with an $18,000 raise.</p>
-        <span class="kz-vc-name">Passed over twice · then promoted</span>
+        <p class="kz-vc-quote">Paying one bill triggered the next.<br>She stopped checking her balance to avoid the pain.</p>
+        <span class="kz-vc-name">Drowning in bills, avoiding her bank account</span>
       </div>
     </div>
 
     <div class="kz-vc-card">
       <div class="kz-vc-media">
         <div class="kz-vc-ph" aria-hidden="true">K</div>
-        <video class="kz-vc-video" src="https://assets.cdn.filesafe.space/0GHiKOeeObKjNntuvEXA/media/6a17c209ff82912d6577797c.mp4#t=0.1" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
+        <video class="kz-vc-video" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
         <button class="kz-vc-play" type="button" aria-label="Play video 4"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
         <div class="kz-vc-cue">Watch her story</div>
       </div>
       <div class="kz-vc-cap">
         <span class="kz-vc-stars">★★★★★</span>
-        <p class="kz-vc-quote">Years of savings wiped out by emergencies. Five weeks later, she drove her first car off the lot at 36.</p>
-        <span class="kz-vc-name">First car at 36</span>
+        <p class="kz-vc-quote">Hard work and responsible money habits, but her income stayed flat.<br>She explains how inherited scarcity, disappointment, and fear block the wealth channel.</p>
+        <span class="kz-vc-name">The invisible income ceiling</span>
+      </div>
+    </div>
+
+    <div class="kz-vc-card">
+      <div class="kz-vc-media">
+        <div class="kz-vc-ph" aria-hidden="true">K</div>
+        <video class="kz-vc-video" preload="metadata" playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noremoteplayback"></video>
+        <button class="kz-vc-play" type="button" aria-label="Play video 5"><span class="kz-vc-circle"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></span></button>
+        <div class="kz-vc-cue">Watch her story</div>
+      </div>
+      <div class="kz-vc-cap">
+        <span class="kz-vc-stars">★★★★★</span>
+        <p class="kz-vc-quote">Even with money, she lived in constant fear of losing it.<br>The ritual made her look at the money beliefs she'd carried all her life.</p>
+        <span class="kz-vc-name">Ancestral scarcity</span>
       </div>
     </div>
 
