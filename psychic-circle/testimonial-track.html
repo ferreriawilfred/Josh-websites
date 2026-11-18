@@ -1,0 +1,183 @@
+<!-- TESTIMONIAL CAROUSEL — PSYCHIC CIRCLE (violet / pink / gold) — paste as-is into a Custom HTML/Code block (GHL, etc.)
+     4 testimonials, one sentence per line, auto-scroll + dots + swipe/drag. No heading, transparent background.
+     PHOTOS: replace YOUR_IMAGE_LINK_HERE in each <img src="..."> (GHL: Media Library > Copy Link). Until then the card shows initials.
+     To add a testimonial: copy a whole <div class="kz-tst-card"> block. Dots update automatically.
+     Colors / quote font are CSS variables at the top of .kz-tst. -->
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.kz-tst{
+  --quote-font:"Lora",Georgia,"Times New Roman",serif;
+  --ink:#1B1022; --ink-soft:#5B4B66; --accent:#6A2C91; --accent-lt:#D81B60;
+  --gold:#D4AF37; --green:#6A2C91; --card:#ffffff; --line:rgba(106,44,145,.22);
+  box-sizing:border-box;max-width:660px;margin:0 auto;padding:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:var(--ink);
+}
+.kz-tst *{box-sizing:border-box}
+.kz-tst-track{scroll-behavior:auto;overscroll-behavior-x:contain;display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 4px;margin:0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.kz-tst-track::-webkit-scrollbar{display:none}
+.kz-tst-track{cursor:grab}
+.kz-tst-track:focus{outline:none}
+.kz-tst-track:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:12px}
+.kz-tst-track.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}
+.kz-tst-track.is-drag *{pointer-events:none}
+.kz-tst-card{flex:0 0 auto;width:406px;scroll-snap-align:start;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:20px 22px 11px;box-shadow:0 16px 32px -22px rgba(27,16,34,.28);display:flex;flex-direction:column;gap:2px}
+.kz-tst-body{display:flex;gap:16px;align-items:flex-start}
+.kz-tst-photo{flex:none;width:80px;height:80px;border-radius:50%;object-fit:cover;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--accent-lt),var(--accent));box-shadow:0 0 0 3px var(--card),0 0 0 4.5px var(--line)}
+.kz-tst-content{flex:1 1 auto;min-width:0}
+.kz-tst-stars{display:block;margin:0 0 6px;font-size:14px;color:var(--gold);letter-spacing:2px}
+.kz-tst-quote{font-family:var(--quote-font);font-style:normal;font-weight:400;font-size:16.5px;line-height:1.6;color:var(--ink);margin:0 0 9px}
+.kz-tst-name{display:block;font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.kz-tst-loc{display:block;font-size:12px;color:var(--ink-soft)}
+.kz-tst-verified{display:inline-flex;align-items:center;gap:5px;align-self:flex-end;font-size:12px;font-weight:600;color:var(--green);margin-top:4px}
+.kz-tst-verified svg{width:14px;height:14px;flex:none}
+.kz-tst-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:2px}
+.kz-tst-dot{width:6px;height:6px;border-radius:50%;padding:0;border:none;background:rgba(27,16,34,.22);cursor:pointer;transition:background .2s,width .2s}
+.kz-tst-dot.is-on{width:18px;border-radius:4px;background:var(--accent)}
+@media(max-width:640px){
+  .kz-tst-card{flex:0 0 100%;width:auto;padding:18px 18px 10px}
+  .kz-tst-photo{width:72px;height:72px}
+  .kz-tst-quote{font-size:16px}
+}
+</style>
+
+<div class="kz-tst">
+  <div class="kz-tst-track" id="kzTstTrack" tabindex="0" aria-label="Testimonials — swipe or use arrow keys">
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <img class="kz-tst-photo" src="YOUR_IMAGE_LINK_HERE" alt="Simone A." width="80" height="80">
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I came to Kaia about him.<br>I stayed because of everything else.<br>My finances, my health, the job I was afraid to leave.<br>She reads all of it.<br>She sees all of it…<br>It’s crazy scary sometimes cause she’s always right.<br>Sometimes I hate myself for not listening sooner but now I don't make any major move without checking in with her anymore.”</p>
+          <span class="kz-tst-name">Simone A.</span>
+          <span class="kz-tst-loc">Chicago, IL</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <img class="kz-tst-photo" src="YOUR_IMAGE_LINK_HERE" alt="Diana R." width="80" height="80">
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“Eleven days after she casted the spell and done the reading for me he texted at 1:47 in the morning asking if he could call.<br>We talked for three hours.<br>I’ve never stayed up that late except the time I was crying about him - now he’s back.<br>I'd felt something shift three days before but I didn't know what to name it yet.<br>I now call it Kaia.”</p>
+          <span class="kz-tst-name">Diana R.</span>
+          <span class="kz-tst-loc">Atlanta, GA</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <img class="kz-tst-photo" src="YOUR_IMAGE_LINK_HERE" alt="Priya M." width="80" height="80">
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“I came to her about money problems, not a man.<br>I'd been stuck at the same income for three years plus the debt I have kept growing.<br>She read something in my chart that explained the entire pattern in four sentences.<br>The next month I landed the client that changed my year.<br>Now I’m debt free and living life in my terms (money wise lol I’m still single but I’ll be asking her about it soon) #BossBabe”</p>
+          <span class="kz-tst-name">Priya M.</span>
+          <span class="kz-tst-loc">London, UK</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+
+    <div class="kz-tst-card">
+      <div class="kz-tst-body">
+        <img class="kz-tst-photo" src="YOUR_IMAGE_LINK_HERE" alt="Rachel B." width="80" height="80">
+        <div class="kz-tst-content">
+          <span class="kz-tst-stars">★★★★★</span>
+          <p class="kz-tst-quote">“The health reading told me something was off six weeks before my doctor found it.<br>She wasn't diagnosing me — she was seeing an energy block and told me to get checked.<br>Early detection.<br>I don't like to think about what happens if I'd waited.”</p>
+          <span class="kz-tst-name">Rachel B.</span>
+          <span class="kz-tst-loc">Toronto, Canada</span>
+        </div>
+      </div>
+      <span class="kz-tst-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12.2 2.4 2.4 4.6-4.9"></path></svg>Verified</span>
+    </div>
+  </div>
+  <div class="kz-tst-dots" id="kzTstDots"></div>
+</div>
+
+<script>
+(function(){
+  var track=document.getElementById("kzTstTrack"), dots=document.getElementById("kzTstDots");
+  if(!track||!dots) return;
+  // photo fallback: if an image link is missing or broken, show initials instead
+  track.querySelectorAll("img.kz-tst-photo").forEach(function(img){
+    function fallback(){
+      if(!img.parentNode) return;
+      var d=document.createElement("div"); d.className="kz-tst-photo"; d.setAttribute("role","img"); d.setAttribute("aria-label",img.alt);
+      d.textContent=img.alt.split(" ").map(function(w){return w.charAt(0);}).join("").slice(0,2);
+      img.parentNode.replaceChild(d,img);
+    }
+    var src=(img.getAttribute("src")||"").trim();
+    if(!src||src.indexOf("YOUR_IMAGE_LINK_HERE")>-1){ fallback(); return; }   // link not added yet
+    img.addEventListener("error",fallback);
+    if(img.complete&&img.naturalWidth===0) fallback();
+  });
+  var cards=track.querySelectorAll(".kz-tst-card");
+  function pos(c){ return c.offsetLeft-track.offsetLeft-4; }
+  function nearest(){
+    var x=track.scrollLeft, best=0, d=1e9;
+    cards.forEach(function(c,i){ var k=Math.abs(pos(c)-x); if(k<d){d=k;best=i;} });
+    return best;
+  }
+  function go(i){ i=Math.max(0,Math.min(cards.length-1,i)); track.scrollTo({left:pos(cards[i]),behavior:"smooth"}); }
+  cards.forEach(function(c,i){
+    var b=document.createElement("button"); b.className="kz-tst-dot"; b.type="button"; b.setAttribute("aria-label","Testimonial "+(i+1));
+    b.onclick=function(){ glide(i); };
+    dots.appendChild(b);
+  });
+  function upd(){
+    var n=nearest();
+    dots.querySelectorAll(".kz-tst-dot").forEach(function(el,i){ el.classList.toggle("is-on",i===n); });
+  }
+  track.addEventListener("keydown",function(e){
+    if(e.key==="ArrowRight"){e.preventDefault();glide(Math.min(cards.length-1,nearest()+1));}
+    if(e.key==="ArrowLeft"){e.preventDefault();glide(Math.max(0,nearest()-1));}
+  });
+  // mouse drag: follows the cursor 1:1, then glides to the next/nearest card
+  var down=false,startIdx=0,sx=0,sl=0,moved=false,lastX=0,lastT=0,vel=0,settle=null;
+  function glide(i){
+    clearTimeout(settle);
+    track.classList.add("is-drag");           // snap off so the animation isn't fought
+    go(i);
+    settle=setTimeout(function(){ track.classList.remove("is-drag"); },520);
+  }
+  track.addEventListener("pointerdown",function(e){
+    if(e.pointerType!=="mouse"||e.button!==0) return;
+    clearTimeout(settle);
+    down=true;moved=false;startIdx=nearest();sx=lastX=e.clientX;sl=track.scrollLeft;lastT=performance.now();vel=0;
+  });
+  window.addEventListener("pointermove",function(e){
+    if(!down) return;
+    var dx=e.clientX-sx, now=performance.now();
+    if(!moved&&Math.abs(dx)>4){moved=true;track.classList.add("is-drag");}
+    if(moved){
+      track.scrollLeft=sl-dx;
+      vel=(e.clientX-lastX)/Math.max(1,now-lastT); lastX=e.clientX; lastT=now;
+    }
+  });
+  function end(){
+    if(!down) return; down=false;
+    if(!moved) return;
+    var dx=lastX-sx, n=startIdx;
+    if(dx<-60||vel<-0.35) n=startIdx+1;
+    else if(dx>60||vel>0.35) n=startIdx-1;
+    n=Math.max(0,Math.min(cards.length-1,n));
+    glide(n);
+  }
+  window.addEventListener("pointerup",end);
+  window.addEventListener("pointercancel",end);
+  track.addEventListener("dragstart",function(e){e.preventDefault();});
+  track.addEventListener("scroll",upd,{passive:true}); window.addEventListener("resize",upd); upd();
+  // gentle autoplay (pauses when you touch, hover or focus; off for reduced-motion)
+  var hold=false,holdT=null;
+  function pause(ms){ hold=true; clearTimeout(holdT); holdT=setTimeout(function(){ hold=false; },ms); }
+  ["pointerdown","touchstart","focusin","keydown"].forEach(function(ev){ track.addEventListener(ev,function(){ pause(9000); }); });
+  track.addEventListener("pointerenter",function(){ hold=true; }); track.addEventListener("pointerleave",function(){ pause(2500); });
+  if(!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)){
+    setInterval(function(){ if(hold||document.hidden||down) return; var n=nearest(); glide(n>=cards.length-1?0:n+1); },5500);
+  }
+})();
+</script>
