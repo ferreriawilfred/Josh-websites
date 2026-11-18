@@ -1,0 +1,98 @@
+<!-- PRICING TIERS ($47 / $97 / $147 / $247) with monthly payment plans — paste as-is into a Custom HTML/Code block (GHL, etc.)
+     Transparent background. Replace every YOUR_CHECKOUT_LINK_... with the real checkout link for that option.
+     Replace "tangible product" with the real product name(s) if you want. Colors are CSS variables at the top of .kz-pt. -->
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.kz-pt{
+  --ink:#1D2A22; --soft:#4E5B47; --accent:#1F7A4C; --gold:#D4AF37; --gold-d:#A8841E; --line:rgba(29,42,34,.13);
+  box-sizing:border-box;max-width:880px;margin:0 auto;padding:24px 20px;background:transparent;color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;
+}
+.kz-pt *{box-sizing:border-box;margin:0;padding:0}
+.kz-pt-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.kz-pt-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:20px;padding:28px 24px;box-shadow:0 18px 38px -26px rgba(29,42,34,.4);display:flex;flex-direction:column}
+.kz-pt-price{font-family:Lora,Georgia,serif;font-weight:600;font-size:64px;line-height:1;color:var(--accent);text-align:center}
+.kz-pt-price span{font-size:30px;vertical-align:top;margin-right:2px;position:relative;top:8px}
+.kz-pt-pay{text-align:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:6px 0 18px}
+.kz-pt-list{list-style:none;margin:0 0 22px}
+.kz-pt-list li{padding:11px 0 11px 30px;border-top:1px solid var(--line);font-size:16px;position:relative}
+.kz-pt-list li:last-child{border-bottom:1px solid var(--line)}
+.kz-pt-list li::before{content:"";position:absolute;left:2px;top:15px;width:16px;height:16px;border-radius:50%;background:var(--accent) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'><path d='m5 12.5 4.5 4.5L19 7.5'/></svg>") center/10px no-repeat}
+.kz-pt-list li:first-child{font-weight:700}
+.kz-pt-btn{display:block;text-align:center;text-decoration:none;color:#fff;background:linear-gradient(180deg,#228A56,#14573A);border:1.5px solid var(--gold);border-radius:12px;padding:14px 16px;font-family:Lora,Georgia,serif;font-weight:600;font-size:18px;box-shadow:0 10px 22px -12px rgba(31,122,76,.75);transition:transform .15s,filter .15s}
+.kz-pt-btn:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.kz-pt-or{text-align:center;font-size:12.5px;color:var(--soft);margin:18px 0 10px}
+.kz-pt-plans{display:flex;flex-direction:column;gap:10px}
+.kz-pt-plan{display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;color:var(--ink);background:#FAF8F1;border:1.5px solid var(--accent);border-radius:12px;padding:12px 16px;transition:background .15s}
+.kz-pt-plan:hover{background:#EEF6F1}
+.kz-pt-plan-main{font-weight:700;font-size:15.5px;color:var(--accent)}
+.kz-pt-plan-total{font-size:12.5px;color:var(--soft);white-space:nowrap}
+@media(max-width:700px){.kz-pt-grid{grid-template-columns:1fr}.kz-pt-card{padding:24px 20px}.kz-pt-price{font-size:56px}}
+</style>
+
+<div class="kz-pt">
+  <div class="kz-pt-grid">
+    <div class="kz-pt-card">
+      <div class="kz-pt-price"><span>$</span>47</div>
+      <p class="kz-pt-pay">Pay in full</p>
+      <ul class="kz-pt-list">
+        <li>1 tangible product</li>
+        <li>Non-tangible workings</li>
+        <li>Bonus gift enchantments</li>
+      </ul>
+      <a class="kz-pt-btn" href="YOUR_CHECKOUT_LINK_47">Get the $47 Tier</a>
+      <p class="kz-pt-or">or choose a payment plan</p>
+      <div class="kz-pt-plans">
+        <a class="kz-pt-plan" href="YOUR_CHECKOUT_LINK_47_27x3"><span class="kz-pt-plan-main">$27/mo for 3 months</span><span class="kz-pt-plan-total">Total $81</span></a>
+      </div>
+    </div>
+
+    <div class="kz-pt-card">
+      <div class="kz-pt-price"><span>$</span>97</div>
+      <p class="kz-pt-pay">Pay in full</p>
+      <ul class="kz-pt-list">
+        <li>2 tangible products</li>
+        <li>Non-tangible workings</li>
+        <li>Bonus gift enchantments</li>
+      </ul>
+      <a class="kz-pt-btn" href="YOUR_CHECKOUT_LINK_97">Get the $97 Tier</a>
+      <p class="kz-pt-or">or choose a payment plan</p>
+      <div class="kz-pt-plans">
+        <a class="kz-pt-plan" href="YOUR_CHECKOUT_LINK_97_27x5"><span class="kz-pt-plan-main">$27/mo for 5 months</span><span class="kz-pt-plan-total">Total $135</span></a>
+        <a class="kz-pt-plan" href="YOUR_CHECKOUT_LINK_97_47x3"><span class="kz-pt-plan-main">$47/mo for 3 months</span><span class="kz-pt-plan-total">Total $141</span></a>
+      </div>
+    </div>
+
+    <div class="kz-pt-card">
+      <div class="kz-pt-price"><span>$</span>147</div>
+      <p class="kz-pt-pay">Pay in full</p>
+      <ul class="kz-pt-list">
+        <li>3 tangible products</li>
+        <li>Non-tangible workings</li>
+        <li>Bonus gift enchantments</li>
+      </ul>
+      <a class="kz-pt-btn" href="YOUR_CHECKOUT_LINK_147">Get the $147 Tier</a>
+      <p class="kz-pt-or">or choose a payment plan</p>
+      <div class="kz-pt-plans">
+        <a class="kz-pt-plan" href="YOUR_CHECKOUT_LINK_147_97x2"><span class="kz-pt-plan-main">$97/mo for 2 months</span><span class="kz-pt-plan-total">Total $194</span></a>
+        <a class="kz-pt-plan" href="YOUR_CHECKOUT_LINK_147_47x5"><span class="kz-pt-plan-main">$47/mo for 5 months</span><span class="kz-pt-plan-total">Total $235</span></a>
+      </div>
+    </div>
+
+    <div class="kz-pt-card">
+      <div class="kz-pt-price"><span>$</span>247</div>
+      <p class="kz-pt-pay">Pay in full</p>
+      <ul class="kz-pt-list">
+        <li>5 tangible products</li>
+        <li>Non-tangible workings</li>
+        <li>Bonus gift enchantments</li>
+      </ul>
+      <a class="kz-pt-btn" href="YOUR_CHECKOUT_LINK_247">Get the $247 Tier</a>
+      <p class="kz-pt-or">or choose a payment plan</p>
+      <div class="kz-pt-plans">
+        <a class="kz-pt-plan" href="YOUR_CHECKOUT_LINK_247_97x4"><span class="kz-pt-plan-main">$97/mo for 4 months</span><span class="kz-pt-plan-total">Total $388</span></a>
+        <a class="kz-pt-plan" href="YOUR_CHECKOUT_LINK_247_47x7"><span class="kz-pt-plan-main">$47/mo for 7 months</span><span class="kz-pt-plan-total">Total $329</span></a>
+      </div>
+    </div>
+  </div>
+</div>
