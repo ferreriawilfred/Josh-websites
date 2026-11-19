@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gethsemane Cross — Handcarved Olive Wood Prayer Cross</title>
+<meta name="description" content="A handcarved olive wood prayer cross from the Garden of Gethsemane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fdf6e8; --cream2:#fff1db; --sand:#f6dfae;
+  --maroon:#660e0e; --maroon2:#8a2432; --wine:#33131a; --ink:#3a2a12;
+  --gold:#d9a63e; --gold-d:#a9752a; --gold-l:#f3d38a; --muted:#6b6358;
+  --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);font-size:20px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+
+/* bridge bar */
+.bridge{background:linear-gradient(180deg,var(--gold-l),var(--gold) 55%,var(--gold-d));color:var(--wine);text-align:center;font-size:15px;font-weight:600;padding:9px 16px;letter-spacing:.01em}
+
+/* progress */
+.prog{background:var(--maroon);padding:18px 16px 16px}
+.prog-track{display:flex;align-items:flex-start;justify-content:center;max-width:560px;margin:0 auto}
+.step{display:flex;flex-direction:column;align-items:center;width:84px;flex:0 0 auto}
+.circle{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;background:linear-gradient(180deg,var(--gold-l),var(--gold) 45%,var(--gold-d));border:2px solid var(--gold-d);box-shadow:0 4px 10px rgba(169,117,42,.35)}
+.step.now .circle{animation:pulse 1.8s ease-in-out infinite}
+.step.off .circle{background:rgba(253,246,232,.12);border-color:rgba(253,246,232,.3);box-shadow:none;filter:grayscale(1);opacity:.7}
+.lbl{font-size:10.5px;font-weight:700;color:var(--cream);text-align:center;line-height:1.25;margin-top:6px}
+.step.off .lbl{opacity:.5}
+.conn{flex:1 1 auto;height:2px;margin-top:16px;min-width:12px;background:linear-gradient(90deg,var(--gold),var(--gold-d))}
+.conn.off{background:rgba(253,246,232,.25)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(243,211,138,.7)}50%{box-shadow:0 0 0 9px rgba(243,211,138,0)}}
+
+/* confirmed badge */
+.badge-row{text-align:center;padding:22px 20px 6px}
+.badge{display:inline-block;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:var(--maroon2);border-radius:999px;padding:10px 22px}
+.eyebrow{display:block;text-align:center;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);margin-top:28px}
+
+h1,h2{font-family:var(--serif);color:var(--maroon);line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:44px;font-weight:800;text-align:center;margin:12px 0 0}
+h1 em{font-style:italic;color:var(--maroon2)}
+h2{font-size:34px;font-weight:700;margin:56px 0 22px}
+h3{font-family:var(--serif);font-size:28px;color:var(--maroon);margin:44px 0 16px}
+p{margin-bottom:20px;text-wrap:pretty}
+.lead{font-size:22px}
+strong{color:var(--maroon)}
+.center{text-align:center}
+
+/* scripture quote */
+.verse{border-left:4px solid var(--gold);background:rgba(255,255,255,.5);padding:18px 22px;margin:26px 0;border-radius:0 10px 10px 0;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--maroon);line-height:1.5}
+.verse span{display:block;font-family:var(--sans);font-style:normal;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d);margin-top:8px}
+
+/* statement lines */
+.punch{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--maroon);line-height:1.3;margin:28px 0}
+
+/* images */
+figure{margin:34px 0}
+.ph{aspect-ratio:16/10;border-radius:14px;border:1px solid rgba(122,82,28,.3);background:linear-gradient(135deg,var(--sand),var(--cream2));display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--gold-d);font-size:14px;font-weight:600;line-height:1.5;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+figcaption{font-size:14px;color:var(--muted);text-align:center;margin-top:10px;font-style:italic}
+
+/* testimonial */
+.story{background:rgba(255,255,255,.55);border:1px solid rgba(122,82,28,.3);border-radius:12px;padding:22px 24px;margin:26px 0}
+.story p:last-child{margin-bottom:0}
+
+/* offer card */
+.offer{position:relative;background:linear-gradient(180deg,#fffaf0,var(--cream2));border:2px solid var(--gold);border-radius:18px;padding:36px 28px 30px;margin:40px 0;box-shadow:0 18px 40px rgba(102,14,14,.14),inset 0 0 0 5px rgba(217,166,62,.15);text-align:center}
+.offer .ico{position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:var(--maroon);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--gold-l)}
+.offer h2{margin:6px 0 20px;font-size:32px}
+.offer ul{list-style:none;text-align:left;margin:0 0 22px}
+.offer li{padding:12px 0 12px 34px;position:relative;border-top:1px solid rgba(122,82,28,.2);font-size:19px;line-height:1.5}
+.offer li:first-child{border-top:0}
+.offer li::before{content:"✦";position:absolute;left:4px;top:12px;color:var(--gold-d)}
+.offer .ship{font-size:17px;color:var(--muted);font-style:italic;margin-bottom:14px}
+.price{font-family:var(--serif);font-size:64px;font-weight:800;color:var(--maroon);line-height:1;margin:6px 0 20px}
+
+/* buttons */
+.btn{display:block;width:100%;text-align:center;text-decoration:none;font-family:var(--sans);font-weight:700;font-size:20px;color:var(--wine);padding:20px 24px;border-radius:999px;border:0;cursor:pointer;
+  background:linear-gradient(180deg,#ffe9b0 0%,#f5b942 45%,#e2921f 100%);box-shadow:0 10px 24px rgba(169,117,42,.4),inset 0 1px 0 rgba(255,255,255,.6);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(169,117,42,.5),inset 0 1px 0 rgba(255,255,255,.6)}
+.decline{display:block;text-align:center;margin:20px 0 0;font-size:15px;color:rgba(107,99,88,.9);text-decoration:underline;text-underline-offset:3px}
+.decline:hover{color:var(--maroon)}
+
+.scarce{font-size:17px;color:var(--muted);border-top:1px solid rgba(122,82,28,.25);padding-top:22px;margin-top:10px}
+.guarantee{background:rgba(255,255,255,.45);border:1px solid rgba(122,82,28,.3);border-radius:10px;padding:18px 20px;font-size:18px;line-height:1.65;color:var(--ink);margin:30px 0}
+
+footer{background:var(--wine);color:rgba(253,246,232,.6);text-align:center;font-size:13px;padding:30px 20px;margin-top:70px}
+footer a{color:var(--gold-l)}
+hr.ornament{border:0;text-align:center;margin:44px 0 0;color:var(--gold);font-size:18px;letter-spacing:.6em}
+hr.ornament::before{content:"✦ ✦ ✦"}
+
+@media(max-width:600px){
+  body{font-size:18px}
+  h1{font-size:32px} h2{font-size:27px;margin-top:44px} h3{font-size:24px}
+  .lead{font-size:20px} .punch{font-size:22px} .verse{font-size:19px}
+  .offer{padding:34px 20px 26px} .price{font-size:54px} .btn{font-size:18px;padding:18px 16px}
+  .lbl{font-size:9px} .step{width:66px}
+}
+</style>
+</head>
+<body>
+
+<!-- BRIDGE BAR -->
+<div class="bridge">✅ Your offering is confirmed. But I want to say one thing before you go.</div>
+
+<!-- PROGRESS (3 steps, same as the other downsells) -->
+<div class="prog">
+  <div class="prog-track">
+    <div class="step"><div class="circle">✅</div><div class="lbl">Prayer Submitted</div></div>
+    <div class="conn"></div>
+    <div class="step"><div class="circle">✅</div><div class="lbl">Offering Complete</div></div>
+    <div class="conn"></div>
+    <div class="step"><div class="circle">🕊️</div><div class="lbl">Your Prayer Is On Its Way</div></div>
+  </div>
+</div>
+
+<div class="badge-row"><span class="badge">📜 <span id="tier">[Selected tier]</span> — $<span id="tierprice">[price]</span> — Confirmed</span></div>
+
+<main class="wrap">
+
+<span class="eyebrow">✦ Before You Walk Away From the Garden</span>
+<h1>Everyone Who Said No to the Bundle<br><em>Tells Me the Same Thing Later.</em></h1>
+
+<p class="punch" style="margin-top:34px">They tell me they wished they hadn’t.</p>
+<p>Not because I followed up. Not because I reminded them.</p>
+<p>Because they went home with their prayer on its way to Jerusalem — which is exactly right — but with nothing physical from the garden where He decided to answer it.</p>
+<p>Your prayer is traveling to the Stone of Anointing right now.</p>
+<p>The site of the resurrection.</p>
+<p>And the garden where Jesus decided to let the resurrection happen — where He sweated blood and chose the cross for you — is sending nothing home with you.</p>
+<p class="punch">That’s the gap.</p>
+<p>That’s what the people who passed on this feel three months later when they hear “not my will, but yours” in church and think: <em>I had something from that garden in my hands. I let it go.</em></p>
+
+<hr class="ornament">
+
+<p class="lead" style="margin-top:34px">You don’t have to take the full bundle.</p>
+<p>Here’s what I can still offer you:</p>
+<p>A single handcarved olive wood prayer cross — sourced from the same Gethsemane olive trees, small enough to hold in a closed fist, to carry in a pocket, to keep on your nightstand next to the Faith Confirmation when it arrives.</p>
+<p>Same source. Same garden. Same trees that were alive the night He prayed.</p>
+<p><strong>At half the price.</strong></p>
+<p>You’ve already sent your prayer to Jerusalem.</p>
+<p class="punch">Don’t let the garden where He said yes to it go home without you.</p>
+
+<figure>
+  <div class="ph"><!-- replace with <img src="gethsemane-cross.webp" alt="Gethsemane olive wood cross"> -->Image: Small carved olive wood cross — smooth, warm honey grain, clearly handcarved, held in an open palm. Soft candlelight.</div>
+</figure>
+
+<!-- OFFER CARD -->
+<div class="offer" id="offer">
+  <div class="ico">✝</div>
+  <h2>✦ The Gethsemane Cross</h2>
+  <p style="font-size:19px;line-height:1.5;margin-bottom:18px">A handcarved olive wood cross from the Garden of Gethsemane — small enough to carry anywhere, meaningful enough to last a lifetime.</p>
+  <div class="price">$21</div>
+  <a class="btn" href="#YES-LINK" data-oto="yes">Yes — Send Me the Gethsemane Cross</a>
+  <a class="decline" href="#NO-LINK" data-oto="no">No thank you — continue to my confirmation →</a>
+</div>
+
+</main>
+
+<footer>© Jerusalem Prayer Miracles · <a href="#PRIVACY-URL">Privacy</a> · <a href="#TERMS-URL">Terms</a></footer>
+
+<script>
+/* Fill the "confirmed" badge from the URL, e.g. ?tier=Blessing%20Offering&price=22 */
+(function(){
+  try{
+    var q=new URLSearchParams(location.search);
+    if(q.get('tier'))document.getElementById('tier').textContent=q.get('tier');
+    if(q.get('price'))document.getElementById('tierprice').textContent=q.get('price');
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
